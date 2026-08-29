@@ -29,17 +29,17 @@ const screens = {
     html: () => stepShell("Adicionar Revolushower", 1, `<p class="step-label">Antes de começar</p><h1 class="form-title">Tenha o equipamento por perto</h1><p class="form-lead">Você precisará acessar o Revolushower e saber a senha do Wi‑Fi da residência.</p><div class="instruction-list"><div class="instruction"><b>1</b><span>Localize o QR Code na etiqueta ou embalagem.</span></div><div class="instruction"><b>2</b><span>Mantenha o celular próximo ao equipamento.</span></div><div class="instruction"><b>3</b><span>Confirme que sua rede Wi‑Fi está funcionando.</span></div></div><button class="button" data-go="identify">Continuar</button>`, "empty")
   },
   identify: {
-    id: "T12", title: "Identificar equipamento", purpose: "Identificar o Master por QR Code ou código digitado.",
+    id: "T12", title: "Identificar equipamento", purpose: "Identificar e parear o Master por QR Code ou código digitado.",
     status: ["proposed", "validate", "simulated"], questions: ["QR Code será gerado na fabricação?", "O código manual ficará visível na etiqueta?"],
     html: () => stepShell("Identificar equipamento", 2, `<p class="step-label">Etapa 2 de 5</p><h1 class="form-title">Aponte para o QR Code</h1><p class="form-lead">Enquadre toda a etiqueta. Nesta demonstração, o botão simula uma leitura válida.</p><div class="qr-frame"><span class="qr-symbol">▦</span></div><button class="button aqua" data-go="prepare">Simular leitura</button><button class="text-button">Digitar código manualmente</button>`, "install")
   },
   prepare: {
-    id: "T14", title: "Preparar o Master", purpose: "Ensinar como colocar o equipamento em modo de configuração.",
+    id: "T14", title: "Preparar o Master", purpose: "Ensinar como colocar o equipamento em modo de configuração Bluetooth.",
     status: ["proposed", "validate"], questions: ["Qual gesto físico ativará o modo de configuração?", "Como o LED indicará esse estado?"],
     html: () => stepShell("Preparar equipamento", 3, `<p class="step-label">Etapa 3 de 5</p><h1 class="form-title">Ative o modo de configuração</h1><p class="form-lead">No Revolushower, mantenha o botão pressionado até o indicador luminoso começar a piscar.</p><div class="illustration">◉</div><div class="alert-card warning"><span>!</span><div>O gesto e o padrão do indicador ainda precisam ser confirmados no equipamento final.</div></div><button class="button" data-go="wifi">O indicador está piscando</button>`, "identify")
   },
   wifi: {
-    id: "T18", title: "Selecionar Wi‑Fi", purpose: "Enviar ao Master as credenciais da rede residencial escolhida.",
+    id: "T18", title: "Configurar Wi‑Fi via Bluetooth", purpose: "Enviar ao Master as credenciais da rede residencial sem trocar a rede do celular.",
     status: ["proposed", "simulated"], questions: ["O app mostrará redes encontradas pelo celular ou pelo Master?", "Como orientar redes somente 5 GHz?"],
     html: () => stepShell("Conectar ao Wi‑Fi", 4, `<p class="step-label">Etapa 4 de 5</p><h1 class="form-title">Escolha sua rede</h1><p class="form-lead">O Revolushower utiliza uma rede Wi‑Fi compatível de 2,4 GHz.</p><div class="network-option selected"><span>⌁</span><div><strong>Casa Silva</strong><small>Sinal forte · 2,4 GHz</small></div><b>✓</b></div><div class="network-option"><span>⌁</span><div><strong>Casa Silva — Visitantes</strong><small>Sinal médio</small></div></div><div class="field"><label>Senha da rede</label><input type="password" value="senhawifi"></div><button class="button" data-go="name">Conectar</button>`, "prepare")
   },
