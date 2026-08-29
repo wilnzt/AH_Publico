@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Protótipo navegável do aplicativo Revolushower para validação de fluxo.">
+  <title>Revolushower — Protótipo mobile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="workspace-header">
+    <div class="workspace-brand">
+      <span class="brand-mark" aria-hidden="true">R</span>
+      <div>
+        <strong>Revolushower</strong>
+        <span>Protótipo de validação · v0.1</span>
+      </div>
+    </div>
+    <div class="workspace-actions">
+      <button class="toolbar-button" id="toggle-notes" type="button">Ocultar notas</button>
+      <button class="toolbar-button" id="presentation-mode" type="button">Ver pranchas</button>
+      <button class="toolbar-button primary" id="print-prototype" type="button">Gerar PDF</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="navigator" aria-label="Navegação do protótipo">
+      <div class="navigator-intro">
+        <span class="eyebrow">Roteiro de demonstração</span>
+        <h1>Fluxo do cliente final</h1>
+        <p>Selecione uma tela ou navegue pelos botões dentro do celular.</p>
+      </div>
+      <nav id="screen-list"></nav>
+      <div class="legend">
+        <div><span class="legend-dot proposed"></span>Proposto para o MVP</div>
+        <div><span class="legend-dot validate"></span>Precisa de validação</div>
+        <div><span class="legend-dot simulated"></span>Estado simulado</div>
+      </div>
+    </aside>
+
+    <section class="stage" aria-label="Visualização do aplicativo">
+      <div class="phone-shell">
+        <div class="phone-speaker"></div>
+        <div class="phone-screen" id="phone-screen" aria-live="polite"></div>
+        <div class="phone-home"></div>
+      </div>
+      <p class="prototype-hint">Protótipo conceitual — não representa medições físicas nem o design final.</p>
+    </section>
+
+    <aside class="review-panel" id="review-panel">
+      <span class="screen-id" id="review-id"></span>
+      <h2 id="review-title"></h2>
+      <p id="review-purpose"></p>
+      <div class="review-section">
+        <h3>O que validar</h3>
+        <ul id="review-questions"></ul>
+      </div>
+      <div class="review-section">
+        <h3>Status</h3>
+        <div id="review-status"></div>
+      </div>
+      <div class="review-nav">
+        <button type="button" id="previous-screen" aria-label="Tela anterior">← Anterior</button>
+        <button type="button" id="next-screen">Próxima →</button>
+      </div>
+    </aside>
+  </main>
+
+  <section class="board-view" id="board-view" aria-label="Pranchas do protótipo">
+    <div class="board-cover">
+      <span class="eyebrow">Validação funcional</span>
+      <h1>Aplicativo Revolushower</h1>
+      <p>Rascunho visual das jornadas do cliente final</p>
+      <small>Versão 0.1 · 29 de agosto de 2026</small>
+    </div>
+    <div class="board-grid" id="board-grid"></div>
+    <div class="approval-board">
+      <h2>Registro de validação</h2>
+      <p>Este protótipo apresenta uma proposta inicial. Funcionalidades, textos e regras permanecem sujeitos à aprovação do cliente e à validação do firmware.</p>
+      <div class="approval-fields">
+        <span>Responsável: __________________________________</span>
+        <span>Data: ____ / ____ / ______</span>
+        <span>☐ Aprovado &nbsp;&nbsp; ☐ Aprovado com ressalvas &nbsp;&nbsp; ☐ Revisar</span>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
