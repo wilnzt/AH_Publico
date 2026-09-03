@@ -470,7 +470,7 @@
 <li><strong>Fora do escopo</strong> — não deve aparecer como recurso disponível.</li>
 </ul>
 <h2 id="mapa-geral-de-telas-e-navegacao">Mapa geral de telas e navegação<a class="headerlink" href="#mapa-geral-de-telas-e-navegacao" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>flowchart TD
+<pre class="mermaid"><code>flowchart TD
     START([Abrir aplicativo]) --&gt; SPLASH[T01 Splash e verificação de sessão]
     SPLASH --&gt;|Primeiro acesso| WELCOME[T02 Boas-vindas]
     SPLASH --&gt;|Sessão válida| LOAD[T08 Carregando instalação]
@@ -556,22 +556,20 @@
     SCHEDULE_LIST --&gt; SCHEDULE_CANCEL[T71A Confirmar cancelamento]
     SCHEDULE_CANCEL --&gt;|Confirmado| SCHEDULES
     SCHEDULE_EDIT --&gt;|Salvar ou cancelar| SCHEDULES
-    HOME -.-&gt;|Futuro| ALERT_CENTER[T72 Central de alertas]
-</code></pre></div>
+    HOME -.-&gt;|Futuro| ALERT_CENTER[T72 Central de alertas]</code></pre>
 <h2 id="navegacao-principal-do-usuario-autenticado">Navegação principal do usuário autenticado<a class="headerlink" href="#navegacao-principal-do-usuario-autenticado" title="Permanent link">&para;</a></h2>
 <p>O MVP recomenda três destinos persistentes na barra inferior:</p>
-<div class="highlight"><pre><span></span><code>flowchart LR
+<pre class="mermaid"><code>flowchart LR
     HOME[Início] &lt;--&gt; HISTORY[Histórico]
     HISTORY &lt;--&gt; SETTINGS[Configurações]
-    SETTINGS &lt;--&gt; HOME
-</code></pre></div>
+    SETTINGS &lt;--&gt; HOME</code></pre>
 <ul>
 <li><strong>Início:</strong> estado atual do Master e ação principal de pré-aquecimento.</li>
 <li><strong>Histórico:</strong> ciclos e eventos confirmados, sem litros, energia ou custo inventados.</li>
 <li><strong>Configurações:</strong> instalação, conta, notificações, suporte e opções autorizadas.</li>
 </ul>
 <h2 id="fluxo-da-acao-principal-pre-aquecimento">Fluxo da ação principal: pré-aquecimento<a class="headerlink" href="#fluxo-da-acao-principal-pre-aquecimento" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>stateDiagram-v2
+<pre class="mermaid"><code>stateDiagram-v2
     [*] --&gt; Disponivel
 
     Disponivel --&gt; Confirmacao: tocar em Pré-aquecer
@@ -604,8 +602,7 @@
     Concluido --&gt; Cooldown: quando aplicável
     Concluido --&gt; Disponivel: quando liberado
     Cooldown --&gt; Disponivel: tempo encerrado
-    Falha --&gt; VerificarEstado: atualizar
-</code></pre></div>
+    Falha --&gt; VerificarEstado: atualizar</code></pre>
 <h3 id="conteudo-minimo-da-tela-de-acompanhamento">Conteúdo mínimo da tela de acompanhamento<a class="headerlink" href="#conteudo-minimo-da-tela-de-acompanhamento" title="Permanent link">&para;</a></h3>
 <ul>
 <li>estado em linguagem simples;</li>
@@ -618,7 +615,7 @@
 </ul>
 <p>O aplicativo não deve usar a expressão <strong>desligar água</strong>, pois o Master não possui válvula para cortar fisicamente o abastecimento.</p>
 <h2 id="estados-da-tela-inicial">Estados da tela inicial<a class="headerlink" href="#estados-da-tela-inicial" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>flowchart TD
+<pre class="mermaid"><code>flowchart TD
     OPEN[Entrar em Início] --&gt; CHECK{Estado conhecido?}
     CHECK --&gt;|Não| LOADING[Carregando estado]
     LOADING --&gt;|Sem resposta| UNKNOWN[Estado indisponível]
@@ -643,11 +640,10 @@
     FLOW --&gt; DETAILS
     COOL --&gt; STATUS[Ver motivo e tempo restante]
     HEATER --&gt; STATUS
-    ERROR --&gt; SUPPORT[Ver detalhes e suporte]
-</code></pre></div>
+    ERROR --&gt; SUPPORT[Ver detalhes e suporte]</code></pre>
 <p>O acionamento mecânico deve ser apresentado como estado ou evento informativo. O app não deve afirmar que iniciou esse ciclo remotamente. A regra do limite mecânico continua pendente de validação em <code>BUG-003</code>.</p>
 <h2 id="historico-e-detalhe-de-evento">Histórico e detalhe de evento<a class="headerlink" href="#historico-e-detalhe-de-evento" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>flowchart TD
+<pre class="mermaid"><code>flowchart TD
     HISTORY[T30 Histórico] --&gt; EMPTY_HISTORY[Sem eventos]
     HISTORY --&gt; LIST[Lista por data]
     LIST --&gt; FILTER[T31 Filtrar por período, origem e resultado]
@@ -656,8 +652,7 @@
     DETAIL --&gt; TYPE[Origem: app, local ou fluxo]
     DETAIL --&gt; WHEN[Início, fim e duração]
     DETAIL --&gt; RESULT[Concluído, cancelado, rejeitado, timeout ou falha]
-    DETAIL --&gt; SUPPORT_CODE[Código ou referência para suporte]
-</code></pre></div>
+    DETAIL --&gt; SUPPORT_CODE[Código ou referência para suporte]</code></pre>
 <p>Não devem aparecer no histórico do MVP:</p>
 <ul>
 <li>temperatura;</li>

@@ -483,7 +483,7 @@
 <p>Preparar a arquitetura para que, se a proposta comercial for aprovada, o cliente possa controlar e consultar o Master por voz ou pela interface Alexa usando as mesmas capacidades operacionais disponíveis no mobile. Um ciclo poderá ser iniciado em um canal e cancelado em outro, desde que a ação seja válida no estado confirmado do Master.</p>
 <h2 id="principio-central">Princípio central<a class="headerlink" href="#principio-central" title="Permanent link">&para;</a></h2>
 <p>Mobile e Alexa são canais de intenção. O Master continua sendo a autoridade operacional e de segurança. Nenhum canal pode declarar um comando concluído apenas porque o backend o recebeu.</p>
-<div class="highlight"><pre><span></span><code>flowchart LR
+<pre class="mermaid"><code>flowchart LR
     APP[Aplicativo Revolushower] --&gt;|comando com identidade e requestId| API[API de comandos]
     ALEXA[Alexa Smart Home] --&gt;|diretiva com identidade e correlationToken| ADAPTER[Adaptador Alexa]
     ADAPTER --&gt; API
@@ -495,10 +495,9 @@
     STATE --&gt; API
     API --&gt; APP
     API --&gt; ADAPTER
-    ADAPTER --&gt; ALEXA
-</code></pre></div>
+    ADAPTER --&gt; ALEXA</code></pre>
 <h2 id="caso-obrigatorio-de-convergencia-entre-canais">Caso obrigatório de convergência entre canais<a class="headerlink" href="#caso-obrigatorio-de-convergencia-entre-canais" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>sequenceDiagram
+<pre class="mermaid"><code>sequenceDiagram
     participant U as Cliente
     participant APP as App Revolushower
     participant API as Backend
@@ -516,8 +515,7 @@
     API-&gt;&gt;M: STOP B
     M--&gt;&gt;API: cancelado ou rejeitado
     API--&gt;&gt;AX: resposta confirmada
-    API--&gt;&gt;APP: novo estado confirmado
-</code></pre></div>
+    API--&gt;&gt;APP: novo estado confirmado</code></pre>
 <p>O inverso também deve funcionar: iniciar pela Alexa e cancelar no app.</p>
 <h2 id="componentes">Componentes<a class="headerlink" href="#componentes" title="Permanent link">&para;</a></h2>
 <h3 id="alexa-smart-home-add-onskill">Alexa Smart Home add-on/skill<a class="headerlink" href="#alexa-smart-home-add-onskill" title="Permanent link">&para;</a></h3>

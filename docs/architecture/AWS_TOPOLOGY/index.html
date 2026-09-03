@@ -354,7 +354,7 @@
 
 <h1 id="revolushower-topologia-aws-inicial">Revolushower — Topologia AWS inicial<a class="headerlink" href="#revolushower-topologia-aws-inicial" title="Permanent link">&para;</a></h1>
 <p>Status: arquitetura adotada para a primeira versão. Upgrade futuro conforme crescimento.</p>
-<div class="highlight"><pre><span></span><code>flowchart TB
+<pre class="mermaid"><code>flowchart TB
     U[Equipe interna] --&gt;|HTTPS| DNS[Route 53 / domínio]
     DNS --&gt; RP[Proxy reverso&lt;br/&gt;Nginx ou Caddy]
     RP --&gt; ADM[Painel administrativo]
@@ -391,8 +391,7 @@
     MD &lt;--&gt;|MQTT de teste| TD[Master de teste]
 
     IAM[IAM / Secrets / KMS] -.-&gt; AP
-    IAM -.-&gt; AD
-</code></pre></div>
+    IAM -.-&gt; AD</code></pre>
 <h2 id="fronteiras">Fronteiras<a class="headerlink" href="#fronteiras" title="Permanent link">&para;</a></h2>
 <ul>
 <li>O usuário final não acessa o painel administrativo.</li>
