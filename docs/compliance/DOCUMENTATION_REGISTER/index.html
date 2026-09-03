@@ -1,0 +1,1470 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação técnica e funcional do projeto AquaHeat">
+      
+      
+      
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/compliance/DOCUMENTATION_REGISTER/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Revolushower — Registro mestre de documentação - AquaHeat — Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revolushower-registro-mestre-de-documentacao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="AquaHeat — Documentação" class="md-header__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AquaHeat — Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Revolushower — Registro mestre de documentação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Usar modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Usar modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AquaHeat — Documentação" class="md-nav__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AquaHeat — Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-e-regra-de-trabalho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo e regra de trabalho
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prioridades-e-marcos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prioridades e marcos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencias-que-impedem-o-fechamento-documental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências que impedem o fechamento documental
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-documentos-publicos-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Documentos públicos comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lgpd-e-governanca-interna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LGPD e governança interna
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-aplicativos-ios-e-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Aplicativos iOS e Android
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-site-comercial-e-eventual-comercio-eletronico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Site comercial e eventual comércio eletrônico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-amazon-alexa-interno-ate-aprovacao-comercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Amazon Alexa — interno até aprovação comercial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-backend-api-broker-e-infraestrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Backend, API, broker e infraestrutura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-firmware-ota-e-fabricacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Firmware, OTA e fabricação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-produto-fisico-e-documentacao-do-consumidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Produto físico e documentação do consumidor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-regulacao-e-certificacao-no-brasil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Regulação e certificação no Brasil
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-contratos-e-titularidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Contratos e titularidade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequencia-apos-o-fechamento-do-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequência após o fechamento do escopo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterio-de-conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critério de conclusão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="revolushower-registro-mestre-de-documentacao">Revolushower — Registro mestre de documentação<a class="headerlink" href="#revolushower-registro-mestre-de-documentacao" title="Permanent link">&para;</a></h1>
+<p>Atualizado em 2026-08-29.</p>
+<h2 id="objetivo-e-regra-de-trabalho">Objetivo e regra de trabalho<a class="headerlink" href="#objetivo-e-regra-de-trabalho" title="Permanent link">&para;</a></h2>
+<p>Este registro organiza os documentos necessários para lançar no Brasil o ecossistema Revolushower: produto físico com ESP32-C3 e firmware, backend/API/broker, aplicativos iOS e Android, site comercial e possível integração Amazon Alexa.</p>
+<ul>
+<li><strong>Revolushower</strong> é o nome do projeto e a marca usada nos materiais externos.</li>
+<li>O Git é a fonte de verdade deste registro. O Notion recebe somente tarefas, prioridades, status e links.</li>
+<li>Os documentos dependentes de funcionalidades, dados, responsabilidades ou condições comerciais permanecem como pendência até o fechamento do escopo.</li>
+<li>Depois do fechamento do escopo, começam a ser produzidos os documentos internos que já tenham insumos suficientes. Textos jurídicos finais dependem de revisão profissional; dossiês regulatórios dependem do produto final e do OCD.</li>
+<li>A lista é um inventário de planejamento, não um parecer jurídico nem confirmação de aplicabilidade regulatória.</li>
+</ul>
+<h2 id="prioridades-e-marcos">Prioridades e marcos<a class="headerlink" href="#prioridades-e-marcos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Prioridade</th>
+<th>Significado</th>
+<th>Marco</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>Define arquitetura, segurança, tratamento de dados ou viabilidade regulatória</td>
+<td>Antes de congelar escopo/arquitetura</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Necessário para desenvolver, testar, contratar ou certificar</td>
+<td>Durante o desenvolvimento, antes do beta externo</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Necessário para publicar, vender, instalar ou operar</td>
+<td>Antes do lançamento comercial</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Governança e evolução pós-lançamento</td>
+<td>Antes da escala ou conforme operação</td>
+</tr>
+</tbody>
+</table>
+<p>Estados usados neste registro: <code>INVENTARIADO</code>, <code>AGUARDA ESCOPO</code>, <code>AGUARDA RESPONSÁVEL</code>, <code>AGUARDA REGULADOR</code>, <code>PRONTO PARA INICIAR</code>, <code>EM ELABORAÇÃO</code>, <code>APROVADO</code> e <code>NÃO APLICÁVEL</code>.</p>
+<h2 id="dependencias-que-impedem-o-fechamento-documental">Dependências que impedem o fechamento documental<a class="headerlink" href="#dependencias-que-impedem-o-fechamento-documental" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Pendência</th>
+<th>Prioridade</th>
+<th>Impacto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GATE-01</td>
+<td>Fechar funcionalidades do MVP e canais de lançamento</td>
+<td>P0</td>
+<td>Termos, privacidade, lojas, manuais e testes</td>
+</tr>
+<tr>
+<td>GATE-02</td>
+<td>Definir pessoa jurídica responsável, controlador LGPD e titulares das contas/plataformas</td>
+<td>P0</td>
+<td>Todos os documentos públicos e contratos</td>
+</tr>
+<tr>
+<td>GATE-03</td>
+<td>Mapear dados, finalidades, bases legais, fornecedores, países e retenção</td>
+<td>P0</td>
+<td>LGPD, lojas, Alexa, backend e cookies</td>
+</tr>
+<tr>
+<td>GATE-04</td>
+<td>Definir conta, compartilhamento, vínculo, desvinculação e exclusão</td>
+<td>P0</td>
+<td>Mobile, backend, termos e privacidade</td>
+</tr>
+<tr>
+<td>GATE-05</td>
+<td>Formalizar controles, estados e invariantes de segurança do Master</td>
+<td>P0</td>
+<td>Firmware, comandos remotos, manuais e responsabilidade</td>
+</tr>
+<tr>
+<td>GATE-06</td>
+<td>Definir hardware comercial, módulo ESP32-C3, antena, fonte e gabinete</td>
+<td>P0</td>
+<td>Anatel, ensaios, manuais e fabricação</td>
+</tr>
+<tr>
+<td>GATE-07</td>
+<td>Decidir venda direta, instalação, garantia, suporte e assistência</td>
+<td>P1</td>
+<td>Site, CDC, contratos e pós-venda</td>
+</tr>
+<tr>
+<td>GATE-08</td>
+<td>Aprovar ou rejeitar comercialmente a Alexa e suas capacidades</td>
+<td>P1</td>
+<td>Skill, privacidade, termos e testes multicanal</td>
+</tr>
+<tr>
+<td>GATE-09</td>
+<td>Definir arquitetura de nuvem, regiões, fornecedores e SLA</td>
+<td>P1</td>
+<td>Privacidade, contratos, continuidade e operação</td>
+</tr>
+<tr>
+<td>GATE-10</td>
+<td>Definir alegações comerciais mensuráveis e respectivas evidências</td>
+<td>P1</td>
+<td>Site, embalagem, publicidade e defesa do consumidor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-documentos-publicos-comuns">1. Documentos públicos comuns<a class="headerlink" href="#1-documentos-publicos-comuns" title="Permanent link">&para;</a></h2>
+<p>Preferencialmente devem existir como documentos centrais, com anexos por canal, evitando versões contraditórias.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PUB-01</td>
+<td>Termos de Uso dos Serviços Revolushower</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>GATE-01, 02, 04, 07 e 08; incluir conta, instalação, comandos remotos, indisponibilidade, atualizações e encerramento</td>
+</tr>
+<tr>
+<td>PUB-02</td>
+<td>Aviso/Política de Privacidade</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>GATE-02, 03, 04, 08 e 09; cobrir app, site, dispositivo, suporte e Alexa quando aprovada</td>
+</tr>
+<tr>
+<td>PUB-03</td>
+<td>Política de Cookies e rastreamento</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Tecnologias e fornecedores do site ainda não definidos</td>
+</tr>
+<tr>
+<td>PUB-04</td>
+<td>Central web de privacidade e exclusão de conta</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Deve suportar direitos LGPD e requisitos das lojas</td>
+</tr>
+<tr>
+<td>PUB-05</td>
+<td>Política de suporte e canais de atendimento</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>GATE-07 e 09</td>
+</tr>
+<tr>
+<td>PUB-06</td>
+<td>Política de atualização, suporte e fim de vida</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Depende de OTA, prazo de suporte e continuidade da nuvem</td>
+</tr>
+<tr>
+<td>PUB-07</td>
+<td>Política de divulgação responsável de vulnerabilidades</td>
+<td>P2</td>
+<td>INVENTARIADO</td>
+<td>Coordenar com processo interno de segurança</td>
+</tr>
+<tr>
+<td>PUB-08</td>
+<td>Avisos de licenças e componentes de terceiros</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Gerados a partir dos SBOMs de mobile, backend e firmware</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-lgpd-e-governanca-interna">2. LGPD e governança interna<a class="headerlink" href="#2-lgpd-e-governanca-interna" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / registro</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LGPD-01</td>
+<td>Inventário e mapa de fluxo de dados</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Primeiro documento interno a iniciar após GATE-01; inclui usuário, instalação, dispositivo, telemetria e voz</td>
+</tr>
+<tr>
+<td>LGPD-02</td>
+<td>Registro das operações de tratamento (ROPA)</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Derivado do LGPD-01</td>
+</tr>
+<tr>
+<td>LGPD-03</td>
+<td>Matriz de finalidades e bases legais</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Exige revisão jurídica</td>
+</tr>
+<tr>
+<td>LGPD-04</td>
+<td>Tabela de retenção, descarte e backups</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Deve cobrir logs, eventos, contas, suporte e auditoria</td>
+</tr>
+<tr>
+<td>LGPD-05</td>
+<td>Procedimento de direitos dos titulares</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Acesso, correção, portabilidade quando aplicável, oposição e eliminação</td>
+</tr>
+<tr>
+<td>LGPD-06</td>
+<td>Procedimento de exclusão, anonimização e desvinculação</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Tratar conta, histórico, equipamento, compartilhamentos e obrigações de retenção</td>
+</tr>
+<tr>
+<td>LGPD-07</td>
+<td>RIPD e avaliações de legítimo interesse, quando aplicáveis</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Decisão após LGPD-01 e LGPD-03</td>
+</tr>
+<tr>
+<td>LGPD-08</td>
+<td>Cadastro de operadores/suboperadores e DPAs</td>
+<td>P1</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Cloud, analytics, push, e-mail, suporte, Apple, Google e Amazon</td>
+</tr>
+<tr>
+<td>LGPD-09</td>
+<td>Avaliação de transferência internacional</td>
+<td>P1</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Depende das regiões e fornecedores escolhidos</td>
+</tr>
+<tr>
+<td>LGPD-10</td>
+<td>Designação do encarregado ou canal LGPD</td>
+<td>P1</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>GATE-02</td>
+</tr>
+<tr>
+<td>LGPD-11</td>
+<td>Plano e modelos de comunicação de incidente</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Integrar ao plano técnico de incidentes</td>
+</tr>
+<tr>
+<td>LGPD-12</td>
+<td>Registro de consentimentos e preferências</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Marketing, cookies, analytics opcional e notificações</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-aplicativos-ios-e-android">3. Aplicativos iOS e Android<a class="headerlink" href="#3-aplicativos-ios-e-android" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / entrega</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Aplicação / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APP-01</td>
+<td>Especificação funcional e fluxo aprovado</td>
+<td>P0</td>
+<td>EM ELABORAÇÃO</td>
+<td>Fonte atual: <code>docs/mobile/MOBILE_USER_FLOW.md</code>; fechar GATE-01</td>
+</tr>
+<tr>
+<td>APP-02</td>
+<td>Matriz de permissões e justificativas</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Câmera, rede local, localização, notificações e alternativas quando negadas</td>
+</tr>
+<tr>
+<td>APP-03</td>
+<td>Avisos e consentimentos dentro do app</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Termos, privacidade, marketing, analytics e mudanças relevantes</td>
+</tr>
+<tr>
+<td>APP-04</td>
+<td>Fluxo de exclusão de conta dentro do app</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Obrigatório nas lojas quando houver criação de conta</td>
+</tr>
+<tr>
+<td>APP-05</td>
+<td>App Store Privacy / Privacy Nutrition Label</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Deve refletir código e SDKs efetivamente embarcados</td>
+</tr>
+<tr>
+<td>APP-06</td>
+<td>Google Play Data Safety</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Deve refletir código, SDKs, segurança e retenção reais</td>
+</tr>
+<tr>
+<td>APP-07</td>
+<td>Metadados das lojas</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Descrição, screenshots, classificação, público, URLs e contatos</td>
+</tr>
+<tr>
+<td>APP-08</td>
+<td>Dossiê de revisão das lojas</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Instruções, credenciais de teste, ambiente e Master simulado/físico</td>
+</tr>
+<tr>
+<td>APP-09</td>
+<td>Declarações de criptografia, tracking, anúncios e público infantil</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Preencher conforme arquitetura final</td>
+</tr>
+<tr>
+<td>APP-10</td>
+<td>Manual de suporte e troubleshooting mobile</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Provisionamento, offline, comandos, erros e atualização de estado</td>
+</tr>
+<tr>
+<td>APP-11</td>
+<td>Notas de versão e política de compatibilidade</td>
+<td>P2</td>
+<td>INVENTARIADO</td>
+<td>Processo contínuo após o primeiro release</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-site-comercial-e-eventual-comercio-eletronico">4. Site comercial e eventual comércio eletrônico<a class="headerlink" href="#4-site-comercial-e-eventual-comercio-eletronico" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / entrega</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WEB-01</td>
+<td>Termos de uso do site e identificação empresarial</td>
+<td>P2</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Razão social, CNPJ, endereço e contato</td>
+</tr>
+<tr>
+<td>WEB-02</td>
+<td>Banner/painel de cookies e registro de preferências</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Derivado de PUB-03 e das ferramentas escolhidas</td>
+</tr>
+<tr>
+<td>WEB-03</td>
+<td>Regras de formulário, newsletter e contato</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Finalidade e base legal por formulário</td>
+</tr>
+<tr>
+<td>WEB-04</td>
+<td>Matriz de alegações comerciais e evidências</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Não publicar economia, volume, energia ou segurança sem evidência</td>
+</tr>
+<tr>
+<td>WEB-05</td>
+<td>Declaração de acessibilidade</td>
+<td>P3</td>
+<td>INVENTARIADO</td>
+<td>Recomendada para orientar desenvolvimento e conteúdo</td>
+</tr>
+<tr>
+<td>WEB-06</td>
+<td>Termos de venda, entrega, troca, devolução, arrependimento e reembolso</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Condicional à venda direta pelo site; GATE-07</td>
+</tr>
+<tr>
+<td>WEB-07</td>
+<td>Política de instalação e contratação de instaladores</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Condicional ao modelo comercial</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-amazon-alexa-interno-ate-aprovacao-comercial">5. Amazon Alexa — interno até aprovação comercial<a class="headerlink" href="#5-amazon-alexa-interno-ate-aprovacao-comercial" title="Permanent link">&para;</a></h2>
+<p>Nenhum item desta seção deve entrar em material atual de validação do cliente sem autorização comercial.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / entrega</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALX-01</td>
+<td>Proposta comercial e matriz de capacidades</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>GATE-08; definir iniciar, cancelar, consultar e confirmações</td>
+</tr>
+<tr>
+<td>ALX-02</td>
+<td>Anexo Alexa aos Termos e à Privacidade</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Somente após aprovação; account linking implica dados pessoais</td>
+</tr>
+<tr>
+<td>ALX-03</td>
+<td>Especificação OAuth 2.0 account linking e revogação</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Identidade, escopos, tokens, unlink e exclusão</td>
+</tr>
+<tr>
+<td>ALX-04</td>
+<td>Catálogo de comandos, respostas e tratamento de erros</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Português do Brasil, linguagem leiga e estados confirmados</td>
+</tr>
+<tr>
+<td>ALX-05</td>
+<td>Política de segurança de comandos por voz</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Confirmação, concorrência, comandos proibidos e operação offline</td>
+</tr>
+<tr>
+<td>ALX-06</td>
+<td>Pacote de certificação da skill</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Descrição, ícones, URLs, questionário, testes e credenciais</td>
+</tr>
+<tr>
+<td>ALX-07</td>
+<td>Plano de testes multicanal</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Iniciar num canal e cancelar no outro; idempotência e corridas</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-backend-api-broker-e-infraestrutura">6. Backend, API, broker e infraestrutura<a class="headerlink" href="#6-backend-api-broker-e-infraestrutura" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / entrega</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BE-01</td>
+<td>Arquitetura de sistema e implantação</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Mobile, backend, broker, Master e futura Alexa</td>
+</tr>
+<tr>
+<td>BE-02</td>
+<td>Especificação OpenAPI</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Contrato canônico de contas, instalações, comandos, estado e histórico</td>
+</tr>
+<tr>
+<td>BE-03</td>
+<td>Contrato MQTT e catálogo de eventos, se adotado</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Depende de MQTT-001</td>
+</tr>
+<tr>
+<td>BE-04</td>
+<td>Modelo de dados e política de consistência</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Depende de conta, compartilhamento, origem e retenção</td>
+</tr>
+<tr>
+<td>BE-05</td>
+<td>Modelo de ameaças</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Cobrir app, nuvem, broker, dispositivo, fabricação e OTA</td>
+</tr>
+<tr>
+<td>BE-06</td>
+<td>Identidade, autenticação e autorização de usuários/dispositivos</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Inclui QR/claim, credencial individual e rotação</td>
+</tr>
+<tr>
+<td>BE-07</td>
+<td>Política de idempotência, concorrência e auditoria</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Obrigatória para múltiplos canais de controle</td>
+</tr>
+<tr>
+<td>BE-08</td>
+<td>Gestão de segredos, certificados e chaves</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Abrange firmware, TLS, MQTT, OAuth e assinatura OTA</td>
+</tr>
+<tr>
+<td>BE-09</td>
+<td>Logging, observabilidade, SLO/SLA e alertas</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Alinhar logs com LGPD-04</td>
+</tr>
+<tr>
+<td>BE-10</td>
+<td>Backup, restauração e recuperação de desastre</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Incluir testes periódicos</td>
+</tr>
+<tr>
+<td>BE-11</td>
+<td>Runbooks de operação, incidentes e indisponibilidade</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Incluir comandos presos, dispositivo offline e rollback</td>
+</tr>
+<tr>
+<td>BE-12</td>
+<td>SBOM, dependências, licenças e vulnerabilidades</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Processo contínuo por release</td>
+</tr>
+<tr>
+<td>BE-13</td>
+<td>Plano e relatório de testes de segurança/pentest</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Antes do lançamento e após mudanças relevantes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-firmware-ota-e-fabricacao">7. Firmware, OTA e fabricação<a class="headerlink" href="#7-firmware-ota-e-fabricacao" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / entrega</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FW-DOC-01</td>
+<td>Arquitetura e máquina de estados do firmware</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Consolidar engenharia reversa e invariantes locais</td>
+</tr>
+<tr>
+<td>FW-DOC-02</td>
+<td>Mapa de GPIOs, sensores, relés, timers e persistência</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Base para teste e segurança</td>
+</tr>
+<tr>
+<td>FW-DOC-03</td>
+<td>Contrato de comunicação, comandos, estados e telemetria</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Deve preservar autoridade final do Master</td>
+</tr>
+<tr>
+<td>FW-DOC-04</td>
+<td>Matriz hardware × firmware e versionamento reproduzível</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Fixar toolchain, placa, partições e artefatos</td>
+</tr>
+<tr>
+<td>FW-DOC-05</td>
+<td>Especificação de OTA segura</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>A/B, HTTPS validado, assinatura, estado seguro e rollback</td>
+</tr>
+<tr>
+<td>FW-DOC-06</td>
+<td>Cerimônia e custódia de chaves de assinatura</td>
+<td>P0</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Chave privada fora do repositório e do firmware</td>
+</tr>
+<tr>
+<td>FW-DOC-07</td>
+<td>Política de rollout, validação e rollback</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Bancada, pilotos, percentuais, pausa e recuperação</td>
+</tr>
+<tr>
+<td>FW-DOC-08</td>
+<td>Processo de build, gravação e recuperação física</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Incluir efeitos de Secure Boot e Flash Encryption</td>
+</tr>
+<tr>
+<td>FW-DOC-09</td>
+<td>Plano e evidências de testes de bancada</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Energia, fluxo, falhas, reboot, timers e atualização</td>
+</tr>
+<tr>
+<td>FW-DOC-10</td>
+<td>SBOM, licenças e histórico de versões</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Processo contínuo</td>
+</tr>
+<tr>
+<td>MFG-01</td>
+<td>Provisionamento de identidade, credenciais, serial e QR Code</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Relacionar eFuse, serial comercial e claim seguro</td>
+</tr>
+<tr>
+<td>MFG-02</td>
+<td>Teste de fim de linha e critérios de aceite</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Registrar lote, hardware, firmware e resultados</td>
+</tr>
+<tr>
+<td>MFG-03</td>
+<td>Rastreabilidade, alteração técnica, recall e assistência</td>
+<td>P1</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Integra produto, certificação e pós-venda</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-produto-fisico-e-documentacao-do-consumidor">8. Produto físico e documentação do consumidor<a class="headerlink" href="#8-produto-fisico-e-documentacao-do-consumidor" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / entrega</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROD-01</td>
+<td>Especificação técnica e requisitos do produto</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Separar capacidade confirmada de intenção comercial</td>
+</tr>
+<tr>
+<td>PROD-02</td>
+<td>Análise de riscos/FMEA elétrica, hidráulica, mecânica e de software</td>
+<td>P0</td>
+<td>AGUARDA ESCOPO</td>
+<td>Necessária antes de congelar hardware e controles</td>
+</tr>
+<tr>
+<td>PROD-03</td>
+<td>Manual do usuário em português</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Operação, avisos, LEDs, reset, conectividade e limitações</td>
+</tr>
+<tr>
+<td>PROD-04</td>
+<td>Manual de instalação em português</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Perfil do instalador, elétrica, hidráulica e validação final</td>
+</tr>
+<tr>
+<td>PROD-05</td>
+<td>Guia rápido de provisionamento</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>QR Code, app, Wi-Fi e vínculo</td>
+</tr>
+<tr>
+<td>PROD-06</td>
+<td>Instruções e alertas de segurança</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Derivados do PROD-02 e ensaios</td>
+</tr>
+<tr>
+<td>PROD-07</td>
+<td>Termo de garantia</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>Prazo, cobertura, exclusões válidas, local e procedimento</td>
+</tr>
+<tr>
+<td>PROD-08</td>
+<td>Política de assistência, troca e recall</td>
+<td>P2</td>
+<td>AGUARDA ESCOPO</td>
+<td>GATE-07</td>
+</tr>
+<tr>
+<td>PROD-09</td>
+<td>Datasheet e ficha de identificação</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Modelo, alimentação, ambiente, rádio, dimensões e revisões</td>
+</tr>
+<tr>
+<td>PROD-10</td>
+<td>Etiquetas, embalagem, serial e marcações regulatórias</td>
+<td>P2</td>
+<td>AGUARDA REGULADOR</td>
+<td>Anatel/OCD e demais requisitos aplicáveis</td>
+</tr>
+<tr>
+<td>PROD-11</td>
+<td>Instruções de descarte e logística reversa</td>
+<td>P2</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Confirmar enquadramento e cadeia comercial</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-regulacao-e-certificacao-no-brasil">9. Regulação e certificação no Brasil<a class="headerlink" href="#9-regulacao-e-certificacao-no-brasil" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / entrega</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REG-01</td>
+<td>Consulta/classificação formal com OCD</td>
+<td>P0</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Deve ocorrer antes de congelar placa, antena e gabinete</td>
+</tr>
+<tr>
+<td>REG-02</td>
+<td>Dossiê técnico Anatel</td>
+<td>P1</td>
+<td>AGUARDA REGULADOR</td>
+<td>Requerente, modelo, fotos, esquemas, módulo, antena, fonte, firmware e manual</td>
+</tr>
+<tr>
+<td>REG-03</td>
+<td>Relatórios de ensaios e certificado/homologação Anatel</td>
+<td>P2</td>
+<td>AGUARDA REGULADOR</td>
+<td>Obrigatório antes da comercialização conforme enquadramento</td>
+</tr>
+<tr>
+<td>REG-04</td>
+<td>Plano de marcação e selo Anatel</td>
+<td>P2</td>
+<td>AGUARDA REGULADOR</td>
+<td>Produto, embalagem, manual ou marcação eletrônica conforme orientação</td>
+</tr>
+<tr>
+<td>REG-05</td>
+<td>Controle de alterações de produto homologado</td>
+<td>P1</td>
+<td>AGUARDA REGULADOR</td>
+<td>Avaliar hardware, antena e mudanças relevantes de firmware</td>
+</tr>
+<tr>
+<td>REG-06</td>
+<td>Matriz de normas e certificações adicionais</td>
+<td>P0</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Inmetro, segurança elétrica, EMC, grau IP, ambiente úmido e normas hidráulicas</td>
+</tr>
+<tr>
+<td>REG-07</td>
+<td>Evidências das alegações e conformidade de publicidade</td>
+<td>P1</td>
+<td>AGUARDA ESCOPO</td>
+<td>Relacionado ao WEB-04</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-contratos-e-titularidade">10. Contratos e titularidade<a class="headerlink" href="#10-contratos-e-titularidade" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Documento / entrega</th>
+<th>Prioridade</th>
+<th>Estado</th>
+<th>Dependências / observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CTR-01</td>
+<td>Matriz de titularidade de marca, código, dados, domínios, contas e chaves</td>
+<td>P0</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Apple, Google, Amazon, cloud, Git, certificados e assinatura OTA</td>
+</tr>
+<tr>
+<td>CTR-02</td>
+<td>Contrato de desenvolvimento, manutenção e propriedade intelectual</td>
+<td>P0</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Definir entregáveis, aceite, repositórios e continuidade</td>
+</tr>
+<tr>
+<td>CTR-03</td>
+<td>Contratos/DPA com cloud e fornecedores de software</td>
+<td>P1</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Relacionado ao LGPD-08</td>
+</tr>
+<tr>
+<td>CTR-04</td>
+<td>SLA de operação e suporte</td>
+<td>P1</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Backend, firmware, apps e incidentes</td>
+</tr>
+<tr>
+<td>CTR-05</td>
+<td>Contratos de fabricação, instalação, assistência e distribuição</td>
+<td>P1</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Condicional ao modelo comercial</td>
+</tr>
+<tr>
+<td>CTR-06</td>
+<td>NDAs e regras de acesso a segredos</td>
+<td>P1</td>
+<td>INVENTARIADO</td>
+<td>Aplicar a colaboradores e fornecedores conforme função</td>
+</tr>
+<tr>
+<td>CTR-07</td>
+<td>Plano de saída/continuidade de fornecedores</td>
+<td>P1</td>
+<td>AGUARDA RESPONSÁVEL</td>
+<td>Transferência de contas, dados, chaves, código e operação</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sequencia-apos-o-fechamento-do-escopo">Sequência após o fechamento do escopo<a class="headerlink" href="#sequencia-apos-o-fechamento-do-escopo" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Fechar <code>GATE-01</code> a <code>GATE-06</code> e registrar as decisões.</li>
+<li>Produzir <code>LGPD-01</code>, <code>LGPD-03</code>, <code>LGPD-04</code> e <code>LGPD-06</code>.</li>
+<li>Consolidar <code>PROD-01</code>, <code>FW-DOC-01</code>, <code>FW-DOC-02</code>, <code>FW-DOC-03</code> e <code>BE-01</code> a <code>BE-07</code>.</li>
+<li>Abrir consulta com OCD usando <code>REG-01</code> e iniciar <code>PROD-02</code>/<code>REG-06</code>.</li>
+<li>Elaborar minutas públicas <code>PUB-01</code> a <code>PUB-06</code> para revisão jurídica.</li>
+<li>Criar pacotes das lojas e Alexa somente sobre implementações efetivamente testadas.</li>
+<li>Finalizar manuais, garantia, marcações, certificações e operação antes do lançamento.</li>
+</ol>
+<h2 id="criterio-de-conclusao">Critério de conclusão<a class="headerlink" href="#criterio-de-conclusao" title="Permanent link">&para;</a></h2>
+<p>Um documento só passa a <code>APROVADO</code> quando possuir responsável, versão, data, aprovadores, escopo aplicável e evidência de que corresponde ao produto implementado. Formulários de loja, políticas públicas e manuais devem ser revistos em toda mudança relevante de dados, funcionalidades, fornecedores, hardware ou firmware.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

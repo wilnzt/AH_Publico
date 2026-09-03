@@ -1,0 +1,843 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação técnica e funcional do projeto AquaHeat">
+      
+      
+      
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_USER_FLOW/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Revolushower — Fluxo de telas do aplicativo mobile - AquaHeat — Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revolushower-fluxo-de-telas-do-aplicativo-mobile" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="AquaHeat — Documentação" class="md-header__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AquaHeat — Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Revolushower — Fluxo de telas do aplicativo mobile
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Usar modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Usar modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AquaHeat — Documentação" class="md-nav__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AquaHeat — Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legenda-de-validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legenda de validação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapa-geral-de-telas-e-navegacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapa geral de telas e navegação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegacao-principal-do-usuario-autenticado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navegação principal do usuário autenticado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-da-acao-principal-pre-aquecimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo da ação principal: pré-aquecimento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo da ação principal: pré-aquecimento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conteudo-minimo-da-tela-de-acompanhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conteúdo mínimo da tela de acompanhamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estados-da-tela-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estados da tela inicial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-e-detalhe-de-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico e detalhe de evento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalogo-de-telas-para-validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catálogo de telas para validação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisoes-que-o-cliente-deve-validar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisões que o cliente deve validar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcionalidades-deliberadamente-ausentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funcionalidades deliberadamente ausentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxima-etapa-apos-validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Próxima etapa após validação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agendamento-de-aquecimento-requisito-proposto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agendamento de aquecimento (requisito proposto)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provisionamento-ble-como-plano-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provisionamento: BLE como plano A
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="revolushower-fluxo-de-telas-do-aplicativo-mobile">Revolushower — Fluxo de telas do aplicativo mobile<a class="headerlink" href="#revolushower-fluxo-de-telas-do-aplicativo-mobile" title="Permanent link">&para;</a></h1>
+<p>Atualizado em 2026-08-29.</p>
+<h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Este documento apresenta a navegação do aplicativo sob a perspectiva do cliente final. Ele serve para validar com o cliente quais jornadas e telas farão parte do produto antes do desenho dos wireframes e da implementação Flutter.</p>
+<p>O fluxo considera exclusivamente o equipamento Master. As telas mostram somente comandos, estados e informações que o Master já oferece ou que podem ser expostos sem adicionar hardware.</p>
+<h2 id="legenda-de-validacao">Legenda de validação<a class="headerlink" href="#legenda-de-validacao" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>MVP</strong> — tela ou comportamento recomendado para a primeira entrega.</li>
+<li><strong>Condicional</strong> — depende de decisão comercial, papel de usuário ou confirmação técnica.</li>
+<li><strong>Futuro</strong> — não integra o MVP, mas a navegação pode ser preparada.</li>
+<li><strong>Fora do escopo</strong> — não deve aparecer como recurso disponível.</li>
+</ul>
+<h2 id="mapa-geral-de-telas-e-navegacao">Mapa geral de telas e navegação<a class="headerlink" href="#mapa-geral-de-telas-e-navegacao" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    START([Abrir aplicativo]) --&gt; SPLASH[T01 Splash e verificação de sessão]
+    SPLASH --&gt;|Primeiro acesso| WELCOME[T02 Boas-vindas]
+    SPLASH --&gt;|Sessão válida| LOAD[T08 Carregando instalação]
+    SPLASH --&gt;|Sessão expirada| LOGIN[T03 Entrar]
+
+    WELCOME --&gt; LOGIN
+    WELCOME --&gt; SIGNUP[T04 Criar conta]
+    LOGIN --&gt; FORGOT[T05 Recuperar senha]
+    FORGOT --&gt; RESET[T06 Confirmar código e nova senha]
+    RESET --&gt; LOGIN
+    SIGNUP --&gt; VERIFY[T07 Verificar e-mail ou telefone]
+    VERIFY --&gt; TERMS[T07A Termos e privacidade]
+    TERMS --&gt; LOAD
+    LOGIN --&gt; LOAD
+
+    LOAD --&gt;|Sem instalação| EMPTY[T09 Início sem equipamento]
+    LOAD --&gt;|Instalação cadastrada| HOME[T20 Início e estado do Master]
+    LOAD --&gt;|Falha de Internet| APP_OFFLINE[T10 Aplicativo sem conexão]
+    APP_OFFLINE --&gt;|Tentar novamente| LOAD
+
+    EMPTY --&gt; INSTALL_START[T11 Adicionar instalação]
+    HOME --&gt;|Adicionar equipamento, se permitido| INSTALL_START
+    INSTALL_START --&gt; IDENTIFY[T12 Ler QR Code ou informar Device ID]
+    IDENTIFY --&gt;|ID inválido ou já associado| IDENTIFY_ERROR[T13 Erro de identificação]
+    IDENTIFY_ERROR --&gt; IDENTIFY
+    IDENTIFY --&gt;|ID aceito| PROVISION_HELP[T14 Preparar Master para configuração]
+    PROVISION_HELP --&gt; PERMISSIONS[T15 Permissões de rede e localização]
+    PERMISSIONS --&gt; WIFI_CONNECT[T16 Conectar ao Master]
+    WIFI_CONNECT --&gt;|Falha| PROVISION_ERROR[T17 Ajuda de conexão]
+    PROVISION_ERROR --&gt; PROVISION_HELP
+    WIFI_CONNECT --&gt;|Conectado| WIFI_SELECT[T18 Selecionar Wi-Fi e informar senha]
+    WIFI_SELECT --&gt;|Falha ou tempo esgotado| WIFI_ERROR[T18A Erro ao conectar à rede]
+    WIFI_ERROR --&gt; WIFI_SELECT
+    WIFI_SELECT --&gt;|Sucesso| INSTALL_NAME[T19 Nomear instalação e ambiente]
+    INSTALL_NAME --&gt; INSTALL_SUCCESS[T19A Instalação concluída]
+    INSTALL_SUCCESS --&gt; HOME
+
+    HOME --&gt; PREHEAT_CONFIRM[T21 Confirmar pré-aquecimento]
+    PREHEAT_CONFIRM --&gt;|Confirmar| CYCLE[T22 Acompanhamento do ciclo]
+    PREHEAT_CONFIRM --&gt;|Voltar| HOME
+    CYCLE --&gt; CYCLE_RESULT[T23 Resultado do ciclo]
+    CYCLE_RESULT --&gt; HOME
+    HOME --&gt; STATUS_DETAIL[T24 Detalhes do estado]
+    STATUS_DETAIL --&gt; HOME
+
+    HOME --&gt; NAV_HISTORY[T30 Histórico]
+    NAV_HISTORY --&gt; HISTORY_FILTER[T31 Filtros do histórico]
+    NAV_HISTORY --&gt; EVENT_DETAIL[T32 Detalhe do ciclo ou evento]
+    HISTORY_FILTER --&gt; NAV_HISTORY
+    EVENT_DETAIL --&gt; NAV_HISTORY
+
+    HOME --&gt; NAV_SETTINGS[T40 Configurações]
+    NAV_SETTINGS --&gt; INSTALLATION[T41 Instalação]
+    INSTALLATION --&gt; DEVICE_DETAIL[T42 Dados e conectividade do Master]
+    DEVICE_DETAIL --&gt; RECONFIG_WIFI[T43 Reconfigurar Wi-Fi]
+    RECONFIG_WIFI --&gt; PROVISION_HELP
+    INSTALLATION --&gt; RENAME[T44 Renomear instalação]
+    INSTALLATION --&gt; UNLINK[T45 Desvincular equipamento]
+    UNLINK --&gt;|Confirmado| EMPTY
+
+    NAV_SETTINGS --&gt; NOTIFICATIONS[T46 Notificações]
+    NAV_SETTINGS --&gt; ACCOUNT[T47 Conta e perfil]
+    ACCOUNT --&gt; SECURITY[T48 Senha e segurança da conta]
+    ACCOUNT --&gt; LOGOUT[T49 Sair da conta]
+    LOGOUT --&gt; LOGIN
+    ACCOUNT --&gt; DELETE_ACCOUNT[T49A Excluir conta]
+    DELETE_ACCOUNT --&gt;|Confirmado| LOGIN
+    NAV_SETTINGS --&gt; HELP[T50 Ajuda e suporte]
+    HELP --&gt; DIAGNOSTIC[T51 Informações para suporte]
+    NAV_SETTINGS --&gt; ABOUT[T52 Sobre, termos e privacidade]
+    NAV_SETTINGS -.-&gt;|Condicional: usuário autorizado| ADVANCED[T60 Configurações avançadas]
+    ADVANCED --&gt; TIMERS[T61 Tempos permitidos]
+    TIMERS --&gt; SAVE_CONFIRM[T62 Confirmar alteração sensível]
+    SAVE_CONFIRM --&gt;|Aplicada pelo Master| ADVANCED
+    SAVE_CONFIRM --&gt;|Rejeitada| SETTINGS_ERROR[T63 Alteração não aplicada]
+    SETTINGS_ERROR --&gt; ADVANCED
+
+    HOME --&gt; SCHEDULES[T70 Programações]
+    SCHEDULES --&gt; SCHEDULE_EMPTY[T70A Sem programação]
+    SCHEDULES --&gt; SCHEDULE_LIST[T70B Lista de programações]
+    SCHEDULE_EMPTY --&gt; SCHEDULE_EDIT[T71 Criar programação]
+    SCHEDULE_LIST --&gt; SCHEDULE_EDIT
+    SCHEDULE_LIST --&gt; SCHEDULE_CANCEL[T71A Confirmar cancelamento]
+    SCHEDULE_CANCEL --&gt;|Confirmado| SCHEDULES
+    SCHEDULE_EDIT --&gt;|Salvar ou cancelar| SCHEDULES
+    HOME -.-&gt;|Futuro| ALERT_CENTER[T72 Central de alertas]
+</code></pre></div>
+<h2 id="navegacao-principal-do-usuario-autenticado">Navegação principal do usuário autenticado<a class="headerlink" href="#navegacao-principal-do-usuario-autenticado" title="Permanent link">&para;</a></h2>
+<p>O MVP recomenda três destinos persistentes na barra inferior:</p>
+<div class="highlight"><pre><span></span><code>flowchart LR
+    HOME[Início] &lt;--&gt; HISTORY[Histórico]
+    HISTORY &lt;--&gt; SETTINGS[Configurações]
+    SETTINGS &lt;--&gt; HOME
+</code></pre></div>
+<ul>
+<li><strong>Início:</strong> estado atual do Master e ação principal de pré-aquecimento.</li>
+<li><strong>Histórico:</strong> ciclos e eventos confirmados, sem litros, energia ou custo inventados.</li>
+<li><strong>Configurações:</strong> instalação, conta, notificações, suporte e opções autorizadas.</li>
+</ul>
+<h2 id="fluxo-da-acao-principal-pre-aquecimento">Fluxo da ação principal: pré-aquecimento<a class="headerlink" href="#fluxo-da-acao-principal-pre-aquecimento" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>stateDiagram-v2
+    [*] --&gt; Disponivel
+
+    Disponivel --&gt; Confirmacao: tocar em Pré-aquecer
+    Confirmacao --&gt; Disponivel: voltar
+    Confirmacao --&gt; Enviando: confirmar
+
+    Enviando --&gt; Aguardando: comando aceito com delay
+    Enviando --&gt; BombaAtiva: comando aceito sem delay
+    Enviando --&gt; Rejeitado: comando rejeitado
+    Enviando --&gt; SemResposta: prazo de confirmação expirou
+
+    Aguardando --&gt; BombaAtiva: delay concluído
+    Aguardando --&gt; Cancelando: cancelar
+    Aguardando --&gt; Falha: erro reportado
+
+    BombaAtiva --&gt; Cancelando: cancelar
+    BombaAtiva --&gt; Concluido: ciclo concluído
+    BombaAtiva --&gt; Cooldown: proteção temporal
+    BombaAtiva --&gt; Falha: erro reportado
+
+    Cancelando --&gt; Cancelado: cancelamento confirmado
+    Cancelando --&gt; SemResposta: prazo de confirmação expirou
+
+    Rejeitado --&gt; Disponivel: reconhecer
+    SemResposta --&gt; VerificarEstado: tentar novamente
+    VerificarEstado --&gt; Disponivel: estado confirmado
+    VerificarEstado --&gt; Falha: estado desconhecido
+    Cancelado --&gt; Cooldown: quando aplicável
+    Cancelado --&gt; Disponivel: quando liberado
+    Concluido --&gt; Cooldown: quando aplicável
+    Concluido --&gt; Disponivel: quando liberado
+    Cooldown --&gt; Disponivel: tempo encerrado
+    Falha --&gt; VerificarEstado: atualizar
+</code></pre></div>
+<h3 id="conteudo-minimo-da-tela-de-acompanhamento">Conteúdo mínimo da tela de acompanhamento<a class="headerlink" href="#conteudo-minimo-da-tela-de-acompanhamento" title="Permanent link">&para;</a></h3>
+<ul>
+<li>estado em linguagem simples;</li>
+<li>progresso ou tempo restante quando o Master puder confirmá-lo;</li>
+<li>indicação de que o comando foi solicitado, aceito, rejeitado, concluído ou cancelado;</li>
+<li>botão <strong>Cancelar pré-aquecimento</strong> apenas nos estados em que o cancelamento for seguro;</li>
+<li>motivo de indisponibilidade ou rejeição;</li>
+<li>aviso de cooldown com tempo restante, quando exposto pelo Master;</li>
+<li>última atualização e indicação de possível desatualização.</li>
+</ul>
+<p>O aplicativo não deve usar a expressão <strong>desligar água</strong>, pois o Master não possui válvula para cortar fisicamente o abastecimento.</p>
+<h2 id="estados-da-tela-inicial">Estados da tela inicial<a class="headerlink" href="#estados-da-tela-inicial" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    OPEN[Entrar em Início] --&gt; CHECK{Estado conhecido?}
+    CHECK --&gt;|Não| LOADING[Carregando estado]
+    LOADING --&gt;|Sem resposta| UNKNOWN[Estado indisponível]
+    UNKNOWN --&gt; RETRY[Tentar novamente]
+    RETRY --&gt; CHECK
+
+    CHECK --&gt;|Master offline| OFFLINE[Master offline]
+    OFFLINE --&gt; HELP_OFFLINE[Orientações de conectividade]
+    HELP_OFFLINE --&gt; CHECK
+
+    CHECK --&gt;|Disponível| READY[Disponível para pré-aquecer]
+    CHECK --&gt;|Delay| DELAY[Aguardando início]
+    CHECK --&gt;|Bomba ativa| ACTIVE[Pré-aquecimento em andamento]
+    CHECK --&gt;|Fluxo detectado| FLOW[Uso iniciado por acionamento mecânico]
+    CHECK --&gt;|Cooldown| COOL[Temporariamente indisponível]
+    CHECK --&gt;|Aquecedor bloqueado| HEATER[Aquecedor temporariamente bloqueado]
+    CHECK --&gt;|Falha| ERROR[Falha que exige atenção]
+
+    READY --&gt; ACTION[Solicitar pré-aquecimento]
+    DELAY --&gt; DETAILS[Ver acompanhamento]
+    ACTIVE --&gt; DETAILS
+    FLOW --&gt; DETAILS
+    COOL --&gt; STATUS[Ver motivo e tempo restante]
+    HEATER --&gt; STATUS
+    ERROR --&gt; SUPPORT[Ver detalhes e suporte]
+</code></pre></div>
+<p>O acionamento mecânico deve ser apresentado como estado ou evento informativo. O app não deve afirmar que iniciou esse ciclo remotamente. A regra do limite mecânico continua pendente de validação em <code>BUG-003</code>.</p>
+<h2 id="historico-e-detalhe-de-evento">Histórico e detalhe de evento<a class="headerlink" href="#historico-e-detalhe-de-evento" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    HISTORY[T30 Histórico] --&gt; EMPTY_HISTORY[Sem eventos]
+    HISTORY --&gt; LIST[Lista por data]
+    LIST --&gt; FILTER[T31 Filtrar por período, origem e resultado]
+    FILTER --&gt; LIST
+    LIST --&gt; DETAIL[T32 Detalhe]
+    DETAIL --&gt; TYPE[Origem: app, local ou fluxo]
+    DETAIL --&gt; WHEN[Início, fim e duração]
+    DETAIL --&gt; RESULT[Concluído, cancelado, rejeitado, timeout ou falha]
+    DETAIL --&gt; SUPPORT_CODE[Código ou referência para suporte]
+</code></pre></div>
+<p>Não devem aparecer no histórico do MVP:</p>
+<ul>
+<li>temperatura;</li>
+<li>vazão em L/min;</li>
+<li>litros consumidos ou economizados;</li>
+<li>energia em kWh;</li>
+<li>custo real ou economia financeira.</li>
+</ul>
+<h2 id="catalogo-de-telas-para-validacao">Catálogo de telas para validação<a class="headerlink" href="#catalogo-de-telas-para-validacao" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>IDs</th>
+<th>Telas</th>
+<th>Fase proposta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entrada</td>
+<td>T01–T07A</td>
+<td>Splash, boas-vindas, login, cadastro, recuperação, verificação e termos</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>Inicialização</td>
+<td>T08–T10</td>
+<td>Carregamento, estado vazio e aplicativo sem Internet</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>Instalação</td>
+<td>T11–T19A</td>
+<td>Identificação, preparação, permissões, provisionamento Wi-Fi, erros, nome e sucesso</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>Operação</td>
+<td>T20–T24</td>
+<td>Início, confirmação, acompanhamento, resultado e detalhe do estado</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>Histórico</td>
+<td>T30–T32</td>
+<td>Lista, filtros e detalhe de evento</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>Instalação e dispositivo</td>
+<td>T41–T45</td>
+<td>Dados, conectividade, reconfiguração, nome e desvinculação</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>Preferências</td>
+<td>T46</td>
+<td>Notificações</td>
+<td>MVP mínimo, conforme eventos disponíveis</td>
+</tr>
+<tr>
+<td>Conta</td>
+<td>T47–T49A</td>
+<td>Perfil, segurança, logout e exclusão</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>Suporte</td>
+<td>T50–T52</td>
+<td>Ajuda, diagnóstico e informações legais</td>
+<td>MVP mínimo</td>
+</tr>
+<tr>
+<td>Administração</td>
+<td>T60–T63</td>
+<td>Parâmetros temporais e confirmação segura</td>
+<td>Condicional</td>
+</tr>
+<tr>
+<td>Automação</td>
+<td>T70–T72</td>
+<td>Agendamentos e central de alertas</td>
+<td>Futuro</td>
+</tr>
+</tbody>
+</table>
+<h2 id="decisoes-que-o-cliente-deve-validar">Decisões que o cliente deve validar<a class="headerlink" href="#decisoes-que-o-cliente-deve-validar" title="Permanent link">&para;</a></h2>
+<ol>
+<li>O MVP terá cadastro aberto ou contas serão criadas por instalador/administrador?</li>
+<li>A identidade será validada por e-mail, telefone ou ambos?</li>
+<li>O vínculo ao Master será feito por QR Code, Device ID digitado ou instalador?</li>
+<li>Um usuário poderá possuir mais de uma instalação Master?</li>
+<li>Uma instalação poderá ser compartilhada com familiares ou outros usuários?</li>
+<li>Quem poderá alterar os tempos do Master: cliente final, instalador ou suporte?</li>
+<li>O cliente final poderá desvincular o equipamento sem intervenção do suporte?</li>
+<li>Quais notificações entram no MVP e quais eventos reais as disparam?</li>
+<li>O cancelamento remoto será permitido durante o delay, com a bomba ativa ou em ambos?</li>
+<li>Qual mensagem e ação devem ocorrer quando o limite do acionamento mecânico for atingido?</li>
+<li>Agendamento pertence ao MVP ou a uma fase posterior? Como deve funcionar sem Internet?</li>
+<li>Exclusão de conta também remove histórico, instalação e vínculo do equipamento?</li>
+</ol>
+<h2 id="funcionalidades-deliberadamente-ausentes">Funcionalidades deliberadamente ausentes<a class="headerlink" href="#funcionalidades-deliberadamente-ausentes" title="Permanent link">&para;</a></h2>
+<p>As telas não devem sugerir controle de temperatura, corte físico da água, medição de vazão, litros, energia, custo, prevenção certificada de vazamento, válvula de segurança ou Modo Eco. Esses recursos não possuem suporte confirmado no Master/hardware atual.</p>
+<h2 id="proxima-etapa-apos-validacao">Próxima etapa após validação<a class="headerlink" href="#proxima-etapa-apos-validacao" title="Permanent link">&para;</a></h2>
+<p>Após a aprovação deste fluxo:</p>
+<ol>
+<li>congelar a lista de telas do MVP;</li>
+<li>registrar as respostas das decisões abertas;</li>
+<li>definir conteúdo, ações, permissões e estados de cada tela;</li>
+<li>produzir wireframes de baixa fidelidade;</li>
+<li>cruzar cada ação com o contrato de firmware/backend;</li>
+<li>implementar componentes e navegação Flutter.</li>
+</ol>
+<h2 id="agendamento-de-aquecimento-requisito-proposto">Agendamento de aquecimento (requisito proposto)<a class="headerlink" href="#agendamento-de-aquecimento-requisito-proposto" title="Permanent link">&para;</a></h2>
+<p>O usuário poderá criar uma programação para uma única data ou repetir semanalmente, consultar a próxima execução, alterar e cancelar. No horário definido, a programação apenas solicita um pré-aquecimento; o Master continua aplicando suas proteções. O firmware atual não possui agendador persistente confirmado. Portanto, execução offline, relógio, persistência, conflitos e tentativas precisam ser decididos antes da implementação.</p>
+<p><strong>Decisão da primeira versão:</strong> o scheduler será executado no backend. O app mostrará a programação e o resultado confirmado pelo Master; não apresentará uma execução como concluída quando o equipamento estiver offline ou rejeitar o comando.</p>
+<p>Perguntas adicionais para aprovação: a duração é fixa ou configurável? A execução será no backend, no Master ou híbrida? O que ocorre offline, em cooldown ou com duas programações conflitantes? Será possível pausar sem cancelar e qual o limite de programações?</p>
+<h2 id="provisionamento-ble-como-plano-a">Provisionamento: BLE como plano A<a class="headerlink" href="#provisionamento-ble-como-plano-a" title="Permanent link">&para;</a></h2>
+<p>O QR Code identifica o Master e fornece o token de pareamento; ele não transporta a senha da rede. O usuário pressiona o botão físico para abrir uma janela temporária de BLE, permanece próximo à caixa hidráulica, escolhe a rede residencial no app e envia as credenciais pelo Bluetooth. O Master então conecta-se ao Wi‑Fi. O portal Wi‑Fi/AP permanece como fallback de manutenção.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

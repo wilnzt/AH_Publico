@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revolushower — Validação do fluxo do aplicativo</title>
+  <style>
+    @page { size: A4; margin: 15mm 15mm 17mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #183042; font: 10.2pt/1.42 "Segoe UI", Arial, sans-serif; background: white; }
+    h1, h2, h3 { color: #083b57; margin: 0 0 8px; line-height: 1.16; }
+    h1 { font-size: 28pt; } h2 { font-size: 18pt; margin-top: 4px; } h3 { font-size: 12.5pt; margin-top: 14px; }
+    p { margin: 6px 0 9px; } ul, ol { margin: 6px 0 10px 20px; padding: 0; } li { margin: 3px 0; }
+    .cover { height: 260mm; padding: 22mm 15mm; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(145deg,#063a55,#087f95 65%,#21a8ad); color: white; margin: -15mm -15mm -17mm; }
+    .cover h1, .cover h2 { color: white; } .cover h1 { max-width: 150mm; }
+    .cover .tag { display:inline-block; width:max-content; padding:6px 12px; border:1px solid #bfeff0; border-radius:20px; text-transform:uppercase; letter-spacing:1px; font-size:9pt; }
+    .cover .subtitle { font-size: 16pt; max-width: 145mm; color:#e8ffff; }
+    .cover .meta { border-top: 1px solid rgba(255,255,255,.45); padding-top: 10px; font-size:10pt; }
+    .page { break-before: page; }
+    .avoid { break-inside: avoid; }
+    .lead { font-size:12pt; color:#365b6b; }
+    .callout { border-left: 5px solid #0a94a6; background:#eefafb; padding:10px 12px; margin:10px 0; border-radius:0 6px 6px 0; }
+    .warning { border-left-color:#e89d21; background:#fff8e9; }
+    .success { border-left-color:#1e9b68; background:#eefaf4; }
+    .danger { border-left-color:#d65454; background:#fff0f0; }
+    .flow { display:flex; align-items:stretch; gap:5px; margin:14px 0; break-inside:avoid; }
+    .step { flex:1; min-height:48px; border:1px solid #9bc8d0; border-radius:8px; background:#f4fbfc; padding:8px 6px; text-align:center; display:flex; align-items:center; justify-content:center; font-weight:600; }
+    .arrow { display:flex; align-items:center; color:#0a8497; font-size:18pt; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+    .card { border:1px solid #c8dce1; border-radius:8px; padding:10px; break-inside:avoid; background:white; }
+    .card h3 { margin-top:0; color:#08788b; }
+    .badge { display:inline-block; padding:2px 7px; border-radius:12px; font-size:8pt; font-weight:700; margin-right:4px; }
+    .mvp { color:#126344; background:#dff5e9; } .decision { color:#85570a; background:#fff0c9; } .future { color:#44526b; background:#e8edf4; } .out { color:#8a3333; background:#ffe3e3; }
+    table { width:100%; border-collapse:collapse; margin:10px 0; font-size:9pt; }
+    th { background:#0b7185; color:white; text-align:left; padding:7px; }
+    td { border:1px solid #cbdce0; padding:7px; vertical-align:top; }
+    tr:nth-child(even) td { background:#f6fafb; }
+    .question { border:1px solid #aacbd2; border-radius:9px; margin:12px 0; padding:11px 12px; break-inside:avoid; }
+    .question h3 { margin:0 0 7px; color:#064d67; }
+    .why { color:#365b6b; }
+    .example { background:#f3f7fa; border-radius:6px; padding:7px 9px; margin:7px 0; }
+    .options { margin:7px 0; }
+    .answer { margin-top:8px; padding-top:7px; border-top:1px dashed #9bb6bd; color:#526b75; }
+    .check { font-family:"Segoe UI Symbol","Segoe UI",Arial,sans-serif; }
+    .sign { margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:25px; }
+    .line { padding-top:24px; border-bottom:1px solid #456; }
+    .small { font-size:8.5pt; color:#52717d; }
+    .footer-note { margin-top:16px; padding-top:8px; border-top:1px solid #c9dade; font-size:8pt; color:#607985; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div>
+      <div class="tag">Documento para aprovação do cliente</div>
+      <h1 style="margin-top:20mm">REVOLUSHOWER</h1>
+      <h2>Validação do fluxo do aplicativo mobile</h2>
+      <p class="subtitle">Uma visão simples das telas, jornadas e decisões necessárias para fecharmos o escopo funcional do produto.</p>
+    </div>
+    <div class="meta">
+      <strong>Versão 1.0 — 29 de agosto de 2026</strong><br>
+      Público: responsável pelo produto, key user e representantes do cliente<br>
+      Situação: proposta para análise, respostas e aprovação
+    </div>
+  </section>
+
+  <section class="page">
+    <h2>1. Como usar este documento</h2>
+    <p class="lead">Este material descreve como imaginamos que o cliente final usará o aplicativo Revolushower. O objetivo não é discutir programação: queremos confirmar se a experiência proposta representa o produto que deve ser entregue.</p>
+    <div class="callout">
+      <strong>O que esperamos do key user</strong><br>
+      Leia as jornadas, marque as escolhas nas perguntas de validação e registre qualquer situação que esteja faltando. As respostas serão transformadas no escopo funcional oficial do aplicativo.
+    </div>
+    <h3>O que já orienta esta proposta</h3>
+    <ul>
+      <li>Na primeira fase existe apenas o equipamento <strong>Master</strong>.</li>
+      <li>O aplicativo controla o pré-aquecimento e acompanha estados reais do equipamento.</li>
+      <li>O equipamento preserva suas proteções mesmo sem Internet.</li>
+      <li>O aplicativo não deve prometer medições ou ações que o equipamento não consegue realizar.</li>
+    </ul>
+    <h3>Significado das classificações</h3>
+    <p><span class="badge mvp">MVP</span> recomendado para a primeira versão utilizável.</p>
+    <p><span class="badge decision">DECISÃO</span> depende de uma resposta do cliente ou de validação antes de entrar no escopo.</p>
+    <p><span class="badge future">FUTURO</span> pode ser desenvolvido depois, mas não deve atrasar a primeira entrega.</p>
+    <p><span class="badge out">FORA DO ESCOPO</span> não é suportado pelo equipamento atual.</p>
+  </section>
+
+  <section class="page">
+    <h2>2. Visão geral da experiência</h2>
+    <p>Em uma utilização típica, o cliente passa pelas etapas abaixo:</p>
+    <div class="flow">
+      <div class="step">Criar ou acessar a conta</div><div class="arrow">›</div>
+      <div class="step">Cadastrar o Master</div><div class="arrow">›</div>
+      <div class="step">Configurar o Wi-Fi</div><div class="arrow">›</div>
+      <div class="step">Usar e acompanhar</div>
+    </div>
+    <div class="flow">
+      <div class="step">Consultar histórico</div><div class="arrow">›</div>
+      <div class="step">Gerenciar instalação</div><div class="arrow">›</div>
+      <div class="step">Ajustar preferências</div><div class="arrow">›</div>
+      <div class="step">Obter ajuda</div>
+    </div>
+    <h3>As três áreas principais do aplicativo</h3>
+    <div class="grid">
+      <div class="card"><h3>Início</h3><p>Mostra se o equipamento está disponível e permite iniciar, acompanhar ou cancelar o pré-aquecimento.</p></div>
+      <div class="card"><h3>Histórico</h3><p>Apresenta ciclos e eventos confirmados, indicando quando aconteceram, duração, resultado e forma de acionamento.</p></div>
+      <div class="card"><h3>Configurações</h3><p>Reúne instalação, equipamento, conta, notificações, suporte e informações legais.</p></div>
+      <div class="card"><h3>Estados e avisos</h3><p>Explicam situações como equipamento offline, espera, bomba ativa, cooldown, bloqueio e falha.</p></div>
+    </div>
+    <div class="callout warning"><strong>Importante:</strong> “cancelar pré-aquecimento” significa parar a bomba controlada pelo Revolushower. Não significa cortar fisicamente a água da residência.</div>
+  </section>
+
+  <section class="page">
+    <h2>3. Entrada, conta e primeiro acesso</h2>
+    <div class="flow">
+      <div class="step">Boas-vindas</div><div class="arrow">›</div>
+      <div class="step">Entrar ou criar conta</div><div class="arrow">›</div>
+      <div class="step">Confirmar identidade</div><div class="arrow">›</div>
+      <div class="step">Aceitar termos</div>
+    </div>
+    <table>
+      <tr><th>Tela/situação</th><th>O que o cliente consegue fazer</th><th>Resultado esperado</th></tr>
+      <tr><td>Boas-vindas</td><td>Entender rapidamente a finalidade do produto e escolher entrar ou criar conta.</td><td>Seguir para autenticação sem linguagem técnica.</td></tr>
+      <tr><td>Entrar</td><td>Informar credencial e acessar instalações já cadastradas.</td><td>Voltar à tela inicial.</td></tr>
+      <tr><td>Criar conta</td><td>Informar dados mínimos, criar senha e concordar com termos.</td><td>Conta criada após confirmação.</td></tr>
+      <tr><td>Recuperar acesso</td><td>Receber código ou link e definir nova senha.</td><td>Retomar acesso sem suporte manual.</td></tr>
+      <tr><td>Sessão expirada</td><td>Entrar novamente sem perder equipamentos cadastrados.</td><td>Dados recuperados da conta.</td></tr>
+      <tr><td>Aplicativo sem Internet</td><td>Ver uma mensagem clara e tentar novamente.</td><td>Nenhum comando é mostrado como enviado.</td></tr>
+    </table>
+    <div class="callout">A conta é importante porque relaciona cada pessoa às instalações e equipamentos que ela está autorizada a utilizar.</div>
+  </section>
+
+  <section class="page">
+    <h2>4. Cadastro e instalação do equipamento</h2>
+    <p>Depois de criar a conta, o cliente precisa associar o Master e conectá-lo à rede Wi-Fi do local.</p>
+    <div class="flow">
+      <div class="step">Adicionar instalação</div><div class="arrow">›</div>
+      <div class="step">Ler QR Code ou Device ID</div><div class="arrow">›</div>
+      <div class="step">Conectar ao Master</div><div class="arrow">›</div>
+      <div class="step">Escolher Wi-Fi</div>
+    </div>
+    <div class="flow">
+      <div class="step">Informar senha</div><div class="arrow">›</div>
+      <div class="step">Aguardar conexão</div><div class="arrow">›</div>
+      <div class="step">Nomear instalação</div><div class="arrow">›</div>
+      <div class="step">Concluir</div>
+    </div>
+    <h3>Exemplo</h3>
+    <div class="example">Maria lê o QR Code do equipamento, escolhe a rede “Casa da Maria”, informa a senha do Wi-Fi e chama a instalação de “Casa — banheiro da suíte”. Ao concluir, o Master aparece na tela inicial.</div>
+    <h3>Erros que precisam de telas próprias</h3>
+    <ul>
+      <li>QR Code ou identificação inválida;</li>
+      <li>equipamento já associado a outra conta;</li>
+      <li>permissão de rede/localização negada pelo celular;</li>
+      <li>celular não conseguiu se conectar ao Master;</li>
+      <li>senha do Wi-Fi incorreta;</li>
+      <li>rede incompatível ou conexão demorou demais;</li>
+      <li>equipamento ficou offline após a configuração.</li>
+    </ul>
+  </section>
+
+  <section class="page">
+    <h2>5. Tela inicial e pré-aquecimento</h2>
+    <p>A tela inicial deve responder a duas perguntas: <strong>“posso iniciar agora?”</strong> e <strong>“o que o equipamento está fazendo?”</strong></p>
+    <table>
+      <tr><th>Estado mostrado</th><th>Significado para o cliente</th><th>Ação possível</th></tr>
+      <tr><td>Disponível</td><td>O equipamento pode receber uma solicitação.</td><td>Iniciar pré-aquecimento.</td></tr>
+      <tr><td>Aguardando</td><td>O comando foi aceito e existe um tempo de espera antes da bomba.</td><td>Acompanhar; cancelar se aprovado.</td></tr>
+      <tr><td>Pré-aquecendo</td><td>A bomba está ativa.</td><td>Acompanhar; cancelar se seguro.</td></tr>
+      <tr><td>Acionamento mecânico</td><td>O fluxo de água iniciou o funcionamento localmente.</td><td>Apenas acompanhar; regra final depende de validação.</td></tr>
+      <tr><td>Cooldown</td><td>Proteção temporária impede novo acionamento.</td><td>Aguardar o tempo informado.</td></tr>
+      <tr><td>Aquecedor bloqueado</td><td>Proteção temporária do aquecedor está ativa.</td><td>Ver motivo e aguardar.</td></tr>
+      <tr><td>Offline</td><td>O serviço não consegue confirmar o estado atual.</td><td>Ver ajuda e tentar novamente.</td></tr>
+      <tr><td>Falha</td><td>Existe uma condição que exige atenção.</td><td>Consultar detalhe e suporte.</td></tr>
+    </table>
+    <h3>Fluxo de uma solicitação</h3>
+    <div class="flow">
+      <div class="step">Tocar em pré-aquecer</div><div class="arrow">›</div>
+      <div class="step">Confirmar</div><div class="arrow">›</div>
+      <div class="step">Aguardar aceite</div><div class="arrow">›</div>
+      <div class="step">Acompanhar resultado</div>
+    </div>
+    <div class="callout success">O aplicativo só deve dizer “iniciado”, “cancelado” ou “concluído” depois de receber confirmação real do equipamento.</div>
+  </section>
+
+  <section class="page">
+    <h2>6. Histórico, configurações e suporte</h2>
+    <h3>Histórico</h3>
+    <p>Cada registro poderá mostrar data, início, fim, duração, resultado e origem: aplicativo, botão local ou acionamento mecânico.</p>
+    <div class="example"><strong>Exemplo:</strong> 29/08 às 07:15 — iniciado pelo aplicativo — concluído — duração de 1 min 20 s.</div>
+    <h3>Gestão da instalação</h3>
+    <ul>
+      <li>ver identificação e conectividade do Master;</li>
+      <li>renomear instalação ou ambiente;</li>
+      <li>reconfigurar Wi-Fi;</li>
+      <li>desvincular equipamento, se o perfil tiver autorização;</li>
+      <li>alterar tempos apenas para perfis autorizados e dentro de limites seguros.</li>
+    </ul>
+    <h3>Conta e suporte</h3>
+    <ul>
+      <li>editar dados básicos, senha e preferências de notificação;</li>
+      <li>sair ou solicitar exclusão da conta;</li>
+      <li>consultar ajuda, termos e privacidade;</li>
+      <li>compartilhar com o suporte informações úteis como versão, conectividade e último erro.</li>
+    </ul>
+    <div class="callout">Informações de diagnóstico devem ajudar o atendimento sem expor senha do Wi-Fi, credenciais ou outros segredos.</div>
+  </section>
+
+  <section class="page">
+    <h2>7. O que não será prometido nesta fase</h2>
+    <p>O equipamento atual não possui confirmação técnica para medir ou executar os itens abaixo. Por isso, eles não devem aparecer como recursos reais no aplicativo:</p>
+    <div class="grid">
+      <div class="card"><span class="badge out">FORA DO ESCOPO</span><h3>Temperatura</h3><p>Não mostrar temperatura atual nem permitir escolher temperatura desejada.</p></div>
+      <div class="card"><span class="badge out">FORA DO ESCOPO</span><h3>Vazão e volume</h3><p>Não informar litros ou litros por minuto como se fossem medidos.</p></div>
+      <div class="card"><span class="badge out">FORA DO ESCOPO</span><h3>Energia e custo</h3><p>Não apresentar kWh, custo real ou economia financeira sem fonte confiável.</p></div>
+      <div class="card"><span class="badge out">FORA DO ESCOPO</span><h3>Corte da água</h3><p>O Master não possui válvula para interromper fisicamente o abastecimento.</p></div>
+      <div class="card"><span class="badge out">FORA DO ESCOPO</span><h3>Prevenção de vazamento</h3><p>Não anunciar prevenção certificada ou proteção volumétrica.</p></div>
+      <div class="card"><span class="badge decision">SEM DEFINIÇÃO</span><h3>Modo Eco</h3><p>O nome não possui uma regra funcional aprovada; precisa ser definido antes de existir.</p></div>
+    </div>
+    <div class="callout danger">Uma estimativa futura só poderá ser exibida se for aprovada, explicada e claramente identificada como estimativa — nunca como medição.</div>
+  </section>
+
+  <section class="page">
+    <h2>8. Perguntas para fechar o escopo — conta e acesso</h2>
+    <p class="lead">Marque uma opção ou escreva outra orientação. A indicação “sugestão” representa a proposta inicial da equipe, não uma decisão já tomada.</p>
+
+    <div class="question"><h3>1. Como as contas serão criadas?</h3><p class="why">Isso define quem pode começar a usar o produto e o esforço do atendimento.</p><div class="example">Cadastro aberto: qualquer comprador cria a conta. Cadastro controlado: instalador ou suporte libera primeiro.</div><div class="options check">☐ Cadastro aberto pelo cliente <strong>(sugestão)</strong><br>☐ Conta criada por instalador/suporte<br>☐ Convite enviado pela empresa</div><div class="answer">Resposta/observação: ________________________________________________</div></div>
+
+    <div class="question"><h3>2. Como confirmar a identidade?</h3><p class="why">A confirmação evita cadastros incorretos e ajuda na recuperação de acesso.</p><div class="options check">☐ E-mail <strong>(sugestão inicial)</strong><br>☐ Telefone/SMS<br>☐ E-mail e telefone obrigatórios</div><div class="answer">Resposta/observação: ________________________________________________</div></div>
+
+    <div class="question"><h3>3. Uma conta pode ter mais de um equipamento?</h3><div class="example">Uma pessoa pode ter Revolushower na residência principal, casa de praia ou em mais de um ambiente.</div><div class="options check">☐ Sim, com nome por instalação <strong>(sugestão)</strong><br>☐ Não, apenas um equipamento por conta<br>☐ Sim, mas somente em plano/perfil específico</div><div class="answer">Limite desejado: ____________________________________________________</div></div>
+
+    <div class="question"><h3>4. A instalação pode ser compartilhada?</h3><div class="example">O proprietário convida cônjuge, familiar ou morador sem entregar sua senha.</div><div class="options check">☐ Sim, com proprietário e convidados <strong>(sugestão)</strong><br>☐ Não no MVP<br>☐ Sim, todos com os mesmos poderes</div><div class="answer">Quem pode convidar/remover: ________________________________________</div></div>
+  </section>
+
+  <section class="page">
+    <h2>9. Perguntas — cadastro do equipamento e permissões</h2>
+    <div class="question"><h3>5. Como o Master será associado à conta?</h3><p class="why">O método precisa ser simples, mas impedir que outra pessoa cadastre um equipamento indevidamente.</p><div class="options check">☐ QR Code exclusivo <strong>(sugestão)</strong><br>☐ Device ID digitado<br>☐ Cadastro realizado pelo instalador<br>☐ QR Code mais código de confirmação</div><div class="answer">Resposta/observação: ________________________________________________</div></div>
+
+    <div class="question"><h3>6. Quem realiza a configuração inicial do Wi-Fi?</h3><div class="example">O cliente pode seguir o passo a passo sozinho, ou o instalador pode entregar o equipamento pronto.</div><div class="options check">☐ Cliente final, com assistente no app <strong>(sugestão)</strong><br>☐ Somente instalador<br>☐ Ambos, conforme a venda</div><div class="answer">Resposta/observação: ________________________________________________</div></div>
+
+    <div class="question"><h3>7. O cliente pode desvincular o Master?</h3><p class="why">Desvincular pode ser necessário em venda do imóvel, troca de proprietário ou suporte, mas também pode causar perda de acesso.</p><div class="options check">☐ Sim, com confirmação forte <strong>(sugestão)</strong><br>☐ Somente suporte/instalador<br>☐ Proprietário pode; convidados não</div><div class="answer">O que acontece com o histórico: _____________________________________</div></div>
+
+    <div class="question"><h3>8. Quem pode alterar os tempos do equipamento?</h3><p class="why">Alguns tempos fazem parte do comportamento e da segurança. Não devem ser alterados livremente sem limites.</p><div class="options check">☐ Somente instalador/suporte <strong>(sugestão inicial)</strong><br>☐ Proprietário, dentro de faixas aprovadas<br>☐ Todos os usuários da instalação</div><div class="answer">Quais tempos podem ser alterados: __________________________________</div></div>
+  </section>
+
+  <section class="page">
+    <h2>10. Perguntas — operação e segurança</h2>
+    <div class="question"><h3>9. Em quais momentos o cancelamento remoto será permitido?</h3><div class="example">O cliente pode querer cancelar enquanto o sistema aguarda o delay ou depois que a bomba começou.</div><div class="options check">☐ Durante espera e bomba ativa <strong>(desejado; requer validação)</strong><br>☐ Apenas durante a espera<br>☐ Apenas com a bomba ativa<br>☐ Não permitir cancelamento remoto</div><div class="answer">Comportamento após cancelar: _______________________________________</div></div>
+
+    <div class="question"><h3>10. O que deve acontecer quando o uso mecânico atingir o limite?</h3><p class="why">O registro aberto aciona pela chave de fluxo. Precisamos separar esse limite dos ciclos eletrônicos.</p><div class="example">O usuário mantém o registro aberto além do tempo permitido. Devemos definir bomba, aquecedor, bloqueio e mensagem.</div><div class="options check">☐ Desligar bomba e entrar em cooldown<br>☐ Desligar bomba e aquecedor e entrar em cooldown<br>☐ Outra regra: __________________________________</div><div class="answer">Tempo do limite: __________  Como liberar novamente: ________________</div></div>
+
+    <div class="question"><h3>11. Quais notificações entram na primeira versão?</h3><div class="options check">☐ Ciclo concluído<br>☐ Ciclo cancelado ou rejeitado<br>☐ Equipamento offline<br>☐ Falha/bloqueio que exige atenção<br>☐ Nenhuma notificação no MVP</div><div class="answer">Outras notificações: ________________________________________________</div></div>
+
+    <div class="question"><h3>12. O aplicativo deve mostrar quem iniciou ou cancelou?</h3><div class="example">“Iniciado pelo aplicativo de Maria; cancelado pelo aplicativo de João.” Isso ajuda o suporte e o entendimento familiar, mas exige uma política de privacidade.</div><div class="options check">☐ Mostrar forma de acionamento e nome do usuário <strong>(sugestão)</strong><br>☐ Mostrar apenas a forma de acionamento<br>☐ Não mostrar origem ao cliente; apenas ao suporte</div><div class="answer">Resposta/observação: ________________________________________________</div></div>
+  </section>
+
+  <section class="page">
+    <h2>11. Perguntas — automação, dados e encerramento de conta</h2>
+    <div class="question"><h3>13. Agendamentos fazem parte do MVP?</h3><p class="why">Agendar exige decidir onde a programação funciona e o que acontece sem Internet.</p><div class="example">Pré-aquecer de segunda a sexta às 06:30. Se a Internet cair às 06:29, o ciclo deve ocorrer ou não?</div><div class="options check">☐ Não; deixar para fase futura <strong>(sugestão)</strong><br>☐ Sim; executar pela nuvem<br>☐ Sim; deve funcionar também sem Internet</div><div class="answer">Regras de dias, horários e cancelamento: ____________________________</div></div>
+
+    <div class="question"><h3>14. O que acontece quando a conta é excluída?</h3><p class="why">Precisamos definir o destino do histórico, do vínculo do equipamento e dos usuários convidados.</p><div class="options check">☐ Remover acesso e desvincular equipamento<br>☐ Manter histórico anonimizado pelo prazo legal<br>☐ Transferir propriedade antes da exclusão<br>☐ Exigir atendimento do suporte</div><div class="answer">Prazo/regras para os dados: _________________________________________</div></div>
+
+    <h3>Outras situações que não foram cobertas</h3>
+    <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  </section>
+
+  <section class="page">
+    <h2>12. Quadro de aprovação</h2>
+    <p>Após preencher as perguntas, marque a situação deste documento:</p>
+    <div class="question check">
+      ☐ <strong>Aprovado sem ressalvas.</strong> O fluxo pode seguir para wireframes e detalhamento funcional.<br><br>
+      ☐ <strong>Aprovado com ajustes.</strong> As observações registradas devem ser incorporadas antes dos wireframes.<br><br>
+      ☐ <strong>Requer nova reunião.</strong> Existem decisões importantes que ainda precisam ser discutidas.<br><br>
+      ☐ <strong>Não aprovado.</strong> O fluxo precisa ser revisto antes de continuar.
+    </div>
+    <h3>Condições ou ajustes obrigatórios</h3>
+    <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="sign">
+      <div><div class="line"></div><p class="small">Nome e função do responsável</p></div>
+      <div><div class="line"></div><p class="small">Data</p></div>
+      <div><div class="line"></div><p class="small">Assinatura ou confirmação eletrônica</p></div>
+      <div><div class="line"></div><p class="small">Versão aprovada</p></div>
+    </div>
+    <div class="callout" style="margin-top:25px"><strong>Próximo passo:</strong> consolidar as respostas, atualizar o escopo funcional, desenhar os wireframes e cruzar cada ação aprovada com o backend e o firmware Master.</div>
+    <p class="footer-note">Fonte técnica interna: fluxo mobile, arquitetura do equipamento Master, requisitos e tarefas do projeto. Este documento descreve uma proposta funcional do Revolushower; itens ainda sujeitos a teste ou validação não devem ser interpretados como já implementados.</p>
+  </section>
+</body>
+</html>

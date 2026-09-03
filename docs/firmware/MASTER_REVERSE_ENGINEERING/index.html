@@ -1,0 +1,1286 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação técnica e funcional do projeto AquaHeat">
+      
+      
+      
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/firmware/MASTER_REVERSE_ENGINEERING/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Revolushower — Engenharia reversa do firmware Master - AquaHeat — Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revolushower-engenharia-reversa-do-firmware-master" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="AquaHeat — Documentação" class="md-header__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AquaHeat — Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Revolushower — Engenharia reversa do firmware Master
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Usar modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Usar modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AquaHeat — Documentação" class="md-nav__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AquaHeat — Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao-executiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusão executiva
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidencias-e-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidências e escopo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapa-do-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapa do hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-persistida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuração persistida
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequencia-de-inicializacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequência de inicialização
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-principal-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciclo principal atual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maquina-de-estados-comprovada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Máquina de estados comprovada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-de-acionamento-atuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras de acionamento atuais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regras de acionamento atuais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#botao-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Botão local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-de-fluxo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor de fluxo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-legado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP legado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-local-no-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rádio local no Master
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timers-e-protecoes-atuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timers e proteções atuais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Timers e proteções atuais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#duracao-eletronica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duração eletrônica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maxonsensorms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        maxOnSensorMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cooldown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cooldown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aquecedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aquecedor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacao-e-disponibilidade-atuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comunicação e disponibilidade atuais
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portal-local-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portal local atual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#riscos-catalogados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Riscos catalogados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Riscos catalogados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criticos-antes-de-comandos-internet-em-producao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Críticos antes de comandos Internet em produção
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Altos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependentes-de-bancadahardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependentes de bancada/hardware
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-firmware-recomendada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura de firmware recomendada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viabilidade-das-extensoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viabilidade das extensões
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-especificas-para-ota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras específicas para OTA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-especificas-para-mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras específicas para MQTT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-especificas-para-agendamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras específicas para agendamento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalogo-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catálogo de implementação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Catálogo de implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gate-0-preservar-e-medir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gate 0 — preservar e medir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate-1-tornar-o-nucleo-observavel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gate 1 — tornar o núcleo observável
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate-2-remover-bloqueios-do-caminho-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gate 2 — remover bloqueios do caminho de segurança
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate-3-mqtt-seguro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gate 3 — MQTT seguro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate-4-provisionamento-e-credenciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gate 4 — provisionamento e credenciais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate-5-ota-seguro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gate 5 — OTA seguro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate-6-agendamento-e-canais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gate 6 — agendamento e canais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-minimos-antes-de-producao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critérios mínimos antes de produção
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-do-build-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado do build baseline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao-pendente-com-keyuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação pendente com keyuser
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="revolushower-engenharia-reversa-do-firmware-master">Revolushower — Engenharia reversa do firmware Master<a class="headerlink" href="#revolushower-engenharia-reversa-do-firmware-master" title="Permanent link">&para;</a></h1>
+<p>Atualizado em 2026-08-30. Este documento descreve o comportamento comprovado no código do ambiente PlatformIO <code>master</code>. Nenhuma lógica do firmware foi alterada durante o levantamento.</p>
+<h2 id="conclusao-executiva">Conclusão executiva<a class="headerlink" href="#conclusao-executiva" title="Permanent link">&para;</a></h2>
+<p>É tecnicamente viável evoluir o ESP32-C3 atual com MQTT, comandos confirmados, agendamento disparado pelo backend, OTA e provisionamento BLE sem remover a lógica de bomba, fluxo, aquecedor, delay, cooldown e watchdog. A condição é manter o controle físico como núcleo isolado e fazer as novas camadas solicitarem ações por uma interface única, nunca escrever diretamente nos GPIOs.</p>
+<p>O firmware atual compila e ocupa 1.046.396 de 1.310.720 bytes do slot de aplicação (79,8%) e 42.532 de 327.680 bytes de RAM (13%). A tabela padrão já contém <code>ota_0</code>, <code>ota_1</code> e <code>otadata</code>, portanto OTA A/B é fisicamente possível. A margem de aproximadamente 264 KB por slot exige medição a cada inclusão de MQTT, BLE, certificados e OTA.</p>
+<p>Há riscos que impedem ligar as novas funções diretamente ao código atual: operações HTTP bloqueiam o loop de segurança, TLS usa <code>setInsecure()</code>, o portal local está sem autenticação efetiva, comandos HTTP são marcados como concluídos antes da execução e <code>maxOnSensorMs</code> limita qualquer origem.</p>
+<h2 id="evidencias-e-escopo">Evidências e escopo<a class="headerlink" href="#evidencias-e-escopo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Build: <code>firmware/platformio.ini</code>, ambiente <code>master</code>, <code>ROLE_MASTER</code>, ESP32-C3 DevKitM-1, Arduino.</li>
+<li>Entrada: <code>firmware/src/main.cpp</code> chama <code>masterSetup()</code> e <code>masterLoop()</code>.</li>
+<li>Controle físico: <code>ActionManager.*</code>.</li>
+<li>Orquestração atual: <code>MasterApp.cpp</code>.</li>
+<li>Wi-Fi: <code>WifiManager.*</code>.</li>
+<li>HTTP legado: <code>ApiManager.*</code>.</li>
+<li>Persistência: <code>Storage.*</code> e <code>Preferences</code>.</li>
+<li>Portal local: <code>HtmlManager.*</code> e <code>WebServer</code>.</li>
+<li>Rádio local presente no Master: <code>Radio.h</code>, <code>Protocol.h</code> e callbacks em <code>MasterApp.cpp</code>.</li>
+<li>Código de outros equipamentos não foi usado para definir requisitos ou comportamento da Fase 1.</li>
+</ul>
+<h2 id="mapa-do-hardware">Mapa do hardware<a class="headerlink" href="#mapa-do-hardware" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Função</th>
+<th style="text-align: right;">GPIO</th>
+<th>Polaridade/comportamento comprovado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bomba</td>
+<td style="text-align: right;">10</td>
+<td><code>HIGH</code> liga; <code>LOW</code> desliga</td>
+</tr>
+<tr>
+<td>Relé do aquecedor</td>
+<td style="text-align: right;">6</td>
+<td><code>HIGH</code> mantém aquecedor ligado/NC fechado; <code>LOW</code> desliga/abre</td>
+</tr>
+<tr>
+<td>Sensor de fluxo</td>
+<td style="text-align: right;">4</td>
+<td><code>LOW</code> significa fluxo detectado</td>
+</tr>
+<tr>
+<td>Botão AP/configuração</td>
+<td style="text-align: right;">3</td>
+<td><code>LOW</code>, pull-up interno</td>
+</tr>
+<tr>
+<td>Botão de ação</td>
+<td style="text-align: right;">1</td>
+<td><code>LOW</code>, pull-up interno</td>
+</tr>
+<tr>
+<td>LED Master</td>
+<td style="text-align: right;">5</td>
+<td>PWM; ligado, pulsante ou piscante</td>
+</tr>
+</tbody>
+</table>
+<p>No <code>begin()</code>, a bomba é explicitamente desligada e o aquecedor é explicitamente ligado. O estado elétrico antes da execução de <code>begin()</code>, durante reset e em brownout precisa ser confirmado no hardware.</p>
+<h2 id="configuracao-persistida">Configuração persistida<a class="headerlink" href="#configuracao-persistida" title="Permanent link">&para;</a></h2>
+<p><code>MasterConfigManager</code> usa o namespace NVS <code>master-config</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th style="text-align: right;">Padrão</th>
+<th style="text-align: right;">Faixa aceita no portal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Duração eletrônica da bomba</td>
+<td style="text-align: right;">5 s</td>
+<td style="text-align: right;">1–3600 s</td>
+</tr>
+<tr>
+<td><code>maxOnSensorMs</code></td>
+<td style="text-align: right;">30 s</td>
+<td style="text-align: right;">1–3600 s</td>
+</tr>
+<tr>
+<td>Cooldown</td>
+<td style="text-align: right;">0 s</td>
+<td style="text-align: right;">0–3600 s</td>
+</tr>
+<tr>
+<td>Fluxo contínuo antes de desligar aquecedor</td>
+<td style="text-align: right;">20 s</td>
+<td style="text-align: right;">1–3600 s</td>
+</tr>
+<tr>
+<td>Bloqueio do aquecedor</td>
+<td style="text-align: right;">10 s</td>
+<td style="text-align: right;">1–3600 s</td>
+</tr>
+<tr>
+<td>Delay antes da bomba</td>
+<td style="text-align: right;">15 s</td>
+<td style="text-align: right;">0–60 s</td>
+</tr>
+<tr>
+<td>Usuário local</td>
+<td style="text-align: right;"><code>admin</code></td>
+<td style="text-align: right;">não configurado pelo portal atual</td>
+</tr>
+<tr>
+<td>Senha local</td>
+<td style="text-align: right;"><code>admin</code></td>
+<td style="text-align: right;">não configurada pelo portal atual</td>
+</tr>
+<tr>
+<td>Senha SoftAP</td>
+<td style="text-align: right;"><code>12345678</code></td>
+<td style="text-align: right;">persistida, sem fluxo de rotação confirmado</td>
+</tr>
+<tr>
+<td>Canal inicial</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">acompanha Wi-Fi/ESP-NOW</td>
+</tr>
+</tbody>
+</table>
+<p>Também são persistidos SSID, senha Wi-Fi, BSSID, canal, <code>deviceId</code> e lista de pares locais. O <code>deviceId</code> é gerado a partir de <code>ESP.getEfuseMac()</code> quando ausente.</p>
+<p>As configurações não possuem versão de schema, checksum, migração, política de mínimo seguro ou validação de relações. Por exemplo, o portal permite duração eletrônica superior ao limite <code>maxOnSensorMs</code>.</p>
+<h2 id="sequencia-de-inicializacao">Sequência de inicialização<a class="headerlink" href="#sequencia-de-inicializacao" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Configura GPIOs; desliga bomba; liga aquecedor; liga LED.</li>
+<li>Inicializa serial e NVS.</li>
+<li>Carrega configuração e canal persistidos.</li>
+<li>Inicializa ESP-NOW e callback de recepção.</li>
+<li>Inicializa Wi-Fi com sleep e reconexão automática desabilitados.</li>
+<li>Tenta uma única conexão à rede salva.</li>
+<li>Inicializa NTP e callbacks de eventos/desativação.</li>
+</ol>
+<p>Se a conexão inicial falhar ou cair depois, <code>updateReconnection()</code> apenas registra o estado a cada 30 segundos. Não existe reconexão automática apesar de uma mensagem de log em <code>masterSetup()</code> afirmar o contrário.</p>
+<h2 id="ciclo-principal-atual">Ciclo principal atual<a class="headerlink" href="#ciclo-principal-atual" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>ActionManager.update
+  ├─ botões
+  ├─ sensor de fluxo
+  ├─ watchdog maxOnSensorMs
+  ├─ cooldown
+  ├─ bloqueio/religamento do aquecedor
+  ├─ delay da bomba
+  └─ timer eletrônico e LEDs
+
+WiFiManager.updateReconnection
+polling HTTP a cada 10 s
+portal AP/DNS
+protocolo local ACK/DONE
+modos AP/pairing
+botão de ação
+</code></pre></div>
+<p>Esse desenho depende da repetição rápida do <code>loop()</code>. <code>delay()</code>, conexão Wi-Fi, scan e requisições HTTPS suspendem a chamada de <code>ActionManager.update()</code> e, portanto, atrasam timers implementados em software.</p>
+<h2 id="maquina-de-estados-comprovada">Máquina de estados comprovada<a class="headerlink" href="#maquina-de-estados-comprovada" title="Permanent link">&para;</a></h2>
+<p>O código usa flags, não uma enumeração única. A representação abaixo consolida o comportamento observável.</p>
+<div class="highlight"><pre><span></span><code>READY
+ ├─ pedido válido com delay ──&gt; PUMP_DELAY
+ ├─ pedido válido sem delay ─&gt; PUMP_ACTIVE
+ ├─ fluxo detectado ─────────&gt; PUMP_DELAY ou FLOW_ACTIVE
+ ├─ botão 3 s ───────────────&gt; AP_MODE
+ └─ botão curto de config ───&gt; PAIRING_MODE
+
+PUMP_DELAY
+ ├─ expira ──────────────────&gt; PUMP_ACTIVE
+ └─ fluxo cessa, se origem sensor ─&gt; READY
+
+PUMP_ACTIVE eletrônico
+ ├─ timer expira sem fluxo ──&gt; READY
+ ├─ timer expira com fluxo ──&gt; FLOW_ACTIVE
+ └─ watchdog absoluto atual ─&gt; COOLDOWN
+
+FLOW_ACTIVE
+ ├─ fluxo cessa ─────────────&gt; READY
+ ├─ fluxo contínuo excede limite ─&gt; HEATER_BLOCKED
+ └─ watchdog atual ──────────&gt; COOLDOWN
+
+HEATER_BLOCKED
+ └─ heaterOffWaitTimeMs expira ─&gt; READY
+
+COOLDOWN
+ └─ cooldownMs expira ───────&gt; READY
+</code></pre></div>
+<p><code>AP_MODE</code> e <code>PAIRING_MODE</code> são estados paralelos de interface/conectividade. O código não impede explicitamente que uma bomba já ativa continue enquanto o modo AP é aberto.</p>
+<h2 id="regras-de-acionamento-atuais">Regras de acionamento atuais<a class="headerlink" href="#regras-de-acionamento-atuais" title="Permanent link">&para;</a></h2>
+<h3 id="botao-local">Botão local<a class="headerlink" href="#botao-local" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Solicita <code>activatePumpWithDelay()</code> com origem <code>Local</code>.</li>
+<li>Delay e duração vêm da configuração.</li>
+<li>O evento HTTP é enviado imediatamente, mesmo se a solicitação for rejeitada por bomba ocupada, cooldown ou bloqueio do aquecedor.</li>
+</ul>
+<h3 id="sensor-de-fluxo">Sensor de fluxo<a class="headerlink" href="#sensor-de-fluxo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fluxo <code>LOW</code> solicita bomba com delay configurável.</li>
+<li>Se o fluxo cessar durante o delay, o delay é cancelado.</li>
+<li>Em controle por sensor, cessar o fluxo desliga a bomba e registra duração.</li>
+<li>Fluxo contínuo acima de <code>maxFlowTimeBeforeHeaterOffMs</code> desliga bomba e aquecedor e bloqueia o sistema por <code>heaterOffWaitTimeMs</code>.</li>
+</ul>
+<h3 id="http-legado">HTTP legado<a class="headerlink" href="#http-legado" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A cada 10 segundos executa <code>GET /pending-requests/current/{deviceId}</code>.</li>
+<li>O JSON é interpretado por busca textual apenas do campo <code>id</code>.</li>
+<li>Qualquer request com <code>id</code> novo é tratado como pedido de início; não existe tipo, parâmetro, cancelamento, origem autenticada ou expiração.</li>
+<li>O request é marcado <code>done</code> imediatamente após agendar o delay, antes de a bomba iniciar ou terminar.</li>
+<li>Só o cooldown é verificado nesse fluxo; bloqueio do aquecedor, bomba em delay e resultado real não são refletidos corretamente.</li>
+</ul>
+<h3 id="radio-local-no-master">Rádio local no Master<a class="headerlink" href="#radio-local-no-master" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>ACIONAR</code> só é aceito quando o MAC consta como par ativo.</li>
+<li>Responde <code>ACK</code> quando agenda o ciclo e <code>NACK</code> quando indisponível.</li>
+<li>Mensagens e peers não usam criptografia ESP-NOW; o token derivado no pairing não autentica o comando <code>ACIONAR</code> recebido.</li>
+<li>O segredo de derivação é constante e está no binário.</li>
+<li>Esse caminho deve ser preservado na Fase 1; qualquer endurecimento que exija alterar outro equipamento depende de escopo separado.</li>
+</ul>
+<h2 id="timers-e-protecoes-atuais">Timers e proteções atuais<a class="headerlink" href="#timers-e-protecoes-atuais" title="Permanent link">&para;</a></h2>
+<h3 id="duracao-eletronica">Duração eletrônica<a class="headerlink" href="#duracao-eletronica" title="Permanent link">&para;</a></h3>
+<p>Para origens <code>Local</code>, <code>Remoto</code> e <code>Web</code>, <code>manualOverrideSensor_</code> mantém a bomba pela duração configurada. Ao expirar:</p>
+<ul>
+<li>sem fluxo: desliga a bomba;</li>
+<li>com fluxo: transfere o controle ao sensor e reinicia <code>pumpSessionStartMs_</code>.</li>
+</ul>
+<h3 id="maxonsensorms"><code>maxOnSensorMs</code><a class="headerlink" href="#maxonsensorms" title="Permanent link">&para;</a></h3>
+<p>Apesar do nome, é verificado sempre que <code>pumpActive_</code> está verdadeiro. Portanto, limita botão local, HTTP, rádio e sensor. Ao atingir o limite:</p>
+<ul>
+<li>desliga a bomba;</li>
+<li>notifica pares locais;</li>
+<li>ativa cooldown.</li>
+</ul>
+<p>A transição eletrônico → sensor reinicia a contagem, portanto o tempo absoluto pode ser duração eletrônica + <code>maxOnSensorMs</code>.</p>
+<h3 id="cooldown">Cooldown<a class="headerlink" href="#cooldown" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bloqueia novos acionamentos enquanto ativo.</li>
+<li>Só é iniciado pelo estouro de <code>maxOnSensorMs</code>.</li>
+<li>Não é iniciado por toda desativação normal.</li>
+<li>Padrão zero: entra e sai praticamente no ciclo seguinte.</li>
+<li>Não persiste após reboot.</li>
+</ul>
+<h3 id="aquecedor">Aquecedor<a class="headerlink" href="#aquecedor" title="Permanent link">&para;</a></h3>
+<ul>
+<li>É desligado somente por fluxo contínuo no modo controlado pelo sensor.</li>
+<li>Ao desligar, também desliga a bomba e bloqueia novos acionamentos.</li>
+<li>Religa automaticamente quando o timer expira.</li>
+<li>Estado e timer não persistem após reboot.</li>
+</ul>
+<h2 id="comunicacao-e-disponibilidade-atuais">Comunicação e disponibilidade atuais<a class="headerlink" href="#comunicacao-e-disponibilidade-atuais" title="Permanent link">&para;</a></h2>
+<ul>
+<li>HTTP legado em <code>https://ah.amzretificadores.com.br/api</code>.</li>
+<li>Endpoints: <code>POST /reads</code>, <code>GET /pending-requests/current/{deviceId}</code> e <code>POST /pending-requests/{id}/status</code>.</li>
+<li>Não há autenticação HTTP do dispositivo.</li>
+<li><code>WiFiClientSecure::setInsecure()</code> desabilita validação do servidor.</li>
+<li>POST pode tentar três vezes; cada tentativa pode bloquear até 15 segundos, além dos delays.</li>
+<li>NTP usa <code>pool.ntp.org</code> e <code>time.nist.gov</code>.</li>
+<li>O fallback de horário produz uma data fictícia e não deve ser aceito para auditoria, expiração ou anti-replay.</li>
+<li>Não existe fila offline persistente de eventos.</li>
+</ul>
+<h2 id="portal-local-atual">Portal local atual<a class="headerlink" href="#portal-local-atual" title="Permanent link">&para;</a></h2>
+<ul>
+<li>SoftAP em <code>10.10.0.1</code>, HTTP sem TLS.</li>
+<li>Rotas permitem scan, gravação/remoção de Wi-Fi e alteração dos seis timers.</li>
+<li><code>isAuthenticated()</code> e a página de login existem, mas não protegem as rotas registradas.</li>
+<li>SSID, senha Wi-Fi e configuração são manipulados em memória e persistidos em NVS.</li>
+<li>O AP usa senha padrão conhecida.</li>
+</ul>
+<h2 id="riscos-catalogados">Riscos catalogados<a class="headerlink" href="#riscos-catalogados" title="Permanent link">&para;</a></h2>
+<h3 id="criticos-antes-de-comandos-internet-em-producao">Críticos antes de comandos Internet em produção<a class="headerlink" href="#criticos-antes-de-comandos-internet-em-producao" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Operações HTTP bloqueantes podem atrasar watchdogs e desligamentos controlados por software.</li>
+<li>TLS não valida o servidor (<code>setInsecure()</code>).</li>
+<li>O backend legado não autentica o Master e o request remoto não possui assinatura, expiração ou conteúdo validado.</li>
+<li>Confirmação <code>done</code> é otimista e pode registrar sucesso sem execução.</li>
+<li>Portal local altera parâmetros críticos sem autenticação efetiva.</li>
+</ol>
+<h3 id="altos">Altos<a class="headerlink" href="#altos" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>maxOnSensorMs</code> mistura limite mecânico e watchdog geral.</li>
+<li>Falta cancelamento remoto canônico.</li>
+<li>Eventos são registrados antes da aceitação/execução real.</li>
+<li>Não há reconexão Wi-Fi/MQTT robusta.</li>
+<li>Estado de cooldown, aquecedor bloqueado e comando corrente se perde no reboot.</li>
+<li>Não há schema/versionamento de configuração nem política de limites seguros.</li>
+<li>Flash já está em 79,8% do slot; crescimento sem orçamento pode inviabilizar OTA.</li>
+</ol>
+<h3 id="dependentes-de-bancadahardware">Dependentes de bancada/hardware<a class="headerlink" href="#dependentes-de-bancadahardware" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Polaridade e estado seguro dos relés durante boot, reset, brownout e OTA.</li>
+<li>Semântica elétrica real do sensor de fluxo e ruído/debounce.</li>
+<li>Efeito de Wi-Fi, BLE e ESP-NOW concorrentes no rádio único do ESP32-C3.</li>
+<li>Comportamento quando o sensor permanece ativo após watchdog ou reboot.</li>
+<li>Watchdog independente/hardware e falhas de alimentação.</li>
+</ol>
+<h2 id="arquitetura-de-firmware-recomendada">Arquitetura de firmware recomendada<a class="headerlink" href="#arquitetura-de-firmware-recomendada" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>MQTT / botão / sensor / portal local / rádio preservado
+                     │
+                     ▼
+              Command Gateway
+       autenticação, schema, requestId,
+       expiração, deduplicação e origem
+                     │
+                     ▼
+             Safety/Action Kernel
+       única camada autorizada a controlar
+       bomba, aquecedor, timers e cooldown
+                     │
+                     ▼
+                 GPIO/hardware
+
+State Snapshot/Event Journal ──&gt; MQTT/diagnóstico
+OTA Manager ──&gt; somente em estado seguro
+</code></pre></div>
+<p>O primeiro passo não deve reescrever <code>ActionManager</code>. Deve-se criar uma fachada que retorne resultado explícito (<code>ACCEPTED</code>, <code>BUSY</code>, <code>COOLDOWN</code>, <code>HEATER_BLOCKED</code>, <code>INVALID</code>, <code>DUPLICATE</code>) e exponha snapshot somente leitura. Depois, cada origem passa gradualmente pela mesma fachada.</p>
+<p>Nenhum módulo de MQTT, backend, scheduler, Alexa ou OTA poderá chamar <code>digitalWrite()</code> dos relés.</p>
+<h2 id="viabilidade-das-extensoes">Viabilidade das extensões<a class="headerlink" href="#viabilidade-das-extensoes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Extensão</th>
+<th>Viável?</th>
+<th>Implementação segura necessária</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MQTT em tempo quase real</td>
+<td>Sim</td>
+<td>cliente não bloqueante, TLS mútuo, certificado por Master, ACL, reconexão com backoff, fila limitada e Command Gateway</td>
+</tr>
+<tr>
+<td>Estado confirmado</td>
+<td>Sim</td>
+<td>snapshot explícito, resultado por <code>requestId</code>, eventos de transição e publicação após confirmação local</td>
+</tr>
+<tr>
+<td>Cancelamento multicanal</td>
+<td>Sim</td>
+<td>comando canônico de cancelamento, política por estado e resultado confirmado</td>
+</tr>
+<tr>
+<td>Agendamento</td>
+<td>Sim</td>
+<td>scheduler no backend envia comando MQTT com origem <code>SCHEDULE</code>; Master não armazena agenda na primeira versão</td>
+</tr>
+<tr>
+<td>Alexa</td>
+<td>Sim, no backend</td>
+<td>traduz para o mesmo comando MQTT; nenhuma lógica Alexa dentro do Master</td>
+</tr>
+<tr>
+<td>OTA A/B</td>
+<td>Sim, com margem</td>
+<td>HTTPS validado, imagem assinada, estado seguro, duas partições, autoteste, confirmação e rollback</td>
+</tr>
+<tr>
+<td>BLE para Wi-Fi</td>
+<td>Sim, sujeito a flash/rádio</td>
+<td>janela física, protocolo GATT autenticado, timeout e SoftAP preservado</td>
+</tr>
+<tr>
+<td>Telemetria/eventos</td>
+<td>Sim</td>
+<td>fila RAM limitada, persistência seletiva, timestamps somente com relógio válido e rate limit</td>
+</tr>
+<tr>
+<td>Configuração remota</td>
+<td>Sim, restrita</td>
+<td>schema versionado, allowlist, limites locais imutáveis e auditoria; parâmetros críticos exigem política separada</td>
+</tr>
+</tbody>
+</table>
+<h2 id="regras-especificas-para-ota">Regras específicas para OTA<a class="headerlink" href="#regras-especificas-para-ota" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A tabela atual já possui dois slots de 1,25 MiB e <code>otadata</code>.</li>
+<li>OTA só inicia com bomba desligada, sem delay, sem cooldown transitório e em política de estado seguro validada em bancada.</li>
+<li>Bloquear novos ciclos durante a janela de instalação.</li>
+<li>Download por HTTPS com CA/hostname validados; manifesto autenticado e imagem assinada.</li>
+<li>Verificar tamanho antes de escrever e manter margem mínima definida no CI.</li>
+<li>Após reboot, executar autoteste sem acionar bomba; só então marcar a imagem válida.</li>
+<li>Em falha, rollback automático para a imagem anterior.</li>
+<li>Secure Boot, Flash Encryption e anti-rollback exigem processo de fabricação/eFuse e não devem ser ativados improvisadamente em unidades de desenvolvimento.</li>
+</ul>
+<h2 id="regras-especificas-para-mqtt">Regras específicas para MQTT<a class="headerlink" href="#regras-especificas-para-mqtt" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Produção: <code>mqtt.revolushower.com</code>; desenvolvimento: <code>mqtt.dev.revolushower.com</code>.</li>
+<li>Identidade e certificado únicos por Master.</li>
+<li>Master assina apenas <code>devices/{deviceId}/commands</code> e publica somente seus <code>state</code>, <code>events</code> e <code>results</code>.</li>
+<li>Backend é o único publicador de comandos.</li>
+<li>Payload mínimo: versão, <code>requestId</code>, <code>deviceId</code>, comando, origem, parâmetros, <code>issuedAt</code>, <code>expiresAt</code> e sequência/nonce.</li>
+<li>QoS não substitui idempotência; mensagens duplicadas devem retornar o resultado anterior.</li>
+<li>Comando expirado, fora de ordem ou destinado a outro Master é rejeitado.</li>
+<li>Estado retained só pode conter snapshot não sensível e confirmado; comandos não devem ser retained.</li>
+</ul>
+<h2 id="regras-especificas-para-agendamento">Regras específicas para agendamento<a class="headerlink" href="#regras-especificas-para-agendamento" title="Permanent link">&para;</a></h2>
+<ul>
+<li>O backend calcula horário/fuso e dispara o comando.</li>
+<li>O Master recebe apenas uma solicitação normal com origem <code>SCHEDULE</code>.</li>
+<li>Offline significa não executar na primeira versão; política de retry/notificação continua decisão de produto.</li>
+<li>Horário válido é obrigatório para expiração, mas não altera os timers locais baseados em <code>millis()</code>.</li>
+<li>Reinício do Master não pode reconstruir ou executar programação antiga.</li>
+</ul>
+<h2 id="catalogo-de-implementacao">Catálogo de implementação<a class="headerlink" href="#catalogo-de-implementacao" title="Permanent link">&para;</a></h2>
+<h3 id="gate-0-preservar-e-medir">Gate 0 — preservar e medir<a class="headerlink" href="#gate-0-preservar-e-medir" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Congelar baseline binário e mapa de pinos.</li>
+<li>Criar roteiro de bancada para todas as origens e transições.</li>
+<li>Medir relés em boot/reset/brownout e sensor mantido ativo.</li>
+<li>Definir o watchdog absoluto separado do limite mecânico (<code>BUG-003</code>).</li>
+</ol>
+<h3 id="gate-1-tornar-o-nucleo-observavel">Gate 1 — tornar o núcleo observável<a class="headerlink" href="#gate-1-tornar-o-nucleo-observavel" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Criar <code>MasterStateSnapshot</code> somente leitura.</li>
+<li>Fazer solicitações retornarem resultado explícito.</li>
+<li>Centralizar início/cancelamento em <code>CommandGateway</code>.</li>
+<li>Mover registro de eventos para transições confirmadas.</li>
+<li>Adicionar testes host/simulados para estado e timers, sem GPIO real.</li>
+</ol>
+<h3 id="gate-2-remover-bloqueios-do-caminho-de-seguranca">Gate 2 — remover bloqueios do caminho de segurança<a class="headerlink" href="#gate-2-remover-bloqueios-do-caminho-de-seguranca" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Substituir polling HTTP legado por adaptador desacoplado.</li>
+<li>Remover <code>delay()</code> e requisições longas do loop de controle.</li>
+<li>Implementar reconexão Wi-Fi com backoff sem scan contínuo.</li>
+<li>Separar filas de comunicação de eventos críticos.</li>
+</ol>
+<h3 id="gate-3-mqtt-seguro">Gate 3 — MQTT seguro<a class="headerlink" href="#gate-3-mqtt-seguro" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Definir schema e tópicos versionados.</li>
+<li>Provisionar certificado individual e CA.</li>
+<li>Implementar TLS mútuo, ACL, reconexão e last will.</li>
+<li>Implementar idempotência, expiração, anti-replay e resultado confirmado.</li>
+<li>Validar start/cancel concorrentes, offline e duplicação.</li>
+</ol>
+<h3 id="gate-4-provisionamento-e-credenciais">Gate 4 — provisionamento e credenciais<a class="headerlink" href="#gate-4-provisionamento-e-credenciais" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Implementar BLE autenticado com janela física.</li>
+<li>Manter SoftAP como fallback, com senha individual e sessão autenticada.</li>
+<li>Versionar/migrar NVS e proteger material sensível.</li>
+<li>Definir emissão, rotação e revogação de certificado.</li>
+</ol>
+<h3 id="gate-5-ota-seguro">Gate 5 — OTA seguro<a class="headerlink" href="#gate-5-ota-seguro" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Criar manifesto, assinatura e pipeline de release.</li>
+<li>Implementar download HTTPS e validação.</li>
+<li>Definir estado seguro, autoteste, confirmação e rollback.</li>
+<li>Testar falta de energia em download, escrita, reboot e confirmação.</li>
+<li>Validar orçamento de flash com MQTT e BLE habilitados.</li>
+</ol>
+<h3 id="gate-6-agendamento-e-canais">Gate 6 — agendamento e canais<a class="headerlink" href="#gate-6-agendamento-e-canais" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Aceitar origem <code>SCHEDULE</code> pelo contrato canônico.</li>
+<li>Publicar rejeição por cooldown, ocupado, offline ou falha.</li>
+<li>Permitir cancelamento por canal diferente do início.</li>
+<li>Validar convergência entre backend, mobile e futura Alexa.</li>
+</ol>
+<h2 id="criterios-minimos-antes-de-producao">Critérios mínimos antes de produção<a class="headerlink" href="#criterios-minimos-antes-de-producao" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Build reproduzível e orçamento de RAM/flash no CI.</li>
+<li>Zero <code>setInsecure()</code> e zero segredo global gravado no código.</li>
+<li>Nenhum caminho externo escreve GPIO diretamente.</li>
+<li>Testes de bancada para boot, reset, brownout, offline, duplicação, timeout e falhas OTA.</li>
+<li>Comandos só são concluídos após confirmação do Master.</li>
+<li>Bomba e aquecedor permanecem seguros durante indisponibilidade de rede.</li>
+<li>Certificado individual pode ser revogado sem afetar outros Masters.</li>
+<li>Rollback OTA testado fisicamente.</li>
+</ul>
+<h2 id="resultado-do-build-baseline">Resultado do build baseline<a class="headerlink" href="#resultado-do-build-baseline" title="Permanent link">&para;</a></h2>
+<p>Comando executado em 2026-08-30:</p>
+<div class="highlight"><pre><span></span><code><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">Administrator</span><span class="p">\.</span><span class="n">platformio</span><span class="p">\</span><span class="n">penv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">pio</span><span class="p">.</span><span class="n">exe</span> <span class="n">run</span> <span class="n">-e</span> <span class="n">master</span>
+</code></pre></div>
+<p>Resultado: sucesso; RAM 13,0% (42.532/327.680 bytes); flash 79,8% (1.046.396/1.310.720 bytes). Não houve upload nem teste físico nesta análise.</p>
+<h2 id="validacao-pendente-com-keyuser">Validação pendente com keyuser<a class="headerlink" href="#validacao-pendente-com-keyuser" title="Permanent link">&para;</a></h2>
+<p>A mensagem do keyuser sobre acionamento mecânico versus eletrônico foi analisada e registrada em <a href="../KEYUSER_VALIDATION_ACTIVATION_MODES/"><code>KEYUSER_VALIDATION_ACTIVATION_MODES.md</code></a>. A análise confirma que o firmware distingue conceitualmente as origens, mas aplica <code>maxOnSensorMs</code> a qualquer origem. A separação entre limite mecânico, duração eletrônica e watchdog absoluto aguarda aceite do comportamento de transição e testes de bancada.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

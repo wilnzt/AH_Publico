@@ -1,0 +1,611 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação técnica e funcional do projeto AquaHeat">
+      
+      
+      
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/client/ROADMAP_PUBLICACAO_PRODUCAO/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Revolushower — Roadmap de publicação e entrada em produção - AquaHeat — Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revolushower-roadmap-de-publicacao-e-entrada-em-producao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="AquaHeat — Documentação" class="md-header__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AquaHeat — Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Revolushower — Roadmap de publicação e entrada em produção
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Usar modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Usar modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AquaHeat — Documentação" class="md-nav__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AquaHeat — Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pontos-criticos-prioritarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pontos críticos prioritários
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pontos críticos prioritários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-homologacao-anatel-e-conformidade-do-produto-fisico-bloqueador-comercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Homologação Anatel e conformidade do produto físico — bloqueador comercial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-manuais-e-instrucoes-de-instalacao-bloqueador-de-vendauso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Manuais e instruções de instalação — bloqueador de venda/uso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-instalacao-fabricacao-e-rastreabilidade-bloqueador-operacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Instalação, fabricação e rastreabilidade — bloqueador operacional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-suporte-garantia-e-pos-venda-bloqueador-comercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Suporte, garantia e pós-venda — bloqueador comercial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-operacao-e-continuidade-bloqueador-de-producao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Operação e continuidade — bloqueador de produção
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gates-do-lancamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gates do lançamento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-play-itens-de-publicacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Play — itens de publicação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-gono-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist go/no-go
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisoes-esperadas-do-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisões esperadas do cliente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="revolushower-roadmap-de-publicacao-e-entrada-em-producao">Revolushower — Roadmap de publicação e entrada em produção<a class="headerlink" href="#revolushower-roadmap-de-publicacao-e-entrada-em-producao" title="Permanent link">&para;</a></h1>
+<p><strong>Material executivo para reunião com o cliente</strong><br />
+<strong>Data:</strong> 31/08/2026<br />
+<strong>Escopo:</strong> aplicativo Android na Google Play e produto completo em operação comercial</p>
+<h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Transformar as premissas de firmware, infraestrutura AWS e aplicativo prontos em um lançamento controlado, comercializável, instalável, suportável e reversível.</p>
+<p>Publicar o aplicativo é apenas um gate. O lançamento final depende também do produto físico, homologações, manuais, instalação, suporte, garantia, rastreabilidade e operação pós-venda.</p>
+<h2 id="pontos-criticos-prioritarios">Pontos críticos prioritários<a class="headerlink" href="#pontos-criticos-prioritarios" title="Permanent link">&para;</a></h2>
+<h3 id="1-homologacao-anatel-e-conformidade-do-produto-fisico-bloqueador-comercial">1. Homologação Anatel e conformidade do produto físico — bloqueador comercial<a class="headerlink" href="#1-homologacao-anatel-e-conformidade-do-produto-fisico-bloqueador-comercial" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Confirmar o enquadramento com um OCD.</li>
+<li>Validar módulo ESP32-C3, antena, fonte, placa, gabinete e alterações de hardware.</li>
+<li>Preparar dossiê técnico e relatórios de ensaio.</li>
+<li>Confirmar necessidade de Anatel, Inmetro, EMC, segurança elétrica, IP, umidade e demais avaliações aplicáveis.</li>
+<li>Definir selo, marcações, etiquetas, embalagem e manual.</li>
+<li>Criar processo para avaliar alterações futuras de hardware, antena e firmware.</li>
+</ul>
+<p><strong>Dependências:</strong> hardware comercial congelado, fornecedor definido, esquemas, BOM, firmware e manual.<br />
+<strong>Saída:</strong> produto liberado para comercialização conforme o enquadramento regulatório.</p>
+<h3 id="2-manuais-e-instrucoes-de-instalacao-bloqueador-de-vendauso">2. Manuais e instruções de instalação — bloqueador de venda/uso<a class="headerlink" href="#2-manuais-e-instrucoes-de-instalacao-bloqueador-de-vendauso" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Manual do usuário em português.</li>
+<li>Manual de instalação elétrica e hidráulica.</li>
+<li>Guia rápido de configuração Wi-Fi/BLE/QR Code.</li>
+<li>Instruções de segurança, riscos, limites e falhas.</li>
+<li>Procedimento de reset, troca de rede e recuperação.</li>
+<li>Identificação de LEDs, botões, estados e mensagens do app.</li>
+<li>Checklist de validação da instalação.</li>
+<li>Instruções de manutenção, assistência e descarte.</li>
+</ul>
+<p><strong>Dependências:</strong> comportamento final do Master, hardware comercial, análise de riscos, homologações e fluxo final do app.</p>
+<h3 id="3-instalacao-fabricacao-e-rastreabilidade-bloqueador-operacional">3. Instalação, fabricação e rastreabilidade — bloqueador operacional<a class="headerlink" href="#3-instalacao-fabricacao-e-rastreabilidade-bloqueador-operacional" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Definir responsável e qualificação para instalação.</li>
+<li>Criar checklist de instalação e aceite em campo.</li>
+<li>Criar teste de fim de linha de cada unidade.</li>
+<li>Registrar lote, serial, revisão de hardware, firmware e certificado.</li>
+<li>Gerar QR Code/identidade de cada Master.</li>
+<li>Definir troca, recuperação e tratamento de unidade defeituosa.</li>
+<li>Validar embalagem, acessórios, fonte e etiquetas.</li>
+</ul>
+<h3 id="4-suporte-garantia-e-pos-venda-bloqueador-comercial">4. Suporte, garantia e pós-venda — bloqueador comercial<a class="headerlink" href="#4-suporte-garantia-e-pos-venda-bloqueador-comercial" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Definir canais, horários, responsáveis e SLA.</li>
+<li>Criar roteiro de diagnóstico do app, rede, Master e instalação.</li>
+<li>Definir garantia, exclusões, troca e reparo.</li>
+<li>Criar processo de incidente, recall e comunicação ao cliente.</li>
+<li>Preparar base de conhecimento e treinamento dos instaladores.</li>
+</ul>
+<h3 id="5-operacao-e-continuidade-bloqueador-de-producao">5. Operação e continuidade — bloqueador de produção<a class="headerlink" href="#5-operacao-e-continuidade-bloqueador-de-producao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Monitorar API, banco, broker MQTT, certificados, domínios, disco e backups.</li>
+<li>Testar restauração de backup.</li>
+<li>Definir plantão e responsáveis por incidentes.</li>
+<li>Criar runbooks para backend indisponível, Master offline, comando preso e falha de OTA.</li>
+<li>Definir rollback de backend, app e firmware.</li>
+<li>Definir janela de manutenção e comunicação de indisponibilidade.</li>
+</ul>
+<h2 id="gates-do-lancamento">Gates do lançamento<a class="headerlink" href="#gates-do-lancamento" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Aceite executivo:</strong> escopo, público, modelo comercial, hardware, responsáveis e suporte.</li>
+<li><strong>Produto e regulatório:</strong> classificação, OCD, ensaios, homologação, rotulagem, embalagem e documentação.</li>
+<li><strong>Prontidão de campo:</strong> manuais, instalação, teste de fábrica, rastreabilidade, garantia e treinamento.</li>
+<li><strong>Homologação integrada:</strong> app, backend, MQTT, firmware e Master real, incluindo offline e falhas.</li>
+<li><strong>Pacote Google Play:</strong> conta, assinatura, App Bundle, API alvo, metadados, Data Safety, privacidade, conta de revisão e testes.</li>
+<li><strong>Produção controlada:</strong> percentual ou região limitada, monitoramento e expansão após estabilidade.</li>
+<li><strong>Operação assistida:</strong> suporte intensivo, incidentes, métricas e backlog pós-lançamento.</li>
+</ol>
+<h2 id="google-play-itens-de-publicacao">Google Play — itens de publicação<a class="headerlink" href="#google-play-itens-de-publicacao" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Conta Play Console e propriedade sob controle do cliente.</li>
+<li>Identidade, pagamentos, contatos e verificação do desenvolvedor.</li>
+<li>App Bundle (<code>.aab</code>) assinado e chave de upload protegida.</li>
+<li>Pacote, versionamento, ambiente produtivo e API alvo compatível.</li>
+<li>Ícone, descrições, screenshots, categoria, classificação e países.</li>
+<li>Política de Privacidade pública e formulário Data Safety coerente com o app/SDKs.</li>
+<li>Fluxo de exclusão de conta, se houver criação de conta.</li>
+<li>Conta demo, QR Code, Master de teste e instruções para revisão.</li>
+<li>Testes interno, fechado e ponta a ponta.</li>
+<li>Para conta pessoal criada após 13/11/2023: teste fechado com 12 testadores por 14 dias consecutivos e solicitação de acesso à produção.</li>
+</ul>
+<h2 id="checklist-gono-go">Checklist go/no-go<a class="headerlink" href="#checklist-gono-go" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Homologação e conformidades aplicáveis concluídas.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Manuais de usuário, instalação e segurança aprovados.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Instalação, teste de fim de linha e rastreabilidade definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Garantia, assistência, troca e suporte preparados.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> App, backend, MQTT, firmware e hardware testados juntos.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Backup/restauração e rollback testados.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Revisão da Google executa o fluxo principal.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Data Safety corresponde ao app real.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Não existem credenciais padrão ou TLS inseguro em produção.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Equipe de operação e suporte escalada.</li>
+</ul>
+<h2 id="decisoes-esperadas-do-cliente">Decisões esperadas do cliente<a class="headerlink" href="#decisoes-esperadas-do-cliente" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Responsável legal e proprietário das contas Google, AWS, domínios e certificados.</li>
+<li>Liberação comercial condicionada à homologação e conformidades aplicáveis.</li>
+<li>Responsável pela instalação, aceite e suporte de campo.</li>
+<li>Modelo de garantia, troca, assistência e SLA.</li>
+<li>Lote/piloto inicial e critério para ampliar a publicação.</li>
+<li>Aprovadores dos manuais, embalagem, etiquetas e materiais comerciais.</li>
+</ol>
+<h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../compliance/DOCUMENTATION_REGISTER/">Registro mestre de documentação e compliance</a></li>
+<li><a href="../../project/TASKS.md">Tarefas do projeto</a></li>
+<li><a href="../../project/STATUS.md">Status atual</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/14151465?hl=en-GB">Requisito de testes da Google Play</a></li>
+<li><a href="https://developer.android.com/google/play/requirements/target-sdk">Requisito de API alvo</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

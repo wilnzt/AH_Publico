@@ -1,0 +1,1031 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação técnica e funcional do projeto AquaHeat">
+      
+      
+      
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_SCOPE_FROM_DESIGN/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Revolushower — Escopo mobile derivado das telas conceituais - AquaHeat — Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revolushower-escopo-mobile-derivado-das-telas-conceituais" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="AquaHeat — Documentação" class="md-header__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AquaHeat — Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Revolushower — Escopo mobile derivado das telas conceituais
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Usar modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Usar modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AquaHeat — Documentação" class="md-nav__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AquaHeat — Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontes-analisadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fontes analisadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classificacao-de-viabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classificação de viabilidade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capacidades-confirmadas-do-produto-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacidades confirmadas do produto atual
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capacidades confirmadas do produto atual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Master
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitacoes-confirmadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitações confirmadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leitura-das-telas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leitura das telas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Leitura das telas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tela-1-controle-do-banho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela 1 — controle do banho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tela-2-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela 2 — segurança
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tela-3-consumo-e-historico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela 3 — consumo e histórico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tela-4-preferencias-e-agendamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela 4 — preferências e agendamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tela-5-dashboard-consolidado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela 5 — dashboard consolidado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matriz-funcional-consolidada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz funcional consolidada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escopo-base-recomendado-do-aplicativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escopo-base recomendado do aplicativo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Escopo-base recomendado do aplicativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mvp-confirmado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MVP confirmado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-2-sem-novo-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2 — sem novo hardware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fora-do-escopo-confirmado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fora do escopo confirmado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contrato-minimo-a-expor-pelo-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contrato mínimo a expor pelo firmware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contrato mínimo a expor pelo firmware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras arquiteturais
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-aceite-para-consolidar-o-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critérios de aceite para consolidar o MVP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questoes-abertas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questões abertas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Questões abertas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decisao-de-provisionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisão de provisionamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="revolushower-escopo-mobile-derivado-das-telas-conceituais">Revolushower — Escopo mobile derivado das telas conceituais<a class="headerlink" href="#revolushower-escopo-mobile-derivado-das-telas-conceituais" title="Permanent link">&para;</a></h1>
+<p>Atualizado em 2026-08-22.</p>
+<h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Este documento transforma as cinco imagens de <code>mobile/designconcept/</code> em um catálogo funcional e confronta cada proposta com o firmware Master atualmente em escopo.</p>
+<p>O firmware e o hardware confirmado delimitam o escopo inicial. As telas são fontes de intenção visual, não prova de capacidade implementada.</p>
+<h2 id="fontes-analisadas">Fontes analisadas<a class="headerlink" href="#fontes-analisadas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>PHOTO-2026-08-20-13-56-36.jpg</code> — controle do banho;</li>
+<li><code>PHOTO-2026-08-20-13-56-42.jpg</code> — segurança;</li>
+<li><code>PHOTO-2026-08-20-13-56-42_1.jpg</code> — consumo;</li>
+<li><code>PHOTO-2026-08-20-13-56-42_2.jpg</code> — preferências e agendamento;</li>
+<li><code>PHOTO-2026-08-20-13-56-52.jpg</code> — dashboard consolidado;</li>
+<li><code>firmware/src/ActionManager.*</code> — atuadores, fluxo, timers e segurança;</li>
+<li><code>firmware/src/MasterApp.cpp</code> — Wi-Fi, web e orquestração;</li>
+<li><code>firmware/src/ApiManager.*</code> — integração HTTP legada;</li>
+<li><code>firmware/src/Storage.*</code> — configurações e persistência.</li>
+</ul>
+<h2 id="classificacao-de-viabilidade">Classificação de viabilidade<a class="headerlink" href="#classificacao-de-viabilidade" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>A — suportada no firmware:</strong> comportamento já existe, embora possa faltar exposição ao app.</li>
+<li><strong>B — extensão somente de firmware:</strong> hardware aparente é suficiente, mas faltam comando, estado, protocolo ou persistência.</li>
+<li><strong>C — backend/mobile:</strong> possível sem novo sensor/atuador, dependendo de serviços, banco ou aplicativo.</li>
+<li><strong>D — depende de hardware:</strong> exige sensor, medição ou atuador não encontrado.</li>
+<li><strong>E — indefinida/incompatível:</strong> intenção não possui semântica suficiente ou conflita com o mecanismo atual.</li>
+</ul>
+<h2 id="capacidades-confirmadas-do-produto-atual">Capacidades confirmadas do produto atual<a class="headerlink" href="#capacidades-confirmadas-do-produto-atual" title="Permanent link">&para;</a></h2>
+<h3 id="master">Master<a class="headerlink" href="#master" title="Permanent link">&para;</a></h3>
+<ul>
+<li>aciona a bomba por relé;</li>
+<li>detecta fluxo como sinal binário;</li>
+<li>controla o relé do aquecedor;</li>
+<li>aceita acionamento local, por sensor e via polling HTTP;</li>
+<li>aplica atraso, duração, limite máximo, cooldown e bloqueio do aquecedor;</li>
+<li>mantém configurações em memória não volátil;</li>
+<li>conecta-se ao Wi-Fi e oferece portal AP local;</li>
+<li>registra eventos HTTP com tipo e duração;</li>
+</ul>
+<h3 id="limitacoes-confirmadas">Limitações confirmadas<a class="headerlink" href="#limitacoes-confirmadas" title="Permanent link">&para;</a></h3>
+<p>Não foram encontrados sensor de temperatura, setpoint térmico, medidor quantitativo de vazão/volume, medidor de energia, válvula de corte, feedback de posição, autoteste, agendador persistente, MQTT, telemetria contínua, autenticação segura com o backend ou comando remoto explícito para cancelar um ciclo.</p>
+<h2 id="leitura-das-telas">Leitura das telas<a class="headerlink" href="#leitura-das-telas" title="Permanent link">&para;</a></h2>
+<h3 id="tela-1-controle-do-banho">Tela 1 — controle do banho<a class="headerlink" href="#tela-1-controle-do-banho" title="Permanent link">&para;</a></h3>
+<p>Propõe temperatura atual, duração, ajuste térmico, interrupção da água e perfil. A duração pode ser derivada do tempo de fluxo, mas hoje só é registrada como evento ao final; tempo real exige telemetria. Temperatura e ajuste dependem de hardware ausente. O Master pode parar a bomba, mas não pode interromper fisicamente a água. O comando deve ser reinterpretado como <strong>Cancelar pré-aquecimento</strong>.</p>
+<h3 id="tela-2-seguranca">Tela 2 — segurança<a class="headerlink" href="#tela-2-seguranca" title="Permanent link">&para;</a></h3>
+<p>Propõe estado “Sistema seguro”, limite de temperatura, prevenção de vazamento, limite de banho, volume máximo, válvula, saúde do sensor e autoteste. Existem proteções temporais, cooldown e bloqueio do aquecedor. O limite de fluxo contínuo é apenas parcialmente relacionado à duração do banho e precisa de validação. Não há medição térmica/volumétrica, diagnóstico do sensor, válvula ou autoteste. Um estado genérico de segurança deve ser substituído por estados concretos e verificáveis.</p>
+<h3 id="tela-3-consumo-e-historico">Tela 3 — consumo e histórico<a class="headerlink" href="#tela-3-consumo-e-historico" title="Permanent link">&para;</a></h3>
+<p>Propõe litros, kWh, custo e séries históricas. O firmware registra tipo e duração de eventos, permitindo histórico de ciclos. Não mede litros ou energia. Esses valores só poderiam ser estimativas formalmente aprovadas e rotuladas; não podem ser apresentados como medição.</p>
+<h3 id="tela-4-preferencias-e-agendamento">Tela 4 — preferências e agendamento<a class="headerlink" href="#tela-4-preferencias-e-agendamento" title="Permanent link">&para;</a></h3>
+<p>Propõe temperatura preferida, agenda, pré-aquecimento, modo Eco, limite em L/min e alertas. Agendamento e alertas são extensões possíveis de software. Temperatura e L/min dependem de hardware. “Modo Eco” não possui regra funcional. A execução offline do agendamento precisa ser decidida.</p>
+<h3 id="tela-5-dashboard-consolidado">Tela 5 — dashboard consolidado<a class="headerlink" href="#tela-5-dashboard-consolidado" title="Permanent link">&para;</a></h3>
+<p>Propõe temperatura/vazão atuais e alvo, duração, segurança, consumo e preferências. Navegação, duração e estado do ciclo são viáveis com telemetria. Temperatura e vazão quantitativa dependem de hardware. Segurança deve mostrar estados como <code>disponível</code>, <code>aguardando delay</code>, <code>bomba ativa</code>, <code>cooldown</code>, <code>aquecedor bloqueado</code>, <code>offline</code> e <code>falha</code>.</p>
+<h2 id="matriz-funcional-consolidada">Matriz funcional consolidada<a class="headerlink" href="#matriz-funcional-consolidada" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Funcionalidade proposta</th>
+<th>Evidência atual</th>
+<th>Classe</th>
+<th>Escopo recomendado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APP-001</td>
+<td>Cadastro/login de usuário</td>
+<td>Sem suporte embarcado; necessário para o serviço</td>
+<td>C</td>
+<td>MVP backend/mobile</td>
+</tr>
+<tr>
+<td>APP-002</td>
+<td>Associar usuário ao Device ID</td>
+<td>Device ID persistido no Master</td>
+<td>B/C</td>
+<td>MVP após definir provisionamento seguro</td>
+</tr>
+<tr>
+<td>APP-003</td>
+<td>Configurar Wi-Fi do Master</td>
+<td>BLE será plano A; portal AP permanece fallback</td>
+<td>A/B</td>
+<td>MVP, com botão físico, janela BLE e recuperação AP</td>
+</tr>
+<tr>
+<td>APP-004</td>
+<td>Acionar pré-aquecimento remotamente</td>
+<td>Polling HTTP já aciona a bomba</td>
+<td>A/B/C</td>
+<td>MVP, com contrato novo e autenticação</td>
+</tr>
+<tr>
+<td>APP-005</td>
+<td>Cancelar pré-aquecimento</td>
+<td><code>deactivatePump()</code> existe, sem comando remoto público</td>
+<td>B</td>
+<td>MVP após análise de estados e segurança</td>
+</tr>
+<tr>
+<td>APP-006</td>
+<td>Mostrar disponibilidade</td>
+<td>Estados internos não são publicados</td>
+<td>B/C</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>APP-007</td>
+<td>Mostrar progresso/duração</td>
+<td>Timers existem; falta telemetria</td>
+<td>B/C</td>
+<td>MVP</td>
+</tr>
+<tr>
+<td>APP-008</td>
+<td>Mostrar origem do acionamento</td>
+<td>Eventos local, fluxo e web existem no recorte atual</td>
+<td>A/C</td>
+<td>MVP histórico</td>
+</tr>
+<tr>
+<td>APP-009</td>
+<td>Histórico de ciclos/eventos</td>
+<td>POST <code>/reads</code> envia tipo, data e duração</td>
+<td>A/C</td>
+<td>MVP com backend/banco novos</td>
+</tr>
+<tr>
+<td>APP-010</td>
+<td>Configurar tempos permitidos</td>
+<td>Persistência e portal web existentes</td>
+<td>A/B</td>
+<td>Administração avançada e segura</td>
+</tr>
+<tr>
+<td>APP-011</td>
+<td>Exibir cooldown/bloqueio</td>
+<td>Estados internos existentes</td>
+<td>B/C</td>
+<td>MVP de diagnóstico</td>
+</tr>
+<tr>
+<td>APP-013</td>
+<td>Agendar pré-aquecimento</td>
+<td>Não implementado</td>
+<td>B/C</td>
+<td>Fase 2; definir execução offline</td>
+</tr>
+<tr>
+<td>APP-014</td>
+<td>Alertas operacionais</td>
+<td>Eventos parciais; falhas não estruturadas</td>
+<td>B/C</td>
+<td>Fase 2</td>
+</tr>
+<tr>
+<td>APP-015</td>
+<td>Perfil e preferências</td>
+<td>Não implementado</td>
+<td>C</td>
+<td>MVP mínimo</td>
+</tr>
+<tr>
+<td>APP-016</td>
+<td>Temperatura atual</td>
+<td>Sensor não encontrado</td>
+<td>D</td>
+<td>Fora do escopo confirmado</td>
+</tr>
+<tr>
+<td>APP-017</td>
+<td>Ajustar temperatura/setpoint</td>
+<td>Sensor/atuador não encontrados</td>
+<td>D</td>
+<td>Fora do escopo confirmado</td>
+</tr>
+<tr>
+<td>APP-018</td>
+<td>Vazão em L/min</td>
+<td>Sensor atual é binário</td>
+<td>D</td>
+<td>Fora do escopo confirmado</td>
+</tr>
+<tr>
+<td>APP-019</td>
+<td>Água em litros</td>
+<td>Sem medição volumétrica</td>
+<td>D</td>
+<td>Fora; estimativa futura aprovada</td>
+</tr>
+<tr>
+<td>APP-020</td>
+<td>Energia em kWh</td>
+<td>Sem medição elétrica</td>
+<td>D</td>
+<td>Fora; estimativa futura aprovada</td>
+</tr>
+<tr>
+<td>APP-021</td>
+<td>Custo mensal</td>
+<td>Depende de consumo e tarifa</td>
+<td>C/D</td>
+<td>Fora do MVP; eventual estimativa rotulada</td>
+</tr>
+<tr>
+<td>APP-022</td>
+<td>Desligar fisicamente a água</td>
+<td>Não há válvula controlada</td>
+<td>D</td>
+<td>Renomear para cancelar pré-aquecimento</td>
+</tr>
+<tr>
+<td>APP-023</td>
+<td>Válvula de segurança</td>
+<td>Não encontrada</td>
+<td>D</td>
+<td>Fora do escopo confirmado</td>
+</tr>
+<tr>
+<td>APP-024</td>
+<td>Prevenção de vazamento</td>
+<td>Apenas fluxo binário e timeout</td>
+<td>D/E</td>
+<td>Não prometer sem hardware e ensaios</td>
+</tr>
+<tr>
+<td>APP-025</td>
+<td>Limite máximo de temperatura</td>
+<td>Sem temperatura</td>
+<td>D</td>
+<td>Fora do escopo confirmado</td>
+</tr>
+<tr>
+<td>APP-026</td>
+<td>Limite de duração do banho</td>
+<td>Proteção temporal parcialmente relacionada</td>
+<td>A/B</td>
+<td>Validar semântica e segurança</td>
+</tr>
+<tr>
+<td>APP-027</td>
+<td>Limite de consumo em litros/L/min</td>
+<td>Sem medição quantitativa</td>
+<td>D</td>
+<td>Fora do escopo confirmado</td>
+</tr>
+<tr>
+<td>APP-028</td>
+<td>Autoteste/saúde dos componentes</td>
+<td>Não implementado</td>
+<td>B/D</td>
+<td>Fase futura; depende de feedback observável</td>
+</tr>
+<tr>
+<td>APP-029</td>
+<td>Modo Eco</td>
+<td>Sem definição funcional</td>
+<td>E</td>
+<td>Decisão de produto necessária</td>
+</tr>
+<tr>
+<td>APP-030</td>
+<td>Indicador “Sistema seguro”</td>
+<td>Sem modelo formal de saúde</td>
+<td>B/E</td>
+<td>Substituir por estados verificáveis</td>
+</tr>
+</tbody>
+</table>
+<h2 id="escopo-base-recomendado-do-aplicativo">Escopo-base recomendado do aplicativo<a class="headerlink" href="#escopo-base-recomendado-do-aplicativo" title="Permanent link">&para;</a></h2>
+<h3 id="mvp-confirmado">MVP confirmado<a class="headerlink" href="#mvp-confirmado" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Conta e autenticação.</li>
+<li>Cadastro de instalação e associação segura ao Device ID.</li>
+<li>Provisionamento/configuração de rede do Master.</li>
+<li>Lista e estado online/offline dos dispositivos.</li>
+<li>Acionamento remoto de pré-aquecimento.</li>
+<li>Cancelamento seguro do pré-aquecimento, após extensão do firmware.</li>
+<li>Estado operacional verificável.</li>
+<li>Duração/progresso do ciclo.</li>
+<li>Confirmação: solicitado, aceito, rejeitado, concluído, cancelado ou expirado.</li>
+<li>Histórico com origem, início, fim, duração e resultado.</li>
+<li>Perfil básico e gestão da instalação.</li>
+<li>Configuração administrativa dos tempos suportados, com faixas validadas.</li>
+</ol>
+<h3 id="fase-2-sem-novo-hardware">Fase 2 — sem novo hardware<a class="headerlink" href="#fase-2-sem-novo-hardware" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Agendamento com política offline definida.</li>
+<li>Alertas de falhas e indisponibilidade.</li>
+<li>Diagnóstico remoto e versão de firmware.</li>
+<li>OTA seguro com rollback.</li>
+<li>Métricas agregadas de ciclos e tempo de funcionamento.</li>
+</ol>
+<h3 id="fora-do-escopo-confirmado">Fora do escopo confirmado<a class="headerlink" href="#fora-do-escopo-confirmado" title="Permanent link">&para;</a></h3>
+<ul>
+<li>temperatura e controle térmico;</li>
+<li>vazão em L/min;</li>
+<li>litros consumidos/economizados medidos;</li>
+<li>energia em kWh medida e custo real;</li>
+<li>corte da água e válvula de segurança;</li>
+<li>prevenção de vazamento certificada;</li>
+<li>limite volumétrico e autoteste completo;</li>
+<li>modo Eco sem regra definida.</li>
+</ul>
+<h2 id="contrato-minimo-a-expor-pelo-firmware">Contrato mínimo a expor pelo firmware<a class="headerlink" href="#contrato-minimo-a-expor-pelo-firmware" title="Permanent link">&para;</a></h2>
+<h3 id="estado">Estado<a class="headerlink" href="#estado" title="Permanent link">&para;</a></h3>
+<ul>
+<li>identidade e versão;</li>
+<li>conectividade e estado operacional;</li>
+<li>bomba, fluxo binário e aquecedor;</li>
+<li>atraso, tempo restante e cooldown;</li>
+<li>origem do ciclo;</li>
+<li>último erro e motivo de rejeição.</li>
+</ul>
+<h3 id="comandos">Comandos<a class="headerlink" href="#comandos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>solicitar pré-aquecimento;</li>
+<li>cancelar ciclo;</li>
+<li>consultar estado;</li>
+<li>consultar/alterar configurações autorizadas;</li>
+<li>confirmar aplicação da configuração;</li>
+<li>iniciar provisionamento/manutenção autorizados.</li>
+</ul>
+<h3 id="eventos">Eventos<a class="headerlink" href="#eventos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>comando recebido, aceito ou rejeitado;</li>
+<li>bomba iniciada/parada;</li>
+<li>fluxo iniciado/encerrado;</li>
+<li>aquecedor bloqueado/liberado;</li>
+<li>timeout/cooldown;</li>
+<li>reinício e conectividade;</li>
+<li>configuração alterada.</li>
+</ul>
+<h2 id="regras-arquiteturais">Regras arquiteturais<a class="headerlink" href="#regras-arquiteturais" title="Permanent link">&para;</a></h2>
+<ul>
+<li>o Master continua sendo autoridade final sobre comandos e segurança;</li>
+<li>backend, MQTT e mobile nunca contornam cooldown, bloqueios ou limites;</li>
+<li>o aplicativo não apresenta estimativa como medição;</li>
+<li>comandos são autenticados, idempotentes e confirmados;</li>
+<li>a operação segura local não depende da Internet;</li>
+<li>parâmetros de segurança exigem faixas, autorização, auditoria e bancada;</li>
+<li>MQTT será decidido depois do modelo de estados e comandos.</li>
+</ul>
+<h2 id="criterios-de-aceite-para-consolidar-o-mvp">Critérios de aceite para consolidar o MVP<a class="headerlink" href="#criterios-de-aceite-para-consolidar-o-mvp" title="Permanent link">&para;</a></h2>
+<ul>
+<li>cada item possui evidência no firmware ou tarefa explícita de extensão;</li>
+<li>nenhuma tela mostra dados físicos sem hardware confirmado;</li>
+<li>comandos remotos passam pelas mesmas validações locais;</li>
+<li>estados do app correspondem a estados observáveis do Master;</li>
+<li>falha de Internet não impede proteção local;</li>
+<li>histórico distingue evento confirmado de estimativa;</li>
+<li>o contrato novo não depende do backend legado ausente.</li>
+</ul>
+<h2 id="questoes-abertas">Questões abertas<a class="headerlink" href="#questoes-abertas" title="Permanent link">&para;</a></h2>
+<ol>
+<li>O sensor de fluxo físico gera apenas nível lógico ou pulsos mensuráveis?</li>
+<li>Existe revisão de hardware não versionada com temperatura ou válvula?</li>
+<li>O cancelamento remoto da bomba é seguro em todos os estados?</li>
+<li>Quais parâmetros cabem a usuário, instalador e suporte?</li>
+<li>O agendamento executará localmente, no backend ou em ambos?</li>
+</ol>
+<h3 id="decisao-de-provisionamento">Decisão de provisionamento<a class="headerlink" href="#decisao-de-provisionamento" title="Permanent link">&para;</a></h3>
+<p>Plano A: o QR Code identifica o Master e o app envia as credenciais pelo BLE após o usuário pressionar o botão físico. O celular não precisa conectar manualmente ao AP. O AP/portal web legado será preservado como fallback de manutenção e recuperação.
+6. Qual é a regra objetiva do “Modo Eco”?
+7. Haverá múltiplos Masters por conta e nomes para instalações/ambientes?
+8. Quais estados sobrevivem a reinicialização e falta de energia?</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
