@@ -430,6 +430,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#conta-identidade-e-instalacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conta, identidade e instalações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#acionamentos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1525,6 +1536,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#conta-identidade-e-instalacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conta, identidade e instalações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#acionamentos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1653,6 +1675,16 @@
 <li>Device ID;</li>
 <li>credenciais/configurações do AP.</li>
 </ul>
+<h3 id="conta-identidade-e-instalacoes">Conta, identidade e instalações<a class="headerlink" href="#conta-identidade-e-instalacoes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>REQ-ID-001: o usuário cria a própria conta mobile.</li>
+<li>REQ-ID-002: a identidade da conta é validada por SMS.</li>
+<li>REQ-ID-003: uma conta pode administrar várias instalações em locais distintos.</li>
+<li>REQ-ID-004: uma instalação/Master pode ser compartilhada por várias pessoas autorizadas.</li>
+<li>REQ-ID-005: ações e programações registram e exibem quem as realizou.</li>
+<li>REQ-ID-006: a ativação usa QR Code; código manual ou <code>deviceId</code> impresso é fallback, nunca segredo único.</li>
+<li>REQ-ID-007: o setup inicial é executado por técnico em fluxo móvel rápido, sem suporte remoto obrigatório.</li>
+</ul>
 <h3 id="acionamentos">Acionamentos<a class="headerlink" href="#acionamentos" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Local pelo Master.</li>
@@ -1675,6 +1707,7 @@
 <li>comandos precisam ser idempotentes, ordenados, auditáveis e identificados por origem;</li>
 <li>todos os canais devem convergir para o estado confirmado pelo Master;</li>
 <li>vínculo Alexa exige autorização explícita e revogável da conta Revolushower.</li>
+<li>cada vínculo Alexa aponta para somente um Master, mesmo que a conta mobile tenha várias instalações.</li>
 </ul>
 <h3 id="seguranca">Segurança<a class="headerlink" href="#seguranca" title="Permanent link">&para;</a></h3>
 <ul>

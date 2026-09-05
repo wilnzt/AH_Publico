@@ -2071,16 +2071,37 @@
 <tr>
 <td>APP-001</td>
 <td>Cadastro/login de usuário</td>
-<td>Sem suporte embarcado; necessário para o serviço</td>
+<td>Sem suporte embarcado; necessário para o serviço; identidade validada por SMS</td>
 <td>C</td>
 <td>MVP backend/mobile</td>
 </tr>
 <tr>
 <td>APP-002</td>
 <td>Associar usuário ao Device ID</td>
-<td>Device ID persistido no Master</td>
+<td>Device ID persistido no Master; ativação por QR com fallback manual</td>
 <td>B/C</td>
-<td>MVP após definir provisionamento seguro</td>
+<td>MVP após definir claim seguro</td>
+</tr>
+<tr>
+<td>APP-002A</td>
+<td>Compartilhar instalação com vários usuários</td>
+<td>Não implementado no firmware; decisão dos keyusers</td>
+<td>C</td>
+<td>MVP backend/mobile com papéis, convites e auditoria</td>
+</tr>
+<tr>
+<td>APP-002B</td>
+<td>Alternar entre várias instalações na mesma conta</td>
+<td>Não implementado no firmware; decisão dos keyusers</td>
+<td>C</td>
+<td>MVP backend/mobile</td>
+</tr>
+<tr>
+<td>APP-002C</td>
+<td>Setup inicial por técnico em celular</td>
+<td>Não implementado; decisão dos keyusers</td>
+<td>C</td>
+<td>MVP de instalação, com sessão temporária</td>
 </tr>
 <tr>
 <td>APP-003</td>
