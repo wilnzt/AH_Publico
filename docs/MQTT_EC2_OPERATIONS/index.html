@@ -1373,6 +1373,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#acesso-de-rede-estado-em-2026-09-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acesso de rede — estado em 2026-09-09
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#retomada" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1407,7 +1418,7 @@
 <li>Domínio <code>mqtt.revolushower.com</code>, listener TCP 8883 IPv4/IPv6.</li>
 <li>Execução pela tarefa <code>Revolushower Mosquitto</code>, conta SYSTEM, gatilho no boot.</li>
 <li>Executável <code>C:\Program Files\mosquitto\mosquitto.exe</code>; argumentos <code>-c "C:\Program Files\mosquitto\mosquitto.conf"</code>; diretório de trabalho na pasta do executável.</li>
-<li>Tarefa sem limite de duração (<code>PT0S</code>), 3 tentativas de recuperação a intervalos de 1 minuto; instâncias concorrentes ignoradas. Reinício do servidor ainda não testado.</li>
+<li>Tarefa sem limite de duração (<code>PT0S</code>), 3 tentativas de recuperação a intervalos de 1 minuto; instâncias concorrentes ignoradas. Recuperação automática após reinício validada em 2026-09-09.</li>
 <li>Configuração ativa em <code>C:\Program Files\mosquitto\mosquitto.conf</code>. Existe cópia anterior em <code>C:\ProgramData\mosquitto\config\mosquitto.conf</code>; não presumir sincronização.</li>
 <li>Senhas em <code>C:\ProgramData\mosquitto\config\passwd</code>; usuário inicial <code>revolushower-dev</code>. Senhas e chaves não devem ser versionadas.</li>
 <li>Certificados PEM em <code>C:\ProgramData\mosquitto\certs</code>; <code>certfile</code> usa <code>mqtt.revolushower.com-chain.pem</code>, <code>keyfile</code> usa <code>mqtt.revolushower.com-key.pem</code>.</li>
@@ -1421,17 +1432,27 @@
 <li>Tarefa Running e porta 8883 em Listen.</li>
 <li>Conexão local para 127.0.0.1 com validação TLS do nome <code>mqtt.revolushower.com</code>: TLS 1.3, certificado aceito sem ignorar erros.</li>
 <li>MQTT 3.1.1 sem credenciais: CONNACK <code>20-02-00-05</code>, recusa de autorização esperada.</li>
-<li>Não houve teste autenticado pub/sub, teste externo ou comando ao ESP32 nesta etapa.</li>
+<li>Na sessão de 2026-09-08 ainda não houve teste autenticado pub/sub, teste externo ou comando ao ESP32.</li>
 </ul>
 <h2 id="certificado-e-renovacao">Certificado e renovação<a class="headerlink" href="#certificado-e-renovacao" title="Permanent link">&para;</a></h2>
 <p>win-acme em <code>C:\Tools\win-acme</code> emitiu o certificado via SelfHosting. Renovação registrada, próxima janela informada após 2026-11-03. Foram cadastradas três etapas PEM redundantes durante a navegação; revisar a renovação.</p>
 <p>A emissão ocorreu com IIS temporariamente parado. Renovação automática com IIS ativo ainda precisa ser validada, assim como recarga do certificado pelo broker. A validação FileSystem falhou para o desafio sem extensão, embora <code>teste.txt</code> retornasse 200: investigar suporte a arquivos sem extensão/web.config antes de atribuir a falha a DNS ou porta ocupada.</p>
+<h2 id="acesso-de-rede-estado-em-2026-09-09">Acesso de rede — estado em 2026-09-09<a class="headerlink" href="#acesso-de-rede-estado-em-2026-09-09" title="Permanent link">&para;</a></h2>
+<ul>
+<li>O Security Group da EC2 está limitado ao IP/rede pública utilizada pelo MacBook e pela ESP32 durante a bancada.</li>
+<li>O Firewall do Windows na EC2 possui uma regra permitindo TCP <code>8883</code> de qualquer origem (<code>RemoteAddress Any</code>), temporariamente para separar o diagnóstico do SG.</li>
+<li>Essa abertura ampla do firewall não deve ser mantida em produção; restringir ou remover a regra após a validação externa.</li>
+</ul>
+<p>Resultado validado em 2026-09-09: o MacBook conectou externamente ao broker na porta 8883 com TLS 1.2 e autenticação; publicação e assinatura no tópico de diagnóstico foram confirmadas. Nenhum tópico de comando do Master foi utilizado.</p>
+<p>O Mosquitto 2.1.2 passou a usar o plugin nativo <code>mosquitto_acl_file.dll</code>. O usuário de bancada <code>revolushower-dev</code> possui leitura/escrita apenas em <code>revolushower/dev/diagnostic/#</code>; os demais tópicos são negados por padrão. A prova foi feita com MQTT 5 e QoS 1: publicação proibida recebeu PUBACK <code>RC 135</code> (<code>Not authorized</code>) e publicação permitida recebeu <code>RC 16</code> (<code>No matching subscribers</code>), que confirma aceitação sem assinante ativo. <code>SUBACK 0</code> isolado não prova leitura, pois a entrega continua sujeita à verificação de ACL.</p>
+<p>Também foram validadas as identidades temporárias <code>backend-dev</code> e <code>master-test-001</code>: o backend publica em <code>dev/devices/master-test-001/commands</code>; o Master lê comandos e publica <code>state</code>, <code>results</code> e <code>events</code>; o backend lê essas três saídas. A tentativa do Master de publicar em <code>commands</code> recebeu PUBACK <code>RC 135</code>. O modelo sem segredos está em <code>infra/mqtt/mosquitto.acl.example</code>.</p>
+<p>Em 2026-09-09, a EC2 foi reiniciada de forma controlada. A tarefa iniciou automaticamente 19 segundos após o boot, permaneceu <code>Running</code>, abriu a porta 8883 em IPv4/IPv6, carregou o plugin ACL e aceitou reconexão externa autenticada de <code>backend-dev</code> por TLS 1.3. Não houve inicialização manual do broker.</p>
 <h2 id="retomada">Retomada<a class="headerlink" href="#retomada" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Testar publicação/assinatura autenticadas em tópico de diagnóstico, sem acionar hardware.</li>
-<li>Definir ACL por identidade/tópico; usuário de bancada não representa provisionamento de produção. mTLS individual continua como arquitetura pretendida.</li>
+<li>Evoluir a ACL de bancada validada para identidades separadas de backend e dispositivo; o usuário de bancada não representa provisionamento de produção. mTLS individual continua como arquitetura pretendida.</li>
 <li>Verificar firewall Windows e Security Group, depois testar externamente TLS/MQTT; não expor 1883.</li>
-<li>Validar recuperação no boot e renovação/recarga do certificado, revisar permissões da chave e arquivos persistidos.</li>
+<li>Validar renovação/recarga do certificado e revisar permissões da chave e arquivos persistidos; recuperação no boot já validada.</li>
 <li>Implementar cliente MQTT Master e integrar START_PREHEAT ao gateway; backend/mobile e fluxo completo continuam pendentes.</li>
 </ol>
 <p>O usuário autorizou operação direta do PowerShell nesta EC2. Solicitar intervenção apenas para hardware/Mac ou acessos indisponíveis. Sessão encerrada a pedido do usuário; continuar amanhã.</p>
