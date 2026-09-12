@@ -1351,6 +1351,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#aviso-de-agendamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aviso de agendamento
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1401,6 +1412,15 @@
 <li>Completar o círculo não significa sucesso por si só: o app deve aguardar a confirmação final do Master antes de mostrar “Pronto para usar”.</li>
 <li>Cancelamento, falha ou timeout interrompem a animação e exibem uma mensagem simples e objetiva.</li>
 <li>Quando a duração não estiver disponível, usar uma animação indeterminada de processamento, sem apresentar percentual falso.</li>
+</ul>
+<h3 id="aviso-de-agendamento">Aviso de agendamento<a class="headerlink" href="#aviso-de-agendamento" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ao criar um agendamento, o usuário pode escolher receber uma notificação alguns minutos antes do início do pré-aquecimento.</li>
+<li>O intervalo do aviso deve ser selecionável dentro das opções definidas pelo produto, com uma opção clara para não avisar.</li>
+<li>A notificação deve identificar a instalação correta e informar que o pré-aquecimento será iniciado em breve.</li>
+<li>A partir da notificação, o usuário deve conseguir abrir o agendamento para alterá-lo ou cancelá-lo antes do disparo.</li>
+<li>Alterações e cancelamentos exigem confirmação e devem atualizar o estado confirmado no backend.</li>
+<li>Se a instalação estiver offline no horário previsto, o app deve informar o ocorrido e aplicar a política definida para agendamentos offline; nunca deve afirmar que o aquecimento aconteceu sem confirmação do Master.</li>
 </ul>
 
 
