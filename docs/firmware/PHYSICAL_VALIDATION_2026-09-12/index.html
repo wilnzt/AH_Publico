@@ -1340,6 +1340,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#build-e-ota-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build e OTA final
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gate-fisico-pendente" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1379,10 +1390,16 @@
 <li>Após reboot: <code>GET_STATE</code>, <code>FIRMWARE_GET</code>, <code>CONFIG_GET</code> e <code>DIAGNOSTIC_RUN</code> concluídos. Configuração persistida sem alteração.</li>
 <li>Evidência real continuou disponível. Checklist <code>CONNECTIVITY</code>, <code>TIMES_CONFIRMED</code> e <code>EVIDENCE</code> marcado como aprovado com base nas verificações executadas.</li>
 <li>Gate de ativação testado: HTTP 409 controlado e <code>PHYSICAL_TESTS</code> corretamente informado como único item pendente.</li>
+<li>O usuário acompanhou o ensaio pelo monitor dos relés e confirmou que o relé da bomba acionou e desligou corretamente após os 10 segundos.</li>
+</ul>
+<h2 id="build-e-ota-final">Build e OTA final<a class="headerlink" href="#build-e-ota-final" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Build Master <code>0.2.8-dev</code>: 43.204 bytes de RAM e 1.052.970 bytes de flash no relatório PlatformIO; binário final 1.093.440 bytes, SHA-256 <code>31b863f2f07456132cb1b28dbe82b002175b26f36f02e2a5c7e26937e9b6652b</code>.</li>
+<li>OTA <code>0.2.8-dev</code> iniciado pelo painel, reinicialização concluída e versão pós-boot confirmada no backend.</li>
 </ul>
 <h2 id="gate-fisico-pendente">Gate físico pendente<a class="headerlink" href="#gate-fisico-pendente" title="Permanent link">&para;</a></h2>
-<p>O <code>DIAGNOSTIC_RUN</code> da versão atual é somente leitura e não aciona bomba/aquecedor. <code>START_PREHEAT</code> é corretamente recusado enquanto o Master está bloqueado, enquanto a ativação exige <code>PHYSICAL_TESTS</code>. Portanto, existe uma dependência circular no fluxo de comissionamento.</p>
-<p>Não será aprovado <code>PHYSICAL_TESTS</code> sem observação física. O próximo ensaio exige confirmação de que circuito hidráulico, bomba e aquecedor estão em condição segura para ativação e ciclo controlado de 10 segundos. A correção definitiva recomendada é um comando de teste de instalação restrito, temporizado e permitido no estado bloqueado, preservando todos os intertravamentos locais.</p>
+<p>O <code>DIAGNOSTIC_RUN</code> da versão atual é somente leitura e não aciona bomba/aquecedor. O comando <code>INSTALLATION_TEST</code> foi adicionado ao 0.2.8 e acionou o relé da bomba por 10 segundos com confirmação visual do usuário. <code>START_PREHEAT</code> continua corretamente recusado enquanto o Master está bloqueado, enquanto a ativação exige <code>PHYSICAL_TESTS</code>.</p>
+<p>O teste do relé da bomba foi aprovado. Ainda não foram aprovados sensores de fluxo, aquecedor, intertravamentos hidráulicos ou ciclo normal pós-ativação. A ativação definitiva permanece pendente até esses testes ou até decisão formal de escopo.</p>
 
 
 
