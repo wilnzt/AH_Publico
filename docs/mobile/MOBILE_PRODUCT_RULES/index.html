@@ -1337,6 +1337,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Referências visuais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#progresso-visual-do-pre-aquecimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progresso visual do pré-aquecimento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1376,6 +1393,14 @@
 <li>Uma instalação pode ser gerenciada por várias pessoas autorizadas. O histórico mostra ações por pessoa em linguagem simples.</li>
 <li>Um celular não pode manter duas contas ativas; a troca exige logout explícito.</li>
 <li>Ao abrir, o app consulta nova versão, informa o usuário e trata progresso, integridade, falha e conclusão. É separado do OTA do Master e respeita as regras Android/iOS; quando necessário, conduz ao canal oficial.</li>
+</ul>
+<h3 id="progresso-visual-do-pre-aquecimento">Progresso visual do pré-aquecimento<a class="headerlink" href="#progresso-visual-do-pre-aquecimento" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Durante o pré-aquecimento, a tela deve exibir um círculo animado proporcional à duração prevista informada pelo Master (por exemplo, 10 ou 20 segundos).</li>
+<li>O círculo começa vazio, evolui durante o processo e completa ao atingir o tempo estimado.</li>
+<li>Completar o círculo não significa sucesso por si só: o app deve aguardar a confirmação final do Master antes de mostrar “Pronto para usar”.</li>
+<li>Cancelamento, falha ou timeout interrompem a animação e exibem uma mensagem simples e objetiva.</li>
+<li>Quando a duração não estiver disponível, usar uma animação indeterminada de processamento, sem apresentar percentual falso.</li>
 </ul>
 
 
