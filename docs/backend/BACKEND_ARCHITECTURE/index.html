@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/product/REQUIREMENTS/">
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/backend/BACKEND_ARCHITECTURE/">
       
       
-        <link rel="prev" href="../REVOLUSHOWER/">
-      
-      
-        <link rel="next" href="../REQUIREMENTS_TRACEABILITY/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>Requisitos do Produto - AquaHeat — Documentação</title>
+        <title>Backend completo — contas, instalações e operação - AquaHeat — Documentação</title>
       
     
     
@@ -78,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revolushower-requirements" class="md-skip">
+        <a href="#backend-completo-contas-instalacoes-e-operacao" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Requisitos do Produto
+              Backend completo — contas, instalações e operação
             
           </span>
         </div>
@@ -262,8 +258,6 @@
       
   
   
-    
-  
   
   
     
@@ -276,11 +270,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -301,7 +297,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -319,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../REVOLUSHOWER/" class="md-nav__link">
+      <a href="../../product/REVOLUSHOWER/" class="md-nav__link">
         
   
   
@@ -344,37 +340,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Requisitos do Produto
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../product/REQUIREMENTS/" class="md-nav__link">
         
   
   
@@ -390,181 +359,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-ja-conhecidos-do-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requisitos já conhecidos do firmware
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requisitos já conhecidos do firmware">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuracao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuração
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conta-identidade-e-instalacoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conta, identidade e instalações
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#identidade-administrativa-e-de-instaladores" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identidade administrativa e de instaladores
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#acionamentos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Acionamentos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comunicacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comunicação
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#controle-multicanal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Controle multicanal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#seguranca" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Segurança
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuracao-remota-do-master" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuração remota do Master
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-comerciais-a-investigar" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requisitos comerciais a investigar
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#escopo-mobile-derivado-das-telas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Escopo mobile derivado das telas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Regra
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Regra">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#agendamento-de-aquecimento-proposto" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agendamento de aquecimento (proposto)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -577,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../REQUIREMENTS_TRACEABILITY/" class="md-nav__link">
+      <a href="../../product/REQUIREMENTS_TRACEABILITY/" class="md-nav__link">
         
   
   
@@ -1535,22 +1329,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requisitos-ja-conhecidos-do-firmware" class="md-nav__link">
+  <a href="#separacao-web-e-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requisitos já conhecidos do firmware
+        Separacao web e API
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requisitos já conhecidos do firmware">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perfis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perfis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bootstrap-da-plataforma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootstrap da plataforma
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bootstrap da plataforma">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuracao" class="md-nav__link">
+  <a href="#administrador" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuração
+        Administrador
       
     </span>
   </a>
@@ -1558,76 +1374,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#conta-identidade-e-instalacoes" class="md-nav__link">
+  <a href="#instalador" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conta, identidade e instalações
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#identidade-administrativa-e-de-instaladores" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identidade administrativa e de instaladores
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#acionamentos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Acionamentos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comunicacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comunicação
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#controle-multicanal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Controle multicanal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#seguranca" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Segurança
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuracao-remota-do-master" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuração remota do Master
+        Instalador
       
     </span>
   </a>
@@ -1640,10 +1390,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#requisitos-comerciais-a-investigar" class="md-nav__link">
+  <a href="#ciclo-de-liberacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requisitos comerciais a investigar
+        Ciclo de liberação
       
     </span>
   </a>
@@ -1651,10 +1401,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escopo-mobile-derivado-das-telas" class="md-nav__link">
+  <a href="#cliente-e-instalacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Escopo mobile derivado das telas
+        Cliente e instalação
       
     </span>
   </a>
@@ -1662,22 +1412,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#regra" class="md-nav__link">
+  <a href="#configuracao-e-evidencias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Regra
+        Configuração e evidências
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Regra">
+    <nav class="md-nav" aria-label="Configuração e evidências">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#agendamento-de-aquecimento-proposto" class="md-nav__link">
+  <a href="#tempos-do-master" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agendamento de aquecimento (proposto)
+        Tempos do Master
       
     </span>
   </a>
@@ -1686,6 +1436,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditoria
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1706,116 +1467,35 @@
 
 
 
-<h1 id="revolushower-requirements">Revolushower — Requirements<a class="headerlink" href="#revolushower-requirements" title="Permanent link">&para;</a></h1>
-<h2 id="requisitos-ja-conhecidos-do-firmware">Requisitos já conhecidos do firmware<a class="headerlink" href="#requisitos-ja-conhecidos-do-firmware" title="Permanent link">&para;</a></h2>
-<h3 id="configuracao">Configuração<a class="headerlink" href="#configuracao" title="Permanent link">&para;</a></h3>
-<ul>
-<li>tempo de acionamento;</li>
-<li>tempo máximo de segurança;</li>
-<li>cooldown;</li>
-<li>tempo máximo de fluxo contínuo;</li>
-<li>tempo de espera do aquecedor;</li>
-<li>delay antes do acionamento;</li>
-<li>Device ID;</li>
-<li>credenciais/configurações do AP.</li>
-</ul>
-<h3 id="conta-identidade-e-instalacoes">Conta, identidade e instalações<a class="headerlink" href="#conta-identidade-e-instalacoes" title="Permanent link">&para;</a></h3>
-<ul>
-<li>REQ-ID-001: o usuário cria a própria conta mobile.</li>
-<li>REQ-ID-002: a identidade da conta é validada por SMS.</li>
-<li>REQ-ID-003: uma conta pode administrar várias instalações em locais distintos.</li>
-<li>REQ-ID-004: uma instalação/Master pode ser compartilhada por várias pessoas autorizadas.</li>
-<li>REQ-ID-005: ações e programações registram e exibem quem as realizou.</li>
-<li>REQ-ID-006: a ativação usa QR Code; código manual ou <code>deviceId</code> impresso é fallback, nunca segredo único.</li>
-<li>REQ-ID-007: o setup inicial é executado por técnico em fluxo móvel rápido, sem suporte remoto obrigatório.</li>
-</ul>
-<h3 id="identidade-administrativa-e-de-instaladores">Identidade administrativa e de instaladores<a class="headerlink" href="#identidade-administrativa-e-de-instaladores" title="Permanent link">&para;</a></h3>
-<ul>
-<li>REQ-ID-017: a plataforma inicia com um usuário Master, o primeiro administrador.</li>
-<li>REQ-ID-018: somente o usuário Master cria as demais contas de administrador.</li>
-<li>REQ-ID-019: administradores e instaladores exigem inicialmente apenas nome completo, e-mail e telefone.</li>
-<li>REQ-ID-020: o cadastro é concluído por convite de e-mail com link único e expirável; o convidado escolhe a senha.</li>
-<li>REQ-ID-021: informações adicionais dos instaladores serão definidas posteriormente.</li>
-<li>REQ-ID-022: senhas administrativas e de instaladores exigem no mínimo 9 caracteres, com opção de mostrar ou ocultar o valor digitado nas telas correspondentes.</li>
-</ul>
-<h3 id="acionamentos">Acionamentos<a class="headerlink" href="#acionamentos" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Local pelo Master.</li>
-<li>Eletrônico pela integração HTTP legada.</li>
-<li>Automático pelo sensor de fluxo.</li>
-</ol>
-<h3 id="comunicacao">Comunicação<a class="headerlink" href="#comunicacao" title="Permanent link">&para;</a></h3>
-<ul>
-<li>provisionamento principal via BLE após acionamento do botão físico;</li>
-<li>portal Wi-Fi/AP preservado como fallback de manutenção e recuperação;</li>
-<li>HTTP legado para comandos e eventos;</li>
-<li>contrato futuro com backend/MQTT ainda a definir.</li>
-<li>preparação arquitetural interna para eventual integração Amazon Alexa através do backend, sem incluí-la no escopo comercial atual.</li>
-</ul>
-<h3 id="controle-multicanal">Controle multicanal<a class="headerlink" href="#controle-multicanal" title="Permanent link">&para;</a></h3>
-<ul>
-<li>mobile e Alexa devem utilizar o mesmo contrato de comandos e estado;</li>
-<li>um ciclo iniciado no mobile pode ser cancelado pela Alexa, e vice-versa;</li>
-<li>o Master continua aceitando ou rejeitando cada comando conforme seu estado e suas proteções;</li>
-<li>comandos precisam ser idempotentes, ordenados, auditáveis e identificados por origem;</li>
-<li>todos os canais devem convergir para o estado confirmado pelo Master;</li>
-<li>vínculo Alexa exige autorização explícita e revogável da conta Revolushower.</li>
-<li>cada vínculo Alexa aponta para somente um Master, mesmo que a conta mobile tenha várias instalações.</li>
-</ul>
-<h3 id="seguranca">Segurança<a class="headerlink" href="#seguranca" title="Permanent link">&para;</a></h3>
-<ul>
-<li>limite máximo de funcionamento;</li>
-<li>cooldown;</li>
-<li>bloqueio de acionamentos;</li>
-<li>desligamento do aquecedor;</li>
-<li>proteção contra funcionamento excessivo.</li>
-</ul>
-<h3 id="configuracao-remota-do-master">Configuração remota do Master<a class="headerlink" href="#configuracao-remota-do-master" title="Permanent link">&para;</a></h3>
-<ul>
-<li>REQ-CFG-001: administrador e instalador autorizado devem visualizar os tempos confirmados atualmente no Master ao abrir um dispositivo conectado.</li>
-<li>REQ-CFG-002: o Master deve validar toda alteração dentro dos limites existentes no firmware e rejeitar valores fora deles.</li>
-<li>REQ-CFG-003: o backend somente deve marcar uma alteração como aplicada após confirmação do Master.</li>
-<li>REQ-CFG-004: a configuração deve ser versionada, idempotente, auditável e mostrar separadamente valor solicitado e valor confirmado.</li>
-<li>REQ-CFG-005: após o bloqueio da calibração, somente administrador pode reabrir a instalação mediante justificativa registrada.</li>
-</ul>
-<h2 id="requisitos-comerciais-a-investigar">Requisitos comerciais a investigar<a class="headerlink" href="#requisitos-comerciais-a-investigar" title="Permanent link">&para;</a></h2>
-<p>O site do produto apresenta funcionalidades adicionais que precisam ser confrontadas com o firmware e transformadas em requisitos técnicos confirmados.</p>
-<p>Exemplos identificados durante análise inicial:</p>
-<ul>
-<li>programação por dias/horários;</li>
-<li>modos de economia;</li>
-<li>limitação de acionamentos;</li>
-<li>histórico;</li>
-<li>estatísticas de economia;</li>
-<li>monitoramento;</li>
-<li>registros de eventos;</li>
-<li>recursos Premium;</li>
-<li>possível ajuste de temperatura;</li>
-<li>recursos associados a funcionamento sem energia;</li>
-<li>controles e regras remotas.</li>
-</ul>
-<p>Esses itens são requisitos/propostas comerciais até serem confirmados pela equipe responsável pelo produto.</p>
-<h2 id="escopo-mobile-derivado-das-telas">Escopo mobile derivado das telas<a class="headerlink" href="#escopo-mobile-derivado-das-telas" title="Permanent link">&para;</a></h2>
-<p>A análise das cinco imagens conceituais foi registrada em <a href="../../mobile/MOBILE_SCOPE_FROM_DESIGN/"><code>../mobile/MOBILE_SCOPE_FROM_DESIGN.md</code></a>. O MVP recomendado usa somente comandos, estados, temporizações e eventos suportados pelo Master ou extensíveis sem novo hardware.</p>
-<p>Temperatura, vazão quantitativa, volume, energia, válvula de corte, prevenção de vazamento e modo Eco não integram o escopo confirmado enquanto não houver suporte físico ou regra funcional validada.</p>
-<p>Internamente, o contrato do MVP deve evitar decisões que impeçam uma futura integração Amazon Alexa. Essa integração ainda não foi apresentada ou aprovada comercialmente e, portanto, não integra o escopo funcional submetido ao cliente. Se aprovada, não ampliará capacidades físicas: reutilizará início, cancelamento e consulta de estado através do backend e das mesmas regras de segurança.</p>
-<h2 id="regra">Regra<a class="headerlink" href="#regra" title="Permanent link">&para;</a></h2>
-<p>Nenhum requisito deve ser considerado implementado apenas porque aparece:</p>
-<ul>
-<li>no site;</li>
-<li>em uma imagem;</li>
-<li>em documentação antiga.</li>
-</ul>
-<p>A implementação deve ser comprovada pelo código ou por uma decisão formal do projeto.</p>
-<h3 id="agendamento-de-aquecimento-proposto">Agendamento de aquecimento (proposto)<a class="headerlink" href="#agendamento-de-aquecimento-proposto" title="Permanent link">&para;</a></h3>
-<ul>
-<li>REQ-SCH-001: usuário pode criar programação única (data/hora) ou recorrente (hora/dias da semana).</li>
-<li>REQ-SCH-002: usuário pode consultar próxima execução e estado da programação.</li>
-<li>REQ-SCH-003: usuário pode editar, desabilitar (se aprovado) e cancelar programação.</li>
-<li>REQ-SCH-004: cada execução gera solicitação idempotente e auditável; o Master confirma ou rejeita conforme proteções.</li>
-<li>REQ-SCH-005: comportamento offline, fuso horário, conflitos, retries e duração devem ser definidos antes do aceite final.</li>
-</ul>
-<p>Decisão da primeira versão: o backend executará o scheduler e enviará o comando no horário programado; o Master será a autoridade final de segurança e confirmação. Execução autônoma offline no firmware não faz parte desta entrega.</p>
+<h1 id="backend-completo-contas-instalacoes-e-operacao">Backend completo — contas, instalações e operação<a class="headerlink" href="#backend-completo-contas-instalacoes-e-operacao" title="Permanent link">&para;</a></h1>
+<p>Status: escopo funcional definido em 2026-09-10.</p>
+<h2 id="separacao-web-e-api">Separacao web e API<a class="headerlink" href="#separacao-web-e-api" title="Permanent link">&para;</a></h2>
+<p><code>admin.revolushower.com</code> hospeda exclusivamente a interface administrativa estatica. <code>api.revolushower.com</code> entrega somente JSON e nao serve telas. O navegador do painel chama a API por HTTPS com CORS restrito ao dominio administrativo.</p>
+<p>Depois do login, todo perfil entra no Dashboard macro. O menu principal inicia por Dashboard e segue por Instalacoes. Os tempos, logs, cliente, data de instalacao e firmware pertencem ao detalhe de uma instalacao, acessado a partir da lista; nao ficam no Dashboard global.</p>
+<h2 id="perfis">Perfis<a class="headerlink" href="#perfis" title="Permanent link">&para;</a></h2>
+<h2 id="bootstrap-da-plataforma">Bootstrap da plataforma<a class="headerlink" href="#bootstrap-da-plataforma" title="Permanent link">&para;</a></h2>
+<p>No início haverá um único usuário Master da plataforma. Ele será o primeiro administrador e sua conta deverá ser criada em procedimento inicial controlado. Somente esse usuário poderá criar as demais contas de administrador. O backend deve impedir a remoção ou desativação do último administrador ativo sem que outro administrador válido exista.</p>
+<p>Administradores e instaladores terão inicialmente somente nome completo, e-mail e telefone. Informações adicionais dos instaladores serão definidas posteriormente.</p>
+<p>O convite será enviado por e-mail. O convidado acessará um link de uso único, com expiração, e concluirá o cadastro escolhendo a própria senha. A senha nunca será enviada nem armazenada em texto puro. O convite registrará quem convidou, envio, aceite e estado.</p>
+<h3 id="administrador">Administrador<a class="headerlink" href="#administrador" title="Permanent link">&para;</a></h3>
+<p>Acesso global a clientes, instalações, dispositivos, instaladores, configurações, comandos, OTA, históricos, evidências e auditorias. Pode revogar instaladores e liberar instalações bloqueadas. Não pode ultrapassar as proteções físicas do Master.</p>
+<p>A sessão expira obrigatoriamente após duas horas. Toda troca de cliente ou instalação na mesma sessão exige nova checagem de autorização. A localização pode ocorrer por <code>deviceId</code> ou QR Code, mas o identificador isolado nunca autoriza acesso.</p>
+<h3 id="instalador">Instalador<a class="headerlink" href="#instalador" title="Permanent link">&para;</a></h3>
+<p>Acesso permanente enquanto ativo, revogável por administrador. Pode consultar instalações autorizadas, localizar por <code>deviceId</code> ou QR Code, configurar tempos, registrar endereço, anexar fotos, executar testes e destravar o produto após a calibração. Não pode criar usuários, liberar instalação bloqueada, iniciar OTA ou alterar calibração já bloqueada.</p>
+<h2 id="ciclo-de-liberacao">Ciclo de liberação<a class="headerlink" href="#ciclo-de-liberacao" title="Permanent link">&para;</a></h2>
+<p><code>CREATED</code> → <code>INSTALLATION</code> → <code>CALIBRATED_LOCKED</code> → <code>RELEASED</code>.</p>
+<p>Endereço, configuração confirmada pelo Master, fotos obrigatórias e testes concluídos são pré-condições para o destravamento. Antes de <code>RELEASED</code>, somente administrador ou instalador autorizado pode configurar e ativar o produto. O usuário final não pode operar o Master enquanto bloqueado.</p>
+<h2 id="cliente-e-instalacao">Cliente e instalação<a class="headerlink" href="#cliente-e-instalacao" title="Permanent link">&para;</a></h2>
+<p>Cliente obrigatório: nome completo, e-mail, telefone e data de nascimento. O telefone é usado para checagem de identidade/SMS. O endereço pertence à instalação e é obrigatório durante a calibração.</p>
+<h2 id="configuracao-e-evidencias">Configuração e evidências<a class="headerlink" href="#configuracao-e-evidencias" title="Permanent link">&para;</a></h2>
+<p>Administrador e instalador autorizado visualizam os parâmetros do Master e o estado de liberação. O instalador configura os tempos; após confirmação pelo Master, a calibração fica bloqueada. Somente administrador pode liberar uma instalação bloqueada para nova alteração, com justificativa auditada.</p>
+<p>Fotos são obrigatórias e ilimitadas. Cada foto registra instalação, autor, data e hash.</p>
+<h3 id="tempos-do-master">Tempos do Master<a class="headerlink" href="#tempos-do-master" title="Permanent link">&para;</a></h3>
+<p>Ao abrir um dispositivo conectado, o backend deve exibir o snapshot confirmado dos tempos atualmente gravados no Master, sua versao, data/hora e conectividade. Deve diferenciar valor confirmado de valor apenas solicitado.</p>
+<p>Cada alteracao usa comando versionado e requestId, com valores completos. Somente a confirmacao do Master marca a alteracao como aplicada. Os limites existentes no firmware sao a autoridade; o backend nao pode amplia-los. Depois do bloqueio da calibracao, somente administrador pode reabrir com justificativa auditada.</p>
+<h2 id="auditoria">Auditoria<a class="headerlink" href="#auditoria" title="Permanent link">&para;</a></h2>
+<p>Toda ação de administrador ou instalador gera log imutável, sem prazo de retenção definido nesta fase. O registro inclui ator, perfil, ação, instalação, dispositivo, valores anterior/novo, resultado, data/hora, IP e <code>requestId</code>.</p>
+<p>Entidades: <code>users</code>, <code>roles</code>, <code>installers</code>, <code>customers</code>, <code>installations</code>, <code>devices</code>, <code>installation_assignments</code>, <code>configuration_versions</code>, <code>calibration_unlocks</code>, <code>installation_photos</code>, <code>commands</code>, <code>command_results</code>, <code>device_states</code>, <code>device_events</code>, <code>ota_jobs</code> e <code>audit_events</code>.</p>
 
 
 

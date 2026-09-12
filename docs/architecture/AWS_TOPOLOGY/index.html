@@ -1567,7 +1567,8 @@
 <h2 id="upgrade-futuro">Upgrade futuro<a class="headerlink" href="#upgrade-futuro" title="Permanent link">&para;</a></h2>
 <p>Conforme quantidade de dispositivos ou criticidade: separar EC2, mover PostgreSQL para RDS, migrar execução para ECS/Fargate, usar AWS IoT Core e ampliar observabilidade. Esses serviços não fazem parte da infraestrutura inicial.</p>
 <h2 id="dominios-adotados">Domínios adotados<a class="headerlink" href="#dominios-adotados" title="Permanent link">&para;</a></h2>
-<p>Produção: <code>mqtt.revolushower.com</code>, <code>api.revolushower.com</code> e <code>ota.revolushower.com</code>.</p>
+<p>Produção: <code>mqtt.revolushower.com</code>, <code>api.revolushower.com</code>, <code>admin.revolushower.com</code> e <code>ota.revolushower.com</code>.</p>
+<p>A infraestrutura de testes atual está na região <code>us-east-1</code>, EC2 <code>i-03a422778c48cde04</code>, com Elastic IP <code>184.194.108.10</code>. O banco PostgreSQL fica restrito ao loopback da instância.</p>
 <p>Desenvolvimento: <code>mqtt.dev.revolushower.com</code>, <code>api.dev.revolushower.com</code> e <code>ota.dev.revolushower.com</code>.</p>
 <p>O firmware usa DNS, nunca IP fixo. SoftAP e BLE são canais locais.</p>
 <h2 id="fonte-tecnica">Fonte técnica<a class="headerlink" href="#fonte-tecnica" title="Permanent link">&para;</a></h2>

@@ -1394,6 +1394,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bancada-macbook-porta-serial-fixa-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bancada MacBook — porta serial fixa de teste
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1448,6 +1459,11 @@
 <p>Também foram validadas as identidades temporárias <code>backend-dev</code> e <code>master-test-001</code>: o backend publica em <code>dev/devices/master-test-001/commands</code>; o Master lê comandos e publica <code>state</code>, <code>results</code> e <code>events</code>; o backend lê essas três saídas. A tentativa do Master de publicar em <code>commands</code> recebeu PUBACK <code>RC 135</code>. O modelo sem segredos está em <code>infra/mqtt/mosquitto.acl.example</code>.</p>
 <p>Em 2026-09-09, a EC2 foi reiniciada de forma controlada. A tarefa iniciou automaticamente 19 segundos após o boot, permaneceu <code>Running</code>, abriu a porta 8883 em IPv4/IPv6, carregou o plugin ACL e aceitou reconexão externa autenticada de <code>backend-dev</code> por TLS 1.3. Não houve inicialização manual do broker.</p>
 <h2 id="retomada">Retomada<a class="headerlink" href="#retomada" title="Permanent link">&para;</a></h2>
+<h2 id="bancada-macbook-porta-serial-fixa-de-teste">Bancada MacBook — porta serial fixa de teste<a class="headerlink" href="#bancada-macbook-porta-serial-fixa-de-teste" title="Permanent link">&para;</a></h2>
+<p>Na bancada do MacBook-Pro-de-William, a porta USB do ESP32-C3 é <code>/dev/cu.usbmodem14201</code>. Nesta fase de testes, tratar este dado como configuração fixa; as portas Bluetooth <code>/dev/cu.Bluetooth-Incoming-Port</code> e <code>/dev/cu.HAYLOUS30-JL_SPP</code> não são usadas para o monitoramento do Master.</p>
+<p>Monitoramento com PlatformIO:</p>
+<div class="highlight"><pre><span></span><code>/Users/williamnazato/.platformio/penv/bin/pio<span class="w"> </span>device<span class="w"> </span>monitor<span class="w"> </span>-p<span class="w"> </span>/dev/cu.usbmodem14201<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span>
+</code></pre></div>
 <ol>
 <li>Testar publicação/assinatura autenticadas em tópico de diagnóstico, sem acionar hardware.</li>
 <li>Evoluir a ACL de bancada validada para identidades separadas de backend e dispositivo; o usuário de bancada não representa provisionamento de produção. mTLS individual continua como arquitetura pretendida.</li>
