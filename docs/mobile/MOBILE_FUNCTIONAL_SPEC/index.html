@@ -1462,10 +1462,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-tela-inicio-e-estado-operacional" class="md-nav__link">
+  <a href="#6-tela-iniciooperacao-e-estado-operacional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Tela Início e estado operacional
+        6. Tela Início/Operação e estado operacional
       
     </span>
   </a>
@@ -1683,7 +1683,7 @@
 <h2 id="3-navegacao-principal">3. Navegação principal<a class="headerlink" href="#3-navegacao-principal" title="Permanent link">&para;</a></h2>
 <p>Após autenticação, a navegação contém:</p>
 <ul>
-<li><strong>Início:</strong> resumo da instalação ativa, estado do Master e ação principal.</li>
+<li><strong>Início:</strong> tela de operação da instalação ativa e estado confirmado do dispositivo.</li>
 <li><strong>Instalações:</strong> lista de instalações da conta e troca de contexto.</li>
 <li><strong>Histórico:</strong> ciclos, comandos e eventos da instalação selecionada.</li>
 <li><strong>Configurações:</strong> preferências do usuário, membros, instalação e segurança.</li>
@@ -1702,7 +1702,7 @@
 <ul>
 <li>Login por e-mail/telefone e senha.</li>
 <li>Mensagens genéricas para credenciais inválidas.</li>
-<li>Sessão renovável conforme política do backend; tokens não ficam expostos em logs.</li>
+<li>Sessão sem expiração temporal, válida até logout explícito ou revogação; tokens não ficam expostos em logs.</li>
 <li>Logout revoga a sessão local e remove dados sensíveis.</li>
 <li>Recuperação exige prova de identidade pelo fluxo definido pelo backend, com expiração, limite de tentativas e proteção contra enumeração de contas.</li>
 <li>Biometria pode desbloquear uma sessão local, mas não substitui a autenticação inicial nem a autorização do backend.</li>
@@ -1726,9 +1726,9 @@
 <p>Fallback: SoftAP/portal local para manutenção autorizada.</p>
 <p>Requisitos: timeout, cancelamento, confirmação de conexão, tratamento de senha incorreta, retorno ao modo normal, não interferência nos timers/relés e armazenamento seguro das credenciais. O app nunca exibe a senha depois de concluído o envio.</p>
 <h3 id="53-setup-tecnico">5.3 Setup técnico<a class="headerlink" href="#53-setup-tecnico" title="Permanent link">&para;</a></h3>
-<p>O instalador acessa uma sessão limitada e temporária. Pode localizar o aparelho, configurar tempos, verificar conectividade, executar checklist e anexar evidências. Não pode conceder propriedade permanente nem consultar dados pessoais além do necessário para o setup.</p>
-<h2 id="6-tela-inicio-e-estado-operacional">6. Tela Início e estado operacional<a class="headerlink" href="#6-tela-inicio-e-estado-operacional" title="Permanent link">&para;</a></h2>
-<p>A tela inicial apresenta:</p>
+<p>O instalador usa uma autorização especial independente da duração da sessão. Pode localizar o aparelho, configurar tempos, verificar conectividade, executar checklist e anexar evidências. Não pode conceder propriedade permanente nem consultar dados pessoais além do necessário para o setup.</p>
+<h2 id="6-tela-iniciooperacao-e-estado-operacional">6. Tela Início/Operação e estado operacional<a class="headerlink" href="#6-tela-iniciooperacao-e-estado-operacional" title="Permanent link">&para;</a></h2>
+<p>A aba Início/Operação apresenta:</p>
 <ul>
 <li>instalação ativa e local;</li>
 <li>estado do Master: online, offline, bloqueado, ativo, ocupado ou falha;</li>
@@ -1812,7 +1812,7 @@
 <li>Usuário cria conta, confirma telefone, entra e encerra sessão.</li>
 <li>Usuário associa um Master por QR Code ou fallback seguro.</li>
 <li>Conta com duas instalações permite selecionar o contexto correto sem ambiguidade.</li>
-<li>Tela inicial diferencia estado confirmado, pendente e offline.</li>
+<li>A aba Início/Operação diferencia estado confirmado, pendente e offline.</li>
 <li>Início e cancelamento mostram resposta final do Master ou timeout tratado.</li>
 <li>Histórico exibe autoria, origem, horário e resultado.</li>
 <li>Compartilhamento não usa senha comum e respeita revogação.</li>
@@ -1834,6 +1834,9 @@
 <li>validação física de sensor, aquecedor, intertravamentos e ciclo normal.</li>
 </ul>
 <p>Cada decisão pendente deve atualizar este documento, os contratos e os critérios de aceite correspondentes; não deve ser resolvida apenas no código do aplicativo.</p>
+<h1 id="fluxo-e-dominio-versao-vigente">Fluxo e domínio — versão vigente<a class="headerlink" href="#fluxo-e-dominio-versao-vigente" title="Permanent link">&para;</a></h1>
+<p>O usuário do aplicativo é sempre um <strong>Cliente</strong>. Os papéis Proprietário, Membro autorizado e Técnico/instalador descritos em versões anteriores não são papéis do app e devem ser interpretados apenas como regras de acesso/compartilhamento; Administrador e Instalador pertencem exclusivamente ao backend administrativo. A definição normativa completa está em <a href="../../architecture/CLIENT_DOMAIN/">CLIENT_DOMAIN</a>.</p>
+<p>Para navegação, linguagem e prioridade das telas, prevalece <a href="../MOBILE_PRODUCT_CANONICAL_FLOW/"><code>MOBILE_PRODUCT_CANONICAL_FLOW.md</code></a>. A palavra Master não deve aparecer para o cliente; use dispositivo.</p>
 
 
 

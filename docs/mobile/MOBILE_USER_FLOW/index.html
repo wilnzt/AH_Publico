@@ -652,10 +652,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estados-da-tela-inicial" class="md-nav__link">
+  <a href="#estados-da-aba-iniciooperacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Estados da tela inicial
+        Estados da aba Início/Operação
       
     </span>
   </a>
@@ -1612,10 +1612,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estados-da-tela-inicial" class="md-nav__link">
+  <a href="#estados-da-aba-iniciooperacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Estados da tela inicial
+        Estados da aba Início/Operação
       
     </span>
   </a>
@@ -1717,6 +1717,9 @@
 
 
 <h1 id="revolushower-fluxo-de-telas-do-aplicativo-mobile">Revolushower — Fluxo de telas do aplicativo mobile<a class="headerlink" href="#revolushower-fluxo-de-telas-do-aplicativo-mobile" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Atualização normativa (2026-09-15):</strong> a Home intermediária foi retirada do produto. Quando existe instalação habilitada, <code>Início</code> é diretamente a tela <code>T20/T21</code> de Operação. A imagem <code>01-inicio.png</code> permanece somente como referência visual. Sem instalação, Início mostra apenas a orientação de vínculo.</p>
+</blockquote>
 <p>Atualizado em 2026-08-29.</p>
 <h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
 <p>Este documento apresenta a navegação do aplicativo sob a perspectiva do cliente final. Ele serve para validar com o cliente quais jornadas e telas farão parte do produto antes do desenho dos wireframes e da implementação Flutter.</p>
@@ -1733,7 +1736,7 @@
     START([Abrir aplicativo]) --&gt; SPLASH[T01 Splash e verificação de sessão]
     SPLASH --&gt;|Primeiro acesso| WELCOME[T02 Boas-vindas]
     SPLASH --&gt;|Sessão válida| LOAD[T08 Carregando instalação]
-    SPLASH --&gt;|Sessão expirada| LOGIN[T03 Entrar]
+    SPLASH --&gt;|Sessão revogada ou inválida| LOGIN[T03 Entrar]
 
     WELCOME --&gt; LOGIN
     WELCOME --&gt; SIGNUP[T04 Criar conta]
@@ -1746,7 +1749,7 @@
     LOGIN --&gt; LOAD
 
     LOAD --&gt;|Sem instalação| EMPTY[T09 Início sem equipamento]
-    LOAD --&gt;|Instalação cadastrada| HOME[T20 Início e estado do Master]
+    LOAD --&gt;|Instalação cadastrada| HOME[T20/T21 Início — Operação]
     LOAD --&gt;|Falha de Internet| APP_OFFLINE[T10 Aplicativo sem conexão]
     APP_OFFLINE --&gt;|Tentar novamente| LOAD
 
@@ -1873,7 +1876,7 @@
 <li>última atualização e indicação de possível desatualização.</li>
 </ul>
 <p>O aplicativo não deve usar a expressão <strong>desligar água</strong>, pois o Master não possui válvula para cortar fisicamente o abastecimento.</p>
-<h2 id="estados-da-tela-inicial">Estados da tela inicial<a class="headerlink" href="#estados-da-tela-inicial" title="Permanent link">&para;</a></h2>
+<h2 id="estados-da-aba-iniciooperacao">Estados da aba Início/Operação<a class="headerlink" href="#estados-da-aba-iniciooperacao" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     OPEN[Entrar em Início] --&gt; CHECK{Estado conhecido?}
     CHECK --&gt;|Não| LOADING[Carregando estado]
@@ -2032,6 +2035,8 @@
 <blockquote>
 <p>Requisitos funcionais detalhados e fonte de verdade: <a href="../MOBILE_FUNCTIONAL_SPEC/"><code>MOBILE_FUNCTIONAL_SPEC.md</code></a>. Este mapa de jornada deve permanecer coerente com a especificação mestre.</p>
 </blockquote>
+<h1 id="nota-de-dominio-vigente">Nota de domínio vigente<a class="headerlink" href="#nota-de-dominio-vigente" title="Permanent link">&para;</a></h1>
+<p>Todo cadastro, login e sessão deste fluxo representam um Cliente do aplicativo. O Cliente pode vincular vários dispositivos, cada um exibido sob seu próprio local (Casa, Casa de praia etc.); cada dispositivo permanece ligado a um único local/instalação.</p>
 
 
 

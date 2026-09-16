@@ -1686,7 +1686,7 @@ Painel ── API ── PostgreSQL
 <li>Toda ação tem ator, perfil, instalação, dispositivo, requestId, horário, resultado e motivo de falha.</li>
 <li>Administrador e instalador veem somente o que sua permissão permite.</li>
 <li>Usuário de teste não é perfil persistente de produção.</li>
-<li>A sessão administrativa expira em duas horas; troca de contexto exige nova autorização.</li>
+<li>A sessão autenticada não expira por tempo; logout ou revogação a encerram, e troca de contexto exige nova autorização.</li>
 </ul>
 <h2 id="3-navegacao-e-telas-do-painel">3. Navegação e telas do painel<a class="headerlink" href="#3-navegacao-e-telas-do-painel" title="Permanent link">&para;</a></h2>
 <h3 id="entrada">Entrada<a class="headerlink" href="#entrada" title="Permanent link">&para;</a></h3>
@@ -1694,7 +1694,7 @@ Painel ── API ── PostgreSQL
 <li>Login.</li>
 <li>Ativação de convite e definição de senha.</li>
 <li>Recuperação de acesso, quando o fluxo for aprovado.</li>
-<li>Estado de sessão expirada e logout.</li>
+<li>Estado de sessão revogada ou inválida e logout.</li>
 </ul>
 <h3 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h3>
 <p>Indicadores atuais, sem dados fictícios:</p>

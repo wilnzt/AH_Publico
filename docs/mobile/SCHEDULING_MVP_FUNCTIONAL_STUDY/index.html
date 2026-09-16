@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/backend/BACKEND_FUNCTIONAL_SPEC/">
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/mobile/SCHEDULING_MVP_FUNCTIONAL_STUDY/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>Especificação funcional do sistema Backend Revolushower - AquaHeat — Documentação</title>
+        <title>Agendamento de pré-aquecimento — estudo funcional do MVP - AquaHeat — Documentação</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#especificacao-funcional-do-sistema-backend-revolushower" class="md-skip">
+        <a href="#agendamento-de-pre-aquecimento-estudo-funcional-do-mvp" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Especificação funcional do sistema Backend Revolushower
+              Agendamento de pré-aquecimento — estudo funcional do MVP
             
           </span>
         </div>
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mobile/DESIGN/" class="md-nav__link">
+      <a href="../DESIGN/" class="md-nav__link">
         
   
   
@@ -488,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mobile/MOBILE_SCOPE_FROM_DESIGN/" class="md-nav__link">
+      <a href="../MOBILE_SCOPE_FROM_DESIGN/" class="md-nav__link">
         
   
   
@@ -516,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mobile/MOBILE_USER_FLOW/" class="md-nav__link">
+      <a href="../MOBILE_USER_FLOW/" class="md-nav__link">
         
   
   
@@ -1329,10 +1329,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-proposito" class="md-nav__link">
+  <a href="#objetivo-do-cliente" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Propósito
+        Objetivo do cliente
       
     </span>
   </a>
@@ -1340,33 +1340,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-principios-obrigatorios" class="md-nav__link">
+  <a href="#proposta-de-experiencia" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Princípios obrigatórios
+        Proposta de experiência
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-perfis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Perfis
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Perfis">
+    <nav class="md-nav" aria-label="Proposta de experiência">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-administrador" class="md-nav__link">
+  <a href="#tela-a-lista-de-agendamentos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.1 Administrador
+        Tela A — lista de agendamentos
       
     </span>
   </a>
@@ -1374,10 +1363,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-instalador" class="md-nav__link">
+  <a href="#tela-b-criacaoedicao-de-agendamento-unico" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.2 Instalador
+        Tela B — criação/edição de agendamento único
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tela-c-criacaoedicao-recorrente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela C — criação/edição recorrente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tela-d-detalhe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela D — detalhe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tela-e-push-e-entrada-profunda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela E — push e entrada profunda
       
     </span>
   </a>
@@ -1390,10 +1412,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-navegacao-do-painel" class="md-nav__link">
+  <a href="#regras-funcionais-propostas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Navegação do painel
+        Regras funcionais propostas
       
     </span>
   </a>
@@ -1401,10 +1423,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-tela-de-login" class="md-nav__link">
+  <a href="#estados" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Tela de login
+        Estados
       
     </span>
   </a>
@@ -1412,10 +1434,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-dashboard" class="md-nav__link">
+  <a href="#arquitetura-funcional-recomendada" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Dashboard
+        Arquitetura funcional recomendada
       
     </span>
   </a>
@@ -1423,182 +1445,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-clientes" class="md-nav__link">
+  <a href="#modelo-minimo-sugerido" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Clientes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Clientes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-lista" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.1 Lista
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-novo-cliente" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.2 Novo cliente
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#73-detalhe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.3 Detalhe
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-instalacoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Instalações
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Instalações">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-lista" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.1 Lista
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-inserir-instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.2 Inserir instalação
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#83-detalhe-da-instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.3 Detalhe da instalação
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8.3 Detalhe da instalação">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bloco-detalhes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bloco Detalhes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bloco-configuracao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bloco Configuração
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#operacoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operações
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clientes-vinculados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Clientes vinculados
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evidencias-da-instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evidências da instalação
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checklist-de-ativacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checklist de ativação
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-ativacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Ativação
+        Modelo mínimo sugerido
       
     </span>
   </a>
@@ -1606,10 +1456,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-comandos-e-respostas" class="md-nav__link">
+  <a href="#push" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Comandos e respostas
+        Push
       
     </span>
   </a>
@@ -1617,10 +1467,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-contrato-mqtt" class="md-nav__link">
+  <a href="#validacoes-e-mensagens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        11. Contrato MQTT
+        Validações e mensagens
       
     </span>
   </a>
@@ -1628,10 +1478,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-heartbeat-e-estados" class="md-nav__link">
+  <a href="#decisoes-para-aprovacao-do-cliente" class="md-nav__link">
     <span class="md-ellipsis">
       
-        12. Heartbeat e estados
+        Decisões para aprovação do cliente
       
     </span>
   </a>
@@ -1639,10 +1489,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-auditoria" class="md-nav__link">
+  <a href="#criterios-de-aceite-da-ux" class="md-nav__link">
     <span class="md-ellipsis">
       
-        13. Auditoria
+        Critérios de aceite da UX
       
     </span>
   </a>
@@ -1650,43 +1500,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#14-usuarios-auditoria-e-ota" class="md-nav__link">
+  <a href="#artefato-visual" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14. Usuários, auditoria e OTA
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#15-disponibilidade-e-cache" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        15. Disponibilidade e cache
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#16-criterios-de-aceite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        16. Critérios de aceite
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#17-itens-ainda-dependentes-de-decisao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        17. Itens ainda dependentes de decisão
+        Artefato visual
       
     </span>
   </a>
@@ -1710,293 +1527,152 @@
 
 
 
-<h1 id="especificacao-funcional-do-sistema-backend-revolushower">Especificação funcional do sistema Backend Revolushower<a class="headerlink" href="#especificacao-funcional-do-sistema-backend-revolushower" title="Permanent link">&para;</a></h1>
-<p>Status: documento de referência para desenvolvimento e testes
-Data: 2026-09-12</p>
-<h2 id="1-proposito">1. Propósito<a class="headerlink" href="#1-proposito" title="Permanent link">&para;</a></h2>
-<p>O sistema administra clientes, instalações, dispositivos Master, usuários internos e operações remotas sobre o firmware. O backend é o intermediário obrigatório entre o painel e o dispositivo. O painel nunca conversa diretamente com MQTT.</p>
-<p>O Master é a autoridade final sobre segurança física, ativação, estado operacional e persistência dos tempos. O backend registra intenções, publica comandos, aguarda respostas e apresenta somente estados confirmados.</p>
-<p>Fluxo canônico:</p>
-<div class="highlight"><pre><span></span><code>Usuário → Painel HTTPS → API → PostgreSQL
-                         ↓
-                       MQTT
-                         ↓
-                       Master
-                         ↓
-              resposta MQTT → API → banco → painel
+<h1 id="agendamento-de-pre-aquecimento-estudo-funcional-do-mvp">Agendamento de pré-aquecimento — estudo funcional do MVP<a class="headerlink" href="#agendamento-de-pre-aquecimento-estudo-funcional-do-mvp" title="Permanent link">&para;</a></h1>
+<p>Atualizado em 2026-09-16. Este documento propõe a experiência para aprovação do cliente. Não comprova implementação. Git e código continuam sendo a fonte técnica.</p>
+<h2 id="objetivo-do-cliente">Objetivo do cliente<a class="headerlink" href="#objetivo-do-cliente" title="Permanent link">&para;</a></h2>
+<p>Permitir que o cliente programe até três solicitações de pré-aquecimento por instalação, únicas ou recorrentes, visualize rapidamente se cada uma está ativa e receba um aviso antecipado. No horário programado, o sistema solicita o pré-aquecimento; o Master continua sendo a autoridade final e pode aceitar ou rejeitar conforme conectividade, estado, cooldown e proteções locais.</p>
+<h2 id="proposta-de-experiencia">Proposta de experiência<a class="headerlink" href="#proposta-de-experiencia" title="Permanent link">&para;</a></h2>
+<h3 id="tela-a-lista-de-agendamentos">Tela A — lista de agendamentos<a class="headerlink" href="#tela-a-lista-de-agendamentos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cabeçalho <code>Agendamentos</code> e instalação ativa sempre visível.</li>
+<li>Contador <code>2 de 3 agendamentos</code>.</li>
+<li>Um cartão por agendamento, ordenado pela próxima ocorrência.</li>
+<li>Cada cartão apresenta: tipo, resumo humano, próxima ocorrência, antecedência do aviso e controle <code>Ativo/Inativo</code>.</li>
+<li>O estado nunca depende apenas de cor: switch acompanhado pelo texto <code>Ativo</code> ou <code>Pausado</code>.</li>
+<li>Toque no cartão abre o detalhe; toque no switch pede confirmação apenas ao desativar uma ocorrência muito próxima.</li>
+<li>Botão <code>Novo agendamento</code>; ao atingir três, ele fica indisponível com <code>Limite de 3 atingido</code>.</li>
+<li>Estado vazio: explicação curta e CTA <code>Criar primeiro agendamento</code>.</li>
+</ul>
+<p>Exemplos de resumo:</p>
+<ul>
+<li><code>Amanhã, 08:00</code> — <code>Único</code>.</li>
+<li><code>Seg a sex, 19:45</code> — <code>Recorrente</code>.</li>
+<li><code>Seg, qua e sex, 06:30</code> — <code>Recorrente</code>.</li>
+</ul>
+<h3 id="tela-b-criacaoedicao-de-agendamento-unico">Tela B — criação/edição de agendamento único<a class="headerlink" href="#tela-b-criacaoedicao-de-agendamento-unico" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Seletor de tipo <code>Único | Recorrente</code>.</li>
+<li>Data, horário, aviso antecipado e estado inicial ativo.</li>
+<li>Avisos disponíveis: <code>Sem aviso</code>, <code>10 minutos</code>, <code>15 minutos</code>, <code>30 minutos</code>, <code>1 hora</code>, <code>2 horas</code>.</li>
+<li>Resumo antes de salvar: <code>Será solicitado em 17/09/2026 às 08:00</code>.</li>
+<li>A data/hora deve estar no futuro no fuso da instalação.</li>
+</ul>
+<h3 id="tela-c-criacaoedicao-recorrente">Tela C — criação/edição recorrente<a class="headerlink" href="#tela-c-criacaoedicao-recorrente" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Horário.</li>
+<li>Sete botões de dia da semana; pelo menos um obrigatório.</li>
+<li>Data final obrigatória no MVP para evitar recorrência indefinida.</li>
+<li>Aviso antecipado e estado inicial ativo.</li>
+<li>Resumo: <code>Seg a sex, às 19:45, até 12/11/2026</code>.</li>
+</ul>
+<h3 id="tela-d-detalhe">Tela D — detalhe<a class="headerlink" href="#tela-d-detalhe" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Estado <code>Ativo</code>, <code>Pausado</code>, <code>Concluído</code> ou <code>Encerrado</code>.</li>
+<li>Próxima tentativa e regra de repetição.</li>
+<li>Ações <code>Editar</code>, <code>Pausar/Ativar</code> e <code>Excluir agendamento</code>.</li>
+<li>Resultado da última tentativa, quando existir: <code>Concluído</code>, <code>Não executado: dispositivo offline</code> ou motivo amigável equivalente.</li>
+<li>Texto permanente: <code>O Revolushower confirma a execução no horário. Se o dispositivo estiver offline ou em condição insegura, você será avisado.</code></li>
+</ul>
+<h3 id="tela-e-push-e-entrada-profunda">Tela E — push e entrada profunda<a class="headerlink" href="#tela-e-push-e-entrada-profunda" title="Permanent link">&para;</a></h3>
+<p>Aviso antecipado: <code>Pré-aquecimento programado para 19:45. Faltam 30 minutos · Minha Casa.</code></p>
+<p>Ao tocar, abre o detalhe do agendamento correto, nunca apenas a aba genérica. A partir dali o cliente pode:</p>
+<ul>
+<li>editar as próximas ocorrências;</li>
+<li>pausar o agendamento;</li>
+<li>excluir o agendamento;</li>
+<li>usar <code>Não executar hoje</code> apenas para uma ocorrência recorrente, se essa regra for aprovada.</li>
+</ul>
+<p>Para agendamento único, “cancelar” significa excluir a ocorrência ainda pendente. Para recorrente, a interface deve distinguir claramente <code>Não executar hoje</code>, <code>Pausar recorrência</code> e <code>Excluir agendamento</code>.</p>
+<h2 id="regras-funcionais-propostas">Regras funcionais propostas<a class="headerlink" href="#regras-funcionais-propostas" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Limite de três agendamentos não excluídos por instalação, independentemente do tipo ou estado ativo.</li>
+<li>Um agendamento concluído e único deixa de consumir uma vaga; permanece visível como concluído até ser removido da lista ativa ou arquivado.</li>
+<li>Recorrência exige pelo menos um dia e uma data final.</li>
+<li>Horários usam o fuso cadastrado da instalação, não o fuso momentâneo do celular.</li>
+<li>Troca de horário de verão ou fuso mantém o horário de parede escolhido, por exemplo 19:45 local.</li>
+<li>Ativar/desativar é idempotente e auditável.</li>
+<li>Editar uma recorrência altera somente ocorrências futuras.</li>
+<li>O aviso antecipado não inicia o equipamento; é apenas notificação.</li>
+<li>No horário, o backend cria uma solicitação idempotente <code>START_PREHEAT</code> com origem <code>SCHEDULE</code>.</li>
+<li>O Master valida o comando exatamente como valida um início pelo app; o agendamento nunca contorna segurança.</li>
+<li>“Agendado” não significa “executado”. O app mostra o resultado confirmado.</li>
+<li>Sem Internet/backend no horário, não há execução na primeira versão; não executar atrasado ao reconectar, salvo decisão futura explícita.</li>
+<li>Master offline, ocupado, em cooldown ou bloqueado produz uma ocorrência <code>Não executada</code> com motivo e push, sem repetição automática tardia.</li>
+<li>Duas ocorrências para o mesmo Master no mesmo instante geram uma única tentativa ou uma rejeição determinística; nunca dois ciclos.</li>
+<li>Um ciclo já iniciado não é cancelado automaticamente ao pausar/excluir o agendamento que o originou.</li>
+</ol>
+<h2 id="estados">Estados<a class="headerlink" href="#estados" title="Permanent link">&para;</a></h2>
+<p>Agendamento: <code>ACTIVE</code>, <code>PAUSED</code>, <code>COMPLETED</code> (único), <code>ENDED</code> (recorrente após data final), <code>DELETED</code>.</p>
+<p>Ocorrência: <code>PLANNED</code>, <code>NOTIFIED</code>, <code>DISPATCHING</code>, <code>ACCEPTED</code>, <code>COMPLETED</code>, <code>SKIPPED</code>, <code>REJECTED</code>, <code>FAILED</code>.</p>
+<p>O cliente vê traduções humanas; códigos internos não aparecem.</p>
+<h2 id="arquitetura-funcional-recomendada">Arquitetura funcional recomendada<a class="headerlink" href="#arquitetura-funcional-recomendada" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Mobile --HTTPS--&gt; API de agendamentos --PostgreSQL--&gt; Scheduler/worker
+                                                    |
+                                                    v
+                                              comando idempotente
+                                                    |
+                                                    v
+Backend --MQTT--&gt; Master --resultado confirmado--&gt; Backend --&gt; Mobile/push
 </code></pre></div>
-<h2 id="2-principios-obrigatorios">2. Princípios obrigatórios<a class="headerlink" href="#2-principios-obrigatorios" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Mobile cria, consulta, edita, pausa e exclui via HTTPS.</li>
+<li>PostgreSQL guarda regra, fuso, próxima ocorrência, versão e auditoria.</li>
+<li>Worker calcula e reivindica ocorrências com trava transacional, evitando execução duplicada após reinício.</li>
+<li>Serviço de push agenda o aviso ou o emite a partir da ocorrência calculada.</li>
+<li>MQTT transporta somente o comando no momento devido; não armazena a agenda.</li>
+<li>Firmware não precisa de calendário no MVP. Recebe <code>START_PREHEAT</code> normal com <code>origin=SCHEDULE</code>, <code>scheduleId</code>, <code>occurrenceId</code>, <code>requestId</code>, <code>issuedAt</code> e <code>expiresAt</code>.</li>
+</ul>
+<h2 id="modelo-minimo-sugerido">Modelo mínimo sugerido<a class="headerlink" href="#modelo-minimo-sugerido" title="Permanent link">&para;</a></h2>
+<p>Agendamento: <code>scheduleId</code>, <code>installationId</code>, <code>type</code>, <code>localTime</code>, <code>singleDate</code>, <code>weekdays</code>, <code>endDate</code>, <code>timezone</code>, <code>notificationLeadMinutes</code>, <code>enabled</code>, <code>nextOccurrenceAt</code>, <code>version</code>, <code>createdBy</code>, timestamps.</p>
+<p>Ocorrência: <code>occurrenceId</code>, <code>scheduleId</code>, instante planejado, instante do aviso, <code>requestId</code>, status, resultado confirmado e motivo.</p>
+<p>Chave idempotente recomendada: <code>scheduleId + ocorrência UTC + versão</code>.</p>
+<h2 id="push">Push<a class="headerlink" href="#push" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Exige permissão do sistema e token por instalação do aplicativo.</li>
+<li>Preferência é por agendamento, mas o app deve avisar quando push global estiver desabilitado.</li>
+<li>Alterar horário/data cancela o aviso antigo e cria o novo.</li>
+<li>Push aberto usa deep link autenticado para o detalhe.</li>
+<li>Se a sessão estiver revogada, o app pede login e depois continua para o detalhe.</li>
+<li>“Sem aviso” deve existir como opção, embora a necessidade original liste apenas antecedências; confirmar com o cliente.</li>
+</ul>
+<h2 id="validacoes-e-mensagens">Validações e mensagens<a class="headerlink" href="#validacoes-e-mensagens" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Limite: <code>Você já possui 3 agendamentos nesta instalação.</code></li>
+<li>Passado: <code>Escolha uma data e um horário futuros.</code></li>
+<li>Sem dias: <code>Selecione pelo menos um dia da semana.</code></li>
+<li>Data final inválida: <code>A data final deve ser posterior à primeira ocorrência.</code></li>
+<li>Conflito: <code>Já existe um agendamento para este horário.</code></li>
+<li>Offline na execução: <code>O pré-aquecimento das 19:45 não foi iniciado porque o dispositivo estava offline.</code></li>
+<li>Rejeição do Master: motivo traduzido, sem sugerir falha de agendamento quando foi proteção local.</li>
+</ul>
+<h2 id="decisoes-para-aprovacao-do-cliente">Decisões para aprovação do cliente<a class="headerlink" href="#decisoes-para-aprovacao-do-cliente" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Nenhuma confirmação visual pode ser criada apenas porque a API publicou uma mensagem.</li>
-<li>Toda operação remota possui <code>requestId</code>, estado, prazo, resposta e histórico.</li>
-<li>A interface deve mostrar envio, espera, resultado e atualização dos dados.</li>
-<li>Valores exibidos como atuais devem ser confirmados pelo Master.</li>
-<li>Uma falha de uma tela ou consulta nunca pode derrubar o backend inteiro.</li>
-<li>Alterações devem preservar funções existentes; toda publicação exige teste de regressão.</li>
-<li>O sistema deve usar <code>Cache-Control: no-store</code> para API e páginas administrativas.</li>
-<li>Cada página deve possuir URL própria e ser recuperável por F5.</li>
-<li>Códigos internos nunca devem ser exibidos diretamente ao usuário.</li>
-<li>O backend deve permanecer disponível sem depender de um terminal aberto.</li>
+<li>Agendamento pausado conta no limite de três? Recomendação: sim, para manter o limite simples.</li>
+<li>Agendamento único concluído some imediatamente ou fica em “Concluídos”? Recomendação: mostrar até o fim do dia e liberar a vaga imediatamente.</li>
+<li>Disponibilizar <code>Sem aviso</code>? Recomendação: sim.</li>
+<li>Permitir <code>Não executar hoje</code> em recorrentes? Recomendação: sim, somente pela notificação/detalhe.</li>
+<li>Antecedência pode ser maior que o intervalo até a execução? Recomendação: salvar, mas não enviar aviso retroativo.</li>
+<li>Conflitos no mesmo horário: bloquear ou permitir? Recomendação: bloquear para a mesma instalação.</li>
+<li>Offline: executar atrasado ao reconectar? Recomendação: não; marcar como não executado.</li>
+<li>Data final máxima: recomendação de 12 meses para reduzir erros, sujeita à aprovação.</li>
+<li>Quem pode editar em conta compartilhada? Para a apresentação, somente o titular; compartilhamento está oculto.</li>
+<li>Push é obrigatório? Recomendação: não; agendamento funciona mesmo sem permissão de notificação.</li>
 </ol>
-<h2 id="3-perfis">3. Perfis<a class="headerlink" href="#3-perfis" title="Permanent link">&para;</a></h2>
-<h3 id="31-administrador">3.1 Administrador<a class="headerlink" href="#31-administrador" title="Permanent link">&para;</a></h3>
-<p>Acesso global. Pode:</p>
+<h2 id="criterios-de-aceite-da-ux">Critérios de aceite da UX<a class="headerlink" href="#criterios-de-aceite-da-ux" title="Permanent link">&para;</a></h2>
 <ul>
-<li>consultar dashboard, clientes, instalações, usuários, auditoria e OTA;</li>
-<li>cadastrar e editar clientes;</li>
-<li>inserir instalação informando somente o Device ID;</li>
-<li>consultar e editar dados da instalação;</li>
-<li>vincular um ou mais clientes à instalação;</li>
-<li>atribuir instaladores;</li>
-<li>consultar estado, firmware, configuração, eventos e comandos;</li>
-<li>configurar tempos e executar comandos operacionais;</li>
-<li>enviar evidências;</li>
-<li>alterar checklist;</li>
-<li>ativar e desativar dispositivo;</li>
-<li>iniciar e acompanhar OTA;</li>
-<li>consultar auditoria.</li>
+<li>criar três agendamentos em qualquer combinação de tipos;</li>
+<li>impedir o quarto com mensagem clara;</li>
+<li>identificar ativo/pausado sem depender de cor;</li>
+<li>editar e excluir com atualização imediata da lista;</li>
+<li>abrir o agendamento correto ao tocar no push;</li>
+<li>distinguir cancelar uma ocorrência, pausar e excluir recorrência;</li>
+<li>mostrar instalação e fuso aplicáveis;</li>
+<li>apresentar próxima ocorrência corretamente;</li>
+<li>nunca afirmar execução antes da confirmação do Master;</li>
+<li>manter Início, Agendamento e Configurações como as únicas abas do MVP.</li>
 </ul>
-<h3 id="32-instalador">3.2 Instalador<a class="headerlink" href="#32-instalador" title="Permanent link">&para;</a></h3>
-<p>Só acessa instalações atribuídas e enquanto a conta estiver ativa. Pode:</p>
-<ul>
-<li>consultar instalação, conectividade, estado e configuração;</li>
-<li>alterar o endereço da instalação;</li>
-<li>consultar estado, firmware e tempos;</li>
-<li>configurar tempos durante a instalação;</li>
-<li>executar testes físicos autorizados;</li>
-<li>enviar evidências.</li>
-</ul>
-<p>Não pode cadastrar clientes, vincular clientes, administrar usuários, executar OTA, ativar/liberar ou reabrir calibração.</p>
-<h2 id="4-navegacao-do-painel">4. Navegação do painel<a class="headerlink" href="#4-navegacao-do-painel" title="Permanent link">&para;</a></h2>
-<p>URLs obrigatórias:</p>
-<ul>
-<li><code>/</code> ou <code>/login</code>: autenticação;</li>
-<li><code>/dashboard</code>: visão operacional;</li>
-<li><code>/clientes</code>: lista de clientes;</li>
-<li><code>/clientes/{id}</code>: detalhe do cliente;</li>
-<li><code>/instalacoes</code>: lista de instalações;</li>
-<li><code>/instalacoes/nova</code>: inserção técnica de instalação;</li>
-<li><code>/instalacoes/{id}</code>: detalhe operacional da instalação;</li>
-<li><code>/usuarios</code>: usuários e instaladores;</li>
-<li><code>/auditoria</code>: auditoria;</li>
-<li><code>/ota</code>: histórico e acompanhamento de atualizações.</li>
-</ul>
-<p>F5 em qualquer URL deve manter a página e carregar dados atuais. Rotas desconhecidas devem apresentar página de erro amigável, nunca 404 por falta de fallback SPA.</p>
-<h2 id="5-tela-de-login">5. Tela de login<a class="headerlink" href="#5-tela-de-login" title="Permanent link">&para;</a></h2>
-<p>Campos: e-mail e senha. Ações: entrar, mostrar/ocultar senha e logout após autenticação.</p>
-<p>Comportamento:</p>
-<ul>
-<li>botão mostra carregamento durante autenticação;</li>
-<li>sucesso cria sessão e abre <code>/dashboard</code>;</li>
-<li>credencial inválida mostra “E-mail ou senha inválidos.”;</li>
-<li>indisponibilidade da API mostra “Sistema temporariamente indisponível. Tente novamente.”;</li>
-<li>erros de rede não podem deixar a tela silenciosa;</li>
-<li>sessão revogada ou inválida retorna ao login com mensagem explicativa.</li>
-</ul>
-<h2 id="6-dashboard">6. Dashboard<a class="headerlink" href="#6-dashboard" title="Permanent link">&para;</a></h2>
-<p>Deve mostrar dados reais, sem números fictícios:</p>
-<ul>
-<li>total de instalações;</li>
-<li>instalações ativas, bloqueadas, em instalação e desativadas;</li>
-<li>dispositivos online e offline;</li>
-<li>comandos pendentes e falhos;</li>
-<li>ativações no período;</li>
-<li>atividades recentes;</li>
-<li>saúde da API, PostgreSQL e MQTT.</li>
-</ul>
-<p>Cada indicador deve ter estado de carregamento, estado vazio e estado de erro. A atividade recente deve mostrar ação, usuário, dispositivo/instalação, data e resultado.</p>
-<h2 id="7-clientes">7. Clientes<a class="headerlink" href="#7-clientes" title="Permanent link">&para;</a></h2>
-<h3 id="71-lista">7.1 Lista<a class="headerlink" href="#71-lista" title="Permanent link">&para;</a></h3>
-<p>Exibe nome, e-mail, telefone, quantidade de instalações, busca e paginação. O administrador possui “Novo cliente”. O instalador não vê ou não pode usar esse botão.</p>
-<h3 id="72-novo-cliente">7.2 Novo cliente<a class="headerlink" href="#72-novo-cliente" title="Permanent link">&para;</a></h3>
-<p>Campos: nome completo, e-mail, telefone, data de nascimento quando obrigatória, endereço, complemento, bairro, cidade, estado e CEP.</p>
-<p>Validações devem ocorrer no frontend e backend. Sucesso mostra “Cliente cadastrado com sucesso.” e abre o detalhe. Erros devem ser traduzidos para mensagens de campo.</p>
-<h3 id="73-detalhe">7.3 Detalhe<a class="headerlink" href="#73-detalhe" title="Permanent link">&para;</a></h3>
-<p>Mostra dados do cliente e todas as instalações vinculadas. A instalação pode estar vinculada a vários clientes. O endereço do cliente não substitui o endereço da instalação.</p>
-<h2 id="8-instalacoes">8. Instalações<a class="headerlink" href="#8-instalacoes" title="Permanent link">&para;</a></h2>
-<h3 id="81-lista">8.1 Lista<a class="headerlink" href="#81-lista" title="Permanent link">&para;</a></h3>
-<p>Colunas mínimas:</p>
-<ul>
-<li>Dispositivo: <code>device_id</code>/número de série;</li>
-<li>status de ativação: ativado/desativado/bloqueado;</li>
-<li>conectividade: online/offline;</li>
-<li>data de instalação;</li>
-<li>ação de detalhe por ícone ou botão compacto.</li>
-</ul>
-<h3 id="82-inserir-instalacao">8.2 Inserir instalação<a class="headerlink" href="#82-inserir-instalacao" title="Permanent link">&para;</a></h3>
-<p>Solicita somente o Device ID real gravado no equipamento, no formato definido pelo firmware, atualmente <code>AH_3409697506DC</code>.</p>
-<p>Não deve solicitar cliente nem dados pessoais. Cliente e endereço são etapas posteriores.</p>
-<p>Mensagens:</p>
-<ul>
-<li>sucesso: “Instalação criada com sucesso.”;</li>
-<li>dispositivo desconhecido: “Device ID não encontrado. Verifique o número de série do equipamento.”;</li>
-<li>já vinculado: “Este dispositivo já pertence a uma instalação.”;</li>
-<li>erro de comunicação: mensagem amigável, sem stack trace.</li>
-</ul>
-<h3 id="83-detalhe-da-instalacao">8.3 Detalhe da instalação<a class="headerlink" href="#83-detalhe-da-instalacao" title="Permanent link">&para;</a></h3>
-<p>A posição dos dois blocos superiores é fixa:</p>
-<ol>
-<li>bloco esquerdo: “Detalhes”;</li>
-<li>bloco direito: “Configuração”.</li>
-</ol>
-<h4 id="bloco-detalhes">Bloco Detalhes<a class="headerlink" href="#bloco-detalhes" title="Permanent link">&para;</a></h4>
-<p>Exibe Device ID, firmware confirmado, data de instalação, última comunicação, estado, ativação e endereço da instalação. Não deve exibir dados pessoais completos do cliente.</p>
-<h4 id="bloco-configuracao">Bloco Configuração<a class="headerlink" href="#bloco-configuracao" title="Permanent link">&para;</a></h4>
-<p>Exibe os seis tempos confirmados pelo Master:</p>
-<ul>
-<li>duração da bomba;</li>
-<li>limite de segurança;</li>
-<li>cooldown;</li>
-<li>fluxo contínuo;</li>
-<li>espera do aquecedor;</li>
-<li>delay inicial.</li>
-</ul>
-<p>Cada tempo possui ícone de edição. Ao editar:</p>
-<ol>
-<li>abre campo do tempo específico;</li>
-<li>preserva os demais valores;</li>
-<li>valida número inteiro e limites;</li>
-<li>envia <code>CONFIG_SET</code>;</li>
-<li>mostra “Aguardando confirmação do Master...”;</li>
-<li>atualiza o valor somente após confirmação;</li>
-<li>mostra “Tempo ajustado com sucesso.”;</li>
-<li>atualiza data/versão da configuração e log.</li>
-</ol>
-<p>Não deve existir botão separado “Alterar tempos”.</p>
-<h4 id="operacoes">Operações<a class="headerlink" href="#operacoes" title="Permanent link">&para;</a></h4>
-<p>Operações devem ser enxutas e não duplicadas:</p>
-<ul>
-<li>Verificar estado/online;</li>
-<li>Ler firmware e tempos;</li>
-<li>Consultar firmware disponível;</li>
-<li>Cancelar ciclo;</li>
-<li>Ativar dispositivo, somente administrador e com pré-condições;</li>
-<li>OTA, somente administrador.</li>
-</ul>
-<p>Cada operação precisa mostrar estado de carregamento, resposta final e atualizar o log.</p>
-<h4 id="clientes-vinculados">Clientes vinculados<a class="headerlink" href="#clientes-vinculados" title="Permanent link">&para;</a></h4>
-<p>Mostra somente o nome dos clientes. Administrador pode vincular um ou mais clientes. Instalador não pode alterar vínculos.</p>
-<h4 id="evidencias-da-instalacao">Evidências da instalação<a class="headerlink" href="#evidencias-da-instalacao" title="Permanent link">&para;</a></h4>
-<p>Administrador e instalador podem enviar fotos. O sistema deve:</p>
-<ul>
-<li>aceitar JPG, PNG e WEBP;</li>
-<li>limitar tamanho a 5 MB;</li>
-<li>mostrar progresso e resultado;</li>
-<li>armazenar hash, tipo, autor e data;</li>
-<li>mostrar miniaturas em duas colunas;</li>
-<li>carregar imagens por endpoint autenticado;</li>
-<li>abrir imagem original ao clicar;</li>
-<li>mostrar estado vazio e erro de upload.</li>
-</ul>
-<p>Uma evidência é pré-condição da ativação.</p>
-<h4 id="checklist-de-ativacao">Checklist de ativação<a class="headerlink" href="#checklist-de-ativacao" title="Permanent link">&para;</a></h4>
-<p>Itens:</p>
-<ul>
-<li><code>CONNECTIVITY</code>;</li>
-<li><code>TIMES_CONFIRMED</code>;</li>
-<li><code>PHYSICAL_TESTS</code>;</li>
-<li><code>EVIDENCE</code>.</li>
-</ul>
-<p>Cada item tem <code>PENDING</code>, <code>PASSED</code>, <code>FAILED</code> ou <code>WAIVED</code>, observação, usuário e data. O botão de ativação deve informar exatamente quais itens ainda não estão aprovados.</p>
-<h2 id="9-ativacao">9. Ativação<a class="headerlink" href="#9-ativacao" title="Permanent link">&para;</a></h2>
-<p>O dispositivo nasce bloqueado. Ativação exige:</p>
-<ol>
-<li>Device ID existente;</li>
-<li>configuração confirmada;</li>
-<li>pelo menos uma evidência;</li>
-<li>conectividade válida;</li>
-<li>tempos confirmados;</li>
-<li>testes físicos aprovados;</li>
-<li>checklist sem itens pendentes;</li>
-<li>usuário administrador.</li>
-</ol>
-<p>O backend não deve alterar a tela para “ativado” antes da confirmação <code>COMPLETED</code> do Master. Mensagens internas devem ser traduzidas:</p>
-<ul>
-<li><code>activation_evidence_required</code>: “Envie pelo menos uma evidência da instalação antes de ativar o dispositivo.”;</li>
-<li><code>activation_configuration_required</code>: “Configure e confirme os tempos antes de ativar o dispositivo.”;</li>
-<li><code>activation_checks_incomplete</code>: “Conclua o checklist de ativação antes de ativar o dispositivo.”;</li>
-<li><code>activation_device_not_found</code>: “Esta instalação não possui um dispositivo válido.”;</li>
-<li><code>REJECTED_UNSAFE</code>: “O Master recusou a operação porque o equipamento não está em estado seguro.”.</li>
-</ul>
-<h2 id="10-comandos-e-respostas">10. Comandos e respostas<a class="headerlink" href="#10-comandos-e-respostas" title="Permanent link">&para;</a></h2>
-<p>Comandos canônicos:</p>
-<p><code>GET_STATE</code>, <code>CONFIG_GET</code>, <code>CONFIG_SET</code>, <code>DIAGNOSTIC_RUN</code>, <code>FIRMWARE_GET</code>, <code>ACTIVATE</code>, <code>START_PREHEAT</code>, <code>CANCEL_PREHEAT</code>, <code>OTA_CHECK</code>, <code>OTA_INSTALL</code>.</p>
-<p>Estados de transporte e execução:</p>
-<p><code>CREATED</code>, <code>PUBLISHED</code>, <code>ACCEPTED</code>, <code>RUNNING</code>, <code>COMPLETED</code>, <code>CANCELLED</code>, <code>INVALID</code>, <code>REJECTED</code>, <code>FAILED</code>, <code>EXPIRED</code>, <code>DUPLICATE</code>.</p>
-<p><code>PUBLISHED</code> significa apenas que o broker aceitou a publicação. Nunca deve ser apresentado como execução concluída.</p>
-<p>Todo polling deve reconhecer os estados finais aplicáveis ao comando. <code>INVALID</code> é resposta final válida, por exemplo quando não existe ciclo ativo para cancelar.</p>
-<h2 id="11-contrato-mqtt">11. Contrato MQTT<a class="headerlink" href="#11-contrato-mqtt" title="Permanent link">&para;</a></h2>
-<p>Tópicos:</p>
-<div class="highlight"><pre><span></span><code>dev/devices/{deviceId}/commands
-dev/devices/{deviceId}/results
-dev/devices/{deviceId}/state
-dev/devices/{deviceId}/configuration
-dev/devices/{deviceId}/events
-</code></pre></div>
-<p>Envelope: <code>schemaVersion</code>, <code>requestId</code>, <code>deviceId</code>, <code>installationId</code>, <code>command</code>, <code>origin</code>, <code>issuedAt</code>, <code>expiresAt</code>, <code>payload</code>.</p>
-<p>O Master deve:</p>
-<ul>
-<li>validar Device ID;</li>
-<li>rejeitar comando expirado ou duplicado;</li>
-<li>responder cada comando uma única vez com dados completos;</li>
-<li>publicar estado retido;</li>
-<li>publicar configuração confirmada retida;</li>
-<li>enviar firmware na resposta de <code>FIRMWARE_GET</code>/<code>OTA_CHECK</code>;</li>
-<li>manter ativação persistida após reboot;</li>
-<li>preservar timers, cooldown, intertravamentos e watchdog.</li>
-</ul>
-<p>O backend deve assinar resultados, estados, configurações e eventos, persistir cada mensagem e atualizar <code>last_seen_at</code>.</p>
-<h2 id="12-heartbeat-e-estados">12. Heartbeat e estados<a class="headerlink" href="#12-heartbeat-e-estados" title="Permanent link">&para;</a></h2>
-<p>Heartbeat é publicado periodicamente no tópico <code>/state</code>. Deve conter Device ID, estado, firmware e ativação.</p>
-<p><code>BLOCKED</code> significa que o Master está comunicando, mas ainda não foi ativado. Não significa necessariamente offline ou falha.</p>
-<p>O backend considera online quando recebeu comunicação dentro da janela definida, atualmente cinco minutos.</p>
-<h2 id="13-auditoria">13. Auditoria<a class="headerlink" href="#13-auditoria" title="Permanent link">&para;</a></h2>
-<p>Registrar criação, envio, resposta, alteração, ativação, desativação, vínculo, upload, checklist, OTA e falha.</p>
-<p>Campos mínimos: ação, resultado, usuário, perfil, instalação, dispositivo, <code>requestId</code>, horário, dados anteriores e posteriores quando aplicável.</p>
-<p>Auditoria é append-only. Erros de consulta de auditoria devem retornar resposta HTTP controlada e nunca encerrar o processo.</p>
-<h2 id="14-usuarios-auditoria-e-ota">14. Usuários, auditoria e OTA<a class="headerlink" href="#14-usuarios-auditoria-e-ota" title="Permanent link">&para;</a></h2>
-<p>Essas páginas só devem aparecer para perfis autorizados e devem renderizar conteúdo real. Cada página precisa tratar carregamento, vazio, erro e resposta HTTP.</p>
-<p>OTA deve exibir jobs, dispositivo, versão alvo, status, erro, criação e conclusão. <code>INSTALLED</code> só pode virar sucesso final após confirmação pós-boot da versão.</p>
-<h2 id="15-disponibilidade-e-cache">15. Disponibilidade e cache<a class="headerlink" href="#15-disponibilidade-e-cache" title="Permanent link">&para;</a></h2>
-<p>O backend deve ser executado como serviço/tarefa persistente do Windows, independente do terminal, com reinício automático. A API deve possuir <code>/health</code> e métricas.</p>
-<p>Páginas, JS e API devem usar <code>no-store</code>, versionamento de assets e publicação atômica de HTML/JS. O servidor deve possuir fallback para rotas SPA.</p>
-<p>Uma exceção de banco, MQTT ou rota deve ser capturada e convertida em resposta controlada. O processo não pode cair por uma consulta inválida.</p>
-<h2 id="16-criterios-de-aceite">16. Critérios de aceite<a class="headerlink" href="#16-criterios-de-aceite" title="Permanent link">&para;</a></h2>
-<p>Antes de liberar qualquer versão, executar:</p>
-<ul>
-<li>login, logout, sessão revogada ou inválida e erro de rede;</li>
-<li>F5 em cada URL;</li>
-<li>dashboard com dados, vazio e erro;</li>
-<li>CRUD de cliente e vínculo N:N;</li>
-<li>inserção de instalação só com Device ID;</li>
-<li>detalhe com blocos na posição definida;</li>
-<li>leitura e alteração individual de cada tempo;</li>
-<li>consulta de estado e firmware;</li>
-<li>cancelamento com e sem ciclo ativo;</li>
-<li>upload, miniaturas e imagem original;</li>
-<li>checklist e mensagens de pré-condição;</li>
-<li>ativação recusada e ativação confirmada;</li>
-<li>OTA check e OTA install;</li>
-<li>histórico atualizado após envio e resposta;</li>
-<li>Usuários, Auditoria e OTA renderizando;</li>
-<li>backend sobrevivendo a erro de rota/banco;</li>
-<li>MQTT online, offline, timeout, duplicidade e expiração;</li>
-<li>regressão de todas as funcionalidades previamente aprovadas.</li>
-</ul>
-<h2 id="17-itens-ainda-dependentes-de-decisao">17. Itens ainda dependentes de decisão<a class="headerlink" href="#17-itens-ainda-dependentes-de-decisao" title="Permanent link">&para;</a></h2>
-<ul>
-<li>formato final de QR/claim e prova de posse;</li>
-<li>política LGPD, consentimentos e retenção;</li>
-<li>provedor de SMS e recuperação de acesso;</li>
-<li>política definitiva de evidências;</li>
-<li>retenção de auditoria;</li>
-<li>scheduler completo;</li>
-<li>Alexa e outros canais;</li>
-<li>autenticação MQTT de produção por dispositivo;</li>
-<li>remoção de overrides de bancada do firmware;</li>
-<li>testes físicos formais de sensores, bomba e aquecedor.</li>
-</ul>
-<p>Esses itens não devem ser inventados durante a implementação. Cada um precisa de decisão funcional antes da respectiva entrega.</p>
+<h2 id="artefato-visual">Artefato visual<a class="headerlink" href="#artefato-visual" title="Permanent link">&para;</a></h2>
+<p>O protótipo navegável para aprovação está em <code>prototype/mobile/scheduling-mvp.html</code>.</p>
 
 
 

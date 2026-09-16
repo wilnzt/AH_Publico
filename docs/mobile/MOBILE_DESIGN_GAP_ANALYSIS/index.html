@@ -1,0 +1,2387 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação técnica e funcional do projeto AquaHeat">
+      
+      
+      
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_DESIGN_GAP_ANALYSIS/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Estudo de divergências — design proposto versus aplicativo mobile - AquaHeat — Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#estudo-de-divergencias-design-proposto-versus-aplicativo-mobile" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="AquaHeat — Documentação" class="md-header__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AquaHeat — Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Estudo de divergências — design proposto versus aplicativo mobile
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Usar modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Usar modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AquaHeat — Documentação" class="md-nav__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AquaHeat — Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Produto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Produto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/REVOLUSHOWER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revolushower
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos do Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/REQUIREMENTS_TRACEABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rastreabilidade dos Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicativo Mobile
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicativo Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MOBILE_SCOPE_FROM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Escopo do Aplicativo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MOBILE_USER_FLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo de Usuário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral da Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/AWS_TOPOLOGY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topologia AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/CURRENT_STATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estado Atual do Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/PROJECT_CONTEXT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexto do Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ALEXA_INTEGRATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integração com Alexa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validação
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Validação
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../client/REVOLUSHOWER_VALIDACAO_FLUXO_MOBILE_KEY_USER.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validação do Fluxo Mobile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../client/PAUTA_REUNIAO_KEYUSERS_2026-09-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pauta da Reunião com Key Users
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publicação e Produção
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publicação e Produção
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../client/ROADMAP_PUBLICACAO_PRODUCAO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap de Publicação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firmware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firmware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firmware/MASTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Master
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firmware/KEYUSER_VALIDATION_ACTIVATION_MODES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modos de Ativação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firmware/MASTER_REVERSE_ENGINEERING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compliance/DOCUMENTATION_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro da Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migração
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Migração
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/HOW_TO_USE_IN_NEW_ACCOUNT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso em Nova Conta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-resumo-executivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Resumo executivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fontes-verificadas-e-limites-da-analise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fontes verificadas e limites da análise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-divergencias-internas-entre-as-cinco-imagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Divergências internas entre as cinco imagens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Divergências internas entre as cinco imagens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-navegacao-inferior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Navegação inferior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-marca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Marca
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tema-e-linguagem-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Tema e linguagem visual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-terminologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Terminologia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comparacao-por-tela" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Comparação por tela
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Comparação por tela">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-01-iniciopng-inicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 01-inicio.png — Início
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-02-operacaopng-operacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 02-operacao.png — Operação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-03-instalacoespng-minhas-instalacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 03-instalacoes.png — Minhas instalações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-04-historicopng-historico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 04-historico.png — Histórico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-05-configuracoespng-configuracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 05-configuracoes.png — Configurações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-divergencias-transversais-de-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Divergências transversais de frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Divergências transversais de frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-design-system-ausente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Design system ausente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-arquitetura-do-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Arquitetura do app
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-estado-operacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Estado operacional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-qualidade-visual-e-movimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Qualidade visual e movimento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-acessibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Acessibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-conteudo-e-confianca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Conteúdo e confiança
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-lacunas-funcionais-encontradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Lacunas funcionais encontradas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-plano-recomendado-de-adequacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Plano recomendado de adequação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Plano recomendado de adequação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p0-decisoes-e-base-obrigatoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P0 — decisões e base obrigatória
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p1-nucleo-visual-e-operacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P1 — núcleo visual e operacional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p2-jornadas-dependentes-de-contratos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P2 — jornadas dependentes de contratos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p3-qualidade-de-lancamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P3 — qualidade de lançamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-criterios-para-considerar-o-resultado-profissional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Critérios para considerar o resultado profissional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-decisoes-que-precisam-ser-tomadas-com-o-responsavel-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Decisões que precisam ser tomadas com o responsável do produto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Conclusão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="estudo-de-divergencias-design-proposto-versus-aplicativo-mobile">Estudo de divergências — design proposto versus aplicativo mobile<a class="headerlink" href="#estudo-de-divergencias-design-proposto-versus-aplicativo-mobile" title="Permanent link">&para;</a></h1>
+<p><strong>Data da análise:</strong> 2026-09-15
+<strong>Escopo:</strong> cinco imagens em <code>docs/mobile/design/</code>, aplicativo Flutter em <code>mobile/app/</code> e contratos/documentos vigentes do produto.
+<strong>Natureza:</strong> diagnóstico e plano de adequação; nenhuma imagem é tratada como prova de funcionalidade implementada.</p>
+<h2 id="1-resumo-executivo">1. Resumo executivo<a class="headerlink" href="#1-resumo-executivo" title="Permanent link">&para;</a></h2>
+<p>O aplicativo atual comprova o fluxo técnico mínimo, mas ainda não possui acabamento de produto. Ele usa componentes Material quase sem personalização, ícones genéricos, uma única cor principal, conteúdo com pouca hierarquia e telas funcionais concentradas em um arquivo de aproximadamente 1.400 linhas. As imagens propõem uma experiência visual muito mais madura: marca presente, hierarquia tipográfica forte, cartões com tratamento consistente, ilustrações, estados operacionais expressivos e linguagem mais humana.</p>
+<p>A diferença não pode ser resolvida apenas “aplicando o layout”. As próprias cinco imagens não formam ainda um sistema único: há quatro estruturas diferentes de navegação inferior, diferentes logos e slogans, alternância não explicada entre tema claro e escuro, e funcionalidades que não existem ou conflitam com o fluxo canônico. Antes da implementação visual definitiva, é preciso consolidar um design system e fechar as decisões listadas na seção 9.</p>
+<p>Classificação geral:</p>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>Situação atual</th>
+<th>Distância para a proposta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identidade visual</td>
+<td>Marca representada por <code>Icons.water_drop</code>; sem ativos oficiais</td>
+<td>Muito alta</td>
+</tr>
+<tr>
+<td>Design system</td>
+<td>Tema Material gerado por uma cor; sem tokens ou componentes próprios</td>
+<td>Muito alta</td>
+</tr>
+<tr>
+<td>Início/Operação</td>
+<td>Estrutura funcional básica; sem marca, local completo, saúde concreta ou acabamento</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Operação</td>
+<td>Ação existe, mas a tela é técnica e não representa o ciclo visualmente</td>
+<td>Crítica</td>
+</tr>
+<tr>
+<td>Instalações</td>
+<td>Lista e seleção existem; QR e jornada segura estão incompletos</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Histórico</td>
+<td>Consome auditoria bruta; não há timeline semântica, filtros ou autoria adequada</td>
+<td>Crítica</td>
+</tr>
+<tr>
+<td>Configurações</td>
+<td>Lista mínima; três destinos não funcionam e faltam dados/ajuda/versão</td>
+<td>Crítica</td>
+</tr>
+<tr>
+<td>Estados e acessibilidade</td>
+<td>Cobertura pontual; sem sistema completo de loading, vazio, offline e falha</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Arquitetura de frontend</td>
+<td>Protótipo monolítico, estado global mínimo e teste único</td>
+<td>Muito alta</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-fontes-verificadas-e-limites-da-analise">2. Fontes verificadas e limites da análise<a class="headerlink" href="#2-fontes-verificadas-e-limites-da-analise" title="Permanent link">&para;</a></h2>
+<p>Foram inspecionados:</p>
+<ul>
+<li><code>docs/mobile/design/01-inicio.png</code> a <code>05-configuracoes.png</code>;</li>
+<li><code>mobile/app/lib/main.dart</code>, <code>pubspec.yaml</code>, teste de widget e configuração Android;</li>
+<li><code>MOBILE_PRODUCT_CANONICAL_FLOW.md</code>, <code>MOBILE_PRODUCT_RULES.md</code>, <code>MOBILE_FUNCTIONAL_SPEC.md</code> e <code>MOBILE_SCOPE_FROM_DESIGN.md</code>;</li>
+<li>rotas reais do backend usadas pelo app e o estado registrado em <code>project/</code>.</li>
+</ul>
+<p>As PNGs são renders de apresentação dentro de mockups de iPhone, não arquivos de interface medíveis. Não fornecem grid, tokens, componentes, estados intermediários, comportamento responsivo nem ativos exportáveis. Cores, margens e tipografia podem ser estimadas visualmente, mas uma reprodução fiel exige o arquivo-fonte de design (preferencialmente Figma) e os ativos oficiais em SVG/PNG.</p>
+<p>Não foi possível executar ou renderizar o Flutter nesta máquina porque o SDK Flutter não está disponível no <code>PATH</code>. A comparação do app atual foi feita contra o código real; portanto, não se declara validação visual em dispositivo nesta análise.</p>
+<h2 id="3-divergencias-internas-entre-as-cinco-imagens">3. Divergências internas entre as cinco imagens<a class="headerlink" href="#3-divergencias-internas-entre-as-cinco-imagens" title="Permanent link">&para;</a></h2>
+<p>Estas inconsistências precisam ser resolvidas antes de considerar as imagens uma especificação final:</p>
+<h3 id="31-navegacao-inferior">3.1 Navegação inferior<a class="headerlink" href="#31-navegacao-inferior" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Imagem</th>
+<th>Itens apresentados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 — Início</td>
+<td>Início, Histórico, Configurações</td>
+</tr>
+<tr>
+<td>02 — Operação</td>
+<td>Início, Histórico, Bem-estar, Mais</td>
+</tr>
+<tr>
+<td>03 — Instalações</td>
+<td>Início, Consumo, Bem-estar, Configurações</td>
+</tr>
+<tr>
+<td>04 — Histórico</td>
+<td>Início, Consumo, Histórico, Compartilhar</td>
+</tr>
+<tr>
+<td>05 — Configurações</td>
+<td>Início, Consumo, Bem-estar, Configurações</td>
+</tr>
+</tbody>
+</table>
+<p>Não há uma arquitetura de informação reproduzível entre as telas. <code>Consumo</code> e <code>Bem-estar</code> não têm escopo funcional confirmado; <code>Compartilhar</code> é atualmente uma função de configurações; <code>Instalações</code> desaparece da barra; e a quantidade de destinos varia entre três e quatro.</p>
+<p>O código atual usava <strong>Início, Instalações, Histórico e Configurações</strong>. A decisão vigente define <strong>Início, Agendamento, Histórico e Configurações</strong>, com Início diretamente em Operação e Instalações como tela secundária.</p>
+<h3 id="32-marca">3.2 Marca<a class="headerlink" href="#32-marca" title="Permanent link">&para;</a></h3>
+<ul>
+<li>O símbolo varia entre gota com círculo interno, gota vazada, gota cheia e símbolo bicolor.</li>
+<li>O logotipo aparece alinhado à esquerda, centralizado ou acompanhado de ®.</li>
+<li>Os slogans variam entre “Mais conforto para o seu dia”, “Mais conforto todo dia”, “Mais conforto todos os dias” e outras frases editoriais.</li>
+<li>O app atual não contém nenhum desses ativos; usa uma gota Material.</li>
+</ul>
+<p>É necessário um pacote oficial de marca com logo horizontal, símbolo, versões positiva/negativa, área de proteção, cores, tipografia e regras de uso do ®.</p>
+<h3 id="33-tema-e-linguagem-visual">3.3 Tema e linguagem visual<a class="headerlink" href="#33-tema-e-linguagem-visual" title="Permanent link">&para;</a></h3>
+<ul>
+<li>As telas 01, 03 e 04 usam fundo claro quente; a 02 usa tema teal escuro imersivo; a 05 mistura cabeçalho escuro com folha branca.</li>
+<li>Raios, sombras, bordas, dimensões de ícones e tratamentos de seleção mudam entre telas.</li>
+<li>A navegação da operação não coincide visualmente com as demais.</li>
+</ul>
+<p>A tela escura de operação pode ser uma decisão válida de “modo de foco”, mas precisa ser intencional, acessível e aplicada a todos os estados da operação. Caso contrário, deve-se adotar um único tema claro.</p>
+<h3 id="34-terminologia">3.4 Terminologia<a class="headerlink" href="#34-terminologia" title="Permanent link">&para;</a></h3>
+<ul>
+<li>As imagens alternam “pré-aquecimento”, “aquecendo a água”, “aquecimento” e “ciclo”.</li>
+<li>“Consumo”, “Bem-estar”, “Tudo sob controle”, “Sistema funcionando normalmente” e “Operação segura e monitorada” sugerem capacidades que precisam de definição ou evidência.</li>
+<li><code>03-instalacoes.png</code> diz “chuveiros Revolushower”, enquanto o domínio vigente fala em instalação, local e dispositivo.</li>
+</ul>
+<p>Deve existir um glossário único orientado ao cliente. Códigos internos e a palavra <strong>Master</strong> não podem aparecer na experiência comum.</p>
+<h2 id="4-comparacao-por-tela">4. Comparação por tela<a class="headerlink" href="#4-comparacao-por-tela" title="Permanent link">&para;</a></h2>
+<h3 id="41-01-iniciopng-inicio">4.1 <code>01-inicio.png</code> — Início<a class="headerlink" href="#41-01-iniciopng-inicio" title="Permanent link">&para;</a></h3>
+<p><strong>O que a proposta apresenta</strong></p>
+<ul>
+<li>cabeçalho de marca, slogan e sino de notificações;</li>
+<li>seletor de instalação com nome e cidade/UF;</li>
+<li>cartão central com ilustração própria, estado “Pronto para usar” e CTA de iniciar;</li>
+<li>cartão de saúde/resumo;</li>
+<li>mensagem editorial de marca;</li>
+<li>navegação inferior de três itens.</li>
+</ul>
+<p><strong>O que existe no app</strong></p>
+<ul>
+<li>título genérico “Olá” e subtítulo;</li>
+<li>seletor com apenas o nome da instalação;</li>
+<li>cartão Material com gota genérica e texto retornado pelo backend;</li>
+<li>CTA <strong>Abrir dispositivo</strong>, conforme fluxo canônico;</li>
+<li>atualização manual de estado;</li>
+<li>estado vazio para conta sem dispositivo.</li>
+</ul>
+<p><strong>Divergências visuais</strong></p>
+<ul>
+<li>faltam logo, slogan, sino, endereço/localidade, ilustração, cartão secundário e faixa editorial;</li>
+<li>hierarquia, espaçamento, bordas, sombras, ícones, tipografia e estados do botão não seguem a proposta;</li>
+<li>o cabeçalho atual é texto de página, não um cabeçalho de produto;</li>
+<li>não há skeleton, indicação de última atualização nem diferenciação visual de online/offline/falha.</li>
+</ul>
+<p><strong>Divergências funcionais</strong></p>
+<ul>
+<li>a imagem inicia o pré-aquecimento diretamente na referência visual; a decisão vigente usa Início diretamente como Operação quando há instalação;</li>
+<li>o sino pressupõe central de notificações, preferências, permissões, backend/push e deep links ainda não implementados;</li>
+<li>“Tudo certo por aqui” só pode existir se derivado de estados concretos e confirmados. O firmware atual não sustenta uma declaração genérica de saúde total;</li>
+<li>“Pronto para usar” precisa distinguir dispositivo online, ciclo concluído, cooldown, bloqueio e estado antigo;</li>
+<li>a cidade/UF depende de <code>locationLabel</code> confiável e de política de minimização de endereço.</li>
+</ul>
+<p><strong>Adequação recomendada</strong></p>
+<p>Usar a aba Início diretamente como Operação quando houver instalação ativa. Sem instalação, mostrar apenas o vínculo. A imagem 01 permanece referência visual, não uma tela adicional do produto.</p>
+<h3 id="42-02-operacaopng-operacao">4.2 <code>02-operacao.png</code> — Operação<a class="headerlink" href="#42-02-operacaopng-operacao" title="Permanent link">&para;</a></h3>
+<p><strong>O que a proposta apresenta</strong></p>
+<ul>
+<li>tema escuro imersivo;</li>
+<li>instalação ativa no topo;</li>
+<li>progresso circular animado;</li>
+<li>estado humano “Aquecendo a água” e promessa de aviso;</li>
+<li>cartão de segurança/monitoramento;</li>
+<li>ação clara de cancelar;</li>
+<li>ornamentação de ondas e navegação própria.</li>
+</ul>
+<p><strong>O que existe no app</strong></p>
+<ul>
+<li><code>InstallationDetailsPage</code>, aberta por <strong>Abrir dispositivo</strong>;</li>
+<li>Device ID e firmware visíveis no topo;</li>
+<li>botão “Aquecer agora”;</li>
+<li>consultas técnicas de conexão, firmware e configuração competindo com a ação principal;</li>
+<li>polling de até 30 segundos e mensagem textual simples;</li>
+<li>não há componente visual de progresso nem um modelo de estados da operação na tela.</li>
+</ul>
+<p><strong>Divergências visuais</strong></p>
+<ul>
+<li>a tela atual se parece com diagnóstico técnico, não com operação do produto;</li>
+<li>faltam anel de progresso, estados animados, contraste contextual, ilustração, hierarquia principal e transições;</li>
+<li>Device ID, firmware e consultas técnicas estão na superfície errada segundo as regras vigentes;</li>
+<li>falta estado persistente quando o app volta do background ou reabre durante um ciclo.</li>
+</ul>
+<p><strong>Divergências funcionais e riscos</strong></p>
+<ul>
+<li>o polling encerra quando recebe <code>ACCEPTED</code> na tela de detalhes e então mostra “Aquecimento iniciado”; isso não equivale à conclusão do ciclo;</li>
+<li>o estado local legado <code>heating</code> não é uma projeção confiável do dispositivo e deve ser substituído pelo estado da Operação;</li>
+<li>o progresso proporcional depende de duração prevista confirmada pelo dispositivo/backend. Sem duração, o indicador deve ser indeterminado;</li>
+<li>completar uma animação nunca pode declarar sucesso; é obrigatória a confirmação final do dispositivo;</li>
+<li>“Você será avisado” exige notificação local/push implementada e autorizada. Sem isso, o texto deve ser “Aguarde a confirmação”;</li>
+<li>“Tudo sob controle” e “Operação segura e monitorada” são amplos demais. Devem virar fatos observáveis;</li>
+<li>o cancelamento precisa permanecer visível apenas em estados canceláveis e mostrar enviando, confirmado, recusado e timeout;</li>
+<li>o app atual não demonstra recuperação de ciclo em andamento após suspensão, perda de rede ou reinício.</li>
+</ul>
+<p><strong>Adequação recomendada</strong></p>
+<p>Criar uma tela <code>DeviceOperationPage</code> própria e orientada por uma máquina de estados tipada: carregando, disponível, enviando início, aguardando aceite, delay, executando com duração, executando sem duração, cancelando, concluído, recusado, offline, timeout e falha. Mover diagnósticos para <strong>Configurações &gt; Informações e suporte</strong>. Usar o modo escuro apenas se aprovado como estado imersivo e se todos os contrastes forem testados.</p>
+<h3 id="43-03-instalacoespng-minhas-instalacoes">4.3 <code>03-instalacoes.png</code> — Minhas instalações<a class="headerlink" href="#43-03-instalacoespng-minhas-instalacoes" title="Permanent link">&para;</a></h3>
+<p><strong>O que a proposta apresenta</strong></p>
+<ul>
+<li>retorno explícito e marca;</li>
+<li>explicação da função da tela;</li>
+<li>cartões distintos por local, cidade/UF, ícone contextual e selo “Em uso”;</li>
+<li>CTA destacado para adicionar;</li>
+<li>ilustração decorativa e mensagem editorial.</li>
+</ul>
+<p><strong>O que existe no app</strong></p>
+<ul>
+<li>aba principal <code>InstallationsPage</code> com lista obtida da API;</li>
+<li>nome, <code>locationLabel</code>/cidade/estado, selo “Em uso” e seleção de contexto;</li>
+<li>vínculo manual por Device ID e nome do local;</li>
+<li>QR Code desabilitado com texto “em breve”;</li>
+<li>ao tocar numa instalação, o app seleciona o contexto e abre diretamente a tela técnica de detalhes.</li>
+</ul>
+<p><strong>Divergências visuais</strong></p>
+<ul>
+<li>a estrutura atual é uma lista Material básica sem marca, texto explicativo, ilustrações ou diferenciação de locais;</li>
+<li>todos os locais usam o mesmo ícone;</li>
+<li>o CTA, o estado selecionado e os cartões não seguem o sistema visual proposto;</li>
+<li>a proposta é uma tela empilhada com “Voltar”, enquanto o app a trata como aba principal. Isso afeta toda a navegação.</li>
+</ul>
+<p><strong>Divergências funcionais e riscos</strong></p>
+<ul>
+<li>o fluxo real vincula pelo identificador; o contrato vigente exige QR/fallback seguro e prova de posse. Device ID sozinho não deve autorizar vínculo;</li>
+<li>o código permite confirmar vínculo a um dispositivo já associado a outra pessoa com “Sim, vincular também”, sem demonstrar convite/permissão segura;</li>
+<li>o texto atual expõe “Device ID” e “Master”, proibidos na linguagem comum;</li>
+<li>o endereço é declarado no código, mas o campo está desativado permanentemente (<code>if (false)</code>);</li>
+<li>faltam renomear local, remover/desvincular, indicar offline, gerenciar acesso e tratar permissões;</li>
+<li>selecionar instalação deve atualizar todas as telas de forma reativa. O <code>ValueNotifier</code> global atual não garante atualização consistente das páginas já montadas;</li>
+<li>a imagem mostra “Adicionar instalação”, mas a decisão vigente precisa confirmar se Clientes podem criar/associar livremente ou somente receber acesso de uma instalação preparada por técnico/admin.</li>
+</ul>
+<p><strong>Adequação recomendada</strong></p>
+<p>Transformar instalações em tela secundária acessível pelo seletor e por Configurações, conforme decisão de navegação. Implementar seleção sem abrir automaticamente diagnóstico, QR seguro, fallback com código de ativação, nomeação/renomeação e feedback de contexto global. O ícone do local deve vir de uma escolha controlada ou permanecer neutro; não inferir “praia” pelo texto.</p>
+<h3 id="44-04-historicopng-historico">4.4 <code>04-historico.png</code> — Histórico<a class="headerlink" href="#44-04-historicopng-historico" title="Permanent link">&para;</a></h3>
+<p><strong>O que a proposta apresenta</strong></p>
+<ul>
+<li>cabeçalho de marca e instalação selecionável;</li>
+<li>filtros “Todos” e “Hoje”;</li>
+<li>agrupamento por dia;</li>
+<li>timeline com hora, ator, ação, explicação, ícone e selo de resultado por semântica;</li>
+<li>entrada de abertura do aplicativo;</li>
+<li>navegação inferior específica.</li>
+</ul>
+<p><strong>O que existe no app</strong></p>
+<ul>
+<li>consulta dos últimos 50 eventos da auditoria da instalação ativa;</li>
+<li>tradução de apenas quatro ações;</li>
+<li>cartões iguais com ícone de check para qualquer resultado;</li>
+<li>timestamp bruto do backend;</li>
+<li>sem filtros, agrupamento, atualização, paginação, detalhes ou seleção visível do local.</li>
+</ul>
+<p><strong>Divergências visuais</strong></p>
+<ul>
+<li>falta toda a estrutura de timeline, códigos de cor por resultado, filtros, cabeçalho de contexto e tipografia;</li>
+<li>sucesso, cancelamento, falha e evento informativo recebem hoje a mesma apresentação;</li>
+<li>datas não são formatadas no fuso/localidade do cliente.</li>
+</ul>
+<p><strong>Divergências funcionais e riscos</strong></p>
+<ul>
+<li><code>COMMAND_CREATED</code> e <code>COMMAND_RESULT</code> podem aparecer como dois itens técnicos em vez de um evento compreensível do ciclo;</li>
+<li>a auditoria administrativa não é necessariamente o contrato correto para o histórico do cliente;</li>
+<li>autoria, origem, status final e duração não são compostos pelo app atual;</li>
+<li>ações desconhecidas viram códigos com sublinhados removidos, o que ainda expõe taxonomia interna;</li>
+<li>“em tempo real” não é demonstrado: a tela faz uma carga única no <code>initState</code>;</li>
+<li>registrar e exibir “abriu o aplicativo” precisa de decisão de privacidade, retenção e valor para o cliente. A recomendação é não mostrar esse evento no histórico operacional;</li>
+<li>filtros exigem contrato de API, paginação e fuso horário definidos, não filtragem apenas local dos últimos 50 itens.</li>
+</ul>
+<p><strong>Adequação recomendada</strong></p>
+<p>Definir um DTO de histórico voltado ao cliente, agregando intenção e resultado em um item com <code>actorDisplayName</code>, origem, estado final, horários, duração e motivo amigável. Implementar paginação, atualização, filtros no backend, agrupamento por data local e tela de detalhes. Manter auditoria interna separada do feed do cliente.</p>
+<h3 id="45-05-configuracoespng-configuracoes">4.5 <code>05-configuracoes.png</code> — Configurações<a class="headerlink" href="#45-05-configuracoespng-configuracoes" title="Permanent link">&para;</a></h3>
+<p><strong>O que a proposta apresenta</strong></p>
+<ul>
+<li>cabeçalho de marca em fundo escuro;</li>
+<li>cartão de perfil com iniciais, nome, e-mail e status verificado;</li>
+<li>entradas com título e descrição;</li>
+<li>Minha conta, Minhas instalações, Pessoas autorizadas e Informações e suporte;</li>
+<li>versão dinâmica do app;</li>
+<li>CTA de suporte e logout destrutivo bem identificado;</li>
+<li>mensagem editorial e navegação inferior.</li>
+</ul>
+<p><strong>O que existe no app</strong></p>
+<ul>
+<li>título e subtítulo fixo “Casa principal”;</li>
+<li>quatro cartões somente com título;</li>
+<li>apenas <strong>Minha conta</strong> possui navegação implementada;</li>
+<li>conta mostra nome, e-mail e telefone em cartão básico;</li>
+<li>botão textual de logout;</li>
+<li>sem versão, verificação, suporte, preferências ou informações do dispositivo.</li>
+</ul>
+<p><strong>Divergências visuais</strong></p>
+<ul>
+<li>faltam cabeçalho, perfil, iniciais/avatar, subtítulos, agrupamento, CTA de suporte, versão, estados pressionado/desabilitado e acabamento do logout;</li>
+<li>o nome da instalação está fixo, podendo divergir do contexto real;</li>
+<li>não existe tratamento de conteúdo longo, nomes grandes ou escala de fonte.</li>
+</ul>
+<p><strong>Divergências funcionais e riscos</strong></p>
+<ul>
+<li>Pessoas autorizadas e Informações e suporte não executam ação;</li>
+<li>Minhas instalações também não possui <code>onTap</code> nesta tela;</li>
+<li>status “Conta verificada” precisa refletir dados reais e definir se verifica telefone, e-mail ou ambos;</li>
+<li>versão deve vir do pacote instalado, nunca ser literal como a imagem;</li>
+<li>suporte precisa de canal oficial, horário/política, consentimento para anexar diagnóstico e tratamento de dados;</li>
+<li>informações técnicas hoje estão na tela de operação e precisam ser migradas para suporte/diagnóstico;</li>
+<li>o logout local apaga o token seguro, mas deve-se confirmar revogação da sessão no backend;</li>
+<li>a tela deve separar configurações da conta, do app e da instalação ativa para evitar ambiguidade.</li>
+</ul>
+<p><strong>Adequação recomendada</strong></p>
+<p>Construir seções tipadas com destinos reais. Perfil no topo; conta e segurança; instalação e acessos; notificações; ajuda/diagnóstico; informações legais e versão; logout. Nenhum item deve parecer acionável antes de possuir destino ou explicação de indisponibilidade.</p>
+<h2 id="5-divergencias-transversais-de-frontend">5. Divergências transversais de frontend<a class="headerlink" href="#5-divergencias-transversais-de-frontend" title="Permanent link">&para;</a></h2>
+<h3 id="51-design-system-ausente">5.1 Design system ausente<a class="headerlink" href="#51-design-system-ausente" title="Permanent link">&para;</a></h3>
+<p>Criar tokens versionados para:</p>
+<ul>
+<li>paleta semântica: marca, superfícies, texto, sucesso, alerta, erro, offline e foco;</li>
+<li>tipografia: família licenciada, escala, pesos, alturas de linha e fallback;</li>
+<li>espaçamento, raios, bordas, elevação e tamanhos mínimos de toque;</li>
+<li>ícones e ilustrações oficiais;</li>
+<li>estados de componentes: normal, pressionado, foco, desabilitado, loading e erro;</li>
+<li>light/dark, se ambos forem aprovados.</li>
+</ul>
+<p>Componentes mínimos: cabeçalho de marca, seletor de local, cartão de estado, CTA principal, botão destrutivo, item de configuração, item de instalação, selo semântico, timeline, estado vazio, skeleton, banner offline e diálogo de confirmação.</p>
+<h3 id="52-arquitetura-do-app">5.2 Arquitetura do app<a class="headerlink" href="#52-arquitetura-do-app" title="Permanent link">&para;</a></h3>
+<p>O <code>main.dart</code> concentra rede, armazenamento, autenticação, regras de operação e widgets. Para produção, separar ao menos:</p>
+<ul>
+<li><code>core/</code>: tema, navegação, rede, erros, armazenamento e observabilidade;</li>
+<li><code>features/auth</code>, <code>installations</code>, <code>operation</code>, <code>history</code>, <code>settings</code>, <code>support</code>;</li>
+<li>modelos/DTOs tipados e tradução explícita de estados do backend;</li>
+<li>repositórios e controladores testáveis;</li>
+<li>estado global da sessão e instalação ativa, com persistência controlada;</li>
+<li>rotas nomeadas/declarativas e deep links.</li>
+</ul>
+<p>Isso não é refatoração estética: é necessário para impedir que estado de uma instalação apareça em outra, para recuperar ciclos em andamento e para testar falhas.</p>
+<h3 id="53-estado-operacional">5.3 Estado operacional<a class="headerlink" href="#53-estado-operacional" title="Permanent link">&para;</a></h3>
+<p>Hoje strings livres são usadas como estado. É necessário um modelo fechado que diferencie conectividade, disponibilidade do dispositivo, fase do comando e fase física do ciclo. A UI deve derivar texto, cor, ícone e ações desse modelo, nunca de comparações soltas de strings.</p>
+<h3 id="54-qualidade-visual-e-movimento">5.4 Qualidade visual e movimento<a class="headerlink" href="#54-qualidade-visual-e-movimento" title="Permanent link">&para;</a></h3>
+<ul>
+<li>usar animações curtas e funcionais, respeitando “reduzir movimento”;</li>
+<li>manter o progresso baseado em tempo como estimativa visual e a confirmação do dispositivo como resultado;</li>
+<li>evitar efeitos decorativos pesados que prejudiquem aparelhos modestos;</li>
+<li>produzir ilustrações em vetor/asset otimizado, não recortar os PNGs de apresentação;</li>
+<li>prever safe areas, teclados, telas Android pequenas e diferentes proporções, não apenas o iPhone do mockup.</li>
+</ul>
+<h3 id="55-acessibilidade">5.5 Acessibilidade<a class="headerlink" href="#55-acessibilidade" title="Permanent link">&para;</a></h3>
+<ul>
+<li>contraste WCAG AA para texto e controles;</li>
+<li>alvos de toque de pelo menos 44×44 pt / 48×48 dp;</li>
+<li>suporte a escala de fonte e layouts sem corte;</li>
+<li>labels semânticos para ícones e progresso;</li>
+<li>não depender somente de cor para sucesso/erro;</li>
+<li>ordem de foco e leitor de tela;</li>
+<li>feedback tátil com parcimônia;</li>
+<li>legibilidade sob luz forte, requisito relevante ao contexto do produto.</li>
+</ul>
+<h3 id="56-conteudo-e-confianca">5.6 Conteúdo e confiança<a class="headerlink" href="#56-conteudo-e-confianca" title="Permanent link">&para;</a></h3>
+<p>Criar uma matriz oficial de microcopy por estado. Remover promessas absolutas e textos técnicos. Exemplos:</p>
+<table>
+<thead>
+<tr>
+<th>Evitar</th>
+<th>Preferir</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tudo sob controle</td>
+<td>Dispositivo online · atualizado agora</td>
+</tr>
+<tr>
+<td>Sistema funcionando normalmente</td>
+<td>Nenhuma falha informada pelo dispositivo</td>
+</tr>
+<tr>
+<td>Operação segura e monitorada</td>
+<td>Pré-aquecimento confirmado pelo dispositivo</td>
+</tr>
+<tr>
+<td>Device ID / Master</td>
+<td>Código do dispositivo / dispositivo</td>
+</tr>
+<tr>
+<td>FAILED / BUSY / EXPIRED</td>
+<td>Não foi possível concluir / dispositivo ocupado / solicitação expirou</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-lacunas-funcionais-encontradas">6. Lacunas funcionais encontradas<a class="headerlink" href="#6-lacunas-funcionais-encontradas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Capacidade da proposta</th>
+<th>Situação comprovada</th>
+<th>Dependência para ficar real</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seleção de várias instalações</td>
+<td>Parcial</td>
+<td>estado global reativo, persistência e testes com duas instalações</td>
+</tr>
+<tr>
+<td>Início diretamente em Operação</td>
+<td>Parcial</td>
+<td>aba inicial agora renderiza operação; backend já tem comandos básicos</td>
+</tr>
+<tr>
+<td>Progresso do aquecimento</td>
+<td>Ausente</td>
+<td>duração prevista e timestamps confirmados; fallback indeterminado</td>
+</tr>
+<tr>
+<td>Cancelamento contextual</td>
+<td>Parcial</td>
+<td>estado cancelável confirmado e resultado final consistente</td>
+</tr>
+<tr>
+<td>Aviso ao concluir</td>
+<td>Ausente</td>
+<td>política de notificações, push/local, permissão e deep link</td>
+</tr>
+<tr>
+<td>Estado/saúde resumidos</td>
+<td>Parcial e arriscado</td>
+<td>projeção concreta de conectividade/falha/última comunicação</td>
+</tr>
+<tr>
+<td>Adicionar por QR</td>
+<td>Ausente</td>
+<td>claim seguro, QR e prova de posse; BLE permanece dependência</td>
+</tr>
+<tr>
+<td>Renomear local</td>
+<td>Ausente no app</td>
+<td>endpoint/contrato e UI</td>
+</tr>
+<tr>
+<td>Compartilhar acesso</td>
+<td>Ausente</td>
+<td>convites, permissões e revogação no domínio Cliente</td>
+</tr>
+<tr>
+<td>Histórico por pessoa</td>
+<td>Parcial</td>
+<td>DTO de feed, autoria, agregação de eventos e paginação</td>
+</tr>
+<tr>
+<td>Histórico em tempo real</td>
+<td>Ausente</td>
+<td>refresh/realtime autenticado e reconciliação</td>
+</tr>
+<tr>
+<td>Filtros de histórico</td>
+<td>Ausente</td>
+<td>API paginada com filtros e fuso</td>
+</tr>
+<tr>
+<td>Conta verificada</td>
+<td>Ausente</td>
+<td>regra e campos reais de verificação</td>
+</tr>
+<tr>
+<td>Suporte</td>
+<td>Ausente</td>
+<td>canal oficial e política de diagnóstico/dados</td>
+</tr>
+<tr>
+<td>Versão do aplicativo</td>
+<td>Ausente</td>
+<td>leitura dinâmica do pacote</td>
+</tr>
+<tr>
+<td>Consumo</td>
+<td>Fora do escopo confirmado</td>
+<td>hardware/dados e definição; não implementar agora</td>
+</tr>
+<tr>
+<td>Bem-estar</td>
+<td>Sem definição funcional</td>
+<td>decisão de produto; não colocar na navegação agora</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-plano-recomendado-de-adequacao">7. Plano recomendado de adequação<a class="headerlink" href="#7-plano-recomendado-de-adequacao" title="Permanent link">&para;</a></h2>
+<h3 id="p0-decisoes-e-base-obrigatoria">P0 — decisões e base obrigatória<a class="headerlink" href="#p0-decisoes-e-base-obrigatoria" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Fechar navegação, tema, logo, slogan e terminologia da Operação.</li>
+<li>Obter fonte de design editável e pacote oficial de marca.</li>
+<li>Congelar o contrato de estado operacional e o DTO de histórico do cliente.</li>
+<li>Corrigir o fluxo de vínculo para não autorizar posse apenas por identificador.</li>
+<li>Separar rede, sessão, modelos, estado e features do arquivo único.</li>
+<li>Criar tema/tokens e componentes básicos com acessibilidade.</li>
+</ol>
+<h3 id="p1-nucleo-visual-e-operacional">P1 — núcleo visual e operacional<a class="headerlink" href="#p1-nucleo-visual-e-operacional" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Implementar shell, cabeçalho e seletor de instalação consistentes.</li>
+<li>Consolidar Início diretamente como Operação com dados reais.</li>
+<li>Criar tela de operação completa e máquina de estados.</li>
+<li>Implementar progresso determinado/indeterminado e recuperação após resume.</li>
+<li>Implementar lista de instalações, seleção e nomeação com contexto global.</li>
+<li>Implementar histórico semântico, paginação, filtros e detalhes.</li>
+<li>Implementar Configurações com todos os destinos reais.</li>
+</ol>
+<h3 id="p2-jornadas-dependentes-de-contratos">P2 — jornadas dependentes de contratos<a class="headerlink" href="#p2-jornadas-dependentes-de-contratos" title="Permanent link">&para;</a></h3>
+<ol>
+<li>QR/claim seguro e provisionamento BLE.</li>
+<li>Pessoas autorizadas, convites e revogação.</li>
+<li>Notificações e central correspondente.</li>
+<li>Suporte, diagnóstico exportável e informações legais.</li>
+<li>Renomear/desvincular instalações conforme permissão.</li>
+</ol>
+<h3 id="p3-qualidade-de-lancamento">P3 — qualidade de lançamento<a class="headerlink" href="#p3-qualidade-de-lancamento" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Golden tests dos componentes e cinco telas-alvo.</li>
+<li>Testes de widget para todos os estados operacionais.</li>
+<li>Testes de integração com API simulada e Master/bancada.</li>
+<li>Auditoria de acessibilidade, escala de fonte, contraste e leitor de tela.</li>
+<li>Matriz de aparelhos Android/iOS, rede lenta/offline, background/resume e rotação.</li>
+<li>Telemetria de falhas sem dados pessoais desnecessários.</li>
+<li>Revisão de identidade de pacote, assinatura release, ícones/splash e projeto iOS — atualmente ausente no repositório.</li>
+</ol>
+<h2 id="8-criterios-para-considerar-o-resultado-profissional">8. Critérios para considerar o resultado profissional<a class="headerlink" href="#8-criterios-para-considerar-o-resultado-profissional" title="Permanent link">&para;</a></h2>
+<ul>
+<li>todas as telas usam a mesma navegação, marca, tokens e linguagem;</li>
+<li>nenhum item visual sugere função inexistente;</li>
+<li>a instalação ativa fica inequívoca antes de qualquer comando;</li>
+<li>operação sobrevive a refresh, background, perda de rede e retorno ao app;</li>
+<li>progresso visual nunca substitui confirmação do dispositivo;</li>
+<li>histórico é compreensível, paginado, localizado e separa eventos do cliente de auditoria técnica;</li>
+<li>todo item acionável possui destino funcional e feedback completo;</li>
+<li>estados vazio, loading, offline, erro, timeout e retry têm design aprovado;</li>
+<li>contraste, tamanho de toque, escala de fonte e leitor de tela são testados;</li>
+<li>Android e iOS usam componentes e comportamentos compatíveis com suas plataformas;</li>
+<li>testes automatizados e validação em aparelho fornecem evidência, não apenas screenshots.</li>
+</ul>
+<h2 id="9-decisoes-que-precisam-ser-tomadas-com-o-responsavel-do-produto">9. Decisões que precisam ser tomadas com o responsável do produto<a class="headerlink" href="#9-decisoes-que-precisam-ser-tomadas-com-o-responsavel-do-produto" title="Permanent link">&para;</a></h2>
+<p>As recomendações abaixo evitam bloquear o planejamento, mas só devem virar implementação definitiva após aceite.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decisão</th>
+<th>Recomendação técnica/produto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UX-D01</td>
+<td>Navegação inferior definitiva</td>
+<td><strong>DECIDIDO:</strong> Início, Agendamento, Histórico e Configurações, visível em todo o uso autenticado. Notificações ficam em Configurações.</td>
+</tr>
+<tr>
+<td>UX-D02</td>
+<td>Tela inicial e operação</td>
+<td><strong>DECIDIDO:</strong> após instalação habilitada, Início é diretamente a Operação; não existe Home intermediária.</td>
+</tr>
+<tr>
+<td>UX-D03</td>
+<td>Tema da Operação</td>
+<td><strong>DECIDIDO:</strong> a Operação seguirá <code>02-operacao.png</code>, incluindo o modo escuro de foco; as demais telas permanecem claras conforme suas referências.</td>
+</tr>
+<tr>
+<td>UX-D04</td>
+<td>Logo/símbolo/slogan</td>
+<td><strong>DECIDIDO provisoriamente:</strong> seguir a referência visual e usar fonte igual ou próxima até receber ativos oficiais.</td>
+</tr>
+<tr>
+<td>UX-D05</td>
+<td>Nome da ação</td>
+<td>Padronizar <strong>Iniciar pré-aquecimento</strong>, <strong>Cancelar pré-aquecimento</strong> e <strong>Pré-aquecimento concluído</strong>.</td>
+</tr>
+<tr>
+<td>UX-D06</td>
+<td>Cartão de saúde</td>
+<td>Substituir promessas genéricas por conectividade, última comunicação e falha confirmada.</td>
+</tr>
+<tr>
+<td>UX-D07</td>
+<td>Notificações no MVP</td>
+<td><strong>DECIDIDO:</strong> conclusão, erro e alertas entram no MVP com linguagem amigável; infraestrutura de push ainda precisa ser definida.</td>
+</tr>
+<tr>
+<td>UX-D08</td>
+<td>Eventos do histórico</td>
+<td>Não exibir “abriu o aplicativo”; manter histórico para ações e resultados relevantes do dispositivo/instalação.</td>
+</tr>
+<tr>
+<td>UX-D09</td>
+<td>Compartilhamento</td>
+<td>Definir quem convida/remove, permissões e se um dispositivo já vinculado exige convite em vez de confirmação simples.</td>
+</tr>
+<tr>
+<td>UX-D10</td>
+<td>Adicionar instalação</td>
+<td>Confirmar se Cliente pode iniciar claim ou apenas concluir vínculo preparado por técnico/admin.</td>
+</tr>
+<tr>
+<td>UX-D11</td>
+<td>Local mostrado</td>
+<td>Exibir nome + cidade/UF; endereço completo somente onde necessário e autorizado.</td>
+</tr>
+<tr>
+<td>UX-D12</td>
+<td>Conta verificada</td>
+<td>Definir se o selo representa telefone confirmado, e-mail confirmado ou identidade completa.</td>
+</tr>
+<tr>
+<td>UX-D13</td>
+<td>Canal de suporte</td>
+<td>Informar WhatsApp, chat, telefone, e-mail ou portal oficial, horários e consentimento para diagnóstico.</td>
+</tr>
+<tr>
+<td>UX-D14</td>
+<td>Consumo e Bem-estar</td>
+<td><strong>DECIDIDO:</strong> manter fora da navegação até existir escopo e dados reais.</td>
+</tr>
+<tr>
+<td>UX-D15</td>
+<td>Tela Instalações</td>
+<td><strong>DECIDIDO:</strong> tela secundária, acessível pelo seletor/Configurações, sem aba permanente.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-conclusao">10. Conclusão<a class="headerlink" href="#10-conclusao" title="Permanent link">&para;</a></h2>
+<p>As imagens são uma boa direção de percepção de marca, hierarquia e acolhimento, mas ainda não são uma especificação consistente nem implementável literalmente. O caminho seguro é consolidar delas um único sistema visual, obedecer ao fluxo canônico e só exibir estados comprovados pelo dispositivo/backend. O maior trabalho não é cosmético: operação, histórico, instalações e configurações precisam de modelos, contratos e jornadas completas para que o acabamento visual seja confiável.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1777,7 +1777,7 @@
 <li>identidade mobile validada por SMS, associação multiusuário por instalação e trilha de auditoria por ator;</li>
 <li>conta com múltiplas instalações, seleção explícita do contexto ativo e vínculo Alexa restrito a um Master;</li>
 <li>fluxo de ativação/claim por QR Code com fallback manual controlado;</li>
-<li>sessão de técnico limitada, temporária e específica para setup inicial.</li>
+<li>autorização de técnico limitada ao setup inicial, sem usar expiração de sessão como controle.</li>
 </ul>
 <h3 id="mobile">Mobile<a class="headerlink" href="#mobile" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1827,7 +1827,7 @@
 <h2 id="provisionamento-de-rede">Provisionamento de rede<a class="headerlink" href="#provisionamento-de-rede" title="Permanent link">&para;</a></h2>
 <p>O plano A é BLE: o QR Code identifica o Master e um token de pareamento, o usuário pressiona o botão físico para abrir uma janela temporária e o app envia as credenciais Wi‑Fi pelo Bluetooth. O celular não precisa trocar de rede. O SoftAP/portal HTTP existente permanece como fallback de manutenção. O firmware deve garantir timeout, autenticação do pareamento, armazenamento seguro e retorno ao modo normal sem afetar bomba, aquecedor ou timers.</p>
 <h3 id="ativacao-e-setup-de-instalacao">Ativação e setup de instalação<a class="headerlink" href="#ativacao-e-setup-de-instalacao" title="Permanent link">&para;</a></h3>
-<p>O QR Code da etiqueta inicia o claim do aparelho. O fallback manual aceita código de ativação ou <code>deviceId</code> conforme contrato seguro; o identificador público não poderá, sozinho, autorizar a associação. O técnico executará o setup inicial em sessão móvel temporária, configurando e validando o Master antes de transferir ou confirmar a associação com a conta do usuário. A conta, a identidade do usuário e os membros da instalação permanecem sob controle do backend e do RBAC.</p>
+<p>O QR Code da etiqueta inicia o claim do aparelho. O fallback manual aceita código de ativação ou <code>deviceId</code> conforme contrato seguro; o identificador público não poderá, sozinho, autorizar a associação. O técnico executará o setup inicial com autorização móvel específica, configurando e validando o Master antes de transferir ou confirmar a associação com a conta do usuário. Esse tratamento especial não dependerá da duração da sessão. A conta, a identidade do usuário e os membros da instalação permanecem sob controle do backend e do RBAC.</p>
 <h3 id="modelo-adotado-na-primeira-versao">Modelo adotado na primeira versão<a class="headerlink" href="#modelo-adotado-na-primeira-versao" title="Permanent link">&para;</a></h3>
 <p>O serviço de scheduler do backend será responsável por armazenar programações, calcular a próxima ocorrência no fuso da instalação e emitir o comando no momento correto. Cada disparo terá <code>requestId</code> idempotente e origem <code>SCHEDULE</code>. O Master deverá confirmar ou rejeitar a solicitação; o backend nunca registrará sucesso antes dessa confirmação. Se o Master estiver offline, a política de não executar, reagendar ou notificar ainda deve ser definida em requisito de produto.</p>
 <h2 id="arquitetura-adotada-mqtt-e-acesso-administrativo">Arquitetura adotada: MQTT e acesso administrativo<a class="headerlink" href="#arquitetura-adotada-mqtt-e-acesso-administrativo" title="Permanent link">&para;</a></h2>

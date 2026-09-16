@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/backend/BACKEND_FUNCTIONAL_SPEC/">
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/architecture/CLIENT_DOMAIN/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>Especificação funcional do sistema Backend Revolushower - AquaHeat — Documentação</title>
+        <title>Modelo de domínio: clientes mobile e usuários administrativos - AquaHeat — Documentação</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#especificacao-funcional-do-sistema-backend-revolushower" class="md-skip">
+        <a href="#modelo-de-dominio-clientes-mobile-e-usuarios-administrativos" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Especificação funcional do sistema Backend Revolushower
+              Modelo de domínio: clientes mobile e usuários administrativos
             
           </span>
         </div>
@@ -605,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/ARCHITECTURE/" class="md-nav__link">
+      <a href="../ARCHITECTURE/" class="md-nav__link">
         
   
   
@@ -633,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/AWS_TOPOLOGY/" class="md-nav__link">
+      <a href="../AWS_TOPOLOGY/" class="md-nav__link">
         
   
   
@@ -661,7 +661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/CURRENT_STATE/" class="md-nav__link">
+      <a href="../CURRENT_STATE/" class="md-nav__link">
         
   
   
@@ -689,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/PROJECT_CONTEXT/" class="md-nav__link">
+      <a href="../PROJECT_CONTEXT/" class="md-nav__link">
         
   
   
@@ -717,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/ALEXA_INTEGRATION/" class="md-nav__link">
+      <a href="../ALEXA_INTEGRATION/" class="md-nav__link">
         
   
   
@@ -1329,10 +1329,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-proposito" class="md-nav__link">
+  <a href="#regra-estrutural" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Propósito
+        Regra estrutural
       
     </span>
   </a>
@@ -1340,10 +1340,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-principios-obrigatorios" class="md-nav__link">
+  <a href="#locais-e-instalacoes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Princípios obrigatórios
+        Locais e instalações
       
     </span>
   </a>
@@ -1351,49 +1351,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-perfis" class="md-nav__link">
+  <a href="#compatibilidade-e-migracao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Perfis
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Perfis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-administrador" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1 Administrador
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-instalador" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2 Instalador
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-navegacao-do-painel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Navegação do painel
+        Compatibilidade e migração
       
     </span>
   </a>
@@ -1401,292 +1362,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-tela-de-login" class="md-nav__link">
+  <a href="#contratos-minimos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Tela de login
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-dashboard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Dashboard
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-clientes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Clientes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Clientes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-lista" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.1 Lista
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-novo-cliente" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.2 Novo cliente
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#73-detalhe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.3 Detalhe
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-instalacoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Instalações
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Instalações">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-lista" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.1 Lista
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-inserir-instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.2 Inserir instalação
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#83-detalhe-da-instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.3 Detalhe da instalação
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8.3 Detalhe da instalação">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bloco-detalhes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bloco Detalhes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bloco-configuracao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bloco Configuração
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#operacoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operações
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clientes-vinculados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Clientes vinculados
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evidencias-da-instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evidências da instalação
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checklist-de-ativacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checklist de ativação
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-ativacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Ativação
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-comandos-e-respostas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Comandos e respostas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-contrato-mqtt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. Contrato MQTT
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-heartbeat-e-estados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. Heartbeat e estados
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13-auditoria" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        13. Auditoria
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#14-usuarios-auditoria-e-ota" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        14. Usuários, auditoria e OTA
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#15-disponibilidade-e-cache" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        15. Disponibilidade e cache
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#16-criterios-de-aceite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        16. Critérios de aceite
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#17-itens-ainda-dependentes-de-decisao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        17. Itens ainda dependentes de decisão
+        Contratos mínimos
       
     </span>
   </a>
@@ -1710,293 +1389,25 @@
 
 
 
-<h1 id="especificacao-funcional-do-sistema-backend-revolushower">Especificação funcional do sistema Backend Revolushower<a class="headerlink" href="#especificacao-funcional-do-sistema-backend-revolushower" title="Permanent link">&para;</a></h1>
-<p>Status: documento de referência para desenvolvimento e testes
-Data: 2026-09-12</p>
-<h2 id="1-proposito">1. Propósito<a class="headerlink" href="#1-proposito" title="Permanent link">&para;</a></h2>
-<p>O sistema administra clientes, instalações, dispositivos Master, usuários internos e operações remotas sobre o firmware. O backend é o intermediário obrigatório entre o painel e o dispositivo. O painel nunca conversa diretamente com MQTT.</p>
-<p>O Master é a autoridade final sobre segurança física, ativação, estado operacional e persistência dos tempos. O backend registra intenções, publica comandos, aguarda respostas e apresenta somente estados confirmados.</p>
-<p>Fluxo canônico:</p>
-<div class="highlight"><pre><span></span><code>Usuário → Painel HTTPS → API → PostgreSQL
-                         ↓
-                       MQTT
-                         ↓
-                       Master
-                         ↓
-              resposta MQTT → API → banco → painel
-</code></pre></div>
-<h2 id="2-principios-obrigatorios">2. Princípios obrigatórios<a class="headerlink" href="#2-principios-obrigatorios" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Nenhuma confirmação visual pode ser criada apenas porque a API publicou uma mensagem.</li>
-<li>Toda operação remota possui <code>requestId</code>, estado, prazo, resposta e histórico.</li>
-<li>A interface deve mostrar envio, espera, resultado e atualização dos dados.</li>
-<li>Valores exibidos como atuais devem ser confirmados pelo Master.</li>
-<li>Uma falha de uma tela ou consulta nunca pode derrubar o backend inteiro.</li>
-<li>Alterações devem preservar funções existentes; toda publicação exige teste de regressão.</li>
-<li>O sistema deve usar <code>Cache-Control: no-store</code> para API e páginas administrativas.</li>
-<li>Cada página deve possuir URL própria e ser recuperável por F5.</li>
-<li>Códigos internos nunca devem ser exibidos diretamente ao usuário.</li>
-<li>O backend deve permanecer disponível sem depender de um terminal aberto.</li>
-</ol>
-<h2 id="3-perfis">3. Perfis<a class="headerlink" href="#3-perfis" title="Permanent link">&para;</a></h2>
-<h3 id="31-administrador">3.1 Administrador<a class="headerlink" href="#31-administrador" title="Permanent link">&para;</a></h3>
-<p>Acesso global. Pode:</p>
+<h1 id="modelo-de-dominio-clientes-mobile-e-usuarios-administrativos">Modelo de domínio: clientes mobile e usuários administrativos<a class="headerlink" href="#modelo-de-dominio-clientes-mobile-e-usuarios-administrativos" title="Permanent link">&para;</a></h1>
+<h2 id="regra-estrutural">Regra estrutural<a class="headerlink" href="#regra-estrutural" title="Permanent link">&para;</a></h2>
+<p>São entidades diferentes:</p>
 <ul>
-<li>consultar dashboard, clientes, instalações, usuários, auditoria e OTA;</li>
-<li>cadastrar e editar clientes;</li>
-<li>inserir instalação informando somente o Device ID;</li>
-<li>consultar e editar dados da instalação;</li>
-<li>vincular um ou mais clientes à instalação;</li>
-<li>atribuir instaladores;</li>
-<li>consultar estado, firmware, configuração, eventos e comandos;</li>
-<li>configurar tempos e executar comandos operacionais;</li>
-<li>enviar evidências;</li>
-<li>alterar checklist;</li>
-<li>ativar e desativar dispositivo;</li>
-<li>iniciar e acompanhar OTA;</li>
-<li>consultar auditoria.</li>
+<li><strong>Usuário administrativo</strong> (<code>users</code>): acesso ao backend administrativo. Seus papéis são Administrador e Instalador (além do administrador mestre/teste já existente). Possui apenas os dados necessários para operação e permissões administrativas.</li>
+<li><strong>Cliente</strong> (<code>customers</code> + <code>client_accounts</code>): pessoa que utiliza o aplicativo mobile. O cliente possui o perfil completo (nome, e-mail, telefone e dados cadastrais) em <code>customers</code>; <code>client_accounts</code> guarda exclusivamente credenciais e estado de acesso ao app.</li>
 </ul>
-<h3 id="32-instalador">3.2 Instalador<a class="headerlink" href="#32-instalador" title="Permanent link">&para;</a></h3>
-<p>Só acessa instalações atribuídas e enquanto a conta estiver ativa. Pode:</p>
-<ul>
-<li>consultar instalação, conectividade, estado e configuração;</li>
-<li>alterar o endereço da instalação;</li>
-<li>consultar estado, firmware e tempos;</li>
-<li>configurar tempos durante a instalação;</li>
-<li>executar testes físicos autorizados;</li>
-<li>enviar evidências.</li>
-</ul>
-<p>Não pode cadastrar clientes, vincular clientes, administrar usuários, executar OTA, ativar/liberar ou reabrir calibração.</p>
-<h2 id="4-navegacao-do-painel">4. Navegação do painel<a class="headerlink" href="#4-navegacao-do-painel" title="Permanent link">&para;</a></h2>
-<p>URLs obrigatórias:</p>
-<ul>
-<li><code>/</code> ou <code>/login</code>: autenticação;</li>
-<li><code>/dashboard</code>: visão operacional;</li>
-<li><code>/clientes</code>: lista de clientes;</li>
-<li><code>/clientes/{id}</code>: detalhe do cliente;</li>
-<li><code>/instalacoes</code>: lista de instalações;</li>
-<li><code>/instalacoes/nova</code>: inserção técnica de instalação;</li>
-<li><code>/instalacoes/{id}</code>: detalhe operacional da instalação;</li>
-<li><code>/usuarios</code>: usuários e instaladores;</li>
-<li><code>/auditoria</code>: auditoria;</li>
-<li><code>/ota</code>: histórico e acompanhamento de atualizações.</li>
-</ul>
-<p>F5 em qualquer URL deve manter a página e carregar dados atuais. Rotas desconhecidas devem apresentar página de erro amigável, nunca 404 por falta de fallback SPA.</p>
-<h2 id="5-tela-de-login">5. Tela de login<a class="headerlink" href="#5-tela-de-login" title="Permanent link">&para;</a></h2>
-<p>Campos: e-mail e senha. Ações: entrar, mostrar/ocultar senha e logout após autenticação.</p>
-<p>Comportamento:</p>
-<ul>
-<li>botão mostra carregamento durante autenticação;</li>
-<li>sucesso cria sessão e abre <code>/dashboard</code>;</li>
-<li>credencial inválida mostra “E-mail ou senha inválidos.”;</li>
-<li>indisponibilidade da API mostra “Sistema temporariamente indisponível. Tente novamente.”;</li>
-<li>erros de rede não podem deixar a tela silenciosa;</li>
-<li>sessão revogada ou inválida retorna ao login com mensagem explicativa.</li>
-</ul>
-<h2 id="6-dashboard">6. Dashboard<a class="headerlink" href="#6-dashboard" title="Permanent link">&para;</a></h2>
-<p>Deve mostrar dados reais, sem números fictícios:</p>
-<ul>
-<li>total de instalações;</li>
-<li>instalações ativas, bloqueadas, em instalação e desativadas;</li>
-<li>dispositivos online e offline;</li>
-<li>comandos pendentes e falhos;</li>
-<li>ativações no período;</li>
-<li>atividades recentes;</li>
-<li>saúde da API, PostgreSQL e MQTT.</li>
-</ul>
-<p>Cada indicador deve ter estado de carregamento, estado vazio e estado de erro. A atividade recente deve mostrar ação, usuário, dispositivo/instalação, data e resultado.</p>
-<h2 id="7-clientes">7. Clientes<a class="headerlink" href="#7-clientes" title="Permanent link">&para;</a></h2>
-<h3 id="71-lista">7.1 Lista<a class="headerlink" href="#71-lista" title="Permanent link">&para;</a></h3>
-<p>Exibe nome, e-mail, telefone, quantidade de instalações, busca e paginação. O administrador possui “Novo cliente”. O instalador não vê ou não pode usar esse botão.</p>
-<h3 id="72-novo-cliente">7.2 Novo cliente<a class="headerlink" href="#72-novo-cliente" title="Permanent link">&para;</a></h3>
-<p>Campos: nome completo, e-mail, telefone, data de nascimento quando obrigatória, endereço, complemento, bairro, cidade, estado e CEP.</p>
-<p>Validações devem ocorrer no frontend e backend. Sucesso mostra “Cliente cadastrado com sucesso.” e abre o detalhe. Erros devem ser traduzidos para mensagens de campo.</p>
-<h3 id="73-detalhe">7.3 Detalhe<a class="headerlink" href="#73-detalhe" title="Permanent link">&para;</a></h3>
-<p>Mostra dados do cliente e todas as instalações vinculadas. A instalação pode estar vinculada a vários clientes. O endereço do cliente não substitui o endereço da instalação.</p>
-<h2 id="8-instalacoes">8. Instalações<a class="headerlink" href="#8-instalacoes" title="Permanent link">&para;</a></h2>
-<h3 id="81-lista">8.1 Lista<a class="headerlink" href="#81-lista" title="Permanent link">&para;</a></h3>
-<p>Colunas mínimas:</p>
-<ul>
-<li>Dispositivo: <code>device_id</code>/número de série;</li>
-<li>status de ativação: ativado/desativado/bloqueado;</li>
-<li>conectividade: online/offline;</li>
-<li>data de instalação;</li>
-<li>ação de detalhe por ícone ou botão compacto.</li>
-</ul>
-<h3 id="82-inserir-instalacao">8.2 Inserir instalação<a class="headerlink" href="#82-inserir-instalacao" title="Permanent link">&para;</a></h3>
-<p>Solicita somente o Device ID real gravado no equipamento, no formato definido pelo firmware, atualmente <code>AH_3409697506DC</code>.</p>
-<p>Não deve solicitar cliente nem dados pessoais. Cliente e endereço são etapas posteriores.</p>
-<p>Mensagens:</p>
-<ul>
-<li>sucesso: “Instalação criada com sucesso.”;</li>
-<li>dispositivo desconhecido: “Device ID não encontrado. Verifique o número de série do equipamento.”;</li>
-<li>já vinculado: “Este dispositivo já pertence a uma instalação.”;</li>
-<li>erro de comunicação: mensagem amigável, sem stack trace.</li>
-</ul>
-<h3 id="83-detalhe-da-instalacao">8.3 Detalhe da instalação<a class="headerlink" href="#83-detalhe-da-instalacao" title="Permanent link">&para;</a></h3>
-<p>A posição dos dois blocos superiores é fixa:</p>
-<ol>
-<li>bloco esquerdo: “Detalhes”;</li>
-<li>bloco direito: “Configuração”.</li>
-</ol>
-<h4 id="bloco-detalhes">Bloco Detalhes<a class="headerlink" href="#bloco-detalhes" title="Permanent link">&para;</a></h4>
-<p>Exibe Device ID, firmware confirmado, data de instalação, última comunicação, estado, ativação e endereço da instalação. Não deve exibir dados pessoais completos do cliente.</p>
-<h4 id="bloco-configuracao">Bloco Configuração<a class="headerlink" href="#bloco-configuracao" title="Permanent link">&para;</a></h4>
-<p>Exibe os seis tempos confirmados pelo Master:</p>
-<ul>
-<li>duração da bomba;</li>
-<li>limite de segurança;</li>
-<li>cooldown;</li>
-<li>fluxo contínuo;</li>
-<li>espera do aquecedor;</li>
-<li>delay inicial.</li>
-</ul>
-<p>Cada tempo possui ícone de edição. Ao editar:</p>
-<ol>
-<li>abre campo do tempo específico;</li>
-<li>preserva os demais valores;</li>
-<li>valida número inteiro e limites;</li>
-<li>envia <code>CONFIG_SET</code>;</li>
-<li>mostra “Aguardando confirmação do Master...”;</li>
-<li>atualiza o valor somente após confirmação;</li>
-<li>mostra “Tempo ajustado com sucesso.”;</li>
-<li>atualiza data/versão da configuração e log.</li>
-</ol>
-<p>Não deve existir botão separado “Alterar tempos”.</p>
-<h4 id="operacoes">Operações<a class="headerlink" href="#operacoes" title="Permanent link">&para;</a></h4>
-<p>Operações devem ser enxutas e não duplicadas:</p>
-<ul>
-<li>Verificar estado/online;</li>
-<li>Ler firmware e tempos;</li>
-<li>Consultar firmware disponível;</li>
-<li>Cancelar ciclo;</li>
-<li>Ativar dispositivo, somente administrador e com pré-condições;</li>
-<li>OTA, somente administrador.</li>
-</ul>
-<p>Cada operação precisa mostrar estado de carregamento, resposta final e atualizar o log.</p>
-<h4 id="clientes-vinculados">Clientes vinculados<a class="headerlink" href="#clientes-vinculados" title="Permanent link">&para;</a></h4>
-<p>Mostra somente o nome dos clientes. Administrador pode vincular um ou mais clientes. Instalador não pode alterar vínculos.</p>
-<h4 id="evidencias-da-instalacao">Evidências da instalação<a class="headerlink" href="#evidencias-da-instalacao" title="Permanent link">&para;</a></h4>
-<p>Administrador e instalador podem enviar fotos. O sistema deve:</p>
-<ul>
-<li>aceitar JPG, PNG e WEBP;</li>
-<li>limitar tamanho a 5 MB;</li>
-<li>mostrar progresso e resultado;</li>
-<li>armazenar hash, tipo, autor e data;</li>
-<li>mostrar miniaturas em duas colunas;</li>
-<li>carregar imagens por endpoint autenticado;</li>
-<li>abrir imagem original ao clicar;</li>
-<li>mostrar estado vazio e erro de upload.</li>
-</ul>
-<p>Uma evidência é pré-condição da ativação.</p>
-<h4 id="checklist-de-ativacao">Checklist de ativação<a class="headerlink" href="#checklist-de-ativacao" title="Permanent link">&para;</a></h4>
-<p>Itens:</p>
-<ul>
-<li><code>CONNECTIVITY</code>;</li>
-<li><code>TIMES_CONFIRMED</code>;</li>
-<li><code>PHYSICAL_TESTS</code>;</li>
-<li><code>EVIDENCE</code>.</li>
-</ul>
-<p>Cada item tem <code>PENDING</code>, <code>PASSED</code>, <code>FAILED</code> ou <code>WAIVED</code>, observação, usuário e data. O botão de ativação deve informar exatamente quais itens ainda não estão aprovados.</p>
-<h2 id="9-ativacao">9. Ativação<a class="headerlink" href="#9-ativacao" title="Permanent link">&para;</a></h2>
-<p>O dispositivo nasce bloqueado. Ativação exige:</p>
-<ol>
-<li>Device ID existente;</li>
-<li>configuração confirmada;</li>
-<li>pelo menos uma evidência;</li>
-<li>conectividade válida;</li>
-<li>tempos confirmados;</li>
-<li>testes físicos aprovados;</li>
-<li>checklist sem itens pendentes;</li>
-<li>usuário administrador.</li>
-</ol>
-<p>O backend não deve alterar a tela para “ativado” antes da confirmação <code>COMPLETED</code> do Master. Mensagens internas devem ser traduzidas:</p>
-<ul>
-<li><code>activation_evidence_required</code>: “Envie pelo menos uma evidência da instalação antes de ativar o dispositivo.”;</li>
-<li><code>activation_configuration_required</code>: “Configure e confirme os tempos antes de ativar o dispositivo.”;</li>
-<li><code>activation_checks_incomplete</code>: “Conclua o checklist de ativação antes de ativar o dispositivo.”;</li>
-<li><code>activation_device_not_found</code>: “Esta instalação não possui um dispositivo válido.”;</li>
-<li><code>REJECTED_UNSAFE</code>: “O Master recusou a operação porque o equipamento não está em estado seguro.”.</li>
-</ul>
-<h2 id="10-comandos-e-respostas">10. Comandos e respostas<a class="headerlink" href="#10-comandos-e-respostas" title="Permanent link">&para;</a></h2>
-<p>Comandos canônicos:</p>
-<p><code>GET_STATE</code>, <code>CONFIG_GET</code>, <code>CONFIG_SET</code>, <code>DIAGNOSTIC_RUN</code>, <code>FIRMWARE_GET</code>, <code>ACTIVATE</code>, <code>START_PREHEAT</code>, <code>CANCEL_PREHEAT</code>, <code>OTA_CHECK</code>, <code>OTA_INSTALL</code>.</p>
-<p>Estados de transporte e execução:</p>
-<p><code>CREATED</code>, <code>PUBLISHED</code>, <code>ACCEPTED</code>, <code>RUNNING</code>, <code>COMPLETED</code>, <code>CANCELLED</code>, <code>INVALID</code>, <code>REJECTED</code>, <code>FAILED</code>, <code>EXPIRED</code>, <code>DUPLICATE</code>.</p>
-<p><code>PUBLISHED</code> significa apenas que o broker aceitou a publicação. Nunca deve ser apresentado como execução concluída.</p>
-<p>Todo polling deve reconhecer os estados finais aplicáveis ao comando. <code>INVALID</code> é resposta final válida, por exemplo quando não existe ciclo ativo para cancelar.</p>
-<h2 id="11-contrato-mqtt">11. Contrato MQTT<a class="headerlink" href="#11-contrato-mqtt" title="Permanent link">&para;</a></h2>
-<p>Tópicos:</p>
-<div class="highlight"><pre><span></span><code>dev/devices/{deviceId}/commands
-dev/devices/{deviceId}/results
-dev/devices/{deviceId}/state
-dev/devices/{deviceId}/configuration
-dev/devices/{deviceId}/events
-</code></pre></div>
-<p>Envelope: <code>schemaVersion</code>, <code>requestId</code>, <code>deviceId</code>, <code>installationId</code>, <code>command</code>, <code>origin</code>, <code>issuedAt</code>, <code>expiresAt</code>, <code>payload</code>.</p>
-<p>O Master deve:</p>
-<ul>
-<li>validar Device ID;</li>
-<li>rejeitar comando expirado ou duplicado;</li>
-<li>responder cada comando uma única vez com dados completos;</li>
-<li>publicar estado retido;</li>
-<li>publicar configuração confirmada retida;</li>
-<li>enviar firmware na resposta de <code>FIRMWARE_GET</code>/<code>OTA_CHECK</code>;</li>
-<li>manter ativação persistida após reboot;</li>
-<li>preservar timers, cooldown, intertravamentos e watchdog.</li>
-</ul>
-<p>O backend deve assinar resultados, estados, configurações e eventos, persistir cada mensagem e atualizar <code>last_seen_at</code>.</p>
-<h2 id="12-heartbeat-e-estados">12. Heartbeat e estados<a class="headerlink" href="#12-heartbeat-e-estados" title="Permanent link">&para;</a></h2>
-<p>Heartbeat é publicado periodicamente no tópico <code>/state</code>. Deve conter Device ID, estado, firmware e ativação.</p>
-<p><code>BLOCKED</code> significa que o Master está comunicando, mas ainda não foi ativado. Não significa necessariamente offline ou falha.</p>
-<p>O backend considera online quando recebeu comunicação dentro da janela definida, atualmente cinco minutos.</p>
-<h2 id="13-auditoria">13. Auditoria<a class="headerlink" href="#13-auditoria" title="Permanent link">&para;</a></h2>
-<p>Registrar criação, envio, resposta, alteração, ativação, desativação, vínculo, upload, checklist, OTA e falha.</p>
-<p>Campos mínimos: ação, resultado, usuário, perfil, instalação, dispositivo, <code>requestId</code>, horário, dados anteriores e posteriores quando aplicável.</p>
-<p>Auditoria é append-only. Erros de consulta de auditoria devem retornar resposta HTTP controlada e nunca encerrar o processo.</p>
-<h2 id="14-usuarios-auditoria-e-ota">14. Usuários, auditoria e OTA<a class="headerlink" href="#14-usuarios-auditoria-e-ota" title="Permanent link">&para;</a></h2>
-<p>Essas páginas só devem aparecer para perfis autorizados e devem renderizar conteúdo real. Cada página precisa tratar carregamento, vazio, erro e resposta HTTP.</p>
-<p>OTA deve exibir jobs, dispositivo, versão alvo, status, erro, criação e conclusão. <code>INSTALLED</code> só pode virar sucesso final após confirmação pós-boot da versão.</p>
-<h2 id="15-disponibilidade-e-cache">15. Disponibilidade e cache<a class="headerlink" href="#15-disponibilidade-e-cache" title="Permanent link">&para;</a></h2>
-<p>O backend deve ser executado como serviço/tarefa persistente do Windows, independente do terminal, com reinício automático. A API deve possuir <code>/health</code> e métricas.</p>
-<p>Páginas, JS e API devem usar <code>no-store</code>, versionamento de assets e publicação atômica de HTML/JS. O servidor deve possuir fallback para rotas SPA.</p>
-<p>Uma exceção de banco, MQTT ou rota deve ser capturada e convertida em resposta controlada. O processo não pode cair por uma consulta inválida.</p>
-<h2 id="16-criterios-de-aceite">16. Critérios de aceite<a class="headerlink" href="#16-criterios-de-aceite" title="Permanent link">&para;</a></h2>
-<p>Antes de liberar qualquer versão, executar:</p>
-<ul>
-<li>login, logout, sessão revogada ou inválida e erro de rede;</li>
-<li>F5 em cada URL;</li>
-<li>dashboard com dados, vazio e erro;</li>
-<li>CRUD de cliente e vínculo N:N;</li>
-<li>inserção de instalação só com Device ID;</li>
-<li>detalhe com blocos na posição definida;</li>
-<li>leitura e alteração individual de cada tempo;</li>
-<li>consulta de estado e firmware;</li>
-<li>cancelamento com e sem ciclo ativo;</li>
-<li>upload, miniaturas e imagem original;</li>
-<li>checklist e mensagens de pré-condição;</li>
-<li>ativação recusada e ativação confirmada;</li>
-<li>OTA check e OTA install;</li>
-<li>histórico atualizado após envio e resposta;</li>
-<li>Usuários, Auditoria e OTA renderizando;</li>
-<li>backend sobrevivendo a erro de rota/banco;</li>
-<li>MQTT online, offline, timeout, duplicidade e expiração;</li>
-<li>regressão de todas as funcionalidades previamente aprovadas.</li>
-</ul>
-<h2 id="17-itens-ainda-dependentes-de-decisao">17. Itens ainda dependentes de decisão<a class="headerlink" href="#17-itens-ainda-dependentes-de-decisao" title="Permanent link">&para;</a></h2>
-<ul>
-<li>formato final de QR/claim e prova de posse;</li>
-<li>política LGPD, consentimentos e retenção;</li>
-<li>provedor de SMS e recuperação de acesso;</li>
-<li>política definitiva de evidências;</li>
-<li>retenção de auditoria;</li>
-<li>scheduler completo;</li>
-<li>Alexa e outros canais;</li>
-<li>autenticação MQTT de produção por dispositivo;</li>
-<li>remoção de overrides de bancada do firmware;</li>
-<li>testes físicos formais de sensores, bomba e aquecedor.</li>
-</ul>
-<p>Esses itens não devem ser inventados durante a implementação. Cada um precisa de decisão funcional antes da respectiva entrega.</p>
+<p>Um cliente nunca recebe papel de administrador ou instalador. A sessão do app usa o papel lógico <code>CLIENT</code> e não é gravada em <code>users</code>.</p>
+<h2 id="locais-e-instalacoes">Locais e instalações<a class="headerlink" href="#locais-e-instalacoes" title="Permanent link">&para;</a></h2>
+<p>Uma instalação física possui um dispositivo, e um dispositivo só pertence a uma instalação. Cada instalação possui um único local canônico em <code>installation_locations</code>, identificado por um rótulo simples como “Casa” ou “Casa de praia”. O rótulo pode ser renomeado sem alterar o dispositivo.</p>
+<p>Um cliente pode ter vários vínculos em <code>client_installation_access</code>, portanto pode gerenciar várias instalações. A mesma instalação pode ser compartilhada com outros clientes. O app deve sempre exibir o rótulo/local ativo; a troca de local fica disponível em um seletor secundário, sem dominar a navegação.</p>
+<p>Ao vincular um device ID, o sistema cria o vínculo do cliente e, se necessário, o rótulo inicial “Minha instalação”. A confirmação explícita de compartilhamento é registrada em auditoria. O device ID isolado não é tratado como prova definitiva de posse; QR seguro/prova adicional permanece evolução necessária.</p>
+<h2 id="compatibilidade-e-migracao">Compatibilidade e migração<a class="headerlink" href="#compatibilidade-e-migracao" title="Permanent link">&para;</a></h2>
+<p>A migração 013 cria o modelo novo, transforma contas mobile legadas em clientes e copia os vínculos existentes. Nenhum usuário, instalação ou vínculo legado é apagado. A tabela <code>mobile_installation_members</code> permanece somente para compatibilidade histórica; novas operações usam <code>client_installation_access</code>.</p>
+<h2 id="contratos-minimos">Contratos mínimos<a class="headerlink" href="#contratos-minimos" title="Permanent link">&para;</a></h2>
+<p><code>POST /api/mobile/auth/register</code> cria cliente + conta de app e inicia sessão <code>CLIENT</code>.</p>
+<p><code>POST /api/auth/login</code> autentica usuários administrativos e clientes sem misturar seus papéis.</p>
+<p><code>POST /api/mobile/installations/link</code> vincula um device conhecido ao cliente autenticado, exigindo confirmação quando já houver outros clientes.</p>
+<p><code>GET /api/installations</code> retorna apenas instalações acessíveis ao cliente, incluindo <code>locationLabel</code>.</p>
 
 
 
