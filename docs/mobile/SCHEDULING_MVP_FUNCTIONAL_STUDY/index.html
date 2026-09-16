@@ -1553,7 +1553,8 @@
 <ul>
 <li>Seletor de tipo <code>Único | Recorrente</code>.</li>
 <li>Data, horário, aviso antecipado e estado inicial ativo.</li>
-<li>Avisos disponíveis: <code>Sem aviso</code>, <code>10 minutos</code>, <code>15 minutos</code>, <code>30 minutos</code>, <code>1 hora</code>, <code>2 horas</code>.</li>
+<li>Avisos disponíveis: <code>Não notificar</code>, <code>10 minutos</code>, <code>15 minutos</code>, <code>30 minutos</code>, <code>1 hora</code>, <code>2 horas</code>.</li>
+<li>Qualquer opção diferente de <code>Não notificar</code> exige permissão de notificações ativa; o app deve orientar o cliente a ativá-la antes de salvar.</li>
 <li>Resumo antes de salvar: <code>Será solicitado em 17/09/2026 às 08:00</code>.</li>
 <li>A data/hora deve estar no futuro no fuso da instalação.</li>
 </ul>
@@ -1563,6 +1564,7 @@
 <li>Sete botões de dia da semana; pelo menos um obrigatório.</li>
 <li>Data final obrigatória no MVP para evitar recorrência indefinida.</li>
 <li>Aviso antecipado e estado inicial ativo.</li>
+<li>Primeira ativação calculada e exibida no formulário, por exemplo <code>Primeira ativação: amanhã, 19:45</code>.</li>
 <li>Resumo: <code>Seg a sex, às 19:45, até 12/11/2026</code>.</li>
 </ul>
 <h3 id="tela-d-detalhe">Tela D — detalhe<a class="headerlink" href="#tela-d-detalhe" title="Permanent link">&para;</a></h3>
@@ -1586,8 +1588,8 @@
 <h2 id="regras-funcionais-propostas">Regras funcionais propostas<a class="headerlink" href="#regras-funcionais-propostas" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Limite de três agendamentos não excluídos por instalação, independentemente do tipo ou estado ativo.</li>
-<li>Um agendamento concluído e único deixa de consumir uma vaga; permanece visível como concluído até ser removido da lista ativa ou arquivado.</li>
-<li>Recorrência exige pelo menos um dia e uma data final.</li>
+<li>Um agendamento único concluído permanece visível como <code>Concluído</code> e desativado. Ao entrar nele, o cliente pode editar ou excluir; ele não volta a executar sem ser editado e salvo novamente.</li>
+<li>Recorrência exige pelo menos um dia e uma data final obrigatória. A data final pode ser escolhida até um ano contado do dia atual; a sugestão inicial é um mês.</li>
 <li>Horários usam o fuso cadastrado da instalação, não o fuso momentâneo do celular.</li>
 <li>Troca de horário de verão ou fuso mantém o horário de parede escolhido, por exemplo 19:45 local.</li>
 <li>Ativar/desativar é idempotente e auditável.</li>
@@ -1600,6 +1602,8 @@
 <li>Master offline, ocupado, em cooldown ou bloqueado produz uma ocorrência <code>Não executada</code> com motivo e push, sem repetição automática tardia.</li>
 <li>Duas ocorrências para o mesmo Master no mesmo instante geram uma única tentativa ou uma rejeição determinística; nunca dois ciclos.</li>
 <li>Um ciclo já iniciado não é cancelado automaticamente ao pausar/excluir o agendamento que o originou.</li>
+<li>Se houver mais de uma programação no mesmo horário, o backend cria uma única tentativa por instalação. Se as ocorrências forem muito próximas, a execução respeita cooldown, ocupação e demais rejeições do Master.</li>
+<li>Push é obrigatório quando houver aviso configurado; sem permissão, o cliente escolhe <code>Não notificar</code> ou ativa a permissão.</li>
 </ol>
 <h2 id="estados">Estados<a class="headerlink" href="#estados" title="Permanent link">&para;</a></h2>
 <p>Agendamento: <code>ACTIVE</code>, <code>PAUSED</code>, <code>COMPLETED</code> (único), <code>ENDED</code> (recorrente após data final), <code>DELETED</code>.</p>
@@ -1648,15 +1652,15 @@ Backend --MQTT--&gt; Master --resultado confirmado--&gt; Backend --&gt; Mobile/p
 <h2 id="decisoes-para-aprovacao-do-cliente">Decisões para aprovação do cliente<a class="headerlink" href="#decisoes-para-aprovacao-do-cliente" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Agendamento pausado conta no limite de três? Recomendação: sim, para manter o limite simples.</li>
-<li>Agendamento único concluído some imediatamente ou fica em “Concluídos”? Recomendação: mostrar até o fim do dia e liberar a vaga imediatamente.</li>
-<li>Disponibilizar <code>Sem aviso</code>? Recomendação: sim.</li>
+<li>Agendamento único concluído some imediatamente ou fica em “Concluídos”? <strong>Decisão: permanece visível desativado; pode ser editado ou excluído.</strong></li>
+<li>Disponibilizar <code>Não notificar</code>? <strong>Decisão: sim.</strong> Qualquer outro aviso exige push habilitado.</li>
 <li>Permitir <code>Não executar hoje</code> em recorrentes? Recomendação: sim, somente pela notificação/detalhe.</li>
-<li>Antecedência pode ser maior que o intervalo até a execução? Recomendação: salvar, mas não enviar aviso retroativo.</li>
-<li>Conflitos no mesmo horário: bloquear ou permitir? Recomendação: bloquear para a mesma instalação.</li>
+<li>Antecedência pode ser maior que o intervalo até a execução? <strong>Decisão: salvar, mas não enviar aviso retroativo.</strong></li>
+<li>Conflitos no mesmo horário: bloquear ou permitir? <strong>Decisão: uma única tentativa; ocorrências próximas obedecem ao Master.</strong></li>
 <li>Offline: executar atrasado ao reconectar? Recomendação: não; marcar como não executado.</li>
-<li>Data final máxima: recomendação de 12 meses para reduzir erros, sujeita à aprovação.</li>
+<li>Data final máxima: <strong>decisão: 12 meses; sugestão inicial de um mês.</strong></li>
 <li>Quem pode editar em conta compartilhada? Para a apresentação, somente o titular; compartilhamento está oculto.</li>
-<li>Push é obrigatório? Recomendação: não; agendamento funciona mesmo sem permissão de notificação.</li>
+<li>Push é obrigatório quando houver aviso? <strong>Decisão: sim.</strong> Sem permissão, escolher <code>Não notificar</code> ou ativar notificações.</li>
 </ol>
 <h2 id="criterios-de-aceite-da-ux">Critérios de aceite da UX<a class="headerlink" href="#criterios-de-aceite-da-ux" title="Permanent link">&para;</a></h2>
 <ul>
