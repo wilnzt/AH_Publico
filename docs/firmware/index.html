@@ -1163,6 +1163,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tempos-configuraveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tempos configuráveis
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1555,6 +1566,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tempos-configuraveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tempos configuráveis
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1597,6 +1619,7 @@
 <li>atraso e duração configuráveis;</li>
 <li>watchdog, cooldown e bloqueio do aquecedor;</li>
 <li>Wi-Fi/AP e portal web;</li>
+<li>configuração Wi-Fi temporária por BLE (GATT);</li>
 <li>persistência de configurações;</li>
 <li>registro HTTP de eventos.</li>
 </ul>
@@ -1620,6 +1643,9 @@
 </ul>
 <h2 id="engenharia-reversa">Engenharia reversa<a class="headerlink" href="#engenharia-reversa" title="Permanent link">&para;</a></h2>
 <p>O comportamento comprovado, os riscos e o plano seguro de evolução estão em <a href="MASTER_REVERSE_ENGINEERING/"><code>MASTER_REVERSE_ENGINEERING.md</code></a>. Novas camadas devem usar um gateway de comandos e nunca controlar GPIOs diretamente.</p>
+<h2 id="tempos-configuraveis">Tempos configuráveis<a class="headerlink" href="#tempos-configuraveis" title="Permanent link">&para;</a></h2>
+<p>Os padrões, faixas aceitas pelo portal e explicações técnicas e para clientes dos seis tempos estão em <a href="CONFIGURABLE_TIMES/"><code>CONFIGURABLE_TIMES.md</code></a>.</p>
+<p>O gesto do botão, os padrões do LED e o contrato GATT de configuração Wi-Fi estão em <a href="../contracts/MASTER_WIFI_BLE/"><code>../contracts/MASTER_WIFI_BLE.md</code></a>. A implementação BLE requer o app cliente correspondente e validação em bancada antes de ser considerada homologada.</p>
 
 
 

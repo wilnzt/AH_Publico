@@ -696,6 +696,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#configurar-wi-fi-antes-do-vinculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar Wi-Fi antes do vínculo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#funcionalidades-deliberadamente-ausentes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1656,6 +1667,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#configurar-wi-fi-antes-do-vinculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar Wi-Fi antes do vínculo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#funcionalidades-deliberadamente-ausentes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1740,6 +1762,14 @@
 
     WELCOME --&gt; LOGIN
     WELCOME --&gt; SIGNUP[T04 Criar conta]
+    WELCOME --&gt;|Configurar antes de entrar| WIFI_SETUP_HELP[T14A Configurar Wi-Fi do dispositivo]
+    WIFI_SETUP_HELP --&gt; BLE_PERMISSION[T15A Permitir Bluetooth]
+    BLE_PERMISSION --&gt; BLE_SCAN[T16A Localizar dispositivo próximo]
+    BLE_SCAN --&gt; WIFI_SELECT_PREAUTH[T17A Escolher rede e informar senha]
+    WIFI_SELECT_PREAUTH --&gt; WIFI_RESULT[T18B Resultado da conexão Wi-Fi]
+    WIFI_SELECT_PREAUTH --&gt; WIFI_ERROR_PREAUTH[T17B Não foi possível conectar]
+    WIFI_ERROR_PREAUTH --&gt; WIFI_SELECT_PREAUTH
+    WIFI_RESULT --&gt;|Concluído sem login| WELCOME
     LOGIN --&gt; FORGOT[T05 Recuperar senha]
     FORGOT --&gt; RESET[T06 Confirmar código e nova senha]
     RESET --&gt; LOGIN
@@ -1789,6 +1819,8 @@
     INSTALLATION --&gt; DEVICE_DETAIL[T42 Dados e conectividade do Master]
     DEVICE_DETAIL --&gt; RECONFIG_WIFI[T43 Reconfigurar Wi-Fi]
     RECONFIG_WIFI --&gt; PROVISION_HELP
+    NAV_SETTINGS --&gt; WIFI_SETUP[Configurar Wi-Fi]
+    WIFI_SETUP --&gt; WIFI_SETUP_HELP
     INSTALLATION --&gt; RENAME[T44 Renomear instalação]
     INSTALLATION --&gt; UNLINK[T45 Desvincular equipamento]
     UNLINK --&gt;|Confirmado| EMPTY
@@ -1941,6 +1973,12 @@
 <td>MVP</td>
 </tr>
 <tr>
+<td>Configuração local pré-login</td>
+<td>T14A–T18B</td>
+<td>Instrução ilustrada, Bluetooth, busca do dispositivo, rede Wi-Fi e resultado/erro</td>
+<td>MVP; não exige conta/vínculo</td>
+</tr>
+<tr>
 <td>Inicialização</td>
 <td>T08–T10</td>
 <td>Carregamento, estado vazio e aplicativo sem Internet</td>
@@ -2014,6 +2052,17 @@
 <li>desvinculação, exclusão e retenção de histórico compartilhado;</li>
 <li>notificações e demais decisões operacionais já listadas abaixo.</li>
 </ol>
+<h2 id="configurar-wi-fi-antes-do-vinculo">Configurar Wi-Fi antes do vínculo<a class="headerlink" href="#configurar-wi-fi-antes-do-vinculo" title="Permanent link">&para;</a></h2>
+<p>A tela de boas-vindas oferece uma ação secundária <strong>Configurar Wi-Fi</strong> antes de login/cadastro. A mesma ação fica como item independente em <strong>Configurações</strong>, fora de Minhas instalações. A configuração BLE é local e não exige que o dispositivo já esteja vinculado à conta. Após o sucesso, o cliente pode voltar e entrar/criar conta para vincular o dispositivo; se já estiver autenticado, pode seguir ao vínculo ou escolher um dispositivo próximo para reconfigurar.</p>
+<p>Antes de iniciar a busca, uma instrução curta e ilustrada mostra: (1) segurar o botão de configuração até o LED mudar para a pulsação lenta do BLE e soltá-lo; (2) manter o celular próximo enquanto o app localiza e conecta ao dispositivo; (3) escolher a rede e informar a senha, ou escolher uma rede disponível quando o sistema operacional permitir. O app confirma o resultado informado pelo dispositivo e oferece nova tentativa em caso de falha.</p>
+<p>Mini-ilustração/wireframe da instrução inicial:</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────┐   ┌────────────────────┐   ┌────────────────────┐
+│ 1. Segure o botão  │ → │ 2. Mantenha o      │ → │ 3. Escolha seu     │
+│ até o LED pulsar    │   │ celular perto      │   │ Wi-Fi e informe    │
+│ lentamente; solte  │   │ enquanto conecta  │   │ a senha            │
+└────────────────────┘   └────────────────────┘   └────────────────────┘
+</code></pre></div>
+<p><strong>Dependência de arquitetura:</strong> a checagem global atual de backend/MQTT bloqueia a navegação do app quando algum serviço está indisponível. Para oferecer este utilitário BLE sem login e antes de vincular o produto, a implementação deverá permitir acesso restrito a esse fluxo local mesmo sem backend/MQTT; nenhuma outra tela de operação poderá ser liberada por essa exceção. O comportamento precisa ser reconciliado com MOB-008 antes da implementação.</p>
 <h2 id="funcionalidades-deliberadamente-ausentes">Funcionalidades deliberadamente ausentes<a class="headerlink" href="#funcionalidades-deliberadamente-ausentes" title="Permanent link">&para;</a></h2>
 <p>As telas não devem sugerir controle de temperatura, corte físico da água, medição de vazão, litros, energia, custo, prevenção certificada de vazamento, válvula de segurança ou Modo Eco. Esses recursos não possuem suporte confirmado no Master/hardware atual.</p>
 <h2 id="proxima-etapa-apos-validacao">Próxima etapa após validação<a class="headerlink" href="#proxima-etapa-apos-validacao" title="Permanent link">&para;</a></h2>

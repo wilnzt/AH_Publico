@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_PRODUCT_RULES/">
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/contracts/MASTER_WIFI_BLE/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>Regras de produto do mobile - AquaHeat — Documentação</title>
+        <title>Contrato BLE para configuração do Wi-Fi do Master - AquaHeat — Documentação</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#regras-de-produto-do-mobile" class="md-skip">
+        <a href="#contrato-ble-para-configuracao-do-wi-fi-do-master" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Regras de produto do mobile
+              Contrato BLE para configuração do Wi-Fi do Master
             
           </span>
         </div>
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DESIGN/" class="md-nav__link">
+      <a href="../../mobile/DESIGN/" class="md-nav__link">
         
   
   
@@ -488,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MOBILE_SCOPE_FROM_DESIGN/" class="md-nav__link">
+      <a href="../../mobile/MOBILE_SCOPE_FROM_DESIGN/" class="md-nav__link">
         
   
   
@@ -516,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MOBILE_USER_FLOW/" class="md-nav__link">
+      <a href="../../mobile/MOBILE_USER_FLOW/" class="md-nav__link">
         
   
   
@@ -1329,41 +1329,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#referencias-visuais" class="md-nav__link">
+  <a href="#ativacao-fisica" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Referências visuais
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Referências visuais">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#progresso-visual-do-pre-aquecimento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Progresso visual do pré-aquecimento
+        Ativação física
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#aviso-de-agendamento" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#identificacao-ble" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aviso de agendamento
+        Identificação BLE
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#servico-e-caracteristicas-gatt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serviço e características GATT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estados-enviados-pelo-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estados enviados pelo firmware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confianca-e-limitacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confiança e limitações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao-ota-concluida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação OTA concluída
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao-ble-pendente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação BLE pendente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saida-de-led-do-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saída de LED do Master
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1384,48 +1433,103 @@
 
 
 
-<h1 id="regras-de-produto-do-mobile">Regras de produto do mobile<a class="headerlink" href="#regras-de-produto-do-mobile" title="Permanent link">&para;</a></h1>
-<p>Este aditivo complementa <code>MOBILE_FUNCTIONAL_SPEC.md</code>.</p>
-<h2 id="referencias-visuais">Referências visuais<a class="headerlink" href="#referencias-visuais" title="Permanent link">&para;</a></h2>
-<p>As telas conceituais aprovadas para orientar o design mobile estão em <a href="design/"><code>design/</code></a>:</p>
+<h1 id="contrato-ble-para-configuracao-do-wi-fi-do-master">Contrato BLE para configuração do Wi-Fi do Master<a class="headerlink" href="#contrato-ble-para-configuracao-do-wi-fi-do-master" title="Permanent link">&para;</a></h1>
+<p>Status: implementado no firmware Master e integrado ao app Android; correção do anúncio instalada em <code>0.2.14-dev</code>. Descoberta, conexão e provisionamento BLE ainda precisam de validação em bancada.</p>
+<h2 id="ativacao-fisica">Ativação física<a class="headerlink" href="#ativacao-fisica" title="Permanent link">&para;</a></h2>
+<p>O botão de configuração é ativo em nível baixo e usa debounce de 50 ms. A seleção acontece ao soltar:</p>
+<table>
+<thead>
+<tr>
+<th>Duração da pressão</th>
+<th>Indicação durante a pressão</th>
+<th>Resultado ao soltar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menos de 3 s</td>
+<td>Nenhuma alteração</td>
+<td>Cancela; o toque curto permanece disponível para o caminho legado se este for reativado.</td>
+</tr>
+<tr>
+<td>3 s a menos de 6 s</td>
+<td>Piscada AP existente, sem mudança: 500 ms aceso / 500 ms apagado</td>
+<td>Inicia o SoftAP e o portal web existentes.</td>
+</tr>
+<tr>
+<td>6 s ou mais</td>
+<td>Pulsação gradual de brilho, ciclo de 3 s</td>
+<td>Abre a sessão temporária de configuração BLE.</td>
+</tr>
+</tbody>
+</table>
+<p>Depois de entrar em BLE, a pulsação permanece enquanto aguarda o app e enquanto tenta a conexão Wi-Fi. Volta ao LED normal quando conclui, cancela ou expira.</p>
+<h2 id="identificacao-ble">Identificação BLE<a class="headerlink" href="#identificacao-ble" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../design/01-inicio.png"><code>01-inicio.png</code></a></li>
-<li><a href="../design/02-operacao.png"><code>02-operacao.png</code></a></li>
-<li><a href="../design/03-instalacoes.png"><code>03-instalacoes.png</code></a></li>
-<li><a href="../design/04-historico.png"><code>04-historico.png</code></a></li>
-<li>
-<p><a href="../design/05-configuracoes.png"><code>05-configuracoes.png</code></a></p>
-</li>
-<li>
-<p>O app deve ser clean, fluido, objetivo e usar linguagem natural, simples e direta. Termos técnicos ficam fora da experiência normal.</p>
-</li>
-<li>Versão do app, firmware, device ID, conectividade, sinal e diagnósticos ficam em <strong>Configurações &gt; Informações e suporte</strong>.</li>
-<li>Uma conta pode ter várias instalações. A troca fica em <strong>Configurações &gt; Minhas instalações</strong> ou em seletor discreto; o nome/local da instalação ativa deve estar visível em todas as telas.</li>
-<li>Uma instalação pode ser gerenciada por várias pessoas autorizadas. O histórico mostra ações por pessoa em linguagem simples.</li>
-<li><strong>Configurar Wi-Fi</strong> é uma ação independente oferecida na tela de boas-vindas antes do login e em <strong>Configurações</strong> depois do login (não aninhada em Minhas instalações). A configuração por BLE pode ocorrer sem vínculo prévio à conta. O início do fluxo mostra instrução curta, didática e ilustrada para ativar o modo BLE pelo botão/LED; depois orienta localização, conexão, escolha da rede e confirmação do resultado.</li>
-<li>O setup BLE pré-login é utilitário local e deve continuar acessível sem backend/MQTT, mas somente nesse fluxo delimitado; isso requer compatibilização explícita com o bloqueio global de conectividade MOB-008.</li>
-<li>Um celular não pode manter duas contas ativas; a troca exige logout explícito.</li>
-<li>Ao abrir, o app consulta nova versão, informa o usuário e trata progresso, integridade, falha e conclusão. É separado do OTA do Master e respeita as regras Android/iOS; quando necessário, conduz ao canal oficial.</li>
+<li>Nome anunciado: <code>AH_</code> seguido dos 12 dígitos hexadecimais do identificador derivado do MAC do ESP32. NimBLE-Arduino 2.x não anuncia o nome apenas com <code>NimBLEDevice::init</code>; o firmware também configura <code>NimBLEAdvertising::setName</code> explicitamente na resposta de scan.</li>
+<li>Filtro recomendado no app: UUID de serviço <code>7c4a0001-8e2d-4c75-9a61-32d4f8a10000</code>.</li>
+<li>Somente uma conexão é atendida por sessão; conexões adicionais são recusadas.</li>
+<li>O cliente deve assinar notificações da característica de estado e também pode lê-la ao conectar.</li>
 </ul>
-<h3 id="progresso-visual-do-pre-aquecimento">Progresso visual do pré-aquecimento<a class="headerlink" href="#progresso-visual-do-pre-aquecimento" title="Permanent link">&para;</a></h3>
+<h2 id="servico-e-caracteristicas-gatt">Serviço e características GATT<a class="headerlink" href="#servico-e-caracteristicas-gatt" title="Permanent link">&para;</a></h2>
+<p>Todas as características de entrada usam escrita com resposta. Textos são UTF-8, sem byte NUL embutido.</p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>UUID</th>
+<th>Propriedade</th>
+<th>Payload</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSID</td>
+<td><code>7c4a0002-8e2d-4c75-9a61-32d4f8a10000</code></td>
+<td>Write</td>
+<td>Nome da rede, 1–32 bytes.</td>
+</tr>
+<tr>
+<td>Senha</td>
+<td><code>7c4a0003-8e2d-4c75-9a61-32d4f8a10000</code></td>
+<td>Write</td>
+<td>0 bytes para rede aberta ou 8–63 bytes.</td>
+</tr>
+<tr>
+<td>Enviar credenciais</td>
+<td><code>7c4a0004-8e2d-4c75-9a61-32d4f8a10000</code></td>
+<td>Write</td>
+<td>Um byte ASCII <code>1</code>, enviado depois de SSID e senha.</td>
+</tr>
+<tr>
+<td>Estado</td>
+<td><code>7c4a0005-8e2d-4c75-9a61-32d4f8a10000</code></td>
+<td>Read + Notify</td>
+<td>Texto ASCII com o estado atual.</td>
+</tr>
+</tbody>
+</table>
+<p>Fluxo do cliente: conectar → assinar notificações/ler estado → escrever SSID → escrever senha → escrever <code>1</code> em Enviar credenciais → acompanhar Estado. MTU BLE configurado para 185 bytes para acomodar a senha máxima numa escrita única; o app ainda deve respeitar o MTU negociado pelo sistema operacional.</p>
+<h2 id="estados-enviados-pelo-firmware">Estados enviados pelo firmware<a class="headerlink" href="#estados-enviados-pelo-firmware" title="Permanent link">&para;</a></h2>
+<p><code>READY</code>, <code>SSID_RECEIVED</code>, <code>PASSWORD_RECEIVED</code>, <code>CONNECTING</code>, <code>CONNECTED</code>, <code>FAILED</code>, <code>INVALID_SSID</code>, <code>INVALID_PASSWORD</code>, <code>INVALID_CREDENTIALS</code>, <code>INVALID_REQUEST</code>, <code>BUSY</code> e <code>TIMEOUT</code>.</p>
 <ul>
-<li>Durante o pré-aquecimento, a tela deve exibir um círculo animado proporcional à duração prevista informada pelo Master (por exemplo, 10 ou 20 segundos).</li>
-<li>O círculo começa vazio, evolui durante o processo e completa ao atingir o tempo estimado.</li>
-<li>Completar o círculo não significa sucesso por si só: o app deve aguardar a confirmação final do Master antes de mostrar “Pronto para usar”.</li>
-<li>Cancelamento, falha ou timeout interrompem a animação e exibem uma mensagem simples e objetiva.</li>
-<li>Quando a duração não estiver disponível, usar uma animação indeterminada de processamento, sem apresentar percentual falso.</li>
+<li><code>CONNECTED</code> só é enviado depois de o ESP32 confirmar <code>WL_CONNECTED</code> na rede submetida e persistir SSID/senha/canal.</li>
+<li>Tentativas são assíncronas no loop do Master e expiram em 20 segundos; falha mantém a sessão BLE aberta para nova tentativa.</li>
+<li>A sessão de configuração expira em 120 segundos. Após sucesso, mantém a conexão por 3 segundos para entregar o resultado e então encerra.</li>
+<li>Credenciais novas só substituem as persistidas depois da conexão bem-sucedida. Em falha/cancelamento, o firmware tenta restaurar as credenciais anteriores. Senhas não são escritas no log serial.</li>
 </ul>
-<h3 id="aviso-de-agendamento">Aviso de agendamento<a class="headerlink" href="#aviso-de-agendamento" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Ao criar um agendamento, o usuário pode escolher receber uma notificação alguns minutos antes do início do pré-aquecimento.</li>
-<li>O intervalo do aviso deve ser selecionável dentro das opções definidas pelo produto, com uma opção clara para não avisar.</li>
-<li>A notificação deve identificar a instalação correta e informar que o pré-aquecimento será iniciado em breve.</li>
-<li>A partir da notificação, o usuário deve conseguir abrir o agendamento para alterá-lo ou cancelá-lo antes do disparo.</li>
-<li>Alterações e cancelamentos exigem confirmação e devem atualizar o estado confirmado no backend.</li>
-<li>Se a instalação estiver offline no horário previsto, o app deve informar o ocorrido e aplicar a política definida para agendamentos offline; nunca deve afirmar que o aquecimento aconteceu sem confirmação do Master.</li>
-</ul>
-<h1 id="regra-de-identidade-vigente">Regra de identidade vigente<a class="headerlink" href="#regra-de-identidade-vigente" title="Permanent link">&para;</a></h1>
-<p>O app é exclusivo para <strong>Clientes</strong>. Administradores e Instaladores acessam somente o backend administrativo. Consulte <code>docs/architecture/CLIENT_DOMAIN.md</code> para o modelo de dados, vínculo e locais; referências antigas a proprietário/técnico como “perfil do app” não devem gerar papéis administrativos no aplicativo.</p>
+<h2 id="confianca-e-limitacoes">Confiança e limitações<a class="headerlink" href="#confianca-e-limitacoes" title="Permanent link">&para;</a></h2>
+<p>Conforme decisão inicial do produto, não há código de confirmação nem autenticação BLE adicional: a sessão é aberta por ação física e aceita o app que conectar primeiro. A comunicação GATT não usa pareamento, criptografia nem autenticação de aplicação. Portanto, qualquer cliente BLE próximo que conecte durante a janela poderá tentar enviar credenciais; esta é uma limitação explícita do modelo de confiança aprovado para a primeira versão.</p>
+<p>O firmware usa NimBLE-Arduino 2.5.1. O app deve implementar este contrato GATT; a configuração BLE não usa o protocolo Espressif Wi-FiProv. O serviço BLE não depende de login ou vínculo à conta. A recuperação local por SoftAP permanece disponível pelo gesto AP acima.</p>
+<p>Para coexistir com BLE no ESP32-C3 usando a versão Arduino/ESP-IDF atual, Wi-Fi modem sleep deve estar habilitado antes de iniciar o controlador BLE e permanecer habilitado enquanto ele estiver inicializado. O firmware ativa essa opção ao iniciar a primeira sessão BLE; isso evita o abort em <code>coex_core_enable</code> causado por <code>WiFi.setSleep(false)</code>.</p>
+<h2 id="validacao-ota-concluida">Validação OTA concluída<a class="headerlink" href="#validacao-ota-concluida" title="Permanent link">&para;</a></h2>
+<p>Em 2026-09-20, o Master <code>AH_3409697506DC</code> recebeu <code>0.2.12-dev</code> por OTA. O manifesto e o binário servidos foram conferidos contra SHA-256 <code>5155B532443A4830A52F4483BA99476FD13F57C80F2E2A400020E999C727D364</code>; heartbeat pós-boot confirmou a versão alvo. O resultado MQTT <code>INSTALLED</code> não chegou ao backend antes do reboot e o job foi reconciliado com auditoria pelo heartbeat. A OTA confirma a instalação da imagem, mas não a validação física da configuração BLE.</p>
+<p>Após abort na ativação do controlador BLE, o log foi simbolicado até <code>NimBLEDevice::init</code>/<code>esp_bt_controller_enable</code>/<code>coex_core_enable</code>. A causa foi Wi-Fi modem sleep desabilitado. A partir de <code>0.2.13-dev</code>, o firmware ativa modem sleep antes do BLE e consome uma única vez o evento de pressão do botão, sem reiniciar o ciclo de LED em cada iteração. O Master reportou heartbeat <code>READY</code> após essa OTA; o LED e a sessão GATT ainda aguardam confirmação presencial.</p>
+<p>Em <code>0.2.14-dev</code>, o firmware configura explicitamente o nome local com <code>NimBLEAdvertising::setName</code>; o app identifica o dispositivo pelo UUID do serviço e não exige um nome no anúncio. OTA <code>ota-0.2.14-ble-advertising-20260921-0010</code> concluída no Master <code>AH_3409697506DC</code>. Manifesto e payload foram conferidos por tamanho e SHA-256; heartbeat pós-boot confirmou <code>READY</code> e a versão alvo. O resultado <code>INSTALLED</code> não chegou antes do reboot; o job foi reconciliado e auditado pela confirmação pós-boot. Ainda falta validar descoberta/conexão GATT com telefones físicos.</p>
+<h2 id="validacao-ble-pendente">Validação BLE pendente<a class="headerlink" href="#validacao-ble-pendente" title="Permanent link">&para;</a></h2>
+<p>O build PlatformIO confirma compilação e tamanho dentro do slot OTA. O app não depende do nome local para aceitar um resultado: o filtro do UUID de serviço seleciona o Master, e o nome é somente rótulo. Ainda é necessário testar em bancada: descoberta no Android/iOS, negociação de MTU, escrita/notify, senha errada, rede aberta, rede indisponível, restauração da rede anterior, cancelamento/timeout, reentrada BLE, portal AP e timers físicos durante as tentativas.</p>
+<h2 id="saida-de-led-do-master">Saída de LED do Master<a class="headerlink" href="#saida-de-led-do-master" title="Permanent link">&para;</a></h2>
+<p>O firmware usa somente a saída de status <code>GPIO 5</code> (<code>ActionManager::LED_PIN</code>) para a piscada AP e a pulsação BLE. Não há um pino/controle azul separado na implementação Master atual. Portanto, a pulsação aos 6 segundos ocorre no mesmo LED que pisca aos 3 segundos; a interface não deve prometer uma troca para azul. A placa contém mais de um footprint rotulado genericamente como LED no esquemático, mas a cor e a função elétrica de cada componente não estão definidas no firmware; isso não comprova um canal azul controlável.</p>
 
 
 

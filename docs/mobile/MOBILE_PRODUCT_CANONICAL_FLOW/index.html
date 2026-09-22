@@ -1362,6 +1362,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#configuracao-wi-fi-do-dispositivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuração Wi-Fi do dispositivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notificacoes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1422,6 +1433,9 @@
 <p>Sem instalações, a própria aba <strong>Início/Operação</strong> mostra somente a orientação para vincular um dispositivo; recursos dependentes ficam ocultos ou inativos com explicação simples. <strong>Consumo</strong> e <strong>Bem-estar</strong> não entram na navegação enquanto não houver escopo e dados reais confirmados.</p>
 <h2 id="sessao">Sessão<a class="headerlink" href="#sessao" title="Permanent link">&para;</a></h2>
 <p>Depois de autenticado, o cliente permanece conectado entre aberturas do aplicativo. Falha temporária de rede não apaga credenciais nem encerra a sessão. O logout ocorre por ação explícita do cliente; uma rejeição inequívoca do backend pode bloquear o acesso até nova autenticação, sem tratar indisponibilidade como logout.</p>
+<h2 id="configuracao-wi-fi-do-dispositivo">Configuração Wi-Fi do dispositivo<a class="headerlink" href="#configuracao-wi-fi-do-dispositivo" title="Permanent link">&para;</a></h2>
+<p>O app oferece <strong>Configurar Wi-Fi</strong> como ação secundária na tela de boas-vindas, antes do login, para que o cliente possa preparar a conexão do dispositivo antes de criar a conta ou vinculá-lo. Depois do login, a mesma ação fica como item independente em <strong>Configurações</strong>, fora do submenu Minhas instalações. O fluxo encontra o dispositivo próximo por BLE, envia a rede/senha escolhida pelo cliente e mostra o resultado da conexão. Não exige vínculo prévio. A tela inicial do fluxo explica em linguagem simples e com ilustração como segurar o botão e interpretar o LED; o cliente mantém o celular próximo e confirma a rede/senha no app.</p>
+<p>Essa é uma operação local. Mesmo quando backend/MQTT estão indisponíveis, o app mantém bloqueadas as telas normais e oferece somente retry ou o assistente BLE local. O assistente substitui a navegação inteira enquanto estiver aberto; ao sair, o bloqueio offline reaparece. A implementação GATT e suas limitações estão em <a href="../MOBILE_BLE_WIFI_SETUP/"><code>MOBILE_BLE_WIFI_SETUP.md</code></a> e no contrato do Master <a href="../../contracts/MASTER_WIFI_BLE/"><code>MASTER_WIFI_BLE.md</code></a>.</p>
 <h2 id="notificacoes">Notificações<a class="headerlink" href="#notificacoes" title="Permanent link">&para;</a></h2>
 <p>Notificações de conclusão, erro e alerta integram o produto e devem usar linguagem amigável, identificar a instalação e abrir o contexto correto. Preferências e permissões ficam em Configurações. O estado atual deve sempre ser reconciliado com o backend/dispositivo ao abrir uma notificação.</p>
 <h2 id="regras-de-consistencia">Regras de consistência<a class="headerlink" href="#regras-de-consistencia" title="Permanent link">&para;</a></h2>

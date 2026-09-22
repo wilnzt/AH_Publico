@@ -1580,6 +1580,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#incremento-ble-e-ota-2026-09-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremento BLE e OTA — 2026-09-20
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#criterios-minimos-antes-de-producao" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2253,6 +2264,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#incremento-ble-e-ota-2026-09-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremento BLE e OTA — 2026-09-20
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#criterios-minimos-antes-de-producao" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2303,7 +2325,7 @@
 
 
 <h1 id="revolushower-engenharia-reversa-do-firmware-master">Revolushower — Engenharia reversa do firmware Master<a class="headerlink" href="#revolushower-engenharia-reversa-do-firmware-master" title="Permanent link">&para;</a></h1>
-<p>Atualizado em 2026-08-30. Este documento descreve o comportamento comprovado no código do ambiente PlatformIO <code>master</code>. Nenhuma lógica do firmware foi alterada durante o levantamento.</p>
+<p>Atualizado em 2026-09-20. A análise original de engenharia reversa é de 2026-08-30; a seção de provisionamento BLE ao final registra a implementação posterior conferida no código e compilação, ainda sem validação de bancada.</p>
 <h2 id="conclusao-executiva">Conclusão executiva<a class="headerlink" href="#conclusao-executiva" title="Permanent link">&para;</a></h2>
 <p>É tecnicamente viável evoluir o ESP32-C3 atual com MQTT, comandos confirmados, agendamento disparado pelo backend, OTA e provisionamento BLE sem remover a lógica de bomba, fluxo, aquecedor, delay, cooldown e watchdog. A condição é manter o controle físico como núcleo isolado e fazer as novas camadas solicitarem ações por uma interface única, nunca escrever diretamente nos GPIOs.</p>
 <p>O firmware atual compila e ocupa 1.046.396 de 1.310.720 bytes do slot de aplicação (79,8%) e 42.532 de 327.680 bytes de RAM (13%). A tabela padrão já contém <code>ota_0</code>, <code>ota_1</code> e <code>otadata</code>, portanto OTA A/B é fisicamente possível. A margem de aproximadamente 264 KB por slot exige medição a cada inclusão de MQTT, BLE, certificados e OTA.</p>
@@ -2464,8 +2486,9 @@ botão de ação
  ├─ pedido válido com delay ──&gt; PUMP_DELAY
  ├─ pedido válido sem delay ─&gt; PUMP_ACTIVE
  ├─ fluxo detectado ─────────&gt; PUMP_DELAY ou FLOW_ACTIVE
- ├─ botão 3 s ───────────────&gt; AP_MODE
- └─ botão curto de config ───&gt; PAIRING_MODE
+ ├─ botão solto em 3–&lt;6 s ────&gt; AP_MODE
+ ├─ botão solto em &gt;=6 s ─────&gt; BLE_PROVISIONING
+ └─ botão curto de config ────&gt; sem ação atual (legado opcional)
 
 PUMP_DELAY
  ├─ expira ──────────────────&gt; PUMP_ACTIVE
@@ -2735,7 +2758,7 @@ OTA Manager ──&gt; somente em estado seguro
 </ol>
 <h3 id="gate-4-provisionamento-e-credenciais">Gate 4 — provisionamento e credenciais<a class="headerlink" href="#gate-4-provisionamento-e-credenciais" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Implementar BLE autenticado com janela física.</li>
+<li>BLE de provisionamento foi implementado com janela física; a primeira versão é aberta, sem autenticação/criptografia GATT, conforme decisão 40. Tratar isso como modelo de confiança doméstico inicial, não como pareamento seguro.</li>
 <li>Manter SoftAP como fallback, com senha individual e sessão autenticada.</li>
 <li>Versionar/migrar NVS e proteger material sensível.</li>
 <li>Definir emissão, rotação e revogação de certificado.</li>
@@ -2746,7 +2769,7 @@ OTA Manager ──&gt; somente em estado seguro
 <li>Implementar download HTTPS e validação.</li>
 <li>Definir estado seguro, autoteste, confirmação e rollback.</li>
 <li>Testar falta de energia em download, escrita, reboot e confirmação.</li>
-<li>Validar orçamento de flash com MQTT e BLE habilitados.</li>
+<li>Validar orçamento de flash incrementalmente: BLE está habilitado e ocupa 95,5% do slot OTA; MQTT/TLS ainda não estão incluídos no orçamento atual.</li>
 </ol>
 <h3 id="gate-6-agendamento-e-canais">Gate 6 — agendamento e canais<a class="headerlink" href="#gate-6-agendamento-e-canais" title="Permanent link">&para;</a></h3>
 <ol>
@@ -2755,6 +2778,8 @@ OTA Manager ──&gt; somente em estado seguro
 <li>Permitir cancelamento por canal diferente do início.</li>
 <li>Validar convergência entre backend, mobile e futura Alexa.</li>
 </ol>
+<h2 id="incremento-ble-e-ota-2026-09-20">Incremento BLE e OTA — 2026-09-20<a class="headerlink" href="#incremento-ble-e-ota-2026-09-20" title="Permanent link">&para;</a></h2>
+<p>O provisionamento local por BLE foi implementado no Master em <code>WifiBleProvisioning.*</code>, com NimBLE-Arduino 2.5.1, janela física selecionada ao soltar o botão e contrato GATT em <a href="../../contracts/MASTER_WIFI_BLE/"><code>../contracts/MASTER_WIFI_BLE.md</code></a>. A imagem <code>0.2.12-dev</code> foi publicada e instalada no Master <code>AH_3409697506DC</code>; o heartbeat pós-boot confirmou a versão. Build: 1.252.206 bytes no relatório PlatformIO (95,5% do slot) e binário OTA de 1.301.088/1.310.720 bytes, restando aproximadamente 9,4 KB. A mensagem MQTT <code>INSTALLED</code> não chegou antes do reboot; job reconciliado com auditoria usando o heartbeat. Descoberta BLE, provisionamento real e timers ainda aguardam testes físicos e integração mobile.</p>
 <h2 id="criterios-minimos-antes-de-producao">Critérios mínimos antes de produção<a class="headerlink" href="#criterios-minimos-antes-de-producao" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Build reproduzível e orçamento de RAM/flash no CI.</li>

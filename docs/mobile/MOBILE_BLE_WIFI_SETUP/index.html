@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_PRODUCT_RULES/">
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_BLE_WIFI_SETUP/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>Regras de produto do mobile - AquaHeat — Documentação</title>
+        <title>Configuração local do Wi-Fi por BLE — Mobile - AquaHeat — Documentação</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#regras-de-produto-do-mobile" class="md-skip">
+        <a href="#configuracao-local-do-wi-fi-por-ble-mobile" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Regras de produto do mobile
+              Configuração local do Wi-Fi por BLE — Mobile
             
           </span>
         </div>
@@ -1329,41 +1329,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#referencias-visuais" class="md-nav__link">
+  <a href="#jornada-do-cliente" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Referências visuais
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Referências visuais">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#progresso-visual-do-pre-aquecimento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Progresso visual do pré-aquecimento
+        Jornada do cliente
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#aviso-de-agendamento" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-e-comportamento-offline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aviso de agendamento
+        Arquitetura e comportamento offline
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#seguranca-e-limites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Segurança e limites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacao-e-pendencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificação e pendências
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1384,48 +1389,39 @@
 
 
 
-<h1 id="regras-de-produto-do-mobile">Regras de produto do mobile<a class="headerlink" href="#regras-de-produto-do-mobile" title="Permanent link">&para;</a></h1>
-<p>Este aditivo complementa <code>MOBILE_FUNCTIONAL_SPEC.md</code>.</p>
-<h2 id="referencias-visuais">Referências visuais<a class="headerlink" href="#referencias-visuais" title="Permanent link">&para;</a></h2>
-<p>As telas conceituais aprovadas para orientar o design mobile estão em <a href="design/"><code>design/</code></a>:</p>
+<h1 id="configuracao-local-do-wi-fi-por-ble-mobile">Configuração local do Wi-Fi por BLE — Mobile<a class="headerlink" href="#configuracao-local-do-wi-fi-por-ble-mobile" title="Permanent link">&para;</a></h1>
+<p>Status: implementado no app Android; validação BLE física em aparelho real pendente.</p>
+<h2 id="jornada-do-cliente">Jornada do cliente<a class="headerlink" href="#jornada-do-cliente" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Antes do login, escolher <strong>Configurar Wi-Fi do aparelho</strong> na tela de boas-vindas. Depois do login, a mesma ação fica como item independente em <strong>Configurações</strong>.</li>
+<li>Deixar o Bluetooth do celular ligado e aproximar-se do Master.</li>
+<li>Segurar o botão de configuração: aos 3 segundos, o LED de status começa a piscar; continuar segurando até 6 segundos, quando esse mesmo LED muda para uma pulsação lenta, e então soltar. O firmware atual controla uma única saída de LED no Master e não separa verde/azul.</li>
+<li>No app, localizar e selecionar o dispositivo <code>AH_…</code> encontrado.</li>
+<li>Digitar o SSID e a senha da rede Wi-Fi de 2,4 GHz. Confirmar o envio e aguardar o resultado reportado pelo Master.</li>
+<li>Só apresentar sucesso quando o estado GATT chegar a <code>CONNECTED</code>. O fluxo não exige login nem dispositivo previamente vinculado.</li>
+</ol>
+<p>O SSID é digitado manualmente: o contrato GATT atual não fornece varredura de redes Wi-Fi. Senha vazia é permitida para redes abertas; nos demais casos, o app valida os limites do protocolo em bytes UTF-8 antes de transmitir.</p>
+<h2 id="arquitetura-e-comportamento-offline">Arquitetura e comportamento offline<a class="headerlink" href="#arquitetura-e-comportamento-offline" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../design/01-inicio.png"><code>01-inicio.png</code></a></li>
-<li><a href="../design/02-operacao.png"><code>02-operacao.png</code></a></li>
-<li><a href="../design/03-instalacoes.png"><code>03-instalacoes.png</code></a></li>
-<li><a href="../design/04-historico.png"><code>04-historico.png</code></a></li>
-<li>
-<p><a href="../design/05-configuracoes.png"><code>05-configuracoes.png</code></a></p>
-</li>
-<li>
-<p>O app deve ser clean, fluido, objetivo e usar linguagem natural, simples e direta. Termos técnicos ficam fora da experiência normal.</p>
-</li>
-<li>Versão do app, firmware, device ID, conectividade, sinal e diagnósticos ficam em <strong>Configurações &gt; Informações e suporte</strong>.</li>
-<li>Uma conta pode ter várias instalações. A troca fica em <strong>Configurações &gt; Minhas instalações</strong> ou em seletor discreto; o nome/local da instalação ativa deve estar visível em todas as telas.</li>
-<li>Uma instalação pode ser gerenciada por várias pessoas autorizadas. O histórico mostra ações por pessoa em linguagem simples.</li>
-<li><strong>Configurar Wi-Fi</strong> é uma ação independente oferecida na tela de boas-vindas antes do login e em <strong>Configurações</strong> depois do login (não aninhada em Minhas instalações). A configuração por BLE pode ocorrer sem vínculo prévio à conta. O início do fluxo mostra instrução curta, didática e ilustrada para ativar o modo BLE pelo botão/LED; depois orienta localização, conexão, escolha da rede e confirmação do resultado.</li>
-<li>O setup BLE pré-login é utilitário local e deve continuar acessível sem backend/MQTT, mas somente nesse fluxo delimitado; isso requer compatibilização explícita com o bloqueio global de conectividade MOB-008.</li>
-<li>Um celular não pode manter duas contas ativas; a troca exige logout explícito.</li>
-<li>Ao abrir, o app consulta nova versão, informa o usuário e trata progresso, integridade, falha e conclusão. É separado do OTA do Master e respeita as regras Android/iOS; quando necessário, conduz ao canal oficial.</li>
+<li><code>wifi_provisioning.dart</code> contém a tela e a comunicação BLE; não chama API nem MQTT.</li>
+<li>O app encontra o Master pelo serviço BLE <code>7c4a0001-8e2d-4c75-9a61-32d4f8a10000</code>, conecta, assina e lê o estado, escreve SSID/senha, envia <code>1</code> e observa as notificações. O nome anunciado é mostrado se disponível, mas não é condição para aceitar o dispositivo: alguns sistemas podem omitir o nome no resultado de scan.</li>
+<li>A raiz do app troca a árvore normal por um <code>Navigator</code> isolado do assistente enquanto <code>wifiProvisioningOpen</code> estiver ativo. Não deixa a árvore autenticada acessível por baixo. Em indisponibilidade, ao sair do assistente volta-se à tela de conexão indisponível; login, conta, controle e agendamentos continuam bloqueados.</li>
+<li>Android pede permissões BLE em Android 12 ou posterior e localização apenas em versões anteriores, conforme os requisitos do sistema e do plugin. BLE desligado ou permissão negada gera instrução recuperável.</li>
+<li>A negociação de MTU é solicitada em 185 bytes. O app confere o MTU retornado antes de transmitir cada campo e não divide credenciais, pois o contrato do Master recebe cada valor em uma única escrita.</li>
+<li>O pacote BLE está fixado em <code>flutter_reactive_ble 5.4.0</code>; o módulo Android dessa dependência fixa compileSdk 33. <code>android/build.gradle.kts</code> eleva somente esse módulo para API 36, necessário às dependências AndroidX atuais.</li>
 </ul>
-<h3 id="progresso-visual-do-pre-aquecimento">Progresso visual do pré-aquecimento<a class="headerlink" href="#progresso-visual-do-pre-aquecimento" title="Permanent link">&para;</a></h3>
+<h2 id="seguranca-e-limites">Segurança e limites<a class="headerlink" href="#seguranca-e-limites" title="Permanent link">&para;</a></h2>
+<p>O fluxo aplica o modelo de confiança aprovado para a primeira versão: a janela BLE é aberta pela ação física, sem pareamento, autenticação BLE ou código de confirmação. O primeiro cliente que se conectar durante a janela pode tentar enviar credenciais. O Master só confirma <code>CONNECTED</code> depois de validar a conexão Wi-Fi e persistir as credenciais; em falha, o app não indica sucesso.</p>
+<p>Esta pasta do app contém somente o projeto Android. Não há target iOS/Runner nem configuração <code>Info.plist</code>; logo esta entrega não produz um app instalável em iPhone.</p>
+<h2 id="verificacao-e-pendencias">Verificação e pendências<a class="headerlink" href="#verificacao-e-pendencias" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Durante o pré-aquecimento, a tela deve exibir um círculo animado proporcional à duração prevista informada pelo Master (por exemplo, 10 ou 20 segundos).</li>
-<li>O círculo começa vazio, evolui durante o processo e completa ao atingir o tempo estimado.</li>
-<li>Completar o círculo não significa sucesso por si só: o app deve aguardar a confirmação final do Master antes de mostrar “Pronto para usar”.</li>
-<li>Cancelamento, falha ou timeout interrompem a animação e exibem uma mensagem simples e objetiva.</li>
-<li>Quando a duração não estiver disponível, usar uma animação indeterminada de processamento, sem apresentar percentual falso.</li>
+<li>Testes Flutter cobrem a entrada pré-login, o assistente durante backend indisponível, o isolamento da navegação normal e o retorno ao bloqueio.</li>
+<li><code>flutter test</code> aprovado (14 testes).</li>
+<li><code>flutter build apk --debug</code> aprovado; saída: <code>mobile/app/build/app/outputs/flutter-apk/app-debug.apk</code>.</li>
+<li><code>flutter analyze</code> sem erros; permanecem 19 avisos/infos de estilo preexistentes em <code>main.dart</code>, nenhum no novo módulo BLE.</li>
+<li>Ainda falta teste de bancada com Master e celular Android: anúncio, permissões, conexão, MTU, notify, senha incorreta, rede aberta e desconexão. O build não comprova a comunicação BLE física.</li>
+<li>A descoberta anterior não apresentava o dispositivo porque o app exigia o prefixo <code>AH_</code> embora a pilha NimBLE 2.x não anuncie automaticamente o nome definido em <code>NimBLEDevice::init</code>. O firmware configura <code>setName</code> explicitamente e o app usa o filtro de UUID como critério. A correção está instalada no Master em <code>0.2.14-dev</code>; ainda é necessário confirmar descoberta e conexão BLE fisicamente com os celulares.</li>
 </ul>
-<h3 id="aviso-de-agendamento">Aviso de agendamento<a class="headerlink" href="#aviso-de-agendamento" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Ao criar um agendamento, o usuário pode escolher receber uma notificação alguns minutos antes do início do pré-aquecimento.</li>
-<li>O intervalo do aviso deve ser selecionável dentro das opções definidas pelo produto, com uma opção clara para não avisar.</li>
-<li>A notificação deve identificar a instalação correta e informar que o pré-aquecimento será iniciado em breve.</li>
-<li>A partir da notificação, o usuário deve conseguir abrir o agendamento para alterá-lo ou cancelá-lo antes do disparo.</li>
-<li>Alterações e cancelamentos exigem confirmação e devem atualizar o estado confirmado no backend.</li>
-<li>Se a instalação estiver offline no horário previsto, o app deve informar o ocorrido e aplicar a política definida para agendamentos offline; nunca deve afirmar que o aquecimento aconteceu sem confirmação do Master.</li>
-</ul>
-<h1 id="regra-de-identidade-vigente">Regra de identidade vigente<a class="headerlink" href="#regra-de-identidade-vigente" title="Permanent link">&para;</a></h1>
-<p>O app é exclusivo para <strong>Clientes</strong>. Administradores e Instaladores acessam somente o backend administrativo. Consulte <code>docs/architecture/CLIENT_DOMAIN.md</code> para o modelo de dados, vínculo e locais; referências antigas a proprietário/técnico como “perfil do app” não devem gerar papéis administrativos no aplicativo.</p>
 
 
 

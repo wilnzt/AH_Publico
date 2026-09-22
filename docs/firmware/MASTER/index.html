@@ -1587,12 +1587,14 @@
 </ul>
 <h2 id="modo-ap">Modo AP<a class="headerlink" href="#modo-ap" title="Permanent link">&para;</a></h2>
 <ul>
-<li>botão GPIO 3 segurado por aproximadamente 3 segundos;</li>
+<li>botão GPIO 3: manter pressionado até 3 segundos; o LED usa a piscada AP atual; soltar entre 3 e 6 segundos confirma AP;</li>
+<li>soltar após 6 segundos seleciona a configuração BLE; toque abaixo de 3 segundos não inicia configuração e permanece reservado ao legado;</li>
 <li>SSID <code>AH_[DeviceID]</code>;</li>
 <li>senha padrão documentada: <code>12345678</code>;</li>
 <li>IP <code>10.10.0.1</code>;</li>
 <li>interface web de configuração.</li>
 </ul>
+<p>O gesto, padrões de LED, janela BLE e contrato GATT estão em <a href="../../contracts/MASTER_WIFI_BLE/"><code>../contracts/MASTER_WIFI_BLE.md</code></a>. O firmware abre BLE com pulsação gradual e expira a janela após 120 segundos. O mesmo LED ligado ao GPIO 5 faz a piscada AP e a pulsação BLE; o firmware não seleciona um canal azul separado. O app Android integrado e a atualização explícita do nome no anúncio GATT ainda aguardam nova validação física.</p>
 <h2 id="integracao-documentada">Integração documentada<a class="headerlink" href="#integracao-documentada" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>POST /reads</code> para eventos;</li>

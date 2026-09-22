@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_PRODUCT_RULES/">
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/firmware/CONFIGURABLE_TIMES/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>Regras de produto do mobile - AquaHeat — Documentação</title>
+        <title>Tempos configuráveis do Master - AquaHeat — Documentação</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#regras-de-produto-do-mobile" class="md-skip">
+        <a href="#tempos-configuraveis-do-master" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Regras de produto do mobile
+              Tempos configuráveis do Master
             
           </span>
         </div>
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DESIGN/" class="md-nav__link">
+      <a href="../../mobile/DESIGN/" class="md-nav__link">
         
   
   
@@ -488,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MOBILE_SCOPE_FROM_DESIGN/" class="md-nav__link">
+      <a href="../../mobile/MOBILE_SCOPE_FROM_DESIGN/" class="md-nav__link">
         
   
   
@@ -516,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MOBILE_USER_FLOW/" class="md-nav__link">
+      <a href="../../mobile/MOBILE_USER_FLOW/" class="md-nav__link">
         
   
   
@@ -1012,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../firmware/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1040,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../firmware/MASTER/" class="md-nav__link">
+      <a href="../MASTER/" class="md-nav__link">
         
   
   
@@ -1068,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../firmware/KEYUSER_VALIDATION_ACTIVATION_MODES/" class="md-nav__link">
+      <a href="../KEYUSER_VALIDATION_ACTIVATION_MODES/" class="md-nav__link">
         
   
   
@@ -1096,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../firmware/MASTER_REVERSE_ENGINEERING/" class="md-nav__link">
+      <a href="../MASTER_REVERSE_ENGINEERING/" class="md-nav__link">
         
   
   
@@ -1329,33 +1329,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#referencias-visuais" class="md-nav__link">
+  <a href="#referencia-tecnica" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Referências visuais
+        Referência técnica
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Referências visuais">
+    <nav class="md-nav" aria-label="Referência técnica">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#progresso-visual-do-pre-aquecimento" class="md-nav__link">
+  <a href="#observacoes-de-interpretacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Progresso visual do pré-aquecimento
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aviso-de-agendamento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Aviso de agendamento
+        Observações de interpretação
       
     </span>
   </a>
@@ -1364,6 +1353,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicacao-para-o-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicação para o cliente
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1384,48 +1384,110 @@
 
 
 
-<h1 id="regras-de-produto-do-mobile">Regras de produto do mobile<a class="headerlink" href="#regras-de-produto-do-mobile" title="Permanent link">&para;</a></h1>
-<p>Este aditivo complementa <code>MOBILE_FUNCTIONAL_SPEC.md</code>.</p>
-<h2 id="referencias-visuais">Referências visuais<a class="headerlink" href="#referencias-visuais" title="Permanent link">&para;</a></h2>
-<p>As telas conceituais aprovadas para orientar o design mobile estão em <a href="design/"><code>design/</code></a>:</p>
+<h1 id="tempos-configuraveis-do-master">Tempos configuráveis do Master<a class="headerlink" href="#tempos-configuraveis-do-master" title="Permanent link">&para;</a></h1>
+<p>Este documento descreve os seis tempos do portal local de configuração do firmware Master. O comportamento foi conferido em <code>firmware/src/Storage.h</code>, <code>firmware/src/MasterApp.cpp</code>, <code>firmware/src/HTMLManager.cpp</code> e <code>firmware/src/ActionManager.cpp</code>.</p>
+<p>Os valores padrão abaixo são usados quando ainda não há valor salvo. Depois que alguém salva uma configuração, o firmware mantém o valor salvo; portanto, o padrão de fábrica não confirma qual valor está atualmente gravado em um aparelho específico.</p>
+<h2 id="referencia-tecnica">Referência técnica<a class="headerlink" href="#referencia-tecnica" title="Permanent link">&para;</a></h2>
+<p>Os limites são os aceitos pelo formulário local <code>/set</code>; os campos são informados em segundos e os limites são inclusivos.</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro no firmware</th>
+<th style="text-align: right;">Padrão</th>
+<th style="text-align: right;">Limites configuráveis</th>
+<th>Comportamento confirmado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pumpDelayMs</code> — retardo antes do acionamento</td>
+<td style="text-align: right;">15 s</td>
+<td style="text-align: right;">0–60 s</td>
+<td>Adia o início da bomba nos acionamentos temporizados e também na resposta do sensor de fluxo. No caminho do sensor, se o fluxo parar durante a espera, o acionamento pendente é cancelado.</td>
+</tr>
+<tr>
+<td><code>pumpActivationTimeMs</code> — tempo de acionamento</td>
+<td style="text-align: right;">5 s</td>
+<td style="text-align: right;">1–3600 s</td>
+<td>Duração normal dos acionamentos eletrônicos/local/remoto. Ao fim, sem fluxo detectado, a bomba desliga. Com fluxo detectado, o controle passa ao sensor e a contagem de <code>maxOnSensorMs</code> recomeça.</td>
+</tr>
+<tr>
+<td><code>maxOnSensorMs</code> — tempo máximo de bomba ligada</td>
+<td style="text-align: right;">30 s</td>
+<td style="text-align: right;">1–3600 s</td>
+<td>É verificado enquanto a bomba está ligada, independentemente da origem do acionamento, apesar do nome sugerir sensor. Ao atingir o limite, desliga a bomba e inicia o cooldown. A transição do acionamento temporizado para o controle por sensor reinicia essa contagem; logo, não é necessariamente um teto absoluto contado desde o primeiro comando.</td>
+</tr>
+<tr>
+<td><code>cooldownMs</code> — bloqueio após corte de segurança</td>
+<td style="text-align: right;">0 s</td>
+<td style="text-align: right;">0–3600 s</td>
+<td>Impede novos acionamentos depois que <code>maxOnSensorMs</code> desliga a bomba, até o tempo expirar. Não é iniciado por todo desligamento normal. Com padrão zero, praticamente não há espera adicional.</td>
+</tr>
+<tr>
+<td><code>maxFlowTimeBeforeHeaterOffMs</code> — fluxo contínuo antes do corte do aquecedor</td>
+<td style="text-align: right;">20 s</td>
+<td style="text-align: right;">1–3600 s</td>
+<td>No controle por sensor, fluxo contínuo acima do limite, com o aquecedor ativo, chama o desligamento do aquecedor; esse procedimento também desliga a bomba e bloqueia novos acionamentos pelo período <code>heaterOffWaitTimeMs</code>.</td>
+</tr>
+<tr>
+<td><code>heaterOffWaitTimeMs</code> — espera após desligar o aquecedor</td>
+<td style="text-align: right;">10 s</td>
+<td style="text-align: right;">1–3600 s</td>
+<td>Define por quanto tempo o sistema fica bloqueado após o desligamento protetivo do aquecedor. Ao expirar, o firmware religa o aquecedor automaticamente e libera o bloqueio.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="observacoes-de-interpretacao">Observações de interpretação<a class="headerlink" href="#observacoes-de-interpretacao" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../design/01-inicio.png"><code>01-inicio.png</code></a></li>
-<li><a href="../design/02-operacao.png"><code>02-operacao.png</code></a></li>
-<li><a href="../design/03-instalacoes.png"><code>03-instalacoes.png</code></a></li>
-<li><a href="../design/04-historico.png"><code>04-historico.png</code></a></li>
-<li>
-<p><a href="../design/05-configuracoes.png"><code>05-configuracoes.png</code></a></p>
-</li>
-<li>
-<p>O app deve ser clean, fluido, objetivo e usar linguagem natural, simples e direta. Termos técnicos ficam fora da experiência normal.</p>
-</li>
-<li>Versão do app, firmware, device ID, conectividade, sinal e diagnósticos ficam em <strong>Configurações &gt; Informações e suporte</strong>.</li>
-<li>Uma conta pode ter várias instalações. A troca fica em <strong>Configurações &gt; Minhas instalações</strong> ou em seletor discreto; o nome/local da instalação ativa deve estar visível em todas as telas.</li>
-<li>Uma instalação pode ser gerenciada por várias pessoas autorizadas. O histórico mostra ações por pessoa em linguagem simples.</li>
-<li><strong>Configurar Wi-Fi</strong> é uma ação independente oferecida na tela de boas-vindas antes do login e em <strong>Configurações</strong> depois do login (não aninhada em Minhas instalações). A configuração por BLE pode ocorrer sem vínculo prévio à conta. O início do fluxo mostra instrução curta, didática e ilustrada para ativar o modo BLE pelo botão/LED; depois orienta localização, conexão, escolha da rede e confirmação do resultado.</li>
-<li>O setup BLE pré-login é utilitário local e deve continuar acessível sem backend/MQTT, mas somente nesse fluxo delimitado; isso requer compatibilização explícita com o bloqueio global de conectividade MOB-008.</li>
-<li>Um celular não pode manter duas contas ativas; a troca exige logout explícito.</li>
-<li>Ao abrir, o app consulta nova versão, informa o usuário e trata progresso, integridade, falha e conclusão. É separado do OTA do Master e respeita as regras Android/iOS; quando necessário, conduz ao canal oficial.</li>
+<li><code>maxOnSensorMs</code> é uma proteção geral da bomba no código atual: também vale para acionamentos pelo botão/controle, não apenas os originados pelo sensor.</li>
+<li>O cooldown só começa quando o limite geral <code>maxOnSensorMs</code> é atingido; não é uma pausa obrigatória entre todos os usos.</li>
+<li>O limite de fluxo contínuo atua no caminho de controle por sensor quando o aquecedor está ativo. Ao atingir essa proteção, bomba e aquecedor são desligados; <code>heaterOffWaitTimeMs</code> é o período de bloqueio correspondente.</li>
+<li>Os limites descritos são os do portal local atual. Esta documentação não afirma que esses valores sejam adequados para toda instalação; ajustes devem respeitar a configuração e validação do produto.</li>
 </ul>
-<h3 id="progresso-visual-do-pre-aquecimento">Progresso visual do pré-aquecimento<a class="headerlink" href="#progresso-visual-do-pre-aquecimento" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Durante o pré-aquecimento, a tela deve exibir um círculo animado proporcional à duração prevista informada pelo Master (por exemplo, 10 ou 20 segundos).</li>
-<li>O círculo começa vazio, evolui durante o processo e completa ao atingir o tempo estimado.</li>
-<li>Completar o círculo não significa sucesso por si só: o app deve aguardar a confirmação final do Master antes de mostrar “Pronto para usar”.</li>
-<li>Cancelamento, falha ou timeout interrompem a animação e exibem uma mensagem simples e objetiva.</li>
-<li>Quando a duração não estiver disponível, usar uma animação indeterminada de processamento, sem apresentar percentual falso.</li>
-</ul>
-<h3 id="aviso-de-agendamento">Aviso de agendamento<a class="headerlink" href="#aviso-de-agendamento" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Ao criar um agendamento, o usuário pode escolher receber uma notificação alguns minutos antes do início do pré-aquecimento.</li>
-<li>O intervalo do aviso deve ser selecionável dentro das opções definidas pelo produto, com uma opção clara para não avisar.</li>
-<li>A notificação deve identificar a instalação correta e informar que o pré-aquecimento será iniciado em breve.</li>
-<li>A partir da notificação, o usuário deve conseguir abrir o agendamento para alterá-lo ou cancelá-lo antes do disparo.</li>
-<li>Alterações e cancelamentos exigem confirmação e devem atualizar o estado confirmado no backend.</li>
-<li>Se a instalação estiver offline no horário previsto, o app deve informar o ocorrido e aplicar a política definida para agendamentos offline; nunca deve afirmar que o aquecimento aconteceu sem confirmação do Master.</li>
-</ul>
-<h1 id="regra-de-identidade-vigente">Regra de identidade vigente<a class="headerlink" href="#regra-de-identidade-vigente" title="Permanent link">&para;</a></h1>
-<p>O app é exclusivo para <strong>Clientes</strong>. Administradores e Instaladores acessam somente o backend administrativo. Consulte <code>docs/architecture/CLIENT_DOMAIN.md</code> para o modelo de dados, vínculo e locais; referências antigas a proprietário/técnico como “perfil do app” não devem gerar papéis administrativos no aplicativo.</p>
+<h2 id="explicacao-para-o-cliente">Explicação para o cliente<a class="headerlink" href="#explicacao-para-o-cliente" title="Permanent link">&para;</a></h2>
+<p>Em palavras simples, estes ajustes dizem quando a bomba começa, por quanto tempo funciona numa ativação normal e quais pausas de proteção o aparelho aplica se detectar funcionamento prolongado. Os tempos padrão são valores iniciais do firmware e podem ter sido alterados no seu equipamento.</p>
+<table>
+<thead>
+<tr>
+<th>Ajuste</th>
+<th>Padrão e faixa</th>
+<th>O que significa para você</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Espera antes de começar</td>
+<td>Padrão: <strong>15 segundos</strong>. Ajustável de <strong>0 a 60 segundos</strong>.</td>
+<td>Depois de pedir o acionamento — ou quando o aparelho percebe fluxo — ele pode esperar esse tempo antes de ligar a bomba. Se o fluxo detectado parar durante essa espera, o acionamento é cancelado.</td>
+</tr>
+<tr>
+<td>Duração normal do acionamento</td>
+<td>Padrão: <strong>5 segundos</strong>. Ajustável de <strong>1 segundo a 1 hora</strong>.</td>
+<td>É o tempo programado para um acionamento normal. Se ainda houver água passando ao final, o sensor pode continuar controlando a bomba, respeitando o limite de segurança.</td>
+</tr>
+<tr>
+<td>Limite de funcionamento da bomba</td>
+<td>Padrão: <strong>30 segundos</strong>. Ajustável de <strong>1 segundo a 1 hora</strong>.</td>
+<td>Evita que a bomba permaneça ligada por tempo excessivo. Se o limite for atingido, a bomba para e pode haver uma pausa antes de aceitar outro acionamento. Esse limite também vale para acionamentos feitos por comando, não apenas pelo sensor.</td>
+</tr>
+<tr>
+<td>Pausa após o limite de segurança</td>
+<td>Padrão: <strong>0 segundos</strong>. Ajustável de <strong>0 segundos a 1 hora</strong>.</td>
+<td>É a espera adicional antes de permitir novo acionamento após a bomba ter sido parada pelo limite de funcionamento. O padrão zero significa que essa pausa adicional está desativada.</td>
+</tr>
+<tr>
+<td>Tempo de fluxo contínuo antes da proteção do aquecedor</td>
+<td>Padrão: <strong>20 segundos</strong>. Ajustável de <strong>1 segundo a 1 hora</strong>.</td>
+<td>Se o aparelho identificar água passando continuamente por esse período enquanto controla pelo sensor e o aquecedor estiver ligado, desliga a bomba e o aquecedor para proteção.</td>
+</tr>
+<tr>
+<td>Espera para liberar o aquecedor</td>
+<td>Padrão: <strong>10 segundos</strong>. Ajustável de <strong>1 segundo a 1 hora</strong>.</td>
+<td>Depois da proteção anterior, o aparelho aguarda esse tempo antes de religar o aquecedor e liberar o sistema.</td>
+</tr>
+</tbody>
+</table>
+<p>Os períodos das duas proteções são diferentes: a pausa após o limite da bomba só acontece quando esse limite é alcançado; a espera do aquecedor acontece depois do corte por fluxo contínuo. Os tempos e limites aqui descritos refletem o firmware atual e não substituem as instruções de instalação e uso seguro do produto.</p>
 
 
 

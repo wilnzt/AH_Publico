@@ -2,182 +2,194 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/MQTT_EC2_OPERATIONS/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/architecture/ALEXA_INTEGRATION/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/architecture/ARCHITECTURE/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/architecture/AWS_TOPOLOGY/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/architecture/CLIENT_DOMAIN/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/architecture/CURRENT_STATE/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/architecture/PROJECT_CONTEXT/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/backend/BACKEND_ARCHITECTURE/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/backend/BACKEND_FUNCTIONAL_SPEC/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/backend/BACKEND_SYSTEM_BLUEPRINT/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/client/PAUTA_REUNIAO_KEYUSERS_2026-09-01/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/client/ROADMAP_PUBLICACAO_PRODUCAO/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/compliance/DOCUMENTATION_REGISTER/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/compliance/PUBLICATION_INFORMATION_CHECKLIST/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/contracts/MASTER_CONFIGURATION/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
+    </url>
+    <url>
+         <loc>https://wilnzt.github.io/AH_Publico/docs/contracts/MASTER_WIFI_BLE/</loc>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/contracts/START_PREHEAT/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/firmware/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/firmware/ACTIVATION_FLOW/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
+    </url>
+    <url>
+         <loc>https://wilnzt.github.io/AH_Publico/docs/firmware/CONFIGURABLE_TIMES/</loc>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/firmware/KEYUSER_VALIDATION_ACTIVATION_MODES/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/firmware/MASTER/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/firmware/MASTER_REVERSE_ENGINEERING/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/firmware/PHYSICAL_VALIDATION_2026-09-12/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/firmware/README_minimal/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/frontend/FRONTEND_FINAL_ARCHITECTURE/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/frontend/IMPLEMENTATION_AUDIT/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/frontend/TEST_REPORT_2026-09-12/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/migration/HOW_TO_USE_IN_NEW_ACCOUNT/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/DESIGN/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_APP_ICON_DROP_COLOR_BOARD/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_APP_ICON_OPTIONS_BOARD/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
+    </url>
+    <url>
+         <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_BLE_WIFI_SETUP/</loc>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_DESIGN_GAP_ANALYSIS/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_FUNCTIONAL_SPEC/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_ICON_OPTIONS_BOARD/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_PRODUCT_CANONICAL_FLOW/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_PRODUCT_RULES/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_SCOPE_FROM_DESIGN/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/MOBILE_USER_FLOW/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/SCHEDULING_FINAL_REBUILD_PLAN/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/SCHEDULING_IMPLEMENTATION_FLOW/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/SCHEDULING_MVP_FUNCTIONAL_STUDY/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/mobile/SCHEDULING_REBUILD_IMPLEMENTATION/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/product/REQUIREMENTS/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/product/REQUIREMENTS_TRACEABILITY/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
     <url>
          <loc>https://wilnzt.github.io/AH_Publico/docs/product/REVOLUSHOWER/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-22</lastmod>
     </url>
 </urlset>
