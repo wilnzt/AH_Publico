@@ -1559,7 +1559,7 @@
 <ul>
 <li>Ambiente PlatformIO <code>master</code>, ESP32-C3.</li>
 <li>Versão declarada no código: <code>0.2.14-dev</code>.</li>
-<li>Build local em 2026-09-21: RAM estática 49.916/327.680 bytes (15,2%) e flash 1.252.870/1.310.720 bytes (95,6%).</li>
+<li>Build local em 2026-09-23: RAM estática 49.932/327.680 bytes (15,2%) e flash 1.253.648/1.310.720 bytes (95,6%; margem ≈ 57 KB).</li>
 <li>Núcleo físico continua em <code>ActionManager</code>; somente ele atua sobre GPIOs, timers, relés, cooldown, fluxo e bloqueios.</li>
 <li><code>CommandGateway</code> (<code>firmware/src/CommandGateway.cpp</code>) é a porta única de entrada para <code>START_PREHEAT</code>/<code>CANCEL_PREHEAT</code>, recebidos de origem local, web legada e MQTT — não cobre configuração remota, diagnóstico ou OTA, que são tratados diretamente em <code>MqttManager.cpp</code>. Sensores continuam entrando diretamente no núcleo físico.</li>
 <li>MQTT/TLS, estado, resultados, configuração remota, ativação, cancelamento, OTA e correlação de agendamentos estão implementados. Não há tópico/handler MQTT dedicado a "diagnóstico" separado da publicação de <code>state</code>.</li>

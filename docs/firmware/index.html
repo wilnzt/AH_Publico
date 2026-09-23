@@ -1131,6 +1131,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gravar-outro-equipamento-por-usb-macoslinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gravar outro equipamento por USB (macOS/Linux)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#regra-da-fase" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1534,6 +1545,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gravar-outro-equipamento-por-usb-macoslinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gravar outro equipamento por USB (macOS/Linux)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#regra-da-fase" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1630,6 +1652,11 @@
 <div class="highlight"><pre><span></span><code><span class="n">py</span> <span class="n">-m</span> <span class="n">platformio</span> <span class="n">run</span> <span class="n">-e</span> <span class="n">master</span> <span class="p">-</span><span class="n">-target</span> <span class="n">upload</span>
 <span class="n">py</span> <span class="n">-m</span> <span class="n">platformio</span> <span class="n">device</span> <span class="n">monitor</span> <span class="n">-e</span> <span class="n">master</span>
 </code></pre></div>
+<h2 id="gravar-outro-equipamento-por-usb-macoslinux">Gravar outro equipamento por USB (macOS/Linux)<a class="headerlink" href="#gravar-outro-equipamento-por-usb-macoslinux" title="Permanent link">&para;</a></h2>
+<p>Um Master que ainda não roda este firmware não recebe OTA; a primeira gravação é por USB. O script <a href="../../scripts/flash-master.sh"><code>scripts/flash-master.sh</code></a> detecta a porta, lê o MAC, mostra o <code>deviceId</code> que o equipamento terá (<code>AH_</code> + MAC com os bytes invertidos, igual a <code>MasterConfigManager::getLocalId()</code>), pede confirmação e grava o ambiente <code>master</code> sem depender do <code>COM4</code> do <code>platformio.ini</code>:</p>
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>scripts/flash-master.sh<span class="w"> </span>/dev/cu.usbmodemXXXX<span class="w"> </span>--monitor
+</code></pre></div>
+<p>Pré-requisitos: <code>firmware/src/MqttSecrets.h</code> (ignorado pelo Git) com a senha real, e o <code>deviceId</code> novo liberado na ACL do Mosquitto (todos os Masters usam hoje a mesma credencial <code>master-test-001</code> e cada dispositivo exige entradas explícitas; ver <code>infra/mqtt/mosquitto.acl.example</code> e <code>SEC-001</code>). Sem a ACL o Master conecta mas o broker recusa a publicação. <code>--erase</code> apaga o NVS (Wi-Fi, ativação e configuração). Depois da gravação, provisionar o Wi-Fi (BLE ou AP) e ativar pelo backend. Atualizações seguintes podem usar OTA.</p>
 <h2 id="regra-da-fase">Regra da fase<a class="headerlink" href="#regra-da-fase" title="Permanent link">&para;</a></h2>
 <p>Toda análise, teste e evolução funcional concentra-se no Master. Arquivos legados fora do recorte permanecem no repositório sem participação nas entregas atuais.</p>
 <h2 id="riscos-prioritarios">Riscos prioritários<a class="headerlink" href="#riscos-prioritarios" title="Permanent link">&para;</a></h2>

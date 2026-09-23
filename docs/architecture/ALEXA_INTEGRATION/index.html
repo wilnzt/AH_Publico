@@ -925,6 +925,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#caso-de-uso-aquecer-ao-chegar-em-casa-rotinas-da-alexa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso de uso: aquecer ao chegar em casa (Rotinas da Alexa)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#seguranca-e-privacidade" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1701,6 +1712,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#caso-de-uso-aquecer-ao-chegar-em-casa-rotinas-da-alexa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso de uso: aquecer ao chegar em casa (Rotinas da Alexa)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#seguranca-e-privacidade" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1751,7 +1773,7 @@
 
 
 <h1 id="revolushower-integracao-com-amazon-alexa">Revolushower — Integração com Amazon Alexa<a class="headerlink" href="#revolushower-integracao-com-amazon-alexa" title="Permanent link">&para;</a></h1>
-<p>Atualizado em 2026-08-29.</p>
+<p>Atualizado em 2026-09-23.</p>
 <blockquote>
 <p><strong>Documento interno e confidencial.</strong> A integração Alexa é uma hipótese de evolução arquitetural que ainda será apresentada comercialmente ao cliente. Ela não integra o fluxo mobile enviado para aprovação, não é requisito contratado e não deve aparecer em materiais externos antes da autorização comercial.</p>
 </blockquote>
@@ -1849,12 +1871,46 @@
 <li>Se o estado estiver velho ou incerto, o canal deve informar indisponibilidade; não deve inventar sucesso.</li>
 </ul>
 <h2 id="modelagem-alexa-a-validar">Modelagem Alexa a validar<a class="headerlink" href="#modelagem-alexa-a-validar" title="Permanent link">&para;</a></h2>
-<p><code>Alexa.PowerController</code> oferece comandos prontos de ligar/desligar e estado binário, mas o Revolushower executa um ciclo temporário com estados intermediários. Antes da implementação, deve-se validar com a Amazon e com o cliente se:</p>
-<ol>
-<li><code>TurnOn</code> representa <strong>iniciar pré-aquecimento</strong> e <code>TurnOff</code> representa <strong>cancelar pré-aquecimento</strong>; ou</li>
-<li>uma capacidade personalizada representa melhor as ações e estados do produto.</li>
-</ol>
-<p>A decisão precisa considerar experiência em português, certificação, confirmação assíncrona, exposição de delay/cooldown/falha e risco de o usuário interpretar <code>OFF</code> como corte físico da água.</p>
+<p>O produto executa um ciclo temporário, enquanto a Alexa modela dispositivos que ficam ligados ou desligados. Modelo de skill: <strong>Smart Home</strong> (sem nome de invocação; frases padrão em pt-BR; aparece no app Alexa e nas Rotinas). Uma <em>Custom Skill</em> exigiria nome de invocação em toda fala e não é o modelo deste documento; pode existir depois, apenas como complemento de consulta.</p>
+<table>
+<thead>
+<tr>
+<th>Opção</th>
+<th>Fala</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. <code>PowerController</code></td>
+<td>"ligue/desligue o chuveiro"</td>
+<td><strong>Recomendada.</strong> <code>TurnOn</code> inicia, <code>TurnOff</code> cancela; o estado volta a <code>OFF</code> ao fim do ciclo. Risco: <code>OFF</code> ser lido como corte da água; mitigar com nome amigável e resposta clara. Também mantém o dispositivo elegível como ação de Rotina.</td>
+</tr>
+<tr>
+<td>B. <code>SceneController</code></td>
+<td>"ative pré-aquecimento"</td>
+<td>Boa semântica de gatilho, mas a Amazon proíbe cenas em dispositivos de segurança residencial e cozinha; validar o enquadramento de aquecimento de água antes de adotar.</td>
+</tr>
+<tr>
+<td>C. <code>ModeController</code>/<code>ToggleController</code></td>
+<td>"defina o modo…"</td>
+<td>Expõe estados (aguardando, ativo), mas a fala é pouco natural.</td>
+</tr>
+</tbody>
+</table>
+<p>Antes da implementação, validar com a Amazon a política para dispositivos de aquecimento e, com o cliente, a redação de "desligar" (cancelar pré-aquecimento).</p>
+<h2 id="caso-de-uso-aquecer-ao-chegar-em-casa-rotinas-da-alexa">Caso de uso: aquecer ao chegar em casa (Rotinas da Alexa)<a class="headerlink" href="#caso-de-uso-aquecer-ao-chegar-em-casa-rotinas-da-alexa" title="Permanent link">&para;</a></h2>
+<p>A Alexa já oferece esse gatilho nativamente; o Revolushower não implementa geofencing nem pede localização ao usuário nesse caminho.</p>
+<div class="highlight"><pre><span></span><code>app Alexa (celular) detecta cruzamento da cerca → nuvem Alexa executa a Rotina
+→ diretiva TurnOn na skill → backend (origem ALEXA) → MQTT → Master valida
+</code></pre></div>
+<ul>
+<li>O cliente cria a Rotina no app Alexa: gatilho <strong>Localização → Chegar</strong> no endereço de casa, ação <strong>ligar o chuveiro</strong>. Outros gatilhos aproveitáveis: horário, alarme do Echo, sensor de porta/movimento e frase de voz.</li>
+<li>O app Alexa precisa da permissão de localização "o tempo todo". A localização é tratada entre o cliente e a Amazon; o Revolushower não a coleta.</li>
+<li>O raio padrão da cerca é grande (~1,6 km, ajustável pelo cliente) e a Rotina não sabe o tempo restante até a chegada; a confiabilidade depende do celular e do SO.</li>
+<li>O Revolushower não controla a lógica da Rotina. As proteções ficam no backend e no Master: cooldown, limite de acionamentos, watchdog e, opcionalmente, rejeição de ciclos de origem <code>ALEXA</code> fora de janela/limite diário configurados.</li>
+<li>Geofencing no app Revolushower (raio menor, janela de horário, confirmação por notificação) é item opcional posterior; exigiria permissão de localização em segundo plano, base legal LGPD e justificativa nas lojas (ver <code>../compliance/STORE_PUBLICATION_REQUIREMENTS.md</code>).</li>
+</ul>
 <h2 id="seguranca-e-privacidade">Segurança e privacidade<a class="headerlink" href="#seguranca-e-privacidade" title="Permanent link">&para;</a></h2>
 <ul>
 <li>autorização de menor privilégio e tokens protegidos/rotacionáveis;</li>
@@ -1878,6 +1934,8 @@
 <ul>
 <li><a href="https://www.developer.amazon.com/docs/alexaplus/smarthome/set-up-account-linking-tutorial.html">Account linking para Smart Home</a></li>
 <li><a href="https://developer.amazon.com/docs/alexaplus/account-linking/implement-auth-flow.html">Fluxos OAuth e app-to-app linking</a></li>
+<li><a href="https://developer.amazon.com/en-US/docs/alexa/device-apis/list-of-interfaces.html">Interfaces Smart Home e idiomas (pt-BR)</a></li>
+<li><a href="https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-scenecontroller.html">Alexa.SceneController (restrições de uso)</a></li>
 <li><a href="https://developer.amazon.com/docs/alexaplus/device-apis/alexa-powercontroller.html">Alexa PowerController</a></li>
 <li><a href="https://www.developer.amazon.com/en-US/docs/alexa/smarthome/state-reporting-for-a-smart-home-skill.html">State e Change Reporting</a></li>
 <li><a href="https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html">Alexa Event Gateway</a></li>

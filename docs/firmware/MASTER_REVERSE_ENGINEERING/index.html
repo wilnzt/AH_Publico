@@ -2328,7 +2328,7 @@
 <p>Atualizado em 2026-09-20. A análise original de engenharia reversa é de 2026-08-30; a seção de provisionamento BLE ao final registra a implementação posterior conferida no código e compilação, ainda sem validação de bancada.</p>
 <h2 id="conclusao-executiva">Conclusão executiva<a class="headerlink" href="#conclusao-executiva" title="Permanent link">&para;</a></h2>
 <p>É tecnicamente viável evoluir o ESP32-C3 atual com MQTT, comandos confirmados, agendamento disparado pelo backend, OTA e provisionamento BLE sem remover a lógica de bomba, fluxo, aquecedor, delay, cooldown e watchdog. A condição é manter o controle físico como núcleo isolado e fazer as novas camadas solicitarem ações por uma interface única, nunca escrever diretamente nos GPIOs.</p>
-<p>O firmware atual compila e ocupa 1.046.396 de 1.310.720 bytes do slot de aplicação (79,8%) e 42.532 de 327.680 bytes de RAM (13%). A tabela padrão já contém <code>ota_0</code>, <code>ota_1</code> e <code>otadata</code>, portanto OTA A/B é fisicamente possível. A margem de aproximadamente 264 KB por slot exige medição a cada inclusão de MQTT, BLE, certificados e OTA.</p>
+<p>Na análise de 2026-08-30 o firmware ocupava 1.046.396 de 1.310.720 bytes do slot (79,8%). <strong>Valor superado:</strong> em 2026-09-23 o build ocupa 1.253.648 bytes (95,6%) e 49.932 de 327.680 bytes de RAM (15,2%), com margem ≈ 57 KB por slot. A tabela padrão contém <code>ota_0</code>, <code>ota_1</code> e <code>otadata</code> (slots de 1.310.720 bytes), portanto OTA A/B é possível, mas qualquer nova pilha (ex.: Matter) exige antes recuperar margem ou redefinir partições (<code>FW-FLASH-001</code>).</p>
 <p>Há riscos que impedem ligar as novas funções diretamente ao código atual: operações HTTP bloqueiam o loop de segurança, TLS usa <code>setInsecure()</code>, o portal local está sem autenticação efetiva, comandos HTTP são marcados como concluídos antes da execução e <code>maxOnSensorMs</code> limita qualquer origem.</p>
 <h2 id="evidencias-e-escopo">Evidências e escopo<a class="headerlink" href="#evidencias-e-escopo" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2607,7 +2607,7 @@ COOLDOWN
 <li>Não há reconexão Wi-Fi/MQTT robusta.</li>
 <li>Estado de cooldown, aquecedor bloqueado e comando corrente se perde no reboot.</li>
 <li>Não há schema/versionamento de configuração nem política de limites seguros.</li>
-<li>Flash já está em 79,8% do slot; crescimento sem orçamento pode inviabilizar OTA.</li>
+<li>Flash está em 95,6% do slot (medição de 2026-09-23); crescimento sem orçamento inviabiliza OTA.</li>
 </ol>
 <h3 id="dependentes-de-bancadahardware">Dependentes de bancada/hardware<a class="headerlink" href="#dependentes-de-bancadahardware" title="Permanent link">&para;</a></h3>
 <ol>

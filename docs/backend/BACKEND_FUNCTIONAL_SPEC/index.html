@@ -1412,10 +1412,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-dashboard" class="md-nav__link">
+  <a href="#6-dashboard-painel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Dashboard
+        6. Dashboard (Painel)
       
     </span>
   </a>
@@ -1586,6 +1586,17 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8x-endereco-estruturado-e-geolocalizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.x Endereço estruturado e geolocalização
+      
+    </span>
+  </a>
   
 </li>
         
@@ -1793,35 +1804,35 @@ Data: 2026-09-12</p>
 <li>erros de rede não podem deixar a tela silenciosa;</li>
 <li>sessão revogada ou inválida retorna ao login com mensagem explicativa.</li>
 </ul>
-<h2 id="6-dashboard">6. Dashboard<a class="headerlink" href="#6-dashboard" title="Permanent link">&para;</a></h2>
-<p>Deve mostrar dados reais, sem números fictícios:</p>
-<ul>
-<li>total de instalações;</li>
-<li>instalações ativas, bloqueadas, em instalação e desativadas;</li>
-<li>dispositivos online e offline;</li>
-<li>comandos pendentes e falhos;</li>
-<li>ativações no período;</li>
-<li>atividades recentes;</li>
-<li>saúde da API, PostgreSQL e MQTT.</li>
-</ul>
-<p>Cada indicador deve ter estado de carregamento, estado vazio e estado de erro. A atividade recente deve mostrar ação, usuário, dispositivo/instalação, data e resultado.</p>
+<h2 id="6-dashboard-painel">6. Dashboard (Painel)<a class="headerlink" href="#6-dashboard-painel" title="Permanent link">&para;</a></h2>
+<p>Tela pensada para o dono do produto, não para o técnico. Dados reais, sem números fictícios. <code>GET /api/dashboard</code> devolve sempre o bloco de saúde e, só para quem tem <code>dashboard.business.view</code> (padrão: administradores), o bloco <code>business</code>. Demais perfis veem apenas três contadores simples e a saúde, dentro do próprio escopo de instalações.</p>
+<p><strong>Negócio</strong> (<code>business</code>):
+- KPIs com variação contra os 30 dias anteriores: instalações ativas, ativações em 30 dias, uso do aquecimento (acionamentos <code>START_PREHEAT</code> concluídos em 30 dias) e uso médio por instalação ativa;
+- funil Cadastradas → Em instalação → Ativas, com alerta de instalações paradas há mais de 7 dias sem ativar. "Em instalação" significa Master vinculado que ainda não foi liberado ao cliente (status <code>CREATED</code>/<code>INSTALLATION</code>);
+- uso diário dos últimos 30 dias (fuso America/Sao_Paulo);
+- mapa de instalações (não desativadas) agrupadas por país/UF/cidade: alterna Brasil (calor por estado; ao clicar no estado, aproxima e mostra as cidades) e Mundo (bolhas por país), com ranking ao lado. Geometrias embarcadas em <code>frontend/src/maps/</code> (IBGE e Natural Earth), sem dependência externa em runtime. Instalações sem coordenadas aparecem como "sem localização definida".</p>
+<p><strong>Saúde</strong> (<code>health</code>, cartão separado): faixa geral: verde "Tudo funcionando normalmente"; amarela "Alguns pontos precisam de atenção" (equipamento sem comunicar há mais de 5 min ou comando com falha nas últimas 24 h); vermelha "Há um problema na plataforma" (banco indisponível ou MQTT desconectado; a API é fixa como operacional); plataforma (API, PostgreSQL, MQTT); anel de equipamentos online; comandos (taxa de sucesso, em andamento e com falha, todos na janela das últimas 24 h — comando antigo não mantém o alerta aceso); distribuição de firmware (versão mais nova = atual; ordenação numérica); lista dos equipamentos de instalações ativas há mais tempo sem comunicar, com link para a instalação.</p>
+<p>A atividade recente é secundária (recolhida): ação, usuário, dispositivo/instalação, data e resultado. Cada bloco tem estado de carregamento, vazio e erro. Decisão: DEC-047.</p>
 <h2 id="7-clientes">7. Clientes<a class="headerlink" href="#7-clientes" title="Permanent link">&para;</a></h2>
 <h3 id="71-lista">7.1 Lista<a class="headerlink" href="#71-lista" title="Permanent link">&para;</a></h3>
 <p>Exibe nome, e-mail, telefone, quantidade de instalações, busca e paginação. O administrador possui “Novo cliente”. O instalador não vê ou não pode usar esse botão.</p>
 <h3 id="72-novo-cliente">7.2 Novo cliente<a class="headerlink" href="#72-novo-cliente" title="Permanent link">&para;</a></h3>
 <p>Campos: nome completo, e-mail, telefone, data de nascimento quando obrigatória, endereço, complemento, bairro, cidade, estado e CEP.</p>
+<p>O telefone tem máscara <code>(00) 00000-0000</code>. O endereço usa o componente guiado descrito em 8.x (CEP preenche logradouro, bairro, cidade e UF; cidade e UF vêm de listas oficiais).</p>
 <p>Validações devem ocorrer no frontend e backend. Sucesso mostra “Cliente cadastrado com sucesso.” e abre o detalhe. Erros devem ser traduzidos para mensagens de campo.</p>
 <h3 id="73-detalhe">7.3 Detalhe<a class="headerlink" href="#73-detalhe" title="Permanent link">&para;</a></h3>
 <p>Mostra dados do cliente e todas as instalações vinculadas. A instalação pode estar vinculada a vários clientes. O endereço do cliente não substitui o endereço da instalação.</p>
 <h2 id="8-instalacoes">8. Instalações<a class="headerlink" href="#8-instalacoes" title="Permanent link">&para;</a></h2>
 <h3 id="81-lista">8.1 Lista<a class="headerlink" href="#81-lista" title="Permanent link">&para;</a></h3>
-<p>Colunas mínimas:</p>
+<p>Mesmo padrão de colunas e badges da tela de Dispositivos (nomes iguais para a mesma informação; a situação usa o helper compartilhado <code>lifecycle</code> em <code>components.tsx</code>):</p>
 <ul>
-<li>Dispositivo: <code>device_id</code>/número de série;</li>
-<li>status de ativação: ativado/desativado/bloqueado;</li>
-<li>conectividade: online/offline;</li>
-<li>data de instalação;</li>
-<li>ação de detalhe por ícone ou botão compacto.</li>
+<li><strong>Dispositivo</strong>: <code>device_id</code>, com cidade/UF logo abaixo;</li>
+<li><strong>Cliente</strong>: o primeiro cliente que se vinculou ou foi vinculado à instalação (menor data de vínculo ativo entre as três origens: vínculo do painel, acesso de cliente do app e membro do app legado). Vínculos revogados não contam;</li>
+<li><strong>Instalador</strong>: nome(s) dos instaladores atribuídos e não revogados (<code>installerName</code>);</li>
+<li><strong>Data de instalação</strong>: ativação ou, se ainda não ativada, cadastro;</li>
+<li><strong>Situação</strong>: Ativado, Em instalação, Calibrado aguardando ativação, Desativado ou Sem instalação;</li>
+<li><strong>Comunicação</strong>: Online/Offline, com a última comunicação abaixo;</li>
+<li><strong>Ação</strong>: botão "Ver detalhes" que abre o detalhe da instalação.</li>
 </ul>
 <h3 id="82-inserir-instalacao">8.2 Inserir instalação<a class="headerlink" href="#82-inserir-instalacao" title="Permanent link">&para;</a></h3>
 <p>Solicita somente o Device ID real gravado no equipamento, no formato definido pelo firmware, atualmente <code>AH_3409697506DC</code>.</p>
@@ -1898,6 +1909,9 @@ Data: 2026-09-12</p>
 <li><code>EVIDENCE</code>.</li>
 </ul>
 <p>Cada item tem <code>PENDING</code>, <code>PASSED</code>, <code>FAILED</code> ou <code>WAIVED</code>, observação, usuário e data. O botão de ativação deve informar exatamente quais itens ainda não estão aprovados.</p>
+<h3 id="8x-endereco-estruturado-e-geolocalizacao">8.x Endereço estruturado e geolocalização<a class="headerlink" href="#8x-endereco-estruturado-e-geolocalizacao" title="Permanent link">&para;</a></h3>
+<p>Endereço de instalação e de cliente é validado no backend (<code>src/address.js</code>): CEP normalizado para <code>00000-000</code>, UF conferida contra a lista oficial e cidade confrontada com o IBGE da UF (gravada com o nome oficial e <code>ibge_city_code</code>). Falha devolve <code>invalid_address_postal_code</code>, <code>invalid_address_state</code> ou <code>invalid_address_city</code>. Auxiliares para o formulário: <code>GET /api/address/postal-code/:cep</code> (BrasilAPI) e <code>GET /api/address/cities?state=UF</code> (IBGE, cache de 24 h); exigem permissão de criar/editar instalação ou cliente.</p>
+<p>Ao salvar uma instalação o backend geocodifica (<code>latitude</code>, <code>longitude</code>, <code>country_code</code>, <code>geocode_precision</code> = <code>POSTAL_CODE</code>, <code>CITY</code> ou <code>MANUAL</code>). Se as APIs externas falharem, o endereço é salvo sem coordenadas; <code>scripts/backfill-geolocation.js</code> (simulação por padrão, <code>--apply</code> grava) completa as pendentes. Endereços fora do Brasil (<code>countryCode</code> ≠ <code>BR</code>) pulam CEP/IBGE e são geocodificados por cidade. Decisão: DEC-046.</p>
 <h2 id="9-ativacao">9. Ativação<a class="headerlink" href="#9-ativacao" title="Permanent link">&para;</a></h2>
 <p>O dispositivo nasce bloqueado. Ativação exige:</p>
 <ol>
