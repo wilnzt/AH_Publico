@@ -1372,6 +1372,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#como-o-painel-administrativo-enxerga-esses-vinculos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como o painel administrativo enxerga esses vínculos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicacao-de-identidade-ainda-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duplicação de identidade ainda existente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-condicao-do-vinculo-pelo-aplicativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pré-condição do vínculo pelo aplicativo
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1408,6 +1441,41 @@
 <p><code>POST /api/auth/login</code> autentica usuários administrativos e clientes sem misturar seus papéis.</p>
 <p><code>POST /api/mobile/installations/link</code> vincula um device conhecido ao cliente autenticado, exigindo confirmação quando já houver outros clientes.</p>
 <p><code>GET /api/installations</code> retorna apenas instalações acessíveis ao cliente, incluindo <code>locationLabel</code>.</p>
+<h2 id="como-o-painel-administrativo-enxerga-esses-vinculos">Como o painel administrativo enxerga esses vínculos<a class="headerlink" href="#como-o-painel-administrativo-enxerga-esses-vinculos" title="Permanent link">&para;</a></h2>
+<p>Existem <strong>três</strong> tabelas para a ideia de "quem tem acesso a esta instalação", e elas têm donos diferentes:</p>
+<table>
+<thead>
+<tr>
+<th>Tabela</th>
+<th>Quem grava</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>installation_customers</code></td>
+<td>painel administrativo</td>
+<td>cliente de cadastro, vinculado por um administrador</td>
+</tr>
+<tr>
+<td><code>client_installation_access</code></td>
+<td>aplicativo (<code>POST /api/mobile/installations/link</code>)</td>
+<td>o próprio cliente reivindicou o equipamento</td>
+</tr>
+<tr>
+<td><code>mobile_installation_members</code></td>
+<td>modelo legado da migration 012</td>
+<td>vínculo histórico da identidade <code>users</code>/<code>MOBILE_*</code></td>
+</tr>
+</tbody>
+</table>
+<p>Até 2026-09-22 o detalhe da instalação lia apenas a primeira, então quem vinculou o equipamento pelo aplicativo simplesmente não aparecia no painel, e a contagem de instalações por cliente ignorava esses vínculos. <code>installationDetails</code> passou a devolver também <code>appAccess</code>, unindo as duas origens do app com marcação de origem, e <code>listCustomers</code> passa a contar as duas.</p>
+<p>A separação continua sendo intencional na escrita: <strong>o vínculo criado pelo aplicativo é do cliente e não é desfeito pelo painel</strong>; só o vínculo criado no painel pode ser removido lá. Unificar de fato as tabelas depende de <code>DOM-003</code>.</p>
+<h2 id="duplicacao-de-identidade-ainda-existente">Duplicação de identidade ainda existente<a class="headerlink" href="#duplicacao-de-identidade-ainda-existente" title="Permanent link">&para;</a></h2>
+<p>A migração 013 preservou os usuários legados, como está descrito acima, mas a limpeza nunca foi feita. Verificado no banco real em 2026-09-22: <strong>a mesma pessoa existe duas vezes</strong>, com IDs diferentes — como <code>client_accounts</code> + <code>customers</code> (papel <code>CLIENT</code>) e como <code>users</code> com papel <code>MOBILE_OWNER</code>. Todos os cinco e-mails <code>MOBILE_OWNER</code> têm registro correspondente em <code>customers</code>.</p>
+<p>Isso não é inconsistência referencial: cada modelo é coerente internamente. É modelagem duplicada, e o efeito prático é que contagens, buscas e futuras regras de compartilhamento precisam decidir de qual lado olhar. A consolidação está registrada em <code>DOM-003</code> e é tratada como gate de Fase 2, para não mexer na autenticação do app durante os testes.</p>
+<h2 id="pre-condicao-do-vinculo-pelo-aplicativo">Pré-condição do vínculo pelo aplicativo<a class="headerlink" href="#pre-condicao-do-vinculo-pelo-aplicativo" title="Permanent link">&para;</a></h2>
+<p>Desde 2026-09-22, <code>POST /api/mobile/installations/link</code> só aceita equipamentos cuja instalação esteja <code>RELEASED</code>. Antes disso bastava o Device ID estar cadastrado para o cliente vincular, mesmo com a instalação ainda em andamento e o checklist incompleto — o cliente passava a ver como seu um equipamento que o instalador não tinha entregue. A recusa devolve <code>device_not_activated</code> e o aplicativo explica que falta a ativação, em vez de sugerir erro de digitação.</p>
 
 
 

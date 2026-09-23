@@ -1551,7 +1551,7 @@
 
 
 <h1 id="revolushower-estado-atual-confirmado">Revolushower — Estado atual confirmado<a class="headerlink" href="#revolushower-estado-atual-confirmado" title="Permanent link">&para;</a></h1>
-<p><strong>Atualizado em:</strong> 2026-09-21<br />
+<p><strong>Atualizado em:</strong> 2026-09-22<br />
 <strong>Tipo:</strong> fonte atual<br />
 <strong>Escopo:</strong> Fase 1, ESP32 Master e as camadas necessárias para operá-lo.</p>
 <p>Este documento é uma fotografia do checkout atual. O histórico de evolução permanece no Git e em relatórios datados; não deve ser reconstruído aqui. Afirmações de implantação externa registradas em <code>project/STATUS.md</code> são evidências operacionais e precisam ser revalidadas quando a disponibilidade presente for relevante.</p>
@@ -1561,27 +1561,33 @@
 <li>Versão declarada no código: <code>0.2.14-dev</code>.</li>
 <li>Build local em 2026-09-21: RAM estática 49.916/327.680 bytes (15,2%) e flash 1.252.870/1.310.720 bytes (95,6%).</li>
 <li>Núcleo físico continua em <code>ActionManager</code>; somente ele atua sobre GPIOs, timers, relés, cooldown, fluxo e bloqueios.</li>
-<li><code>CommandGateway</code> recebe origens local, web legada e MQTT. Sensores continuam entrando diretamente no núcleo físico.</li>
-<li>MQTT/TLS, estado, resultados, configuração remota, ativação, cancelamento, diagnóstico, OTA e correlação de agendamentos estão implementados.</li>
-<li>Provisionamento Wi-Fi por BLE GATT e fallback SoftAP estão implementados. A janela BLE é iniciada fisicamente pelo botão e, no modelo doméstico inicial aprovado, não usa autenticação GATT adicional.</li>
-<li>Código de nós legados permanece preservado, mas <code>LEGACY_NODES_ENABLED=0</code> o mantém fora do build e da Fase 1.</li>
+<li><code>CommandGateway</code> (<code>firmware/src/CommandGateway.cpp</code>) é a porta única de entrada para <code>START_PREHEAT</code>/<code>CANCEL_PREHEAT</code>, recebidos de origem local, web legada e MQTT — não cobre configuração remota, diagnóstico ou OTA, que são tratados diretamente em <code>MqttManager.cpp</code>. Sensores continuam entrando diretamente no núcleo físico.</li>
+<li>MQTT/TLS, estado, resultados, configuração remota, ativação, cancelamento, OTA e correlação de agendamentos estão implementados. Não há tópico/handler MQTT dedicado a "diagnóstico" separado da publicação de <code>state</code>.</li>
+<li>Provisionamento Wi-Fi por BLE GATT e fallback SoftAP estão implementados. A janela BLE é iniciada fisicamente pelo botão e, no modelo doméstico inicial aprovado, não usa autenticação GATT adicional. O portal HTTP do modo AP (<code>firmware/src/MasterApp.cpp</code>) também não exige nenhuma autenticação HTTP — a função <code>isAuthenticated()</code> existe mas nunca é chamada — e a senha do Wi-Fi do próprio AP é um valor fixo (<code>12345678</code>, <code>firmware/src/Storage.h:267</code>) igual em todo dispositivo; ver <code>BUG-002</code>/<code>SEC-003</code> em <code>project/TASKS.md</code>.</li>
+<li>Código de nós legados permanece preservado; <code>LEGACY_NODES_ENABLED</code> é um <code>#define</code> fixo em <code>firmware/src/Phase1Config.h</code> (não uma flag de build do PlatformIO) que o mantém fora do build e da Fase 1.</li>
 </ul>
-<p>Pendências críticas: validação física BLE/Wi-Fi, sensores e aquecedor; decisão <code>BUG-003</code>; reconexão Wi-Fi; revisão do HTTP legado com <code>setInsecure()</code>; identidade MQTT individual; assinatura/rollback OTA; e redução do uso de flash.</p>
+<p>Pendências críticas: validação física BLE/Wi-Fi, sensores e aquecedor; decisão <code>BUG-003</code>; reconexão Wi-Fi; revisão do HTTP legado com <code>setInsecure()</code> (<code>firmware/src/ApiManager.cpp</code>, contrasta com <code>setCACert</code> já usado em MQTT/OTA); portal HTTP do modo AP sem autenticação e senha de AP fixa (<code>BUG-002</code>/<code>SEC-003</code>); identidade MQTT individual (<code>SEC-001</code>); assinatura/rollback OTA; e redução do uso de flash.</p>
 <h2 id="backend-e-banco">Backend e banco<a class="headerlink" href="#backend-e-banco" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Backend Node.js versionado em <code>backend/</code>.</li>
-<li>PostgreSQL com migrations 001–018.</li>
+<li>PostgreSQL com migrations 001–021.</li>
 <li>Sessões persistentes, convites, RBAC, clientes, instalações, dispositivos, auditoria, evidências, checklist, ativação, configuração, comandos, OTA e scheduler estão implementados.</li>
-<li>Papéis implementados: <code>MASTER_ADMIN</code>, <code>ADMIN</code>, <code>INSTALLER</code> e <code>CLIENT</code>.</li>
+<li>Distribuição OTA é <strong>por dispositivo e por manifesto publicado manualmente</strong>, não por frota nem por descoberta automática. <code>GET /api/ota/available</code> é uma busca servidor→servidor do backend ao <code>manifest.json</code> do servidor OTA (<code>server.js</code>), sem cache; o painel exibe a versão que está nesse arquivo, que é publicado à mão e pode apontar para qualquer binário da pasta — não é necessariamente o mais novo do disco. <code>POST /api/devices/:deviceId/ota</code> publica <code>OTA_INSTALL</code> para um Master específico; o <code>targetVersion</code> enviado não decide o que é instalado, porque o Master consulta o manifesto por conta própria e recusa se não estiver em estado seguro, se a versão não for estritamente mais nova ou se não bater com o alvo. Consequências: não é possível reinstalar a mesma versão nem fazer downgrade por esse caminho. Liberação por frota não existe — ver <code>OTA-FLEET-001</code>.</li>
+<li>RBAC por catálogo: 50 permissões em 13 contextos definidas em <code>backend/src/permissions.js</code>, administráveis pelo Master Admin na tela <code>/permissoes</code> (<code>GET</code>/<code>PUT /api/permissions</code>). A tabela <code>role_permissions</code> guarda só as exceções ao padrão de fábrica; <code>GET /api/auth/me</code> devolve as permissões efetivas do principal. Ver <code>docs/backend/RBAC_PERMISSIONS.md</code>.</li>
+<li>Papéis implementados: <code>MASTER_ADMIN</code>, <code>ADMIN</code>, <code>INSTALLER</code>, <code>CLIENT</code>, além de <code>MOBILE_OWNER</code>/<code>MOBILE_MEMBER</code> (contas do app mobile). Só <code>ADMIN</code> e <code>INSTALLER</code> são editáveis na tela de permissões. O papel <code>TEST_ADMIN</code> foi removido do código em 2026-09-22 (<code>DEC-042</code>); o Bearer estático <code>API_AUTH_TOKEN</code> que o emitia continua ativo, agora declarado como <code>MASTER_ADMIN</code>, e seu futuro é <code>SEC-004</code>. O valor permanece no enum <code>user_role</code> do Postgres, sem uso.</li>
 <li><code>/api</code> é a rota principal; <code>/v1</code> funciona como alias de compatibilidade.</li>
-<li>Scheduler usa ocorrências persistidas, <code>FOR UPDATE SKIP LOCKED</code>, <code>requestId</code> persistido e confirmação MQTT.</li>
+<li>Scheduler usa ocorrências persistidas, <code>FOR UPDATE SKIP LOCKED</code>, <code>requestId</code> persistido e confirmação MQTT — a lógica vive em <code>backend/src/database.js</code>/<code>server.js</code>, não em um módulo/worker isolado.</li>
+<li>Observabilidade básica: endpoint <code>/metrics</code> (Prometheus, uptime/MQTT/DB/cache) e erros do mobile recebidos em <code>/api/mobile/client-errors</code> (gravados como <code>audit_events</code>); nenhum dos dois tem retenção, alertas ou consulta operacional definidos.</li>
 </ul>
-<p>Pendências críticas: claim seguro de dispositivo, SMS, compartilhamento completo na UX, cobertura integrada com banco real, identidade individual dos Masters, observabilidade/alertas e fechamento operacional de backup/SLA.</p>
+<p>Pendências críticas: claim seguro de dispositivo, SMS, compartilhamento completo na UX, cobertura integrada com banco real, identidade individual dos Masters (<code>SEC-001</code> — inclui a ACL do broker MQTT, que hoje exige edição manual por dispositivo; ver <code>DEC-038</code> em <code>project/DECISIONS.md</code>), observabilidade/alertas e fechamento operacional de backup/SLA.</p>
 <h2 id="frontend-administrativo">Frontend administrativo<a class="headerlink" href="#frontend-administrativo" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Aplicação React/TypeScript/Vite implementada em <code>frontend/</code>.</li>
-<li>Fluxos de autenticação, painel, clientes, instalações, usuários, dispositivos, configuração, comandos, auditoria e OTA estão presentes.</li>
-<li>Build local atual concluído com sucesso.</li>
+<li>Fluxos de autenticação, painel, clientes, instalações, usuários, auditoria, permissões e OTA têm rota própria; dispositivos e comandos não são telas dedicadas — vivem dentro do detalhe de instalação (<code>frontend/src/pages/installation.tsx</code>) e da tela de OTA (<code>frontend/src/pages/admin.tsx</code>).</li>
+<li>O checklist de ativação tem cinco itens: <code>ADDRESS</code>, <code>CONNECTIVITY</code>, <code>TIMES_CONFIRMED</code>, <code>PHYSICAL_TESTS</code> e <code>EVIDENCE</code>. A ativação exige endereço, configuração confirmada, ao menos uma evidência, os cinco itens aprovados ou dispensados e o Master online nos últimos 5 minutos.</li>
+<li>O vínculo de um equipamento pela conta do aplicativo só é aceito depois da ativação (<code>device_not_activated</code>), para o cliente não receber um equipamento que o instalador ainda não entregou.</li>
+<li>O detalhe da instalação é a tela operacional do produto: abre com o progresso das seis etapas do fluxo (vincular, endereço, ler tempos, evidência, checklist, ativar) e concentra operação por comando MQTT, tempos configurados, instaladores responsáveis, clientes vinculados, checklist com autoria, evidências, histórico de comandos e auditoria. A trava de edição é <code>installations.status='RELEASED'</code>, a mesma regra que o backend aplica (<code>DEC-044</code>).</li>
+<li>Build local atual concluído com sucesso. Vitest está configurado no <code>package.json</code>, mas não existe nenhum arquivo de teste unitário no projeto — só o E2E via Playwright.</li>
 </ul>
 <p>Os relatórios E2E datados são evidência histórica; devem ser reexecutados antes de uma nova homologação ou publicação.</p>
 <h2 id="aplicativo-mobile">Aplicativo mobile<a class="headerlink" href="#aplicativo-mobile" title="Permanent link">&para;</a></h2>
@@ -1592,23 +1598,24 @@
 <li>Agendamento possui lista, criação, detalhe, edição, pausa, exclusão e consulta de ocorrências.</li>
 <li>Wizard BLE está disponível antes do login e em Configurações. É a única exceção ao bloqueio global quando backend/MQTT estão indisponíveis.</li>
 <li>Sessão é persistente até logout/revogação.</li>
+<li>Tela de bloqueio por indisponibilidade distingue "aparelho sem internet" (via <code>connectivity_plus</code>) de "backend fora do ar" (mensagens diferentes). Ao retomar o app de segundo plano (ex.: desbloquear o aparelho), a mesma tolerância de reconexão da abertura do app se aplica, evitando falso bloqueio por oscilação breve de rede.</li>
 </ul>
-<p>Pendências críticas: validação GATT em aparelho real, target iOS, push, remoção das telas legadas, histórico visível, modularização, correção de strings corrompidas e dos 19 achados atuais do <code>flutter analyze</code>.</p>
+<p>Pendências críticas: validação GATT em aparelho real, target iOS, push, remoção das telas legadas (a classe <code>HomePage</code> em <code>main.dart</code> é código morto, não referenciada em nenhuma navegação — provável origem do achado <code>dead_code</code> do <code>flutter analyze</code>), histórico visível, modularização do <code>main.dart</code> (<code>scheduling.dart</code> e <code>wifi_provisioning.dart</code> já foram extraídos; falta o restante: auth, navegação raiz, operação, configurações), correção de strings corrompidas (mojibake por recodificação repetida, mais extenso do que um erro de digitação pontual) e dos 19 achados atuais do <code>flutter analyze</code>.</p>
 <h2 id="agendamento">Agendamento<a class="headerlink" href="#agendamento" title="Permanent link">&para;</a></h2>
 <p>A vertical funcional está implementada, mas não homologada como completa:</p>
 <ul>
-<li>backend persiste regras e ocorrências;</li>
-<li>worker reivindica ocorrências de forma transacional;</li>
-<li>Master recebe <code>START_PREHEAT</code> com origem <code>SCHEDULE</code> e preserva sua autoridade de segurança;</li>
+<li>backend persiste regras e ocorrências, com limite de 3 agendamentos por instalação validado no servidor (<code>database.js:653</code>), não só na UI;</li>
+<li>worker reivindica ocorrências de forma transacional (<code>FOR UPDATE SKIP LOCKED</code>);</li>
+<li>Master recebe <code>START_PREHEAT</code> com origem <code>SCHEDULE</code> e preserva sua autoridade de segurança — a origem só serve para correlação/log, nenhuma checagem física (<code>Busy</code>/<code>HeaterBlocked</code>/<code>Cooldown</code>) é ignorada para essa origem;</li>
 <li>mobile gerencia regras e consulta resultados.</li>
 </ul>
-<p>Lacunas: o banco armazena <code>timezone</code>, mas o cálculo recorrente ainda usa UTC e não preserva horário de parede/DST; push e a ação <strong>Não executar hoje</strong> não existem; falta teste físico ponta a ponta de uma ocorrência programada.</p>
+<p>Lacunas: o banco armazena <code>timezone</code>, mas o cálculo recorrente ainda usa UTC e não preserva horário de parede/DST (nem no backend, nem no cálculo local do mobile, que também usa horário do aparelho); push e a ação <strong>Não executar hoje</strong> não existem; a tolerância de 5 minutos para ocorrência perdida está hardcoded em dois pontos (<code>server.js</code> e <code>database.js</code>), não centralizada; falta teste físico ponta a ponta de uma ocorrência programada.</p>
 <h2 id="validacao-local-desta-fotografia">Validação local desta fotografia<a class="headerlink" href="#validacao-local-desta-fotografia" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Backend: 21 testes aprovados.</li>
-<li>Frontend: build Vite aprovado.</li>
-<li>Flutter: 14 testes aprovados; análise estática com 19 achados não bloqueantes.</li>
-<li>Firmware: build <code>master</code> aprovado, com 95,6% do slot utilizado.</li>
+<li>Frontend: build Vite aprovado; sem testes unitários (Vitest configurado, mas não usado).</li>
+<li>Flutter: 17 testes aprovados; análise estática com 19 achados não bloqueantes.</li>
+<li>Firmware: build <code>master</code> aprovado em 2026-09-21, com 95,6% do slot utilizado (não rebuildado nesta atualização de 2026-09-22).</li>
 </ul>
 <h2 id="fontes-relacionadas">Fontes relacionadas<a class="headerlink" href="#fontes-relacionadas" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1617,6 +1624,7 @@
 <li>Decisões vigentes: <code>project/DECISIONS.md</code>.</li>
 <li>Rastreabilidade: <code>docs/product/REQUIREMENTS_TRACEABILITY.md</code>.</li>
 <li>Contratos: <code>docs/contracts/</code>.</li>
+<li>Auditoria documentação × código: <code>docs/audits/DOC_CODE_AUDIT_2026-09-22.md</code>.</li>
 </ul>
 
 

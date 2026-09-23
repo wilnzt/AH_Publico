@@ -1635,11 +1635,10 @@
 <h2 id="riscos-prioritarios">Riscos prioritários<a class="headerlink" href="#riscos-prioritarios" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>maxOnSensorMs</code> é aplicado a toda origem e precisa ser separado do limite mecânico (<code>BUG-003</code>);</li>
-<li>TLS usa <code>setInsecure()</code>;</li>
-<li>existem credenciais padrão;</li>
-<li>backend chamado pelo firmware não está versionado;</li>
+<li>o HTTP legado (<code>ApiManager.cpp</code>) usa <code>setInsecure()</code> sem validar CA; MQTT e OTA já usam <code>setCACert</code> corretamente — corrigir por consistência (<code>BUG-001</code>);</li>
+<li>a senha do modo AP é fixa (<code>12345678</code>) e igual em todo dispositivo, e o portal HTTP desse modo não exige login (<code>isAuthenticated()</code> existe mas não é chamado) — <code>BUG-002</code>/<code>SEC-003</code>;</li>
 <li>estados internos ainda não são expostos por contrato seguro;</li>
-<li>não há testes automatizados nem validação reproduzível em bancada.</li>
+<li>não há testes automatizados de firmware (backend e mobile têm suítes próprias; firmware depende de validação em bancada, ainda não reproduzível automaticamente).</li>
 </ul>
 <h2 id="engenharia-reversa">Engenharia reversa<a class="headerlink" href="#engenharia-reversa" title="Permanent link">&para;</a></h2>
 <p>O comportamento comprovado, os riscos e o plano seguro de evolução estão em <a href="MASTER_REVERSE_ENGINEERING/"><code>MASTER_REVERSE_ENGINEERING.md</code></a>. Novas camadas devem usar um gateway de comandos e nunca controlar GPIOs diretamente.</p>

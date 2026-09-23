@@ -1,0 +1,3314 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação técnica e funcional do projeto AquaHeat">
+      
+      
+      
+        <link rel="canonical" href="https://wilnzt.github.io/AH_Publico/docs/backend/RBAC_PERMISSIONS/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Revolushower — Catálogo de permissões e administração de perfis - AquaHeat — Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revolushower-catalogo-de-permissoes-e-administracao-de-perfis" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="AquaHeat — Documentação" class="md-header__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AquaHeat — Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Revolushower — Catálogo de permissões e administração de perfis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Usar modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Usar modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Usar modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AquaHeat — Documentação" class="md-nav__button md-logo" aria-label="AquaHeat — Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AquaHeat — Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Produto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Produto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/REVOLUSHOWER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revolushower
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos do Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/REQUIREMENTS_TRACEABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rastreabilidade dos Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicativo Mobile
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicativo Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobile/DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobile/MOBILE_SCOPE_FROM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Escopo do Aplicativo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobile/MOBILE_USER_FLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo de Usuário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral da Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/AWS_TOPOLOGY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topologia AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/CURRENT_STATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estado Atual do Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/PROJECT_CONTEXT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexto do Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ALEXA_INTEGRATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integração com Alexa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validação
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Validação
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../client/REVOLUSHOWER_VALIDACAO_FLUXO_MOBILE_KEY_USER.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validação do Fluxo Mobile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../client/PAUTA_REUNIAO_KEYUSERS_2026-09-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pauta da Reunião com Key Users
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publicação e Produção
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publicação e Produção
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../client/ROADMAP_PUBLICACAO_PRODUCAO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap de Publicação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firmware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firmware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firmware/MASTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Master
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firmware/KEYUSER_VALIDATION_ACTIVATION_MODES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modos de Ativação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firmware/MASTER_REVERSE_ENGINEERING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compliance/DOCUMENTATION_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro da Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migração
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Migração
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/HOW_TO_USE_IN_NEW_ACCOUNT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso em Nova Conta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-estado-atual-do-rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Estado atual do RBAC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Estado atual do RBAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-papeis-existentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Papéis existentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-permissoes-codificadas-hoje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Permissões codificadas hoje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-camadas-de-autorizacao-que-existem-alem-do-rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Camadas de autorização que existem além do RBAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-catalogo-completo-por-contextotela-estado-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Catálogo completo por contexto/tela (estado atual)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Catálogo completo por contexto/tela (estado atual)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexto-sessao-e-conta-sem-tela-dedicada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Sessão e conta — sem tela dedicada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-dashboard-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Dashboard — /dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-instalacoes-instalacoes-instalacoesnova-instalacoesid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Instalações — /instalacoes, /instalacoes/nova, /instalacoes/:id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-instalacao-clientes-vinculados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Instalação — clientes vinculados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-instalacao-instaladores-atribuidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Instalação — instaladores atribuídos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-instalacao-checklist-e-ativacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Instalação — checklist e ativação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-instalacao-evidencias-fotos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Instalação — evidências (fotos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-instalacao-configuracao-e-calibracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Instalação — configuração e calibração
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-instalacao-operacao-do-dispositivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Instalação — operação do dispositivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-ota-ota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: OTA — /ota
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-clientes-clientes-clientesnovo-clientesid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Clientes — /clientes, /clientes/novo, /clientes/:id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-usuarios-usuarios-usuariosnovo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Usuários — /usuarios, /usuarios/novo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-auditoria-auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Auditoria — /auditoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-sistema-sem-tela-hoje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Sistema — sem tela hoje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contexto-canal-mobilecliente-nao-editavel-nesta-tela" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto: Canal mobile/cliente — não editável nesta tela
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-divergencias-e-achados-o-que-despadronizado-significa-concretamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Divergências e achados (o que "despadronizado" significa concretamente)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Divergências e achados (o que &#34;despadronizado&#34; significa concretamente)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-seguranca-exigem-decisao-antes-da-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Segurança — exigem decisão antes da implementação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-padronizacao-nomes-que-nao-descrevem-o-que-guardam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Padronização — nomes que não descrevem o que guardam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-frontend-menu-nao-reflete-permissao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Frontend — menu não reflete permissão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-coerencia-de-produto-a-confirmar-com-o-owner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Coerência de produto — a confirmar com o owner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-catalogo-padronizado-proposto-arquitetura-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Catálogo padronizado proposto (arquitetura-alvo)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Catálogo padronizado proposto (arquitetura-alvo)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-convencao-de-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Convenção de nomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-compatibilidade-com-as-9-chaves-legadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Compatibilidade com as 9 chaves legadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-catalogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Catálogo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-padrao-de-fabrica-proposto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Padrão de fábrica proposto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-desenho-da-funcionalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Desenho da funcionalidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Desenho da funcionalidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-modelo-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Modelo de dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-trava-anti-bloqueio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Trava anti-bloqueio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-frontend-tela-permissoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Frontend — tela /permissoes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-impacto-dependencias-e-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Impacto, dependências e riscos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-fora-do-escopo-desta-entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Fora do escopo desta entrega
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-decisoes-tomadas-2026-09-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Decisões tomadas (2026-09-22)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-estado-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Estado de implementação
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="revolushower-catalogo-de-permissoes-e-administracao-de-perfis">Revolushower — Catálogo de permissões e administração de perfis<a class="headerlink" href="#revolushower-catalogo-de-permissoes-e-administracao-de-perfis" title="Permanent link">&para;</a></h1>
+<p><strong>Atualizado em:</strong> 2026-09-22
+<strong>Tipo:</strong> <strong>fonte atual</strong> e <strong>normativo</strong>. A seção 1 e a 2 descrevem o RBAC anterior a esta entrega e ficam como registro do ponto de partida; da seção 4 em diante está o catálogo e a tela <strong>já implementados</strong> (ver §9).
+<strong>Escopo:</strong> backend <code>backend/src/rbac.js</code> + <code>backend/src/server.js</code> e painel administrativo <code>frontend/src/</code>. O canal mobile/cliente é mapeado para completude, mas <strong>não</strong> é editável na tela proposta.
+<strong>Fonte de verdade:</strong> o código. Toda linha citada foi conferida no checkout em 2026-09-22.</p>
+<hr />
+<h2 id="1-estado-atual-do-rbac">1. Estado atual do RBAC<a class="headerlink" href="#1-estado-atual-do-rbac" title="Permanent link">&para;</a></h2>
+<h3 id="11-papeis-existentes">1.1 Papéis existentes<a class="headerlink" href="#11-papeis-existentes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Origem</th>
+<th>Onde é criado</th>
+<th>Editável na tela proposta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MASTER_ADMIN</code></td>
+<td>enum <code>user_role</code> (<code>001_initial.sql:5</code>)</td>
+<td>bootstrap (<code>database.js:421</code>)</td>
+<td><strong>Não</strong> — sempre todas as permissões</td>
+</tr>
+<tr>
+<td><code>ADMIN</code></td>
+<td>enum <code>user_role</code> (<code>001_initial.sql:5</code>)</td>
+<td>convite (<code>/api/users/invitations</code>)</td>
+<td><strong>Sim</strong></td>
+</tr>
+<tr>
+<td><code>INSTALLER</code></td>
+<td>enum <code>user_role</code> (<code>001_initial.sql:5</code>)</td>
+<td>convite (<code>/api/users/invitations</code>)</td>
+<td><strong>Sim</strong></td>
+</tr>
+<tr>
+<td><code>TEST_ADMIN</code></td>
+<td>enum <code>user_role</code> (<code>019_test_admin_role.sql</code>)</td>
+<td>nenhum fluxo cria — só existe no enum e no código</td>
+<td><strong>Não</strong> (ver §3.1)</td>
+</tr>
+<tr>
+<td><code>MOBILE_OWNER</code>, <code>MOBILE_MEMBER</code></td>
+<td>enum <code>user_role</code> (<code>012_mobile_accounts.sql</code>)</td>
+<td>registro mobile</td>
+<td>Não (canal mobile)</td>
+</tr>
+<tr>
+<td><code>CLIENT</code></td>
+<td><strong>não é do enum</strong> — é sintético, atribuído a contas de <code>client_accounts</code> (<code>database.js:315</code>, <code>380</code>)</td>
+<td>domínio de clientes (<code>013_client_domain.sql</code>)</td>
+<td>Não (canal cliente)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-permissoes-codificadas-hoje">1.2 Permissões codificadas hoje<a class="headerlink" href="#12-permissoes-codificadas-hoje" title="Permanent link">&para;</a></h3>
+<p><code>backend/src/rbac.js</code> define 9 chaves, cada uma com uma lista fixa de papéis:</p>
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th style="text-align: center;">MASTER_ADMIN</th>
+<th style="text-align: center;">ADMIN</th>
+<th style="text-align: center;">INSTALLER</th>
+<th style="text-align: center;">CLIENT</th>
+<th style="text-align: center;">MOBILE_*</th>
+<th style="text-align: center;">TEST_ADMIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>READ_DEVICE</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><code>OPERATE_DEVICE</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><code>CONFIGURE_DEVICE</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><code>MANAGE_OTA</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><code>MANAGE_ADMINS</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><code>MANAGE_INSTALLERS</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><code>MANAGE_INSTALLATIONS</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><code>MANAGE_CUSTOMERS</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><code>ACTIVATE_DEVICE</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<p>A verificação é <code>rbac.can(principal, chave)</code> — comparação direta de <code>principal.role</code> contra a lista. <strong>Não há persistência: a matriz é literal congelado (<code>Object.freeze</code>) no código.</strong></p>
+<h3 id="13-camadas-de-autorizacao-que-existem-alem-do-rbac">1.3 Camadas de autorização que existem além do RBAC<a class="headerlink" href="#13-camadas-de-autorizacao-que-existem-alem-do-rbac" title="Permanent link">&para;</a></h3>
+<p>O RBAC é só uma das quatro camadas. Elas precisam ser mantidas separadas — a tela de permissões só governa a camada 2.</p>
+<ol>
+<li><strong>Autenticação/sessão</strong> — <code>auth.js</code>, resolução de principal em <code>database.js</code>; sessões permanentes até logout/revogação.</li>
+<li><strong>RBAC por papel</strong> — <code>rbac.can()</code>. É o que esta funcionalidade passa a administrar.</li>
+<li><strong>Escopo por linha</strong> — <code>database.js:544-556</code> (<code>scopeClause</code>): <code>INSTALLER</code> só vê instalações atribuídas, <code>CLIENT</code> só as de <code>client_installation_access</code>, <code>MOBILE_*</code> só as de <code>mobile_installation_members</code>. <strong>Isso não é permissão e não deve ser editável</strong> — é isolamento de dados.</li>
+<li><strong>Regras de negócio adicionais</strong> — ex.: <code>database.js:529-533</code> impede revogar <code>MASTER_ADMIN</code>, exige <code>MASTER_ADMIN</code>/<code>TEST_ADMIN</code> para revogar <code>ADMIN</code> e impede revogar o último admin ativo. Continuam valendo mesmo que a permissão seja concedida.</li>
+</ol>
+<hr />
+<h2 id="2-catalogo-completo-por-contextotela-estado-atual">2. Catálogo completo por contexto/tela (estado atual)<a class="headerlink" href="#2-catalogo-completo-por-contextotela-estado-atual" title="Permanent link">&para;</a></h2>
+<p>Cada linha é um ponto real de autorização no <code>server.js</code>. "Guarda hoje" é literalmente o que o código executa; ausência significa que qualquer sessão autenticada passa.</p>
+<h3 id="contexto-sessao-e-conta-sem-tela-dedicada">Contexto: Sessão e conta — sem tela dedicada<a class="headerlink" href="#contexto-sessao-e-conta-sem-tela-dedicada" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Login</td>
+<td><code>POST /api/auth/login</code></td>
+<td>pública</td>
+</tr>
+<tr>
+<td>Concluir convite</td>
+<td><code>POST /api/auth/complete-invitation</code></td>
+<td>pública (token)</td>
+</tr>
+<tr>
+<td>Sessão corrente</td>
+<td><code>GET /api/auth/me</code></td>
+<td>autenticado</td>
+</tr>
+<tr>
+<td>Logout</td>
+<td><code>POST /api/auth/logout</code></td>
+<td>autenticado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-dashboard-dashboard">Contexto: Dashboard — <code>/dashboard</code><a class="headerlink" href="#contexto-dashboard-dashboard" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ver resumo</td>
+<td><code>GET /api/dashboard</code></td>
+<td><strong>nenhuma</strong> (<code>server.js:298</code>) — só escopo por linha</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-instalacoes-instalacoes-instalacoesnova-instalacoesid">Contexto: Instalações — <code>/instalacoes</code>, <code>/instalacoes/nova</code>, <code>/instalacoes/:id</code><a class="headerlink" href="#contexto-instalacoes-instalacoes-instalacoesnova-instalacoesid" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listar</td>
+<td><code>GET /api/installations</code></td>
+<td><strong>nenhuma</strong> (<code>server.js:305</code>) — só escopo por linha</td>
+</tr>
+<tr>
+<td>Ver detalhe</td>
+<td><code>GET /api/installations/:id</code></td>
+<td><strong>nenhuma</strong> (<code>server.js:443</code>) — só escopo por linha</td>
+</tr>
+<tr>
+<td>Criar</td>
+<td><code>POST /api/installations</code></td>
+<td><code>MANAGE_INSTALLATIONS</code></td>
+</tr>
+<tr>
+<td>Editar endereço/dados</td>
+<td><code>PATCH /api/installations/:id</code></td>
+<td><strong><code>READ_DEVICE</code></strong> (<code>server.js:435</code>)</td>
+</tr>
+<tr>
+<td>Auditoria da instalação</td>
+<td><code>GET /api/installations/:id/audit</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-instalacao-clientes-vinculados">Contexto: Instalação — clientes vinculados<a class="headerlink" href="#contexto-instalacao-clientes-vinculados" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vincular cliente</td>
+<td><code>POST /api/installations/:id/customers</code></td>
+<td><code>MANAGE_CUSTOMERS</code></td>
+</tr>
+<tr>
+<td>Desvincular cliente</td>
+<td><code>DELETE /api/installations/:id/customers/:customerId</code></td>
+<td><code>MANAGE_CUSTOMERS</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-instalacao-instaladores-atribuidos">Contexto: Instalação — instaladores atribuídos<a class="headerlink" href="#contexto-instalacao-instaladores-atribuidos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listar instaladores disponíveis</td>
+<td><code>GET /api/installers</code></td>
+<td><code>installations.installers.assign</code> (rota criada em 2026-09-22)</td>
+</tr>
+<tr>
+<td>Atribuir instalador</td>
+<td><code>POST /api/installations/:id/installers</code></td>
+<td><code>MANAGE_INSTALLERS</code></td>
+</tr>
+<tr>
+<td>Remover atribuição</td>
+<td><code>DELETE /api/installations/:id/installers</code></td>
+<td><code>MANAGE_INSTALLERS</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-instalacao-checklist-e-ativacao">Contexto: Instalação — checklist e ativação<a class="headerlink" href="#contexto-instalacao-checklist-e-ativacao" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ver checklist</td>
+<td><code>GET /api/installations/:id/activation-checks</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Atualizar checklist</td>
+<td><code>PATCH /api/installations/:id/activation-checks</code></td>
+<td><code>MANAGE_INSTALLATIONS</code></td>
+</tr>
+<tr>
+<td>Ativar dispositivo</td>
+<td><code>POST /api/installations/:id/activate</code></td>
+<td><code>ACTIVATE_DEVICE</code></td>
+</tr>
+<tr>
+<td>Desativar dispositivo</td>
+<td><code>POST /api/installations/:id/deactivate</code></td>
+<td><code>ACTIVATE_DEVICE</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-instalacao-evidencias-fotos">Contexto: Instalação — evidências (fotos)<a class="headerlink" href="#contexto-instalacao-evidencias-fotos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listar evidências</td>
+<td><code>GET /api/installations/:id/photos</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Enviar evidência</td>
+<td><code>POST /api/installations/:id/photos</code></td>
+<td><strong><code>READ_DEVICE</code></strong> (<code>server.js:495</code>)</td>
+</tr>
+<tr>
+<td>Baixar evidência</td>
+<td><code>GET /api/installation-photos/:id</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-instalacao-configuracao-e-calibracao">Contexto: Instalação — configuração e calibração<a class="headerlink" href="#contexto-instalacao-configuracao-e-calibracao" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ler configuração</td>
+<td><code>GET /api/devices/:deviceId/configuration</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Gravar configuração</td>
+<td><code>POST /api/devices/:deviceId/configuration</code></td>
+<td><code>CONFIGURE_DEVICE</code></td>
+</tr>
+<tr>
+<td>Acompanhar pedido de config</td>
+<td><code>GET /api/configuration-requests/:requestId</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Reabrir calibração</td>
+<td><code>POST /api/installations/:id/calibration/unlock</code></td>
+<td><code>MANAGE_INSTALLATIONS</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-instalacao-operacao-do-dispositivo">Contexto: Instalação — operação do dispositivo<a class="headerlink" href="#contexto-instalacao-operacao-do-dispositivo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ver dispositivo</td>
+<td><code>GET /api/devices/:deviceId</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Ver estado</td>
+<td><code>GET /api/devices/:deviceId/state</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Ver eventos</td>
+<td><code>GET /api/devices/:deviceId/events</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Ver firmware</td>
+<td><code>GET /api/devices/:deviceId/firmware</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Listar comandos</td>
+<td><code>GET /api/devices/:deviceId/commands</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Ver resultado de comando</td>
+<td><code>GET /api/commands/:requestId</code></td>
+<td><code>READ_DEVICE</code></td>
+</tr>
+<tr>
+<td>Iniciar pré-aquecimento</td>
+<td><code>POST /api/devices/:deviceId/preheat</code></td>
+<td><code>OPERATE_DEVICE</code></td>
+</tr>
+<tr>
+<td>Enviar comando genérico</td>
+<td><code>POST /api/devices/:deviceId/commands</code></td>
+<td><code>OPERATE_DEVICE</code> + regras por comando (abaixo)</td>
+</tr>
+<tr>
+<td>— comando <code>OTA_CHECK</code></td>
+<td>idem</td>
+<td><code>MANAGE_OTA</code> (<code>server.js:645</code>)</td>
+</tr>
+<tr>
+<td>— comandos <code>CONFIG_GET</code>, <code>FIRMWARE_GET</code>, <code>DIAGNOSTIC_RUN</code>, <code>GET_STATE</code></td>
+<td>idem</td>
+<td><code>READ_DEVICE</code> (<code>server.js:646</code>)</td>
+</tr>
+<tr>
+<td>Rodar diagnóstico</td>
+<td><code>POST /api/devices/:deviceId/diagnostics</code></td>
+<td><strong><code>READ_DEVICE</code></strong> (<code>server.js:597</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-ota-ota">Contexto: OTA — <code>/ota</code><a class="headerlink" href="#contexto-ota-ota" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ver catálogo de imagens</td>
+<td><code>GET /api/ota/available</code></td>
+<td><code>MANAGE_OTA</code></td>
+</tr>
+<tr>
+<td>Listar jobs</td>
+<td><code>GET /api/ota/jobs</code></td>
+<td><code>MANAGE_OTA</code></td>
+</tr>
+<tr>
+<td>Ver job</td>
+<td><code>GET /api/ota/jobs/:id</code></td>
+<td><code>MANAGE_OTA</code></td>
+</tr>
+<tr>
+<td>Publicar OTA</td>
+<td><code>POST /api/devices/:deviceId/ota</code></td>
+<td><code>MANAGE_OTA</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-clientes-clientes-clientesnovo-clientesid">Contexto: Clientes — <code>/clientes</code>, <code>/clientes/novo</code>, <code>/clientes/:id</code><a class="headerlink" href="#contexto-clientes-clientes-clientesnovo-clientesid" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listar</td>
+<td><code>GET /api/customers</code></td>
+<td><code>MANAGE_CUSTOMERS</code></td>
+</tr>
+<tr>
+<td>Ver detalhe</td>
+<td><code>GET /api/customers/:id</code></td>
+<td><code>MANAGE_CUSTOMERS</code></td>
+</tr>
+<tr>
+<td>Ver instalações do cliente</td>
+<td><code>GET /api/customers/:id/installations</code></td>
+<td><code>MANAGE_CUSTOMERS</code></td>
+</tr>
+<tr>
+<td>Criar</td>
+<td><code>POST /api/customers</code></td>
+<td><code>MANAGE_CUSTOMERS</code></td>
+</tr>
+<tr>
+<td>Editar</td>
+<td><code>PATCH /api/customers/:id</code></td>
+<td><code>MANAGE_CUSTOMERS</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-usuarios-usuarios-usuariosnovo">Contexto: Usuários — <code>/usuarios</code>, <code>/usuarios/novo</code><a class="headerlink" href="#contexto-usuarios-usuarios-usuariosnovo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listar usuários</td>
+<td><code>GET /api/users</code></td>
+<td><strong><code>MANAGE_INSTALLERS</code></strong></td>
+</tr>
+<tr>
+<td>Convidar instalador</td>
+<td><code>POST /api/users/invitations</code> (<code>role=INSTALLER</code>)</td>
+<td><code>MANAGE_INSTALLERS</code></td>
+</tr>
+<tr>
+<td>Convidar administrador</td>
+<td><code>POST /api/users/invitations</code> (<code>role=ADMIN</code>)</td>
+<td><code>MANAGE_ADMINS</code></td>
+</tr>
+<tr>
+<td>Revogar usuário</td>
+<td><code>POST /api/users/:id/revoke</code></td>
+<td><code>MANAGE_INSTALLERS</code> + regras de <code>database.js:527-536</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-auditoria-auditoria">Contexto: Auditoria — <code>/auditoria</code><a class="headerlink" href="#contexto-auditoria-auditoria" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consultar auditoria global</td>
+<td><code>GET /api/audit</code></td>
+<td><strong><code>MANAGE_INSTALLATIONS</code></strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-sistema-sem-tela-hoje">Contexto: Sistema — <strong>sem tela hoje</strong><a class="headerlink" href="#contexto-sistema-sem-tela-hoje" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Status do serviço de e-mail</td>
+<td><code>GET /api/system/email</code></td>
+<td><strong><code>MANAGE_INSTALLERS</code></strong></td>
+</tr>
+<tr>
+<td>Health</td>
+<td><code>GET /health</code></td>
+<td>pública</td>
+</tr>
+<tr>
+<td>Métricas Prometheus</td>
+<td><code>GET /metrics</code></td>
+<td><strong>pública e não autenticada</strong> (<code>server.js:163</code>, antes do gate de sessão)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contexto-canal-mobilecliente-nao-editavel-nesta-tela">Contexto: Canal mobile/cliente — <strong>não editável nesta tela</strong><a class="headerlink" href="#contexto-canal-mobilecliente-nao-editavel-nesta-tela" title="Permanent link">&para;</a></h3>
+<p>Todas usam lista literal de papéis, <strong>sem passar por <code>rbac.can()</code></strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Rota</th>
+<th>Guarda hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registro mobile</td>
+<td><code>POST /api/mobile/auth/register</code></td>
+<td>pública</td>
+</tr>
+<tr>
+<td>Reportar erro do app</td>
+<td><code>POST /api/mobile/client-errors</code></td>
+<td>pública</td>
+</tr>
+<tr>
+<td>Vincular instalação</td>
+<td><code>POST /api/mobile/installations/link</code></td>
+<td><code>['CLIENT','MOBILE_OWNER','MOBILE_MEMBER']</code></td>
+</tr>
+<tr>
+<td>Editar instalação (rótulo/ícone)</td>
+<td><code>PATCH /api/mobile/installations/:id</code></td>
+<td>idem</td>
+</tr>
+<tr>
+<td>Listar agendamentos</td>
+<td><code>GET /api/installations/:id/schedules</code></td>
+<td>idem</td>
+</tr>
+<tr>
+<td>Criar agendamento</td>
+<td><code>POST /api/installations/:id/schedules</code></td>
+<td>idem</td>
+</tr>
+<tr>
+<td>Editar/excluir agendamento</td>
+<td><code>PATCH</code>/<code>DELETE /api/schedules/:id</code></td>
+<td>idem</td>
+</tr>
+<tr>
+<td>Ver ocorrências</td>
+<td><code>GET /api/schedules/:id/occurrences</code></td>
+<td>idem</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-divergencias-e-achados-o-que-despadronizado-significa-concretamente">3. Divergências e achados (o que "despadronizado" significa concretamente)<a class="headerlink" href="#3-divergencias-e-achados-o-que-despadronizado-significa-concretamente" title="Permanent link">&para;</a></h2>
+<h3 id="31-seguranca-exigem-decisao-antes-da-implementacao">3.1 Segurança — exigem decisão antes da implementação<a class="headerlink" href="#31-seguranca-exigem-decisao-antes-da-implementacao" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>TEST_ADMIN</code> era um Master Admin sombra, e a origem dele é um Bearer estático.</strong> Aparecia nas 9 permissões, inclusive <code>MANAGE_ADMINS</code>, e em <code>database.js:530</code> podia revogar <code>ADMIN</code>. Nenhum fluxo do produto cria usuário com esse papel: o único emissor é <code>server.js</code>, em <code>authenticateRequest()</code> — quando o <code>Authorization</code> bate com a variável <code>API_AUTH_TOKEN</code>, a requisição recebia o principal <code>{ role: 'TEST_ADMIN', userId: null }</code>. Ou seja, <strong><code>API_AUTH_TOKEN</code> é uma credencial permanente de privilégio total, sem usuário atribuído</strong>, e <code>backend/README.md</code> já registrava que o APK de teste não precisa mais dela. Achado correlato em <code>docs/audits/DOC_CODE_AUDIT_2026-09-22.md</code>.
+  <strong>Resolvido nesta entrega:</strong> o papel foi removido de <code>rbac.js</code>, <code>database.js</code> e do frontend. O token estático continua funcionando com <strong>o mesmo alcance efetivo de antes</strong>, agora declarado pelo que sempre foi (<code>role: 'MASTER_ADMIN'</code>), para não quebrar automação existente. O valor <code>TEST_ADMIN</code> permanece no enum <code>user_role</code> do Postgres porque o PostgreSQL não remove valor de enum sem recriar o tipo — nenhum código o concede mais. <strong>Desativar ou rotacionar o <code>API_AUTH_TOKEN</code> é decisão separada, registrada em <code>SEC-004</code>.</strong></li>
+<li><strong><code>GET /metrics</code> é público.</strong> Expõe uptime, estado MQTT, prontidão do banco e tamanho dos caches sem autenticação, antes do gate de sessão.</li>
+<li><strong><code>PATCH /api/installations/:id</code> exige apenas <code>READ_DEVICE</code>.</strong> Como <code>READ_DEVICE</code> inclui <code>CLIENT</code>, <code>MOBILE_OWNER</code> e <code>MOBILE_MEMBER</code>, uma conta de app com acesso a uma instalação pode alterar o endereço cadastral dela. É escrita administrativa atrás de permissão de leitura.</li>
+<li><strong><code>POST /api/installations/:id/photos</code> exige apenas <code>READ_DEVICE</code>.</strong> Qualquer conta com acesso à instalação pode gravar evidência de instalação — que é insumo do checklist de ativação.</li>
+<li><strong><code>GET /api/dashboard</code>, <code>GET /api/installations</code> e <code>GET /api/installations/:id</code> não têm verificação de permissão.</strong> Hoje isso é contido pelo escopo por linha, mas significa que não existe permissão a conceder ou retirar — a tela precisa de uma chave real para governar.</li>
+</ul>
+<h3 id="32-padronizacao-nomes-que-nao-descrevem-o-que-guardam">3.2 Padronização — nomes que não descrevem o que guardam<a class="headerlink" href="#32-padronizacao-nomes-que-nao-descrevem-o-que-guardam" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>MANAGE_INSTALLERS</code> guarda <strong>listar usuários</strong>, <strong>status do e-mail do sistema</strong> e <strong>revogar usuário</strong> — três coisas que não são "gerenciar instaladores".</li>
+<li><code>MANAGE_INSTALLATIONS</code> guarda a <strong>auditoria global</strong>, enquanto a auditoria de uma instalação usa <code>READ_DEVICE</code>. Mesma natureza de dado, permissões diferentes.</li>
+<li><code>READ_DEVICE</code> virou permissão-coringa: guarda leitura de dispositivo, leitura de evidência, <strong>upload</strong> de evidência, <strong>edição</strong> de instalação e <strong>execução</strong> de diagnóstico.</li>
+<li>Granularidade por comando MQTT vive inline no handler (<code>server.js:645-646</code>), não no catálogo.</li>
+<li>O canal mobile ignora o RBAC e usa listas literais em 8 rotas.</li>
+</ul>
+<h3 id="33-frontend-menu-nao-reflete-permissao">3.3 Frontend — menu não reflete permissão<a class="headerlink" href="#33-frontend-menu-nao-reflete-permissao" title="Permanent link">&para;</a></h3>
+<p><code>frontend/src/auth.tsx:11</code> define <code>isAdmin()</code> com a lista literal <code>['MASTER_ADMIN','ADMIN','TEST_ADMIN']</code>, e <code>layout.tsx</code> usa esse único booleano para mostrar/esconder <strong>Clientes, Usuários, Auditoria e OTA</strong>. Se o Master Admin retirar <code>MANAGE_OTA</code> do perfil <code>ADMIN</code>, o backend passa a negar mas o menu continua exibindo OTA. Sem permissões efetivas vindas do servidor, a tela de administração não tem efeito visível.</p>
+<h3 id="34-coerencia-de-produto-a-confirmar-com-o-owner">3.4 Coerência de produto — a confirmar com o owner<a class="headerlink" href="#34-coerencia-de-produto-a-confirmar-com-o-owner" title="Permanent link">&para;</a></h3>
+<p><code>INSTALLER</code> hoje tem <code>CONFIGURE_DEVICE</code> e <code>OPERATE_DEVICE</code>, mas <strong>não</strong> tem <code>ACTIVATE_DEVICE</code> nem <code>MANAGE_INSTALLATIONS</code> — ou seja, configura e calibra, mas não conclui o checklist nem ativa o equipamento que instalou. Pode ser intencional (ativação é aprovação administrativa) ou lacuna. A tela proposta permite corrigir sem deploy, mas o <strong>padrão de fábrica</strong> precisa ser decidido.</p>
+<hr />
+<h2 id="4-catalogo-padronizado-proposto-arquitetura-alvo">4. Catálogo padronizado proposto (arquitetura-alvo)<a class="headerlink" href="#4-catalogo-padronizado-proposto-arquitetura-alvo" title="Permanent link">&para;</a></h2>
+<h3 id="41-convencao-de-nomes">4.1 Convenção de nomes<a class="headerlink" href="#41-convencao-de-nomes" title="Permanent link">&para;</a></h3>
+<p><code>contexto.recurso.acao</code>, minúsculo, pontos como separador. O prefixo é o contexto/tela, o sufixo é a ação (<code>view</code>, <code>list</code>, <code>create</code>, <code>update</code>, <code>delete</code>, ou verbo específico como <code>activate</code>, <code>publish</code>, <code>unlock</code>).</p>
+<p>Vantagem sobre as 9 chaves atuais: o nome diz a qual tela pertence, permite agrupar a UI automaticamente por prefixo e separa leitura de escrita sem inventar sinônimos.</p>
+<h3 id="42-compatibilidade-com-as-9-chaves-legadas">4.2 Compatibilidade com as 9 chaves legadas<a class="headerlink" href="#42-compatibilidade-com-as-9-chaves-legadas" title="Permanent link">&para;</a></h3>
+<p>As chaves atuais <strong>não são removidas de imediato</strong>. <code>rbac.can()</code> passa a aceitar tanto a chave nova quanto a legada, resolvendo a legada para o conjunto de chaves novas que a substituem:</p>
+<table>
+<thead>
+<tr>
+<th>Legada</th>
+<th>Equivale a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>READ_DEVICE</code></td>
+<td><code>device.view</code>, <code>device.state.view</code>, <code>device.events.view</code>, <code>device.firmware.view</code>, <code>device.commands.list</code>, <code>device.command.result.view</code>, <code>device.diagnostic.run</code>, <code>configuration.view</code>, <code>configuration.request.view</code>, <code>evidence.list</code>, <code>evidence.download</code>, <code>activation.checks.view</code>, <code>installations.audit.view</code>, <code>dashboard.view</code>, <code>installations.list</code>, <code>installations.view</code></td>
+</tr>
+<tr>
+<td><code>OPERATE_DEVICE</code></td>
+<td><code>device.preheat.start</code>, <code>device.command.send</code></td>
+</tr>
+<tr>
+<td><code>CONFIGURE_DEVICE</code></td>
+<td><code>configuration.update</code></td>
+</tr>
+<tr>
+<td><code>MANAGE_OTA</code></td>
+<td><code>ota.*</code></td>
+</tr>
+<tr>
+<td><code>MANAGE_ADMINS</code></td>
+<td><code>users.invite.admin</code></td>
+</tr>
+<tr>
+<td><code>MANAGE_INSTALLERS</code></td>
+<td><code>users.list</code>, <code>users.invite.installer</code>, <code>users.revoke</code>, <code>installations.installers.assign</code>, <code>installations.installers.revoke</code>, <code>system.email.view</code></td>
+</tr>
+<tr>
+<td><code>MANAGE_INSTALLATIONS</code></td>
+<td><code>installations.create</code>, <code>installations.update</code>, <code>activation.checks.update</code>, <code>configuration.calibration.unlock</code>, <code>audit.view</code></td>
+</tr>
+<tr>
+<td><code>MANAGE_CUSTOMERS</code></td>
+<td><code>customers.*</code>, <code>installations.customers.*</code></td>
+</tr>
+<tr>
+<td><code>ACTIVATE_DEVICE</code></td>
+<td><code>activation.activate</code>, <code>activation.deactivate</code></td>
+</tr>
+</tbody>
+</table>
+<p>A migração dos pontos de chamada é feita rota a rota, com teste, <strong>sem alterar o resultado prático das guardas existentes</strong> — exceto nos pontos marcados como correção em §3.1, que são mudanças deliberadas de comportamento e precisam de aprovação.</p>
+<h3 id="43-catalogo">4.3 Catálogo<a class="headerlink" href="#43-catalogo" title="Permanent link">&para;</a></h3>
+<p>Cada permissão declara: chave, rótulo em português, contexto/tela, e se é "sensível" (exige confirmação extra na UI para conceder).</p>
+<table>
+<thead>
+<tr>
+<th>Contexto (tela)</th>
+<th>Chave</th>
+<th>Rótulo</th>
+<th style="text-align: center;">Sensível</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dashboard</td>
+<td><code>dashboard.view</code></td>
+<td>Ver o painel inicial</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações</td>
+<td><code>installations.list</code></td>
+<td>Listar instalações</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações</td>
+<td><code>installations.view</code></td>
+<td>Abrir detalhe da instalação</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações</td>
+<td><code>installations.create</code></td>
+<td>Cadastrar instalação</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações</td>
+<td><code>installations.update</code></td>
+<td>Editar dados da instalação</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações</td>
+<td><code>installations.audit.view</code></td>
+<td>Ver histórico da instalação</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Clientes</td>
+<td><code>installations.customers.link</code></td>
+<td>Vincular cliente</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Clientes</td>
+<td><code>installations.customers.unlink</code></td>
+<td>Desvincular cliente</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Instaladores</td>
+<td><code>installations.installers.assign</code></td>
+<td>Atribuir instalador</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Instaladores</td>
+<td><code>installations.installers.revoke</code></td>
+<td>Remover instalador</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Ativação</td>
+<td><code>activation.checks.view</code></td>
+<td>Ver checklist de ativação</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Ativação</td>
+<td><code>activation.checks.update</code></td>
+<td>Preencher checklist</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Ativação</td>
+<td><code>activation.activate</code></td>
+<td>Ativar dispositivo</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Ativação</td>
+<td><code>activation.deactivate</code></td>
+<td>Desativar dispositivo</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Evidências</td>
+<td><code>evidence.list</code></td>
+<td>Ver evidências</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Evidências</td>
+<td><code>evidence.upload</code></td>
+<td>Enviar evidência</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Evidências</td>
+<td><code>evidence.download</code></td>
+<td>Baixar evidência</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Evidências</td>
+<td><code>evidence.delete</code></td>
+<td>Apagar evidência antes da ativação</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Evidências</td>
+<td><code>evidence.delete.released</code></td>
+<td>Apagar evidência de instalação já ativada</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Configuração</td>
+<td><code>configuration.view</code></td>
+<td>Ler configuração do Master</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Configuração</td>
+<td><code>configuration.update</code></td>
+<td>Gravar configuração do Master</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Configuração</td>
+<td><code>configuration.request.view</code></td>
+<td>Acompanhar pedido de configuração</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Configuração</td>
+<td><code>configuration.calibration.unlock</code></td>
+<td>Reabrir calibração bloqueada</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.view</code></td>
+<td>Ver dispositivo</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.state.view</code></td>
+<td>Ver estado do dispositivo</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.events.view</code></td>
+<td>Ver eventos do dispositivo</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.firmware.view</code></td>
+<td>Ver versão de firmware</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.commands.list</code></td>
+<td>Ver histórico de comandos</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.command.result.view</code></td>
+<td>Acompanhar resultado de comando</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.preheat.start</code></td>
+<td>Iniciar pré-aquecimento</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.command.send</code></td>
+<td>Enviar comando ao Master</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Instalações › Operação</td>
+<td><code>device.diagnostic.run</code></td>
+<td>Executar diagnóstico</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>OTA</td>
+<td><code>ota.catalog.view</code></td>
+<td>Ver imagens disponíveis</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>OTA</td>
+<td><code>ota.jobs.list</code></td>
+<td>Listar atualizações</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>OTA</td>
+<td><code>ota.job.view</code></td>
+<td>Ver atualização</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>OTA</td>
+<td><code>ota.publish</code></td>
+<td>Publicar atualização</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>OTA</td>
+<td><code>ota.check</code></td>
+<td>Solicitar verificação de OTA ao Master</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Clientes</td>
+<td><code>customers.list</code></td>
+<td>Listar clientes</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Clientes</td>
+<td><code>customers.view</code></td>
+<td>Abrir detalhe do cliente</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Clientes</td>
+<td><code>customers.installations.view</code></td>
+<td>Ver instalações do cliente</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Clientes</td>
+<td><code>customers.create</code></td>
+<td>Cadastrar cliente</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Clientes</td>
+<td><code>customers.update</code></td>
+<td>Editar cliente</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Usuários</td>
+<td><code>users.list</code></td>
+<td>Listar usuários</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Usuários</td>
+<td><code>users.invite.installer</code></td>
+<td>Convidar instalador</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Usuários</td>
+<td><code>users.invite.admin</code></td>
+<td>Convidar administrador</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Usuários</td>
+<td><code>users.revoke</code></td>
+<td>Revogar usuário</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Auditoria</td>
+<td><code>audit.view</code></td>
+<td>Consultar auditoria global</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Sistema</td>
+<td><code>system.email.view</code></td>
+<td>Ver status do serviço de e-mail</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Sistema › Permissões</td>
+<td><code>system.permissions.view</code></td>
+<td>Abrir a tela de permissões</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Sistema › Permissões</td>
+<td><code>system.permissions.update</code></td>
+<td>Alterar permissões de perfil</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<p><strong>50 permissões, 13 contextos.</strong> As duas últimas foram acrescentadas em 2026-09-22 (<code>UX-INST-005</code>): a evidência é rascunho do instalador antes da ativação e prova de entrega depois dela, então cada situação tem a sua permissão. <code>system.permissions.update</code> é exclusiva do <code>MASTER_ADMIN</code> e <strong>não aparece como célula editável</strong> — ver §5.3.</p>
+<h3 id="44-padrao-de-fabrica-proposto">4.4 Padrão de fábrica proposto<a class="headerlink" href="#44-padrao-de-fabrica-proposto" title="Permanent link">&para;</a></h3>
+<p>Reproduz exatamente o comportamento atual, exceto onde §3.1 aponta correção. Diferenças em relação a hoje estão marcadas.</p>
+<table>
+<thead>
+<tr>
+<th>Permissão</th>
+<th style="text-align: center;">ADMIN</th>
+<th style="text-align: center;">INSTALLER</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dashboard.view</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td>novo ponto de guarda (hoje sem verificação)</td>
+</tr>
+<tr>
+<td><code>installations.list</code> / <code>.view</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td>novo ponto de guarda; escopo por linha continua valendo</td>
+</tr>
+<tr>
+<td><code>installations.create</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>installations.update</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td><strong>correção</strong>: hoje <code>READ_DEVICE</code> deixa CLIENT/MOBILE_* editarem</td>
+</tr>
+<tr>
+<td><code>installations.audit.view</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>installations.customers.*</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>installations.installers.*</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>activation.checks.view</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>activation.checks.update</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>mantém hoje; ver §3.4</td>
+</tr>
+<tr>
+<td><code>activation.activate</code> / <code>.deactivate</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>mantém hoje; ver §3.4</td>
+</tr>
+<tr>
+<td><code>evidence.list</code> / <code>.download</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>evidence.delete</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td>só enquanto a instalação não está ativada</td>
+</tr>
+<tr>
+<td><code>evidence.delete.released</code></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>só Master Admin por padrão; concedível pela tela</td>
+</tr>
+<tr>
+<td><code>evidence.upload</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td><strong>correção</strong>: deixa de ser acessível a CLIENT/MOBILE_*</td>
+</tr>
+<tr>
+<td><code>configuration.view</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>configuration.update</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>configuration.request.view</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>configuration.calibration.unlock</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>device.*</code> (leitura)</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>device.preheat.start</code> / <code>device.command.send</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>device.diagnostic.run</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ota.*</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customers.*</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>users.list</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>users.invite.installer</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>users.invite.admin</code></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>só MASTER_ADMIN</td>
+</tr>
+<tr>
+<td><code>users.revoke</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>regras de <code>database.js</code> continuam acima disso</td>
+</tr>
+<tr>
+<td><code>audit.view</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>system.email.view</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td></td>
+</tr>
+<tr>
+<td><code>system.permissions.view</code></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>só MASTER_ADMIN</td>
+</tr>
+<tr>
+<td><code>system.permissions.update</code></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>só MASTER_ADMIN, não editável</td>
+</tr>
+</tbody>
+</table>
+<p><code>MASTER_ADMIN</code> recebe tudo por definição, não por linha em tabela. Os papéis de canal (<code>CLIENT</code>, <code>MOBILE_OWNER</code>, <code>MOBILE_MEMBER</code>) mantêm as listas literais atuais nas rotas <code>/api/mobile/*</code> e <code>/api/schedules/*</code> — <strong>não entram nesta tela</strong> e não são afetados.</p>
+<hr />
+<h2 id="5-desenho-da-funcionalidade">5. Desenho da funcionalidade<a class="headerlink" href="#5-desenho-da-funcionalidade" title="Permanent link">&para;</a></h2>
+<h3 id="51-modelo-de-dados">5.1 Modelo de dados<a class="headerlink" href="#51-modelo-de-dados" title="Permanent link">&para;</a></h3>
+<p>Uma tabela nova, sem alterar nenhuma existente:</p>
+<div class="highlight"><pre><span></span><code>role_permissions (
+  role       user_role   NOT NULL,
+  permission text        NOT NULL,
+  allowed    boolean     NOT NULL,
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  updated_by uuid REFERENCES users(id),
+  PRIMARY KEY (role, permission)
+)
+</code></pre></div>
+<p>Regras de resolução, nesta ordem:</p>
+<ol>
+<li><code>MASTER_ADMIN</code> → sempre permitido; a tabela não é consultada.</li>
+<li>Existe linha <code>(role, permission)</code> → vale <code>allowed</code>.</li>
+<li>Não existe linha → vale o <strong>padrão de fábrica do código</strong> (§4.4).</li>
+</ol>
+<p>Consequência desejada: o catálogo continua sendo definido em código (não há como um <code>DELETE</code> no banco criar uma permissão fantasma nem apagar uma existente), e o banco guarda apenas as <strong>exceções</strong> ao padrão. Um banco vazio se comporta exatamente como o sistema de hoje.</p>
+<h3 id="52-backend">5.2 Backend<a class="headerlink" href="#52-backend" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>backend/src/permissions.js</code> (novo)</strong> — catálogo (chave, rótulo, contexto, sensível), padrão de fábrica e mapa de compatibilidade legado→novo. Módulo puro, sem I/O, testável isoladamente.</li>
+<li><strong><code>backend/src/rbac.js</code></strong> — passa a consultar um <em>override</em> em memória carregado do banco; <code>can()</code> aceita chave nova ou legada. Mantém a assinatura <code>can(principal, key)</code> para não tocar nos ~50 pontos de chamada de uma vez.</li>
+<li><strong>Cache</strong> — a matriz efetiva fica em memória e é recarregada na inicialização, a cada gravação, e por TTL curto (60 s) para cobrir o cenário de mais de uma instância do backend. Sem cache, cada rota faria uma consulta extra ao banco.</li>
+<li><strong>Rotas novas</strong></li>
+<li><code>GET /api/permissions</code> → <code>{ catalog: [...], roles: ['ADMIN','INSTALLER'], matrix: { ADMIN: {...}, INSTALLER: {...} }, defaults: {...} }</code> — guarda <code>system.permissions.view</code>.</li>
+<li><code>PUT /api/permissions</code> → corpo <code>{ role, changes: { chave: boolean } }</code>; guarda <code>system.permissions.update</code>; valida que <code>role ∈ {ADMIN, INSTALLER}</code> e que toda chave existe no catálogo; recusa <code>system.permissions.*</code>; grava em transação e registra em <code>audit_events</code> (uma entrada por alteração, com <code>before_data</code>/<code>after_data</code>).</li>
+<li><code>GET /api/auth/me</code> → passa a devolver também <code>permissions: [...]</code> (as permissões efetivas do principal), para o frontend montar o menu sem adivinhar.</li>
+<li><strong>Auditoria</strong> — ação <code>ROLE_PERMISSION_CHANGED</code>, entidade <code>role_permission</code>. Alteração de permissão é evento de segurança e precisa de rastro individual.</li>
+</ul>
+<h3 id="53-trava-anti-bloqueio">5.3 Trava anti-bloqueio<a class="headerlink" href="#53-trava-anti-bloqueio" title="Permanent link">&para;</a></h3>
+<p>Três regras que o backend recusa mesmo para o <code>MASTER_ADMIN</code>:</p>
+<ol>
+<li><code>MASTER_ADMIN</code> não é editável — não aparece como coluna.</li>
+<li><code>system.permissions.view</code> e <code>system.permissions.update</code> não são concedíveis a nenhum perfil pela tela. Não há caminho em que o Master Admin delegue a administração de permissões e depois não consiga revertê-la.</li>
+<li><code>users.invite.admin</code> e <code>users.revoke</code> permanecem sujeitas às regras de <code>database.js:527-536</code> (não revogar <code>MASTER_ADMIN</code>, não revogar o último admin ativo) — conceder a permissão não desliga a regra de negócio.</li>
+</ol>
+<h3 id="54-frontend-tela-permissoes">5.4 Frontend — tela <code>/permissoes</code><a class="headerlink" href="#54-frontend-tela-permissoes" title="Permanent link">&para;</a></h3>
+<p>Entrada no menu lateral, visível apenas com <code>system.permissions.view</code>.</p>
+<ul>
+<li><strong>Layout</strong>: matriz. Linhas agrupadas por contexto (accordion, contexto expansível), colunas <code>Administrador</code> e <code>Instalador</code>, célula = checkbox. Cabeçalho fixo ao rolar.</li>
+<li><strong>Por contexto</strong>: checkbox tri-estado no cabeçalho do grupo para marcar/desmarcar o contexto inteiro.</li>
+<li><strong>Célula</strong>: mostra o valor efetivo; quando difere do padrão de fábrica, recebe marca visual "alterado" e o padrão aparece no <em>tooltip</em>.</li>
+<li><strong>Gravação explícita</strong>: as alterações ficam pendentes até <strong>Salvar</strong>; o botão mostra a contagem de mudanças e abre um resumo antes de confirmar. Permissões sensíveis (§4.3) aparecem destacadas nesse resumo. Há <strong>Descartar</strong> e <strong>Restaurar padrão de fábrica</strong> (por contexto e global).</li>
+<li><strong>Reflexo imediato</strong>: após salvar, <code>GET /api/auth/me</code> é reconsultado e o menu do usuário corrente é remontado.</li>
+<li><strong><code>isAdmin()</code> é substituído</strong> por <code>can(user, 'chave')</code> derivado de <code>user.permissions</code>. <code>layout.tsx</code> passa a decidir cada item de menu pela permissão correspondente (<code>customers.list</code>, <code>users.list</code>, <code>audit.view</code>, <code>ota.jobs.list</code>, <code>system.permissions.view</code>) em vez do booleano único. Sem isso a tela não produz efeito visível (§3.3).</li>
+<li><strong>Sessões já abertas</strong>: a mudança vale no backend imediatamente; o menu de um usuário já logado só se ajusta no próximo <code>GET /api/auth/me</code> (troca de rota ou refetch por foco de janela, já configurado em <code>App.tsx</code>). Isso é aceitável porque a negação real é sempre do servidor — mas precisa constar na tela, para o Master Admin não achar que a mudança não pegou.</li>
+</ul>
+<hr />
+<h2 id="6-impacto-dependencias-e-riscos">6. Impacto, dependências e riscos<a class="headerlink" href="#6-impacto-dependencias-e-riscos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>Impacto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>backend/db/migrations/</code></td>
+<td>+1 migration (<code>020_role_permissions.sql</code>). Somente <code>CREATE TABLE</code>; nenhuma tabela existente é alterada</td>
+</tr>
+<tr>
+<td><code>backend/src/rbac.js</code></td>
+<td>reescrito — de matriz congelada para catálogo + override; assinatura pública preservada</td>
+</tr>
+<tr>
+<td><code>backend/src/server.js</code></td>
+<td>~50 chamadas <code>rbac.can()</code> migradas de chave legada para chave nova; 5 rotas ganham guarda que hoje não têm; +2 rotas novas; <code>GET /api/auth/me</code> passa a incluir <code>permissions</code></td>
+</tr>
+<tr>
+<td><code>backend/test/</code></td>
+<td><code>rbac.test.js</code> ampliado + novo <code>permissions.test.js</code></td>
+</tr>
+<tr>
+<td><code>frontend/src/</code></td>
+<td>nova página, novo item de menu, <code>auth.tsx</code> e <code>layout.tsx</code> alterados, <code>types.ts</code> estendido</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td><strong>nenhum</strong>. As rotas <code>/api/mobile/*</code> e <code>/api/schedules/*</code> não passam por <code>rbac.can()</code> e não são tocadas</td>
+</tr>
+<tr>
+<td>Firmware</td>
+<td><strong>nenhum</strong></td>
+</tr>
+<tr>
+<td>Banco real</td>
+<td>a migration roda no PostgreSQL do serviço "Revolushower PostgreSQL" — <strong>exige autorização explícita</strong> (CLAUDE.md)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Riscos principais</strong></p>
+<ol>
+<li><strong>Regressão silenciosa de autorização</strong> ao migrar ~50 pontos de chamada. Mitigação: o padrão de fábrica é derivado mecanicamente da matriz atual, e o teste cobre a equivalência legado × novo permissão a permissão antes de qualquer troca de comportamento.</li>
+<li><strong>Auto-bloqueio do Master Admin.</strong> Mitigado por §5.3.</li>
+<li><strong>Múltiplas instâncias do backend com cache divergente</strong> por até 60 s. Aceitável para uma decisão administrativa; documentado na tela.</li>
+<li><strong>Mudança deliberada de comportamento</strong> em <code>installations.update</code> e <code>evidence.upload</code> (§3.1): contas de app que hoje conseguem essas ações deixarão de conseguir. É correção de segurança, mas <strong>é mudança de contrato</strong> e precisa de aprovação do owner antes de implementar.</li>
+</ol>
+<hr />
+<h2 id="7-fora-do-escopo-desta-entrega">7. Fora do escopo desta entrega<a class="headerlink" href="#7-fora-do-escopo-desta-entrega" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Permissões por instalação/cliente (escopo por linha continua em <code>scopeClause</code>, camada 3 de §1.3).</li>
+<li>Perfis customizados criados pelo usuário — os papéis continuam sendo os do enum <code>user_role</code>.</li>
+<li>Permissões dos papéis de canal <code>CLIENT</code>, <code>MOBILE_OWNER</code>, <code>MOBILE_MEMBER</code>.</li>
+<li>Autenticação de <code>GET /metrics</code> (achado §3.1, tratado como tarefa de infraestrutura separada).</li>
+<li>Destino do papel <code>TEST_ADMIN</code> (achado §3.1, exige decisão do owner).</li>
+</ul>
+<h2 id="8-decisoes-tomadas-2026-09-22">8. Decisões tomadas (2026-09-22)<a class="headerlink" href="#8-decisoes-tomadas-2026-09-22" title="Permanent link">&para;</a></h2>
+<p>Registradas também em <code>project/DECISIONS.md</code>.</p>
+<ol>
+<li><strong><code>TEST_ADMIN</code> removido do código.</strong> Ver §3.1. O que sobra é o <code>API_AUTH_TOKEN</code>, agora declarado como <code>MASTER_ADMIN</code>, e a pendência de decidir o futuro dele (<code>SEC-004</code>).</li>
+<li><strong>As correções de §3.1 entram nesta entrega.</strong> <code>PATCH /api/installations/:id</code> passa a exigir <code>installations.update</code> e <code>POST /api/installations/:id/photos</code> passa a exigir <code>evidence.upload</code>; nenhuma das duas é padrão de <code>CLIENT</code>/<code>MOBILE_OWNER</code>/<code>MOBILE_MEMBER</code>. O app Android atual não chama essas rotas.</li>
+<li><strong>O instalador conclui a ativação.</strong> Padrão de fábrica do <code>INSTALLER</code> passa a incluir <code>activation.checks.update</code>, <code>activation.activate</code> e <code>activation.deactivate</code>, além de <code>evidence.upload</code>.</li>
+<li><strong>Migration <code>020</code> aplicada</strong> no PostgreSQL do serviço "Revolushower PostgreSQL" e backend supervisionado reiniciado em 2026-09-22.</li>
+</ol>
+<h2 id="9-estado-de-implementacao">9. Estado de implementação<a class="headerlink" href="#9-estado-de-implementacao" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Estado</th>
+<th>Evidência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catálogo e padrão de fábrica</td>
+<td>implementado</td>
+<td><code>backend/src/permissions.js</code> — 50 permissões, 13 contextos</td>
+</tr>
+<tr>
+<td>Resolução padrão + exceção, com cache</td>
+<td>implementado</td>
+<td><code>backend/src/rbac.js</code></td>
+</tr>
+<tr>
+<td>Tabela de exceções</td>
+<td>implementado</td>
+<td><code>backend/db/migrations/020_role_permissions.sql</code>, aplicada em 2026-09-22</td>
+</tr>
+<tr>
+<td>~50 guardas migradas para as chaves novas</td>
+<td>implementado</td>
+<td><code>backend/src/server.js</code></td>
+</tr>
+<tr>
+<td>Guardas onde não havia nenhuma</td>
+<td>implementado</td>
+<td><code>dashboard.view</code>, <code>installations.list</code>, <code>installations.view</code></td>
+</tr>
+<tr>
+<td><code>GET</code>/<code>PUT /api/permissions</code></td>
+<td>implementado</td>
+<td><code>backend/src/server.js</code></td>
+</tr>
+<tr>
+<td><code>permissions</code> em <code>GET /api/auth/me</code></td>
+<td>implementado</td>
+<td><code>backend/src/server.js</code></td>
+</tr>
+<tr>
+<td>Auditoria <code>ROLE_PERMISSION_CHANGED</code></td>
+<td>implementado</td>
+<td><code>database.js:updateRolePermissions</code></td>
+</tr>
+<tr>
+<td>Trava anti-bloqueio</td>
+<td>implementado</td>
+<td>recusa <code>system.permissions.*</code> e <code>MASTER_ADMIN</code></td>
+</tr>
+<tr>
+<td>Tela <code>/permissoes</code></td>
+<td>implementado</td>
+<td><code>frontend/src/pages/permissions.tsx</code></td>
+</tr>
+<tr>
+<td>Menu e ações derivados das permissões</td>
+<td>implementado</td>
+<td><code>frontend/src/auth.tsx</code>, <code>layout.tsx</code>, <code>pages/installation.tsx</code></td>
+</tr>
+<tr>
+<td>Testes</td>
+<td>35 aprovados</td>
+<td><code>backend/test/permissions.test.js</code> + suíte existente</td>
+</tr>
+<tr>
+<td>Verificação no ambiente real</td>
+<td>feita</td>
+<td>ida e volta de <code>audit.view</code> para <code>INSTALLER</code>, com as duas entradas de auditoria e a tabela de volta a 0 exceções</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Não implementado e ainda em aberto:</strong> autenticação de <code>GET /metrics</code> (<code>INFRA-002</code>), destino do <code>API_AUTH_TOKEN</code> (<code>SEC-004</code>) e permissões dos papéis de canal, que continuam em listas literais nas rotas <code>/api/mobile/*</code> e <code>/api/schedules/*</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
