@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -1558,13 +1558,13 @@
 <h2 id="firmware-master">Firmware Master<a class="headerlink" href="#firmware-master" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Ambiente PlatformIO <code>master</code>, ESP32-C3.</li>
-<li>Versão declarada no código: <code>0.2.14-dev</code>.</li>
-<li>Build local em 2026-09-23: RAM estática 49.932/327.680 bytes (15,2%) e flash 1.253.648/1.310.720 bytes (95,6%; margem ≈ 57 KB).</li>
+<li>Versão declarada no código: <code>0.2.17-dev</code> (fase 1 da refatoração; instalada por OTA no Master de bancada em 2026-09-24 com ativação e configuração preservadas; validação física pendente em <code>FW-REF-001</code>).</li>
+<li>Build local em 2026-09-23 após a fase 1: RAM estática 49.812/327.680 bytes (15,2%) e flash 1.227.824/1.310.720 bytes (93,7%; margem ≈ 81 KB). Antes: 95,6%.</li>
 <li>Núcleo físico continua em <code>ActionManager</code>; somente ele atua sobre GPIOs, timers, relés, cooldown, fluxo e bloqueios.</li>
 <li><code>CommandGateway</code> (<code>firmware/src/CommandGateway.cpp</code>) é a porta única de entrada para <code>START_PREHEAT</code>/<code>CANCEL_PREHEAT</code>, recebidos de origem local, web legada e MQTT — não cobre configuração remota, diagnóstico ou OTA, que são tratados diretamente em <code>MqttManager.cpp</code>. Sensores continuam entrando diretamente no núcleo físico.</li>
 <li>MQTT/TLS, estado, resultados, configuração remota, ativação, cancelamento, OTA e correlação de agendamentos estão implementados. Não há tópico/handler MQTT dedicado a "diagnóstico" separado da publicação de <code>state</code>.</li>
 <li>Provisionamento Wi-Fi por BLE GATT e fallback SoftAP estão implementados. A janela BLE é iniciada fisicamente pelo botão e, no modelo doméstico inicial aprovado, não usa autenticação GATT adicional. O portal HTTP do modo AP (<code>firmware/src/MasterApp.cpp</code>) também não exige nenhuma autenticação HTTP — a função <code>isAuthenticated()</code> existe mas nunca é chamada — e a senha do Wi-Fi do próprio AP é um valor fixo (<code>12345678</code>, <code>firmware/src/Storage.h:267</code>) igual em todo dispositivo; ver <code>BUG-002</code>/<code>SEC-003</code> em <code>project/TASKS.md</code>.</li>
-<li>Código de nós legados permanece preservado; <code>LEGACY_NODES_ENABLED</code> é um <code>#define</code> fixo em <code>firmware/src/Phase1Config.h</code> (não uma flag de build do PlatformIO) que o mantém fora do build e da Fase 1.</li>
+<li>Código de nós legados (Node, ESP-NOW, pareamento, canal) foi removido do firmware em 2026-09-23 (<code>0.2.17-dev</code>, DEC-049); o histórico permanece no Git. O portal do modo AP configura somente o Wi-Fi; os tempos vêm da fábrica ou de <code>CONFIG_SET</code> via MQTT.</li>
 </ul>
 <p>Pendências críticas: validação física BLE/Wi-Fi, sensores e aquecedor; decisão <code>BUG-003</code>; reconexão Wi-Fi; revisão do HTTP legado com <code>setInsecure()</code> (<code>firmware/src/ApiManager.cpp</code>, contrasta com <code>setCACert</code> já usado em MQTT/OTA); portal HTTP do modo AP sem autenticação e senha de AP fixa (<code>BUG-002</code>/<code>SEC-003</code>); identidade MQTT individual (<code>SEC-001</code>); assinatura/rollback OTA; e redução do uso de flash.</p>
 <h2 id="backend-e-banco">Backend e banco<a class="headerlink" href="#backend-e-banco" title="Permanent link">&para;</a></h2>
@@ -1681,10 +1681,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   </body>

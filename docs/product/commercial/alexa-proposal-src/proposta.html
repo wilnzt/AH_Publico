@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Proposta Comercial - Adendo Revolushower - Integração Alexa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+@page { size: 1440px 810px; margin: 0 }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+body{font-family:'Space Grotesk','Segoe UI',Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+:root{--cy:#00caff;--cy2:#0a8fb8;--ink:#0d0d10}
+.s{width:1440px;height:810px;position:relative;overflow:hidden;page-break-after:always;break-after:page;background-size:cover;background-position:center}
+.dark{color:#fff;background-color:#0b0b0d}
+.light{color:#111;background-color:#e9e9ea}
+.bg-cover{background-image:url(img/src_p1_0.jpg)}
+.bg-ribs{background-image:url(img/src_p3_0.jpg)}
+.bg-arch{background-image:url(img/src_p2_0.jpg)}
+.bg-stripes{background-image:url(img/src_p13_0.jpg)}
+.s.dark.bg-ribs::before{content:'';position:absolute;inset:0;background:rgba(5,5,8,.84)}
+.s.light.bg-arch::before{content:'';position:absolute;inset:0;background:rgba(244,244,246,.80)}
+.s.dark.bg-stripes::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.8)}
+.t{position:absolute;left:60px;top:30px;font-size:64px;font-weight:400;letter-spacing:-1px;line-height:1.05}
+.t small{font-size:inherit}
+.abs{position:absolute}
+.p{font-size:27px;line-height:1.28;font-weight:400}
+.sm{font-size:19px;line-height:1.3}
+.xs{font-size:15px;line-height:1.3;opacity:.7}
+.card{position:absolute;border-radius:18px}
+.dark .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.light .card{background:rgba(255,255,255,.82);border:1px solid rgba(0,0,0,.08);box-shadow:0 6px 22px rgba(0,0,0,.08)}
+.cy{color:var(--cy)}.light .cy{color:var(--cy2)}
+b{font-weight:700}
+.src{position:absolute;left:60px;bottom:22px;font-size:14px;opacity:.65}
+.pill{display:inline-block;padding:4px 14px;border-radius:30px;background:var(--cy);color:#001a22;font-weight:700;font-size:17px}
+.bubble{position:absolute;padding:14px 22px;border-radius:22px;font-size:24px;line-height:1.2}
+.bu{background:#fff;color:#111}
+.bx{background:var(--cy);color:#00202a;font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- SVG símbolos -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <radialGradient id="eb" cx="38%" cy="30%" r="80%"><stop offset="0" stop-color="#5a6068"/><stop offset=".55" stop-color="#25282d"/><stop offset="1" stop-color="#0e0f11"/></radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+    <linearGradient id="cyg" x1="0" x2="1"><stop offset="0" stop-color="#00caff"/><stop offset="1" stop-color="#5cf0ff"/></linearGradient>
+    <symbol id="echo" viewBox="0 0 240 240">
+      <ellipse cx="120" cy="214" rx="86" ry="14" fill="#000" opacity=".35"/>
+      <circle cx="120" cy="118" r="98" fill="url(#eb)"/>
+      <path d="M32 150 A98 98 0 0 0 208 150" fill="none" stroke="#00caff" stroke-width="9" filter="url(#glow)" opacity=".95"/>
+      <path d="M32 150 A98 98 0 0 0 208 150" fill="none" stroke="url(#cyg)" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="120" cy="44" r="5" fill="#111" opacity=".6"/><circle cx="92" cy="52" r="4" fill="#111" opacity=".5"/><circle cx="148" cy="52" r="4" fill="#111" opacity=".5"/>
+    </symbol>
+    <symbol id="shower" viewBox="0 0 200 240">
+      <path d="M30 40 H110 Q150 40 150 80" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+      <path d="M150 80 H190 A0 0 0 0 1 190 80" fill="none"/>
+      <path d="M100 82 Q150 48 196 82 Z" fill="currentColor"/>
+      <g stroke="#00caff" stroke-width="6" stroke-linecap="round"><path d="M116 108 l-8 30"/><path d="M134 106 l-4 40"/><path d="M152 106 l0 46"/><path d="M170 106 l4 40"/><path d="M186 108 l9 30"/><path d="M122 160 l-6 28"/><path d="M142 168 l-2 30"/><path d="M162 168 l2 34"/><path d="M180 160 l6 28"/></g>
+    </symbol>
+    <symbol id="house" viewBox="0 0 160 140">
+      <path d="M10 70 L80 12 L150 70" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30 62 V126 H130 V62" fill="none" stroke="currentColor" stroke-width="11" stroke-linejoin="round"/>
+      <rect x="66" y="84" width="28" height="42" rx="4" fill="#00caff"/>
+    </symbol>
+    <symbol id="phone" viewBox="0 0 120 220">
+      <rect x="6" y="6" width="108" height="208" rx="20" fill="#16181b" stroke="#6b7078" stroke-width="5"/>
+      <rect x="16" y="26" width="88" height="168" rx="8" fill="#0a2f3b"/>
+      <circle cx="60" cy="110" r="26" fill="none" stroke="#00caff" stroke-width="7"/>
+      <rect x="44" y="204" width="32" height="4" rx="2" fill="#6b7078"/>
+    </symbol>
+    <symbol id="cloud" viewBox="0 0 200 120">
+      <path d="M50 100 H152 A36 36 0 0 0 156 28 A50 50 0 0 0 62 38 A32 32 0 0 0 50 100 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="person" viewBox="0 0 120 140">
+      <circle cx="60" cy="38" r="26" fill="none" stroke="currentColor" stroke-width="8"/>
+      <path d="M14 130 Q14 78 60 78 Q106 78 106 130" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="master" viewBox="0 0 160 120">
+      <rect x="8" y="14" width="144" height="92" rx="12" fill="#16181b" stroke="currentColor" stroke-width="6"/>
+      <circle cx="40" cy="60" r="10" fill="#00caff"/>
+      <rect x="64" y="46" width="70" height="10" rx="5" fill="currentColor" opacity=".55"/>
+      <rect x="64" y="66" width="46" height="10" rx="5" fill="currentColor" opacity=".35"/>
+    </symbol>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#00caff"/></marker>
+    <marker id="arr" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10 0 L0 5 L10 10 Z" fill="#00caff"/></marker>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#0a8fb8"/></marker>
+  </defs>
+</svg>
+
+<!-- 1. CAPA -->
+<section class="s dark bg-cover">
+  <div class="abs" style="left:60px;top:150px;font-size:96px;line-height:1;font-weight:400;letter-spacing:-2px">Proposta<br>Comercial</div>
+  <div class="abs" style="left:62px;top:362px;font-size:30px;color:var(--cy);font-weight:500">Adendo ao Revolushower</div>
+  <div class="abs" style="left:62px;top:408px;font-size:34px;font-weight:300">Integração com a Amazon Alexa</div>
+  <div class="abs" style="left:62px;top:468px;font-size:22px;opacity:.85">Cliente: Aqua Heat</div>
+  <div class="abs" style="right:70px;bottom:70px;font-size:24px;opacity:.9">Outubro/2026</div>
+  <svg class="abs" style="right:150px;top:150px;width:300px;height:300px;opacity:.97"><use href="#echo"/></svg>
+</section>
+
+<!-- 3. OBJETIVO -->
+<section class="s dark bg-ribs">
+  <h1 class="t">01 Objetivo do Adendo</h1>
+  <div class="abs p" style="left:90px;top:175px;width:720px;font-size:26px">
+    <p>Esta proposta é um <b>adendo ao Revolushower</b>: o sistema de aquecimento de água que <b>já está em homologação</b>.</p>
+    <p style="margin-top:20px">O objetivo é permitir que o cliente final <b class="cy">controle o sistema de aquecimento por voz</b>, usando a Amazon Alexa, e crie automações como <b class="cy">aquecer a água ao chegar em casa</b>.</p>
+    <p style="margin-top:20px">A Alexa <b>complementa o aplicativo mobile, sem substituí-lo</b>: os dois canais se integram por completo, compartilham o mesmo estado e seguem as mesmas regras de segurança.</p>
+  </div>
+  <div class="card" style="left:860px;top:170px;width:520px;height:480px">
+    <svg width="520" height="480" viewBox="0 0 520 480" font-family="Space Grotesk, Arial">
+      <use href="#echo" x="50" y="26" width="170" height="170"/>
+      <use href="#phone" x="340" y="26" width="100" height="184"/>
+      <text x="135" y="222" font-size="19" fill="#fff" text-anchor="middle" font-weight="700">Alexa</text>
+      <text x="390" y="238" font-size="19" fill="#fff" text-anchor="middle" font-weight="700">Aplicativo mobile</text>
+      <path d="M135 240 V300" stroke="#00caff" stroke-width="4" fill="none" stroke-dasharray="2 9" stroke-linecap="round" marker-end="url(#ar)"/>
+      <path d="M390 252 V300" stroke="#00caff" stroke-width="4" fill="none" stroke-dasharray="2 9" stroke-linecap="round" marker-end="url(#ar)"/>
+      <rect x="60" y="312" width="400" height="100" rx="18" fill="#00caff22" stroke="#00caff" stroke-width="2"/>
+      <use href="#master" x="84" y="338" width="86" height="64" style="color:#fff"/>
+      <text x="190" y="354" font-size="24" fill="#fff" font-weight="700">Revolushower</text>
+      <text x="190" y="382" font-size="16" fill="#cfd3d8">sistema de aquecimento de água</text>
+      <text x="260" y="448" font-size="18" fill="#fff" text-anchor="middle">Dois canais, um só sistema</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 4. ALEXA NA AUTOMAÇÃO RESIDENCIAL -->
+<section class="s light bg-arch">
+  <h1 class="t">02 A Alexa na casa inteligente</h1>
+  <div class="abs p" style="left:90px;top:130px;width:620px">
+    <p>Em automação residencial, <b>a voz virou a interface mais natural</b>: sem abrir aplicativo, sem tocar em nada, de qualquer cômodo.</p>
+  </div>
+  <div class="card" style="left:90px;top:270px;width:620px;height:420px;padding:28px 36px">
+    <div style="font-size:23px;font-weight:700;margin-bottom:14px">Por que a Alexa importa para o produto</div>
+    <ul class="sm" style="list-style:none;font-size:21px;line-height:1.35">
+      <li style="margin-bottom:12px"><b class="cy">●</b> &nbsp;<b>Voz</b>: comando natural, em português, com as mãos livres</li>
+      <li style="margin-bottom:12px"><b class="cy">●</b> &nbsp;<b>Ecossistema</b>: um único app e uma única voz para luz, ar, cortina e aquecimento do banho</li>
+      <li style="margin-bottom:12px"><b class="cy">●</b> &nbsp;<b>Rotinas</b>: horário, chegada em casa, alarme ou frase como gatilho</li>
+      <li style="margin-bottom:12px"><b class="cy">●</b> &nbsp;<b>Acessibilidade</b>: útil para idosos, crianças e quem tem mobilidade reduzida</li>
+      <li><b class="cy">●</b> &nbsp;<b>Familiaridade</b>: o cliente já tem ou conhece um Echo</li>
+    </ul>
+  </div>
+  <!-- ilustração: casa com dispositivos -->
+  <div class="card" style="left:770px;top:130px;width:610px;height:550px">
+    <svg width="610" height="550" viewBox="0 0 610 550">
+      <g transform="translate(75,60)">
+        <path d="M0 150 L230 10 L460 150" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M40 130 V400 H420 V130" fill="none" stroke="#111" stroke-width="12" stroke-linejoin="round"/>
+      </g>
+      <use href="#echo" x="255" y="215" width="120" height="120"/>
+      <!-- lâmpada -->
+      <g transform="translate(150,235)" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"><circle cx="25" cy="25" r="22"/><path d="M15 54 H35 M18 63 H32"/></g>
+      <text x="175" y="330" font-size="16" text-anchor="middle" fill="#111" font-family="Space Grotesk, Arial">Luz</text>
+      <!-- ar -->
+      <g transform="translate(420,235)"><rect x="0" y="6" width="74" height="30" rx="8" fill="none" stroke="#111" stroke-width="7"/><path d="M12 54 q10 10 0 20 M37 54 q10 10 0 20 M62 54 q10 10 0 20" stroke="#0a8fb8" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+      <text x="457" y="330" font-size="16" text-anchor="middle" fill="#111" font-family="Space Grotesk, Arial">Ar</text>
+      <!-- chuveiro -->
+      <use href="#shower" x="262" y="345" width="100" height="120" style="color:#111"/>
+      <text x="312" y="490" font-size="16" text-anchor="middle" fill="#111" font-weight="700" font-family="Space Grotesk, Arial">Aquecimento da água do banho</text>
+      <!-- ondas voz -->
+      <path d="M255 200 q60 -34 120 0" stroke="#0a8fb8" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="2 8"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 5. ALEXA NO BRASIL -->
+<section class="s dark bg-ribs">
+  <h1 class="t">03 A Alexa no Brasil</h1>
+  <!-- números -->
+  <div class="card" style="left:60px;top:130px;width:330px;height:190px;padding:26px 28px"><div style="font-size:72px;font-weight:700;color:var(--cy);line-height:1">29 mi</div><div class="sm" style="margin-top:12px">de dispositivos conectados com Alexa no país (+32% sobre 2024)</div></div>
+  <div class="card" style="left:410px;top:130px;width:330px;height:190px;padding:26px 28px"><div style="font-size:72px;font-weight:700;color:var(--cy);line-height:1">15 mi</div><div class="sm" style="margin-top:12px">de dispositivos com Alexa usados todos os meses</div></div>
+  <div class="card" style="left:60px;top:340px;width:330px;height:190px;padding:26px 28px"><div style="font-size:72px;font-weight:700;color:var(--cy);line-height:1">+3.000</div><div class="sm" style="margin-top:12px">dispositivos de casa inteligente à venda compatíveis com Alexa</div></div>
+  <div class="card" style="left:410px;top:340px;width:330px;height:190px;padding:26px 28px"><div style="font-size:72px;font-weight:700;color:var(--cy);line-height:1">4 bi</div><div class="sm" style="margin-top:12px">de ações de casa inteligente em 2025, com 2 bi de rotinas executadas</div></div>
+  <!-- gráfico top of mind -->
+  <div class="card" style="left:780px;top:130px;width:600px;height:400px;padding:26px 30px">
+    <div style="font-size:22px;font-weight:700">Assistente de voz mais lembrada</div>
+    <div class="xs" style="margin-bottom:6px">Primeira marca que vem à mente (%), 2020 vs 2025</div>
+    <svg width="540" height="300" viewBox="0 0 540 300">
+      <g font-family="Space Grotesk, Arial" font-size="17" fill="#fff">
+        <!-- Alexa -->
+        <text x="0" y="40" font-weight="700">Alexa</text>
+        <rect x="90" y="18" width="30" height="26" rx="4" fill="#5b6168"/><text x="128" y="38" fill="#cfd3d8">9</text>
+                <rect x="90" y="48" width="348" height="26" rx="4" fill="#00caff"/><text x="446" y="68" font-weight="700" fill="#00caff">58</text>
+        <!-- Google -->
+        <text x="0" y="125" font-weight="700">Google</text>
+        <rect x="90" y="103" width="288" height="26" rx="4" fill="#5b6168"/><text x="386" y="123" fill="#cfd3d8">48</text>
+        <rect x="90" y="133" width="96" height="26" rx="4" fill="#fff"/><text x="194" y="153" font-weight="700">16</text>
+        <!-- Siri -->
+        <text x="0" y="210" font-weight="700">Siri</text>
+        <rect x="90" y="188" width="114" height="26" rx="4" fill="#5b6168"/><text x="212" y="208" fill="#cfd3d8">19</text>
+        <rect x="90" y="218" width="48" height="26" rx="4" fill="#fff"/><text x="146" y="238" font-weight="700">8</text>
+      </g>
+      <g font-family="Space Grotesk, Arial" font-size="14" fill="#cfd3d8"><rect x="90" y="270" width="14" height="14" fill="#5b6168"/><text x="110" y="282">2020</text><rect x="170" y="270" width="14" height="14" fill="#fff"/><text x="190" y="282">2025</text></g>
+    </svg>
+  </div>
+  <div class="card" style="left:780px;top:550px;width:600px;height:150px;padding:20px 30px">
+    <div class="sm"><b class="cy">58%</b> citam a Alexa em primeiro lugar ao pensar em assistente de voz. Em 2020 eram 9%.</div>
+    <div class="sm" style="margin-top:8px"><b class="cy">Alexa+</b> (IA generativa) chegou ao Brasil em junho/2026 e já controla dispositivos de marcas como Positivo, Intelbras, Elgin e i2Go.</div>
+  </div>
+  <div class="card" style="left:60px;top:550px;width:680px;height:150px;padding:20px 30px"><div class="sm"><b>Em resumo:</b> a Alexa é hoje a assistente de voz mais lembrada pelos brasileiros e o ecossistema mais maduro de casa inteligente no país. Integrar o Revolushower a ela é entrar onde o cliente já está.</div></div>
+  <div class="src" style="bottom:18px">Fontes: Ilumeo (pesquisa de jan/2025, via Exame); Amazon Brasil, "Alexa em 2025"; Amazon Brasil, lançamento da Alexa+. O gráfico mede lembrança de marca, não vendas.</div>
+</section>
+
+<!-- 6. PERFIL E EXEMPLOS -->
+<section class="s light bg-arch">
+  <h1 class="t">04 Quem usa e o que controla</h1>
+  <div class="card" style="left:60px;top:130px;width:420px;height:540px;padding:28px 30px">
+    <div style="font-size:24px;font-weight:700;margin-bottom:16px">O perfil: quem usa voz</div>
+    <div style="font-size:64px;font-weight:700;color:var(--cy2);line-height:1">60%</div><div class="sm" style="margin-bottom:14px">preferem interagir por voz a digitar</div>
+    <div style="font-size:64px;font-weight:700;color:var(--cy2);line-height:1">80%+</div><div class="sm" style="margin-bottom:14px">acham a voz mais fácil e rápida</div>
+    <div style="font-size:64px;font-weight:700;color:var(--cy2);line-height:1">39%</div><div class="sm">dos usuários usam assistente de voz todo dia, e outros 41% toda semana</div>
+    <div class="xs" style="margin-top:14px">Ilumeo, jan/2025</div>
+  </div>
+  <div class="card" style="left:500px;top:130px;width:880px;height:380px;padding:26px 34px">
+    <div style="font-size:24px;font-weight:700;margin-bottom:6px">O que os brasileiros já controlam com a Alexa</div>
+    <div class="xs" style="margin-bottom:16px;opacity:.8">Mais de 3.000 dispositivos de casa inteligente à venda no país</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px 12px;font-size:20px">
+      <span class="chip">Lâmpadas e interruptores</span><span class="chip">Tomadas inteligentes</span><span class="chip">Câmeras</span><span class="chip">Fechaduras eletrônicas</span><span class="chip">Ar-condicionado</span><span class="chip">Controle remoto universal</span><span class="chip">Aspiradores robô</span><span class="chip">Cortinas e persianas</span><span class="chip">Purificadores de ar</span><span class="chip">Máquinas de lavar</span><span class="chip">Sensores de presença</span><span class="chip">Alimentadores para pets</span>
+    </div>
+    <div class="sm" style="margin-top:20px;font-size:20px">Marcas brasileiras com produtos que funcionam com a Alexa: <b>Positivo, Intelbras, Elgin e i2Go</b>.</div>
+  </div>
+  <div class="card" style="left:500px;top:530px;width:880px;height:140px;padding:14px 34px 12px">
+    <div style="font-size:22px;font-weight:700;margin-bottom:6px">O que isso significa para o Revolushower</div>
+    <div class="sm" style="font-size:21px;line-height:1.35">O cliente já tem o Echo, o app Alexa e o hábito de usar voz e Rotinas em casa. O aquecimento da água do banho passa a ser mais um dispositivo desse ecossistema, <b>sem exigir nada novo dele</b>.</div>
+  </div>
+  <style>.chip{display:inline-block;padding:7px 16px;border-radius:30px;background:#e4f6fc;border:1px solid #9fdcee;color:#0b4a5e}</style>
+  <div class="src" style="bottom:20px">Fontes: Ilumeo/Exame; Amazon Brasil ("Alexa em 2025" e lançamento da Alexa+).</div>
+</section>
+
+<!-- 6b. COMPLEMENTA O APLICATIVO MOBILE -->
+<section class="s dark bg-ribs">
+  <h1 class="t">05 Complementa o aplicativo mobile</h1>
+  <div class="abs" style="left:90px;top:120px;width:1250px;font-size:25px;line-height:1.3">A Alexa <b class="cy">não substitui o aplicativo mobile</b>. É um canal a mais, totalmente integrado a ele.</div>
+  <svg class="abs" style="left:60px;top:190px" width="1320" height="200" viewBox="0 0 1320 200" font-family="Space Grotesk, Arial" fill="#fff">
+    <rect x="20" y="10" width="330" height="180" rx="20" fill="#ffffff12" stroke="#ffffff30"/>
+    <use href="#phone" x="50" y="26" width="72" height="132"/>
+    <text x="140" y="85" font-size="26" font-weight="700">Aplicativo</text><text x="140" y="116" font-size="26" font-weight="700">mobile</text>
+    <text x="140" y="150" font-size="16" fill="#cfd3d8">controle completo</text>
+    <rect x="495" y="10" width="330" height="180" rx="20" fill="#00caff22" stroke="#00caff" stroke-width="2"/>
+    <use href="#master" x="512" y="42" width="96" height="72" style="color:#fff"/>
+    <text x="624" y="82" font-size="23" font-weight="700">Revolushower</text>
+    <text x="624" y="108" font-size="15" fill="#cfd3d8">mesmo estado e regras</text>
+    <text x="520" y="168" font-size="16" fill="#cfd3d8">backend + Master (aquecimento)</text>
+    <rect x="970" y="10" width="330" height="180" rx="20" fill="#ffffff12" stroke="#ffffff30"/>
+    <use href="#echo" x="995" y="38" width="120" height="120"/>
+    <text x="1130" y="85" font-size="26" font-weight="700">Alexa</text>
+    <text x="1130" y="116" font-size="16" fill="#cfd3d8">voz e Rotinas</text>
+    <path d="M356 100 H489" stroke="#00caff" stroke-width="4" fill="none" marker-end="url(#ar)" marker-start="url(#arr)"/>
+    <path d="M831 100 H964" stroke="#00caff" stroke-width="4" fill="none" marker-end="url(#ar)" marker-start="url(#arr)"/>
+  </svg>
+  <div class="card" style="left:60px;top:425px;width:300px;height:250px;padding:22px 24px"><div style="font-size:22px;font-weight:700;margin-bottom:8px" class="cy">Mesmo estado</div><div class="sm" style="font-size:19px">Começou pelo aplicativo? Cancele pela Alexa. E vice-versa. As duas telas mostram o que o Master confirmou.</div></div>
+  <div class="card" style="left:380px;top:425px;width:300px;height:250px;padding:22px 24px"><div style="font-size:22px;font-weight:700;margin-bottom:8px" class="cy">Mesmas regras</div><div class="sm" style="font-size:19px">Tempos, bloqueios e permissões valem para os dois canais. A Alexa vincula uma conta autorizada do cliente.</div></div>
+  <div class="card" style="left:700px;top:425px;width:300px;height:250px;padding:22px 24px"><div style="font-size:22px;font-weight:700;margin-bottom:8px" class="cy">Tudo no histórico</div><div class="sm" style="font-size:19px">Cada acionamento pela Alexa aparece no histórico do aplicativo mobile, com data, hora e origem.</div></div>
+  <div class="card" style="left:1020px;top:425px;width:360px;height:250px;padding:22px 24px"><div style="font-size:22px;font-weight:700;margin-bottom:8px" class="cy">O app segue no centro</div><div class="sm" style="font-size:19px">Agendamentos, convites e permissões, notificações, configurações e diagnóstico continuam no aplicativo mobile.</div></div>
+</section>
+
+<!-- 7. COMO FUNCIONA -->
+<section class="s dark bg-ribs">
+  <h1 class="t">06 Como funciona</h1>
+  <svg class="abs" style="left:40px;top:150px" width="1360" height="460" viewBox="0 0 1360 460" font-family="Space Grotesk, Arial" fill="#fff">
+    <!-- cartões de etapa -->
+    <g>
+      <rect x="10" y="60" width="230" height="260" rx="20" fill="#ffffff12" stroke="#ffffff30"/>
+      <use href="#person" x="75" y="90" width="100" height="116" style="color:#fff"/>
+      <text x="125" y="250" font-size="24" text-anchor="middle" font-weight="700">1. Cliente</text>
+      <text x="125" y="282" font-size="17" text-anchor="middle" fill="#cfd3d8">fala com a Alexa</text>
+
+      <rect x="290" y="60" width="230" height="260" rx="20" fill="#ffffff12" stroke="#ffffff30"/>
+      <use href="#echo" x="335" y="82" width="140" height="140"/>
+      <text x="405" y="250" font-size="24" text-anchor="middle" font-weight="700">2. Alexa</text>
+      <text x="405" y="282" font-size="17" text-anchor="middle" fill="#cfd3d8">entende o pedido</text>
+
+      <rect x="570" y="60" width="230" height="260" rx="20" fill="#ffffff12" stroke="#ffffff30"/>
+      <use href="#cloud" x="610" y="92" width="150" height="90" style="color:#00caff"/>
+      <text x="685" y="136" font-size="22" text-anchor="middle" font-weight="700" fill="#fff">skill</text>
+      <text x="685" y="250" font-size="24" text-anchor="middle" font-weight="700">3. Skill Revolushower</text>
+      <text x="685" y="282" font-size="17" text-anchor="middle" fill="#cfd3d8">valida a conta e o pedido</text>
+
+      <rect x="850" y="60" width="230" height="260" rx="20" fill="#ffffff12" stroke="#ffffff30"/>
+      <use href="#master" x="890" y="96" width="150" height="112" style="color:#fff"/>
+      <text x="965" y="250" font-size="24" text-anchor="middle" font-weight="700">4. Master</text>
+      <text x="965" y="282" font-size="17" text-anchor="middle" fill="#cfd3d8">confere as regras e aciona</text>
+
+      <rect x="1130" y="60" width="220" height="260" rx="20" fill="#00caff22" stroke="#00caff"/>
+      <use href="#shower" x="1185" y="86" width="115" height="138" style="color:#fff"/>
+      <text x="1240" y="250" font-size="24" text-anchor="middle" font-weight="700">5. Água quente</text>
+      <text x="1240" y="282" font-size="17" text-anchor="middle" fill="#cfd3d8">pronta para o banho</text>
+    </g>
+    <g stroke="#00caff" stroke-width="4" fill="none" marker-end="url(#ar)">
+      <path d="M244 190 H284"/><path d="M524 190 H564"/><path d="M804 190 H844"/><path d="M1084 190 H1124"/>
+    </g>
+    <!-- retorno de confirmação -->
+    <path d="M965 330 V395 H405 V330" fill="none" stroke="#00caff" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round" marker-end="url(#ar)"/>
+    <text x="685" y="425" font-size="20" text-anchor="middle" fill="#00caff">O Master confirma e a Alexa responde: "Ok" ou o motivo, se não puder</text>
+  </svg>
+  <div class="abs sm" style="left:90px;top:645px;width:1260px;font-size:21px">O <b>Master</b> (o equipamento do Revolushower) continua sendo quem decide: ele aplica tempos, bloqueios e proteções antes de ligar qualquer coisa, igual ao que já faz com o aplicativo mobile.</div>
+</section>
+
+<!-- 8. EXEMPLOS DE COMANDOS -->
+<section class="s light bg-arch">
+  <h1 class="t">07 Exemplos de comandos</h1>
+  <div class="card" style="left:60px;top:120px;width:790px;height:580px;overflow:hidden;padding:0">
+  <svg width="790" height="580" viewBox="0 0 760 560" preserveAspectRatio="xMidYMid slice" font-family="Space Grotesk, Arial">
+    <defs>
+      <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1222"/><stop offset="1" stop-color="#16203a"/></linearGradient>
+      <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#241a14"/><stop offset="1" stop-color="#0c0907"/></linearGradient>
+      <radialGradient id="lampglow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffc472" stop-opacity=".62"/><stop offset=".55" stop-color="#ff9a3c" stop-opacity=".16"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient>
+      <radialGradient id="echoglow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#00caff" stop-opacity=".5"/><stop offset="1" stop-color="#00caff" stop-opacity="0"/></radialGradient>
+      <radialGradient id="vig" cx="50%" cy="48%" r="75%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".62"/></radialGradient>
+      <linearGradient id="sofaG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6b5f58"/><stop offset=".5" stop-color="#3b4452"/><stop offset="1" stop-color="#232a36"/></linearGradient>
+      <linearGradient id="sofaG2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7a6c63"/><stop offset=".6" stop-color="#434c5b"/><stop offset="1" stop-color="#2a3240"/></linearGradient>
+      <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5e5559"/><stop offset=".45" stop-color="#2d3443"/><stop offset="1" stop-color="#1f3342"/></linearGradient>
+      <linearGradient id="pants" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2d2b30"/><stop offset="1" stop-color="#10151f"/></linearGradient>
+      <linearGradient id="skin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4a3329"/><stop offset=".6" stop-color="#6e5649"/><stop offset="1" stop-color="#6fa4b3"/></linearGradient>
+      <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe3ad"/><stop offset="1" stop-color="#ffb860"/></linearGradient>
+      <filter id="bl6"><feGaussianBlur stdDeviation="6"/></filter>
+      <filter id="shd" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity=".45"/></filter>
+    </defs>
+    <rect width="760" height="560" fill="url(#wall)"/>
+    <!-- janela com cidade desfocada -->
+    <rect x="262" y="34" width="300" height="212" fill="#0b1a3a"/>
+    <g filter="url(#bl6)" opacity=".95">
+      <circle cx="300" cy="200" r="11" fill="#ffc46b"/><circle cx="332" cy="214" r="8" fill="#ff8f5a"/><circle cx="366" cy="196" r="12" fill="#fff0b8"/>
+      <circle cx="402" cy="210" r="9" fill="#6fb4ff"/><circle cx="436" cy="192" r="13" fill="#ffd486"/><circle cx="470" cy="214" r="9" fill="#ff9d66"/>
+      <circle cx="505" cy="200" r="11" fill="#9ad2ff"/><circle cx="535" cy="212" r="8" fill="#ffc46b"/><circle cx="318" cy="168" r="7" fill="#ffd486"/>
+      <circle cx="388" cy="170" r="7" fill="#ff9d66"/><circle cx="452" cy="166" r="8" fill="#fff0b8"/><circle cx="518" cy="172" r="7" fill="#6fb4ff"/>
+    </g>
+    <rect x="262" y="34" width="300" height="212" fill="none" stroke="#05070d" stroke-width="10"/>
+    <line x1="412" y1="34" x2="412" y2="246" stroke="#05070d" stroke-width="8"/>
+    <!-- piso -->
+    <rect y="436" width="760" height="124" fill="url(#floor)"/>
+    <rect y="432" width="760" height="6" fill="#06080c"/>
+    <ellipse cx="90" cy="470" rx="150" ry="20" fill="#ffb860" opacity=".12" filter="url(#bl6)"/>
+    <!-- luz da luminária -->
+    <circle cx="86" cy="190" r="270" fill="url(#lampglow)"/>
+    <rect x="82" y="166" width="6" height="286" fill="#14161b"/>
+    <ellipse cx="85" cy="454" rx="36" ry="8" fill="#0b0c10"/>
+    <path d="M44 104 H128 L146 168 H26 Z" fill="url(#shade)"/>
+    <path d="M44 104 H128 L146 168 H26 Z" fill="#fff" opacity=".18"/>
+    <!-- tapete -->
+    <ellipse cx="400" cy="508" rx="300" ry="30" fill="#1b2433" opacity=".9"/>
+    <!-- sofá em perfil -->
+    <g filter="url(#shd)">
+      <rect x="150" y="392" width="420" height="40" rx="12" fill="#1b212c"/>
+      <rect x="168" y="428" width="12" height="16" rx="3" fill="#0a0b0e"/><rect x="540" y="428" width="12" height="16" rx="3" fill="#0a0b0e"/>
+      <rect x="150" y="226" width="86" height="176" rx="38" fill="url(#sofaG)"/>
+      <rect x="176" y="346" width="364" height="56" rx="24" fill="url(#sofaG2)"/>
+      <rect x="500" y="296" width="76" height="136" rx="30" fill="url(#sofaG)"/>
+    </g>
+    <path d="M176 360 Q360 346 540 360" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="2"/>
+    <!-- paletó -->
+    <path d="M508 306 Q548 292 572 322 Q578 360 560 384 L512 384 Z" fill="#12161f"/>
+    <!-- homem em perfil (silhueta iluminada) -->
+    <g>
+      <path d="M244 336 L396 330 Q420 332 420 354 L244 372 Z" fill="url(#pants)"/>
+      <path d="M382 338 L426 340 L420 448 L384 448 Z" fill="url(#pants)"/>
+      <path d="M382 450 Q380 440 396 438 L436 440 Q452 446 452 458 L452 464 L384 464 Z" fill="#0c0d10"/>
+      <path d="M234 358 L244 266 Q248 238 278 236 Q306 238 306 266 L310 358 Z" fill="url(#shirt)"/>
+      
+      <path d="M272 214 L292 214 L296 242 L270 244 Z" fill="url(#skin)"/>
+      <g transform="rotate(10 286 200)">
+        <ellipse cx="286" cy="198" rx="25" ry="30" fill="url(#skin)"/>
+        <path d="M312 197 Q321 203 312 211 Z" fill="#5f8f9c"/>
+        <path d="M260 196 Q254 160 288 163 Q320 168 313 190 Q300 177 282 181 Q268 186 266 212 Q262 206 260 196 Z" fill="#0f0c0b"/>
+        <path d="M309 186 Q314 200 311 214" fill="none" stroke="#00caff" stroke-opacity=".55" stroke-width="2"/>
+      </g>
+      <path d="M270 254 Q290 296 304 322" fill="none" stroke="url(#shirt)" stroke-width="26" stroke-linecap="round"/>
+      <path d="M304 322 Q326 322 344 300" fill="none" stroke="url(#shirt)" stroke-width="22" stroke-linecap="round"/>
+      <g transform="rotate(16 352 292)"><rect x="344" y="256" width="14" height="76" rx="3" fill="#7d1f2b"/><rect x="340" y="258" width="5" height="72" rx="2" fill="#f2e4c4"/><rect x="344" y="256" width="14" height="76" rx="3" fill="#fff" opacity=".12"/></g>
+      <circle cx="346" cy="302" r="10" fill="url(#skin)"/>
+    </g>
+    <path d="M234 358 L244 268 Q248 240 272 238" fill="none" stroke="#ffcf8a" stroke-opacity=".55" stroke-width="2.4"/>
+    <path d="M262 190 Q258 170 276 166" fill="none" stroke="#ffcf8a" stroke-opacity=".5" stroke-width="2"/>
+    <path d="M302 262 L310 356" fill="none" stroke="#00caff" stroke-opacity=".4" stroke-width="2"/>
+    <path d="M246 336 L396 330" fill="none" stroke="#ffcf8a" stroke-opacity=".28" stroke-width="2"/>
+    <!-- luz do Echo sobre a cena -->
+    <circle cx="676" cy="352" r="130" fill="url(#echoglow)"/>
+    <!-- mesa lateral + echo -->
+    <rect x="612" y="404" width="132" height="10" rx="4" fill="#1d1612"/>
+    <rect x="626" y="414" width="9" height="62" fill="#120e0b"/><rect x="722" y="414" width="9" height="62" fill="#120e0b"/>
+    <use href="#echo" x="626" y="322" width="100" height="100"/>
+    <!-- ondas de voz -->
+    <path d="M328 196 Q500 140 650 336" fill="none" stroke="#00caff" stroke-width="3.5" stroke-dasharray="1 11" stroke-linecap="round" opacity=".9"/>
+    <!-- vinheta -->
+    <rect width="760" height="560" fill="url(#vig)"/>
+    <!-- balões -->
+    <g filter="url(#shd)">
+      <rect x="96" y="40" width="440" height="66" rx="20" fill="#fff"/>
+      <path d="M286 104 L304 140 L324 104 Z" fill="#fff"/>
+    </g>
+    <text x="316" y="82" font-size="25" fill="#111" text-anchor="middle" font-weight="500">"Alexa, aqueça a água da suíte."</text>
+    <g filter="url(#shd)">
+      <rect x="470" y="236" width="280" height="76" rx="18" fill="#00caff"/>
+      <path d="M660 310 L676 336 L692 310 Z" fill="#00caff"/>
+    </g>
+    <text x="610" y="266" font-size="19" fill="#00202a" text-anchor="middle" font-weight="500">Seu banho estará pronto</text>
+    <text x="610" y="292" font-size="19" fill="#00202a" text-anchor="middle" font-weight="500">em 2 minutos.</text>
+  </svg>
+  </div>
+  <div class="abs" style="left:880px;top:120px;width:500px">
+    <div class="pill" style="margin-bottom:12px;font-size:16px">Outros exemplos</div>
+    <div class="ex"><span>Cancelar</span>"Alexa, cancele o aquecimento da água."</div>
+    <div class="ex"><span>Consultar</span>"Alexa, a água do banho já está quente?"</div>
+    <div class="ex"><span>Ao chegar</span>"Alexa, cheguei." A Rotina inicia o aquecimento.</div>
+    <div class="ex"><span>Horário</span>Dias úteis, 6h30: a Rotina aquece a água do banho.</div>
+    <div class="ex"><span>Com o aplicativo</span>Iniciou pelo aplicativo mobile? Cancele pela Alexa, e vice-versa.</div>
+    <div class="ex"><span>Imprevistos</span>Se o sistema estiver ocupado ou fora do ar, a Alexa explica em linguagem simples.</div>
+    <style>.ex{font-size:17px;line-height:1.3;margin:0 0 10px;padding:9px 14px;border-radius:12px;background:rgba(255,255,255,.82);border:1px solid rgba(0,0,0,.08)}.ex span{display:block;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--cy2);margin-bottom:2px}</style>
+    <div class="xs" style="margin-top:6px;opacity:.75">Frases e respostas ilustrativas. Frases como "aqueça a água da suíte" são configuradas como Rotina de voz no app Alexa. Nativamente, a Alexa entende "ligue/desligue o aquecimento do banho" (nome escolhido pelo cliente).</div>
+  </div>
+</section>
+
+<!-- 9. ROTINAS -->
+<section class="s dark bg-ribs">
+  <h1 class="t">08 Rotinas e agendamentos</h1>
+  <div class="abs p" style="left:90px;top:125px;width:1230px;font-size:23px">O sistema de aquecimento vira um dispositivo da Alexa e pode ser usado nas <b class="cy">Rotinas</b> que o cliente já conhece, sem configuração extra no Revolushower.</div>
+  <div class="card" style="left:60px;top:215px;width:310px;height:290px;padding:24px 24px"><svg width="56" height="56" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="#00caff" stroke-width="5"/><path d="M32 16 V33 L44 40" stroke="#00caff" stroke-width="5" fill="none" stroke-linecap="round"/></svg><div style="font-size:25px;font-weight:700;margin:12px 0 8px">Por horário</div><div class="sm" style="font-size:20px">"Dias úteis, 6h30: aquecer a água do banho." Quando acordar, a água já está quente.</div></div>
+  <div class="card" style="left:390px;top:215px;width:310px;height:290px;padding:24px 24px"><svg width="56" height="56" viewBox="0 0 64 64"><path d="M32 12 a14 14 0 0 1 14 14 v10 l6 10 H12 l6 -10 V26 A14 14 0 0 1 32 12 Z" fill="none" stroke="#00caff" stroke-width="5" stroke-linejoin="round"/><path d="M26 54 a6 6 0 0 0 12 0" stroke="#00caff" stroke-width="5" fill="none"/></svg><div style="font-size:25px;font-weight:700;margin:12px 0 8px">Pelo alarme</div><div class="sm" style="font-size:20px">Quando o despertador do Echo tocar, o aquecimento da água começa.</div></div>
+  <div class="card" style="left:720px;top:215px;width:310px;height:290px;padding:24px 24px"><svg width="56" height="56" viewBox="0 0 64 64"><path d="M10 28 q22 -20 44 0 M18 36 q14 -12 28 0 M26 44 q6 -5 12 0" stroke="#00caff" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="32" cy="52" r="4" fill="#00caff"/></svg><div style="font-size:25px;font-weight:700;margin:12px 0 8px">Por frase</div><div class="sm" style="font-size:20px">"Alexa, cheguei." ou "Alexa, aqueça a água da suíte." Uma frase, uma Rotina.</div></div>
+  <div class="card" style="left:1050px;top:215px;width:330px;height:290px;padding:24px 24px;border-color:#00caff;background:rgba(0,202,255,.12)"><svg width="56" height="56" viewBox="0 0 64 64"><path d="M32 8 c10 0 18 8 18 18 c0 13 -18 30 -18 30 S14 39 14 26 C14 16 22 8 32 8 Z" fill="none" stroke="#00caff" stroke-width="5" stroke-linejoin="round"/><circle cx="32" cy="26" r="6" fill="#00caff"/></svg><div style="font-size:25px;font-weight:700;margin:12px 0 8px">Ao chegar em casa</div><div class="sm" style="font-size:20px">Geofencing da própria Alexa: veja o slide seguinte.</div></div>
+  <div class="card" style="left:60px;top:530px;width:1320px;height:150px;padding:22px 30px">
+    <div style="font-size:23px;font-weight:700;margin-bottom:6px" class="cy">E os agendamentos do aplicativo mobile?</div>
+    <div class="sm" style="font-size:20px;line-height:1.35">Continuam funcionando normalmente: o cliente pode programar horários únicos ou recorrentes no aplicativo mobile, usar as Rotinas da Alexa, ou os dois. Tudo aparece no histórico do aplicativo, com a origem de cada acionamento.</div>
+  </div>
+</section>
+
+<!-- 10. GEOFENCING (um slide) -->
+<section class="s light bg-arch">
+  <h1 class="t">09 Aquecer ao chegar em casa</h1>
+  <div class="card" style="left:60px;top:125px;width:760px;height:560px"></div>
+  <svg class="abs" style="left:60px;top:125px" width="760" height="560" viewBox="0 0 760 560" font-family="Space Grotesk, Arial">
+    <defs><clipPath id="mc"><rect width="760" height="560" rx="18"/></clipPath></defs>
+    <g clip-path="url(#mc)">
+      <rect width="760" height="560" fill="#dfe6ea"/>
+      <!-- ruas -->
+      <g stroke="#fff" stroke-width="22" fill="none" stroke-linecap="round"><path d="M-20 470 L300 380 L520 300 L780 250"/><path d="M200 -20 L260 220 L300 380 L330 590"/><path d="M520 300 L560 590"/><path d="M-20 200 L200 200 L260 220"/></g>
+      <g stroke="#cbd5db" stroke-width="2" fill="none"><path d="M-20 470 L300 380 L520 300 L780 250" stroke-dasharray="14 12"/></g>
+      <!-- cerca -->
+      <circle cx="520" cy="300" r="190" fill="#00caff" fill-opacity=".16" stroke="#0a8fb8" stroke-width="4" stroke-dasharray="12 9"/>
+      <!-- casa -->
+      <use href="#house" x="474" y="250" width="92" height="82" style="color:#111"/>
+      <!-- pontos -->
+      <circle cx="90" cy="450" r="14" fill="#111"/><text x="90" y="490" font-size="18" text-anchor="middle" fill="#111" font-weight="700">1. Sai do trabalho</text>
+      <circle cx="372" cy="360" r="14" fill="#0a8fb8" stroke="#fff" stroke-width="4"/><text x="352" y="408" font-size="18" text-anchor="middle" fill="#111" font-weight="700">2. Cruza a cerca</text>
+      <path d="M100 440 L360 366" stroke="#0a8fb8" stroke-width="4" stroke-dasharray="3 9" stroke-linecap="round" fill="none" marker-end="url(#ar2)"/>
+      <path d="M385 356 L470 330" stroke="#0a8fb8" stroke-width="4" stroke-dasharray="3 9" stroke-linecap="round" fill="none" marker-end="url(#ar2)"/>
+      <!-- celular -->
+      <use href="#phone" x="330" y="248" width="44" height="80" />
+      <text x="520" y="52" font-size="19" fill="#0a8fb8" font-weight="700" text-anchor="middle">Cerca virtual ao redor de casa</text>
+      <text x="520" y="74" font-size="15" fill="#2c4a55" text-anchor="middle">(raio ajustável pelo cliente)</text>
+    </g>
+  </svg>
+  <!-- passos -->
+  <div class="abs" style="left:850px;top:125px;width:530px">
+    <div style="font-size:26px;font-weight:700;margin-bottom:14px">Passo a passo</div>
+    <div class="sm" style="font-size:18px;line-height:1.3">
+      <div style="display:flex;gap:14px;margin-bottom:12px"><span class="pill" style="height:34px">1</span><span>O cliente cria <b>uma vez</b> a rotina no app Alexa: <i>Localização &rarr; Chegar &rarr; aquecer a água do banho</i>.</span></div>
+      <div style="display:flex;gap:14px;margin-bottom:12px"><span class="pill" style="height:34px">2</span><span>O celular detecta a <b>entrada na cerca</b> e avisa a Alexa.</span></div>
+      <div style="display:flex;gap:14px;margin-bottom:12px"><span class="pill" style="height:34px">3</span><span>A Alexa executa a rotina e envia o pedido ao <b>Revolushower</b>.</span></div>
+      <div style="display:flex;gap:14px;margin-bottom:12px"><span class="pill" style="height:34px">4</span><span>O Master aquece e, ao entrar, a <b>água já está quente</b>.</span></div>
+    </div>
+  </div>
+  <div class="card" style="left:850px;top:455px;width:530px;height:230px;padding:16px 26px">
+    <div style="font-size:21px;font-weight:700;margin-bottom:8px">Como funciona a localização</div>
+    <ul class="sm" style="list-style:none;font-size:17px;line-height:1.3">
+      <li style="margin-bottom:6px">• É o geofencing <b>da própria Alexa</b>: o aplicativo mobile do Revolushower <b>não usa nem coleta localização</b>.</li>
+      <li style="margin-bottom:6px">• A permissão de localização é dada pelo cliente ao app Alexa, uma única vez.</li>
+      <li>• A precisão depende do celular. O raio é ajustável, e o equipamento mantém seus limites e tempos de segurança.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 11. VANTAGENS -->
+<section class="s dark bg-ribs">
+  <h1 class="t">10 Vantagens</h1>
+  <div class="card" style="left:60px;top:130px;width:410px;height:240px;padding:28px 30px"><div style="font-size:25px;font-weight:700;margin-bottom:8px" class="cy">Natural e sem as mãos</div><div class="sm" style="font-size:23px;line-height:1.3">Pedir a água quente falando, de qualquer cômodo, sem pegar o celular.</div></div>
+  <div class="card" style="left:515px;top:130px;width:410px;height:240px;padding:28px 30px"><div style="font-size:25px;font-weight:700;margin-bottom:8px" class="cy">Automático</div><div class="sm" style="font-size:23px;line-height:1.3">Rotinas por horário, alarme ou chegada em casa: a água já está quente, sem desperdício.</div></div>
+  <div class="card" style="left:970px;top:130px;width:410px;height:240px;padding:28px 30px"><div style="font-size:25px;font-weight:700;margin-bottom:8px" class="cy">Complementa o aplicativo</div><div class="sm" style="font-size:23px;line-height:1.3">Não substitui o aplicativo mobile: os dois se integram e mostram o mesmo estado.</div></div>
+  <div class="card" style="left:60px;top:410px;width:410px;height:240px;padding:28px 30px"><div style="font-size:25px;font-weight:700;margin-bottom:8px" class="cy">Mesma segurança</div><div class="sm" style="font-size:23px;line-height:1.3">O Master continua com a palavra final: tempos, bloqueios e proteções valem para a voz também.</div></div>
+  <div class="card" style="left:515px;top:410px;width:410px;height:240px;padding:28px 30px"><div style="font-size:25px;font-weight:700;margin-bottom:8px" class="cy">Sem mexer no equipamento</div><div class="sm" style="font-size:23px;line-height:1.3">A integração é feita na nuvem. Equipamentos já instalados passam a funcionar com a Alexa.</div></div>
+  <div class="card" style="left:970px;top:410px;width:410px;height:240px;padding:28px 30px"><div style="font-size:25px;font-weight:700;margin-bottom:8px" class="cy">Diferencial de mercado</div><div class="sm" style="font-size:23px;line-height:1.3">Alinha o Revolushower a marcas que já oferecem voz, e abre espaço para outros assistentes.</div></div>
+</section>
+
+<!-- 12. O QUE ESTÁ INCLUÍDO -->
+<section class="s light bg-arch">
+  <h1 class="t">11 Escopo e premissas</h1>
+  <div class="card" style="left:60px;top:120px;width:660px;height:585px;padding:26px 34px">
+    <div style="font-size:25px;font-weight:700;margin-bottom:10px">O que esta proposta contempla</div>
+    <ul class="sm" style="list-style:none;font-size:19px;line-height:1.28">
+      <li style="margin-bottom:8px">• Skill Alexa para casa inteligente (<i>Smart Home</i>), em português</li>
+      <li style="margin-bottom:8px">• Vinculação segura da conta Alexa à conta Revolushower, que o cliente pode desfazer</li>
+      <li style="margin-bottom:8px">• Comandos de iniciar, cancelar e consultar o aquecimento da água</li>
+      <li style="margin-bottom:8px">• <b>Integração total com o aplicativo mobile</b>: mesmo estado, mesmas regras, origem no histórico</li>
+      <li style="margin-bottom:8px">• Compatibilidade com as Rotinas da Alexa, incluindo <b>chegar em casa</b> (geofencing da própria Alexa, sem localização no aplicativo mobile)</li>
+      <li style="margin-bottom:8px">• Guia rápido com frases e Rotinas sugeridas para o cliente</li>
+      <li style="margin-bottom:8px">• Testes com Echo e com a Alexa+, e acompanhamento da certificação Amazon</li>
+      <li style="margin-bottom:8px">• Documentação funcional da integração</li>
+      <li><b class="cy">Opção 2:</b> o mesmo, também para o <b>Google Home</b></li>
+    </ul>
+  </div>
+  <div class="card" style="left:740px;top:120px;width:640px;height:585px;padding:26px 34px">
+    <div style="font-size:25px;font-weight:700;margin-bottom:10px">Premissas</div>
+    <ul class="sm" style="list-style:none;font-size:19px;line-height:1.28">
+      <li style="margin-bottom:8px">• Contas de desenvolvedor Amazon (e Google, na Opção 2) em nome do cliente, com os dados necessários</li>
+      <li style="margin-bottom:8px">• Um dispositivo Echo para testes em português do Brasil</li>
+      <li style="margin-bottom:8px">• Aplicativo mobile, backend e equipamento do Revolushower funcionais e disponíveis para testes</li>
+      <li style="margin-bottom:8px">• Política de privacidade e termos de uso públicos, exigidos pela Amazon e pelo Google</li>
+      <li style="margin-bottom:8px">• A <b>publicação depende da aprovação da Amazon</b> (e do Google). O tempo de análise delas é externo e não está nos prazos</li>
+    </ul>
+    <div style="font-size:25px;font-weight:700;margin:14px 0 8px">Fora do escopo</div>
+    <ul class="sm" style="list-style:none;font-size:19px;line-height:1.28"><li>• Compra de dispositivos Echo</li></ul>
+  </div>
+</section>
+
+<!-- 13. CRONOGRAMA -->
+<section class="s light bg-arch">
+  <h1 class="t">12 Cronograma previsto</h1>
+  <style>
+    table.cr{border-collapse:collapse;background:#fff;font-size:20px;width:100%}
+    table.cr th,table.cr td{border:1.5px solid #111;padding:10px 12px;text-align:left}
+    table.cr th{background:#f2f2f2}
+    table.cr td.n,table.cr th.n{text-align:right;width:70px}
+    table.cr tr.tot td{font-weight:700;background:#e8f7fc}
+  </style>
+  <div class="abs" style="left:60px;top:120px;width:640px">
+    <div style="font-size:24px;font-weight:700;margin-bottom:8px">Opção 1 · Apenas Alexa</div>
+    <table class="cr">
+      <tr><th>Atividade</th><th class="n">Dias</th></tr>
+      <tr><td>Validação do escopo</td><td class="n">3</td></tr>
+      <tr><td>Contas e ambiente Amazon</td><td class="n">2</td></tr>
+      <tr><td>Vinculação de contas (login seguro)</td><td class="n">5</td></tr>
+      <tr><td>Skill: descoberta e comandos</td><td class="n">7</td></tr>
+      <tr><td>Estado e atualizações na Alexa</td><td class="n">3</td></tr>
+      <tr><td>Rotinas e geofencing (testes)</td><td class="n">2</td></tr>
+      <tr><td>Testes com Echo e Alexa+</td><td class="n">3</td></tr>
+      <tr><td>Submissão à certificação Amazon</td><td class="n">3</td></tr>
+      <tr class="tot"><td>Tempo total</td><td class="n">28</td></tr>
+    </table>
+  </div>
+  <div class="abs" style="left:740px;top:120px;width:640px">
+    <div style="font-size:24px;font-weight:700;margin-bottom:8px">Opção 2 · Automação por Voz Completa</div>
+    <table class="cr">
+      <tr><th>Atividade</th><th class="n">Dias</th></tr>
+      <tr><td>Tudo da Opção 1</td><td class="n">28</td></tr>
+      <tr><td>Contas e ambiente Google</td><td class="n">1</td></tr>
+      <tr><td>Vinculação, comandos e estado no Google Home</td><td class="n">5</td></tr>
+      <tr><td>Testes com dispositivo Google Nest</td><td class="n">1</td></tr>
+      <tr><td>Submissão à certificação Google</td><td class="n">1</td></tr>
+      <tr class="tot"><td>Tempo total</td><td class="n">36</td></tr>
+    </table>
+    <div class="sm" style="margin-top:18px;opacity:.85;font-size:17px">O tempo de análise da Amazon e do Google é externo e não está incluído. A Opção 2 aproveita boa parte da Opção 1, por isso o acréscimo é de 8 dias.</div>
+  </div>
+</section>
+
+<!-- 14. INVESTIMENTO -->
+<section class="s light bg-arch">
+  <h1 class="t">13 Investimento</h1>
+  <div class="abs" style="left:90px;top:108px;width:1250px;font-size:27px;line-height:1.2"><b>Escolha uma das duas opções.</b> Os valores <b>não se somam</b>: cada opção é um projeto completo, com pagamento por entrega (metade no aceite, metade na entrega).</div>
+  <div class="card" style="left:60px;top:200px;width:600px;height:450px;padding:28px 34px">
+    <div class="pill" style="margin-bottom:12px">Opção 1</div>
+    <div style="font-size:35px;font-weight:700;line-height:1.1">Apenas Alexa</div>
+    <div style="font-size:21px;margin-top:10px">Prazo: <b>28 dias</b></div>
+    <ul class="sm" style="list-style:none;font-size:19px;margin-top:8px;line-height:1.35"><li>• Controle por voz do aquecimento da água</li><li>• Rotinas, inclusive ao chegar em casa</li><li>• Integração total com o aplicativo mobile</li></ul>
+    <div style="font-size:20px;margin-top:18px">Valor total desta opção</div>
+    <div style="font-size:62px;font-weight:700;line-height:1.05">R$ 7.800,00</div>
+    <div style="font-size:19px;margin-top:6px">R$ 3.900,00 no aceite &nbsp;·&nbsp; R$ 3.900,00 na entrega</div>
+  </div>
+  <div class="abs" style="left:660px;top:365px;width:120px;text-align:center">
+    <div style="margin:0 auto;width:84px;height:84px;border-radius:50%;background:#111;color:#fff;font-size:34px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.35)">OU</div>
+  </div>
+  <div class="card" style="left:780px;top:200px;width:600px;height:450px;padding:28px 34px;border:3px solid var(--cy2)">
+    <div class="pill" style="margin-bottom:12px">Opção 2</div>
+    <div style="font-size:35px;font-weight:700;line-height:1.1">Automação por Voz Completa</div>
+    <div style="font-size:21px;margin-top:10px">Prazo: <b>36 dias</b></div>
+    <ul class="sm" style="list-style:none;font-size:19px;margin-top:8px;line-height:1.35"><li>• Tudo da Opção 1, <b>mais</b> o Google Home</li><li>• Voz na Alexa e no Google Home</li><li>• Dois assistentes, um só sistema</li></ul>
+    <div style="font-size:20px;margin-top:18px">Valor total desta opção</div>
+    <div style="font-size:62px;font-weight:700;line-height:1.05">R$ 10.340,00</div>
+    <div style="font-size:19px;margin-top:6px">R$ 5.170,00 no aceite &nbsp;·&nbsp; R$ 5.170,00 na entrega</div>
+  </div>
+  <div class="abs" style="left:90px;top:670px;width:1250px;font-size:20px"><b>Importante:</b> todos os aportes são condicionados a entregas. Prazos contados a partir do aceite; a análise da Amazon e do Google tem prazo próprio.</div>
+</section>
+
+<!-- 15. FECHAMENTO -->
+<section class="s dark bg-stripes">
+  <div class="abs" style="left:60px;top:180px;font-size:84px;line-height:1.05;font-weight:400;letter-spacing:-1px">Vamos começar<br>esse projeto?</div>
+  <div class="abs" style="left:640px;top:520px;font-size:21px;line-height:1.7;opacity:.95">&gt; (11) 99184-4483<br>&gt; wnazato@gmail.com</div>
+  <svg class="abs" style="left:1080px;top:170px;width:260px;height:260px"><use href="#echo"/></svg>
+</section>
+
+</body>
+</html>

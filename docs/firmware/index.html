@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -1640,7 +1640,7 @@
 <li>acionamento eletrônico via integração HTTP legada;</li>
 <li>atraso e duração configuráveis;</li>
 <li>watchdog, cooldown e bloqueio do aquecedor;</li>
-<li>Wi-Fi/AP e portal web;</li>
+<li>Wi-Fi/AP e portal web (somente configuração do Wi-Fi; tempos por fábrica ou <code>CONFIG_SET</code> via MQTT);</li>
 <li>configuração Wi-Fi temporária por BLE (GATT);</li>
 <li>persistência de configurações;</li>
 <li>registro HTTP de eventos.</li>
@@ -1663,7 +1663,7 @@
 <ul>
 <li><code>maxOnSensorMs</code> é aplicado a toda origem e precisa ser separado do limite mecânico (<code>BUG-003</code>);</li>
 <li>o HTTP legado (<code>ApiManager.cpp</code>) usa <code>setInsecure()</code> sem validar CA; MQTT e OTA já usam <code>setCACert</code> corretamente — corrigir por consistência (<code>BUG-001</code>);</li>
-<li>a senha do modo AP é fixa (<code>12345678</code>) e igual em todo dispositivo, e o portal HTTP desse modo não exige login (<code>isAuthenticated()</code> existe mas não é chamado) — <code>BUG-002</code>/<code>SEC-003</code>;</li>
+<li>a senha do modo AP é fixa (<code>12345678</code>) e igual em todo dispositivo, e o portal HTTP desse modo não exige login (desde <code>0.2.17-dev</code> ele só configura o Wi-Fi; o código de login nunca usado foi removido) — <code>BUG-002</code>/<code>SEC-003</code>;</li>
 <li>estados internos ainda não são expostos por contrato seguro;</li>
 <li>não há testes automatizados de firmware (backend e mobile têm suítes próprias; firmware depende de validação em bancada, ainda não reproduzível automaticamente).</li>
 </ul>
@@ -1727,10 +1727,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   </body>

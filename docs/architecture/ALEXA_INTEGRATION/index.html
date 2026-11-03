@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -936,6 +936,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#politica-amazon-e-precedentes-de-mercado-verificado-em-2026-10-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Política Amazon e precedentes de mercado (verificado em 2026-10-01)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposta-comercial-emitida-2026-10-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposta comercial emitida (2026-10-01)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#seguranca-e-privacidade" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1723,6 +1745,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#politica-amazon-e-precedentes-de-mercado-verificado-em-2026-10-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Política Amazon e precedentes de mercado (verificado em 2026-10-01)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposta-comercial-emitida-2026-10-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposta comercial emitida (2026-10-01)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#seguranca-e-privacidade" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1773,9 +1817,9 @@
 
 
 <h1 id="revolushower-integracao-com-amazon-alexa">Revolushower — Integração com Amazon Alexa<a class="headerlink" href="#revolushower-integracao-com-amazon-alexa" title="Permanent link">&para;</a></h1>
-<p>Atualizado em 2026-09-23.</p>
+<p>Atualizado em 2026-10-01.</p>
 <blockquote>
-<p><strong>Documento interno e confidencial.</strong> A integração Alexa é uma hipótese de evolução arquitetural que ainda será apresentada comercialmente ao cliente. Ela não integra o fluxo mobile enviado para aprovação, não é requisito contratado e não deve aparecer em materiais externos antes da autorização comercial.</p>
+<p><strong>Documento interno e confidencial.</strong> A integração Alexa é uma hipótese de evolução arquitetural. Em 2026-10-01 foi emitida a proposta comercial (adendo ao Revolushower) com duas opções; ela segue sem aprovação do cliente. A Alexa não integra o fluxo mobile enviado para aprovação, não é requisito contratado e nenhuma implementação está autorizada até o aceite. Proposta e fonte: <a href="../product/commercial/"><code>../product/commercial/</code></a>.</p>
 </blockquote>
 <h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
 <p>Preparar a arquitetura para que, se a proposta comercial for aprovada, o cliente possa controlar e consultar o Master por voz ou pela interface Alexa usando as mesmas capacidades operacionais disponíveis no mobile. Um ciclo poderá ser iniciado em um canal e cancelado em outro, desde que a ação seja válida no estado confirmado do Master.</p>
@@ -1911,6 +1955,43 @@
 <li>O Revolushower não controla a lógica da Rotina. As proteções ficam no backend e no Master: cooldown, limite de acionamentos, watchdog e, opcionalmente, rejeição de ciclos de origem <code>ALEXA</code> fora de janela/limite diário configurados.</li>
 <li>Geofencing no app Revolushower (raio menor, janela de horário, confirmação por notificação) é item opcional posterior; exigiria permissão de localização em segundo plano, base legal LGPD e justificativa nas lojas (ver <code>../compliance/STORE_PUBLICATION_REQUIREMENTS.md</code>).</li>
 </ul>
+<h2 id="politica-amazon-e-precedentes-de-mercado-verificado-em-2026-10-01">Política Amazon e precedentes de mercado (verificado em 2026-10-01)<a class="headerlink" href="#politica-amazon-e-precedentes-de-mercado-verificado-em-2026-10-01" title="Permanent link">&para;</a></h2>
+<p>Leitura da documentação oficial da Amazon para Smart Home:</p>
+<ul>
+<li><code>SceneController</code>: a lista de dispositivos proibidos em cenas é câmeras, aparelhos de cozinha, fechaduras, portas de garagem, sensores e sistemas de segurança. Aquecedor/chuveiro não consta; termostatos são citados como suportados.</li>
+<li>Código de voz obrigatório vale para destravar/desarmar. Não se aplica ao pré-aquecimento.</li>
+<li>"Requirements for Specific Device Types" e "Works with Alexa" não trazem regra para aquecedor de água, bomba ou relé, nem exigência de desligamento automático.</li>
+<li><strong>Não confirmado:</strong> o texto completo da política de conteúdo e segurança das skills não foi lido; a categoria declarada na certificação e o caminho (skill Smart Home ou também "Works with Alexa") só se resolvem na certificação. Viabilidade técnica confirmada; <strong>aprovação é da Amazon</strong>.</li>
+</ul>
+<p>Precedentes de produtos com voz na Alexa (páginas de fabricantes e lojas, não documentação Amazon): Rinnai control•r 2.0 (recirculação; Alexa e Google Home em integrações separadas), Rheem IKONIC, Moen Smart Shower, ThermaSol e Eccotemp; no Brasil, tomadas Wi-Fi 20 A para chuveiro, módulo Auto&amp;Casa e válvulas Wi-Fi.</p>
+<p>Dados de mercado usados na proposta: Ilumeo/Exame (jan/2025, lembrança e preferência, não vendas) e Amazon Brasil ("Alexa em 2025": ~29 mi de dispositivos conectados, ~15 mi ativos por mês, +3.000 dispositivos de casa inteligente compatíveis). Alexa+ lançada no Brasil em 18/06/2026.</p>
+<h2 id="proposta-comercial-emitida-2026-10-01">Proposta comercial emitida (2026-10-01)<a class="headerlink" href="#proposta-comercial-emitida-2026-10-01" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Opção (excludentes, valores não se somam)</th>
+<th>Escopo</th>
+<th>Prazo</th>
+<th>Investimento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — Apenas Alexa</td>
+<td>Alexa Smart Home + Rotinas, incluindo geofencing nativo da Alexa</td>
+<td>28 dias</td>
+<td>R$ 7.800,00 (50% no aceite, 50% na entrega)</td>
+</tr>
+<tr>
+<td>2 — Automação por Voz Completa</td>
+<td>Opção 1 + Google Home</td>
+<td>36 dias</td>
+<td>R$ 10.340,00 (50% no aceite, 50% na entrega)</td>
+</tr>
+</tbody>
+</table>
+<p>Prazos não incluem a análise de Amazon/Google. O geofencing proposto é o das Rotinas da Alexa (permissão de localização dada ao app Alexa); o aplicativo mobile do Revolushower não usa nem coleta localização. A Alexa complementa o aplicativo mobile e não o substitui: mesmo estado, mesmas regras e origem registrada no histórico.</p>
+<p><strong>Alexa+:</strong> a Amazon informa que a Alexa+ (Brasil, acesso antecipado desde 18/06/2026) controla dispositivos de casa inteligente de marcas como Positivo, Intelbras, Elgin e i2Go e entende linguagem natural. Não há declaração explícita sobre skills de terceiros; a compatibilidade da skill Smart Home com a Alexa+ é validada nos testes (prevista no cronograma). Frases como "aqueça a água do meu banho" funcionam como Rotina de voz; nativamente a Alexa entende "ligue/desligue" o dispositivo (nome escolhido pelo cliente).</p>
 <h2 id="seguranca-e-privacidade">Segurança e privacidade<a class="headerlink" href="#seguranca-e-privacidade" title="Permanent link">&para;</a></h2>
 <ul>
 <li>autorização de menor privilégio e tokens protegidos/rotacionáveis;</li>
@@ -1995,10 +2076,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   </body>
